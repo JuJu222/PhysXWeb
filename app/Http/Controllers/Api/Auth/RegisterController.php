@@ -14,7 +14,11 @@ class RegisterController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8|confirmed'
+            'password' => 'required|string|min:8|confirmed',
+            'username' => 'required|string|unique:users',
+            'school' => 'required|string',
+            'city' => 'required|string',
+            'birthyear' => 'required|integer'
         ]);
 
         $user = $this->newUser($request->all());
@@ -35,6 +39,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'username' => $data['username'],
+            'school' => $data['school'],
+            'city' => $data['city'],
+            'birthyear' => $data['birthyear'],
             'role' => 'user',
             'created_at' => Carbon::now()
         ]);
