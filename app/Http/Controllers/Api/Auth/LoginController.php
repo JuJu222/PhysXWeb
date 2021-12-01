@@ -69,7 +69,7 @@ class LoginController extends Controller
     {
         $user = User::findorFail($id);
         return $user->update([
-           'is_login' => 1
+           'is_login' => '1'
         ]);
     }
 
