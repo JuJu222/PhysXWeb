@@ -62,7 +62,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #FFF9FF;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -83,6 +83,17 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.fontuser i{
+  position: absolute;
+  right: 15px;
+  top: 40px;
+  color: #FD6F96;
+}
+
+.fontuser {
+  position: relative;
 }
 
 abbr[title],
@@ -567,11 +578,21 @@ pre code {
     max-width: 1140px;
   }
 }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+.rowForm {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 12px 12px 22px;
+}
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+.login img{
+  border-top-left-radius: 30px;
 }
 
 .no-gutters {
@@ -1965,11 +1986,11 @@ pre code {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #495057;
+  color: black;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: 2px solid #6F69AC;
+  border-radius: 0.50rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1982,7 +2003,7 @@ pre code {
   border: 0;
 }
 .form-control:focus {
-  color: #495057;
+  color: black;
   background-color: #fff;
   border-color: #a1cbef;
   outline: 0;
@@ -2117,6 +2138,7 @@ textarea.form-control {
   position: relative;
   display: block;
   padding-left: 1.25rem;
+  color: #6F69AC;
 }
 
 .form-check-input {
@@ -2450,6 +2472,15 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #3490dc;
   border-color: #3490dc;
+}
+
+.btn-opaque {
+  color: #6F69AC;
+  background-color: #EFEBFE;
+  border-color: #EFEBFE;
+}
+.btn-opaque-links{
+  color: #6F69AC;
 }
 .btn-primary:hover {
   color: #fff;
@@ -6315,6 +6346,9 @@ button.bg-dark:focus {
   border-radius: 0.3rem !important;
 }
 
+.rounded-circleX {
+  border-radius: 50px !important;
+}
 .rounded-circle {
   border-radius: 50% !important;
 }
@@ -10018,4 +10052,6 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+
+ 
 }

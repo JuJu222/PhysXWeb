@@ -43,7 +43,7 @@ class RegisterController extends Controller
             'school' => $data['school'],
             'city' => $data['city'],
             'birthyear' => $data['birthyear'],
-            'role' => 'user',
+            'role' => 'admin',
             'created_at' => Carbon::now()
         ]);
     }

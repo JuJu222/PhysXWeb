@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Passport\Client;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-
 class LoginController extends Controller
 {
     private $client;
 
 
 
-    //Constructor
     public function __construct()
     {
         $this->client = Client::find(2); //cari client id-ke-2
@@ -36,10 +35,10 @@ class LoginController extends Controller
         if ($check->is_active == '1') {
             if ($check->is_login == '0') {
                 if (Auth::attempt($user)) {
-                    $this->isLogin(auth()->id()); //mengirim parameter id dari Auth 
+                    $this->isLogin(Auth::id()); //mengirim parameter id dari Auth 
                     
                     //Generate Token
-                    $response = Http::asForm()->post('http://webapi2021.test/oauth/token', [
+                    $response = Http::asForm()->post('http://physxwebapi.test/oauth/token', [
                         'grant_type' => 'password',
                         'client_id' => $this->client->id,
                         'client_secret' => $this->client->secret,
@@ -80,8 +79,7 @@ class LoginController extends Controller
             'refresh_token' => 'refresh token is required',
         ]);
 
-        //Domain tergantung sama heroku
-        $response = Http::asForm()->post('http://webapi2021.test/oauth/token', [
+        $response = Http::asForm()->post('http://physxwebapi.test/oauth/token', [
             'grant_type' => 'refresh_token',
             'refresh_token' => $request->refresh_token,
             'client_id' => $this->client_id,
@@ -94,7 +92,7 @@ class LoginController extends Controller
 
     public function logout(){
         /** @var \App\Models\User $user */
-        $user = auth()->user();
+        $user = Auth::user();
         $accessToken = $user->token();
         //Blokir akses
         DB::table('oauth_refresh_tokens')->where('access_token_id',$accessToken->id)->update(['revoked' => true]);
@@ -109,5 +107,5 @@ class LoginController extends Controller
             'message' => 'Logged Out',
         ]);
     }
-
 }
+
