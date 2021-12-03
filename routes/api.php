@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\Auth\RegisterController;
 
 
 /*
