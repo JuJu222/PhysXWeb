@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('partials.sidebar')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
