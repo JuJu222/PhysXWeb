@@ -591,6 +591,16 @@ pre code {
     margin-left: -15px;
   }
 
+  .rowRegister{
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      background: white;
+  border-radius: 10px;
+  box-shadow: 12px 12px 22px;
+  }
+
 .login img{
   border-top-left-radius: 30px;
 }
@@ -2002,6 +2012,13 @@ pre code {
   background-color: transparent;
   border: 0;
 }
+
+.form-content
+{
+    padding: 0%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
 .form-control:focus {
   color: black;
   background-color: #fff;
@@ -2116,6 +2133,12 @@ textarea.form-control {
 .form-group {
   margin-bottom: 1rem;
 }
+
+.form-group1 {
+  margin-left: 15px;
+  margin-bottom: 1rem;
+}
+
 
 .form-text {
   display: block;
@@ -2480,6 +2503,10 @@ fieldset:disabled a.btn {
   border-color: #EFEBFE;
 }
 .btn-opaque-links{
+  color: #6F69AC;
+}
+
+.text-opaque-links{
   color: #6F69AC;
 }
 .btn-primary:hover {
@@ -4422,6 +4449,17 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  box-shadow: 12px 12px 22px;
+}
+
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
 }
 
 .card-title {

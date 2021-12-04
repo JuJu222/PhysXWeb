@@ -1,4 +1,4 @@
-@extends('layouts.loginRegister')
+@extends('layouts.apps')
 
 @section('content')
     {{-- <div class="row justify-content-center d-flex align-items-center">
@@ -72,8 +72,8 @@
     <div class = "container-sm">
         <div class="rowForm mt-5 d-flex justify-content-center align-items-center">
             <div class = "col-lg-12">
-               <h2 class="text-center mt-5"><b>Login Page</b></h2>
-               <h5 class="text-center me-4 text-secondary mt-3 mb-4"> Not yet a member?<a href="{{ route('register')}}" class="text-grape text-decoration-none"> Sign Up</a></h5> 
+               <h2 class="text-center mt-5"><b>Halaman Login</b></h2>
+               <h5 class="text-center me-4 text-secondary mt-3 mb-4"> Belum menjadi member?<a href="{{ route('register')}}" class="text-opaque-links text-decoration-none"> Sign Up</a></h5> 
 
                <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -81,7 +81,7 @@
                 <div class="col-md-4 mx-auto">
                     <div class="fontuser">
                     <label for="email">{{ __('Email') }}</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter an email">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Masukkan Email Anda">
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
                 <div class="col-md-4 mx-auto">
                     <div class="fontuser">
                     <label for="password">{{ __('Password') }}</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus placeholder="Enter an password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus placeholder="Masukkan Password Anda">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -138,6 +138,8 @@
             </div>
         </div>
     </main>
+
+
 <script>
     const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#password');
@@ -150,12 +152,5 @@
     this.classList.toggle('bi bi-eye-fill');
 });
     </script>
-
-<script>
-    $( "iconHeartInactive" ).click(function() {
-    $( this ).toggleClass( "iconHeartActive" );
-  });
-  </script>
-    
 @endsection
 
