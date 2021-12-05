@@ -103,28 +103,28 @@
           <li>
             <a href="#">
               <i class='bx bxs-home bx-tada-hover'></i>
-              <span class="links_home"><b>Home</b></span>
+              <span class="links_home"><b>Rumah</b></span>
             </a>
             
           </li>
           <li>
             <a href="#">
               <i class='bx bxs-trophy bx-tada-hover' ></i>
-              <span class="links_leaderboard"><b>Leaderboards</b></span>
+              <span class="links_leaderboard"><b>Peringkat</b></span>
             </a>
             
           </li>
           <li>
             <a href="#">
               <i class='bx bx-time-five bx-tada-hover' ></i>
-              <span class="links_challenge"><b>History</b></span>
+              <span class="links_challenge"><b>Sejarah</b></span>
             </a>
             
           </li>
           <li>
             <a href="#">
               <i class='bx bxs-cog bx-tada-hover'></i>
-              <span class="links_settings"><b>Settings</b></span>
+              <span class="links_settings"><b>Pengaturan</b></span>
             </a>
             
           </li>
