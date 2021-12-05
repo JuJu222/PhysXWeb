@@ -87,6 +87,10 @@ body{
     transform: translateX(-50%);
 }
 
+.sidebar #btn:hover{
+    color: #6F69AC;
+}
+
 
 .sidebar.active #btn{
     left: 90%;
