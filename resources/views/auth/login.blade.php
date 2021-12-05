@@ -70,6 +70,13 @@
 
     <main class="py-5 mt-5">
     <div class = "container-sm">
+        @if(Session::has('loggedOut'))
+        <h3 class = "alert alert-info text-center">{{ Session::get('loggedOut') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </h3>
+        @endif
         <div class="rowForm mt-5 d-flex justify-content-center align-items-center">
             <div class = "col-lg-12">
                <h2 class="text-center mt-5"><b>Halaman Login</b></h2>
