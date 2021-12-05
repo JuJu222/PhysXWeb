@@ -95,7 +95,6 @@
       <div class="sidebar">
         <div class="logo_content">
           <div class="logo">
-            <i class='bx bxl-facebook-square' ></i>
             <div class="logo_name">PhysX</div>
           </div>
           <i class='bx bx-menu' id="btn"></i>
@@ -118,7 +117,7 @@
           <li>
             <a href="#">
               <i class='bx bx-time-five bx-tada-hover' ></i>
-              <span class="links_challenge"><b>Soal</b></span>
+              <span class="links_challenge"><b>History</b></span>
             </a>
             
           </li>
