@@ -14,6 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
     {{-- Boostrap 5 --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
@@ -23,7 +24,7 @@
     <link href='css/sidebar.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="d-flex wrapper">
+    {{-- <div class="d-flex wrapper">
       <div class="d-flex flex-column flex-shrink-0 bg-light position-fixed full-height-sidebar">
         <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#6F69AC" class="bi bi-bootstrap-fill" viewBox="0 0 16 16">
@@ -77,7 +78,7 @@
            </form>
           </li>
         </ul>
-        {{-- <div class="dropdown border-top mt-auto">
+        <div class="dropdown border-top mt-auto">
           <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="24" height="24">
           </a>
@@ -88,8 +89,68 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Sign out</a></li>
           </ul>
-        </div> --}}
+        </div>
+      </div> --}}
+
+      <div class="sidebar">
+        <div class="logo_content">
+          <div class="logo">
+            <i class='bx bxl-facebook-square' ></i>
+            <div class="logo_name">PhysX</div>
+          </div>
+          <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+          <li>
+            <a href="#">
+              <i class='bx bxs-home bx-tada-hover'></i>
+              <span class="links_home"><b>Home</b></span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-trophy bx-tada-hover' ></i>
+              <span class="links_leaderboard"><b>Leaderboards</b></span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-time-five bx-tada-hover' ></i>
+              <span class="links_challenge"><b>Soal</b></span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bxs-cog bx-tada-hover'></i>
+              <span class="links_settings"><b>Settings</b></span>
+            </a>
+            
+          </li>
+        </ul>
+        <div class="profile_content">
+          <div class="profile">
+            <div class="profile_details">
+              {{-- <img src="profile.jpg" alt=""> --}}
+              <div class="name_job">
+              <div class="name">PhysX</div>
+              <div class="job">Web Development</div>
+              </div>
+            </div>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class='bx bx-log-out' id="logOut"></i>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+             </form>
+          </div>
+          
+        </div>
       </div>
+      
       <div>
         <img src="https://wallpapercave.com/wp/fkIqItv.png">
         @yield('container')
@@ -98,5 +159,14 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+
+    <script>
+      let btn = document.querySelector("#btn");
+      let sidebar = document.querySelector(".sidebar");
+      
+      btn.onclick = function(){
+        sidebar.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

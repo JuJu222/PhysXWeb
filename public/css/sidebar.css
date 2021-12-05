@@ -6,9 +6,9 @@
     width: 12.5vh;
 }
 
-body {
+/* body {
     background-color: red;
-}
+} */
 
 .wrapper {
     position: relative;
@@ -22,4 +22,245 @@ body {
 
 .container {
     position: relative;
+}
+
+body{
+    background-color: #FFF9FF; ;
+    position:relative;
+    min-height: 100vh;
+    width:100%;
+    overflow:hidden;
+}
+
+.sidebar{
+    position:fixed !important;
+    top: 0 !important;
+    left:0;
+    height:100%;
+    width:80px;
+    background:white;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active{
+    width: 240px;
+}
+
+
+.sidebar .logo_content .logo{
+    color:#6F69AC;
+    display:flex;
+    height:50px;
+    width:100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none
+}
+
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+    pointer-events: none
+}
+
+
+.logo_content .logo i{
+ font-size: 40px;
+ margin-left: 20px;
+}
+
+.logo_content .logo .logo_name{
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.sidebar #btn{
+    position: absolute;
+    color: black;
+    left: 50%;
+    top:6px;
+    font-size: 20px;
+    height: 50px;
+    width:50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar #btn:hover{
+    color: #6F69AC;
+}
+
+
+.sidebar.active #btn{
+    left: 90%;
+}
+
+.sidebar ul{
+    margin-top: 20px;
+    
+}
+
+.sidebar ul li{
+    position: relative;
+    margin: 0 0 10px -20px;
+    height:50px;
+    width:100%;
+    list-style: none;
+    line-height: 50px;
+    transition: all 0.5s ease;
+}
+
+
+.sidebar ul li a{
+    color: black;
+    display: flex;
+    align-items:center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+}
+
+.sidebar ul li a:hover{
+    margin-top:30px;
+    color: #534e86;
+}
+
+.sidebar.active ul li a:hover{
+    margin-top:30px;
+    color: #534e86;
+    background:#EFEBFE;
+}
+
+.sidebar ul li i{
+    height:50px;
+    margin-right: 20px;
+    min-width: 25px;
+    border-radius: 12px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+.sidebar .profile_content{
+    position:absolute;
+    color: black;
+    bottom: 0;
+    left: 0;
+    width:100%;
+
+}
+
+.sidebar .profile_content .profile{
+position: relative;
+padding: 10px 6px;
+height: 60px;
+}
+
+.profile_content .profile .profile_details{
+  display:flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+
+.sidebar.active .profile .profile_details{
+    opacity:1;
+    pointer-events: auto;
+}
+
+/* .profile .profile_details img{
+    height:45px;
+    width:45px;
+    object-fit: cover;
+    border-radius: 12px;
+} */
+
+.profile .profile_details .name_job{
+    margin-left: 30px;
+}
+
+.profile .profile_details .name{
+    font-size: 15px;
+    font-weight:400;
+}
+
+.profile .profile_details .job{
+    font-size: 12px;
+}
+
+.profile #logOut{
+    position: absolute;
+    font-size: 25px;
+    left: 50%;
+    color: red;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+.sidebar.active .profile #logOut{
+   left: 88%;
+}
+
+.profile_content .profile #logOut{
+    transition: all 0.4s ease;
+}
+
+.profile_content .profile #logOut:hover{
+    color: red;
+    background: #EFEBFE;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.sidebar .links_home{
+    opacity: 0;
+    color: #534e86;
+    pointer-events: none;
+}
+.sidebar.active .links_home{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar .links_leaderboard{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .links_leaderboard{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar .links_leaderboard{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .links_leaderboard{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+.sidebar .links_challenge{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .links_challenge{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar .links_settings{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .links_settings{
+    opacity: 1;
+    pointer-events: auto;
 }
