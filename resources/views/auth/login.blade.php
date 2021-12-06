@@ -72,16 +72,16 @@
     <main class="py-5 mt-5">
     <div class = "container-sm">
         @if(Session::has('loggedOut'))
-        <h3 class = "alert alert-info text-center">{{ Session::get('loggedOut') }}
+        <h4 class = "alert alert-info text-center">{{ Session::get('loggedOut') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-        </h3>
+        </h4>
         @endif
         <div class="form-content rowForm mt-auto d-flex justify-content-center align-items-center">
             <div class = "col-lg-12">
                <h2 class="text-center mt-5"><b>Halaman Login</b></h2>
-               <h5 class="text-center me-4 text-secondary mt-3 mb-4"> Belum menjadi member?<a href="{{ route('register')}}" class="text-opaque-links text-decoration-none"> Sign Up</a></h5> 
+               <h5 class="text-center me-4 text-secondary mt-3 mb-4"> Belum menjadi member?<a href="{{ route('register')}}" class="text-opaque-links text-decoration-none"> Sign Up</a></h5>
 
                <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -142,7 +142,7 @@
             </div>
             </form>
             </div>
-              
+
             </div>
         </div>
     </main>
@@ -151,7 +151,7 @@
 <script>
     const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#password');
- 
+
   togglePassword.addEventListener('click', function (e) {
     // toggle the type attribute
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
