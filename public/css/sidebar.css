@@ -47,6 +47,13 @@ body{
     width: 240px;
 }
 
+.home_content{
+    position:absolute;
+    height:100%;
+    width: calc(100% - 240px);
+    left: 140px;
+}
+
 
 .sidebar .logo_content .logo{
     color:#6F69AC;
