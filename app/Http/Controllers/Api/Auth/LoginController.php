@@ -25,7 +25,7 @@ class LoginController extends Controller
         $user = [
             'email' => $request->email,
             'password' => $request->password,
-            'role' => 'admin',
+            'role' => 'user',
             'is_login' => '0',
             'is_active' => '1'
         ];
@@ -35,10 +35,10 @@ class LoginController extends Controller
         if ($check->is_active == '1') {
             if ($check->is_login == '0') {
                 if (Auth::attempt($user)) {
-                    $this->isLogin(Auth::id()); //mengirim parameter id dari Auth 
-                    
+                    $this->isLogin(Auth::id()); //mengirim parameter id dari Auth
+
                     //Generate Token
-                    $response = Http::asForm()->post('http://webapi.test/oauth/token', [
+                    $response = Http::asForm()->post('http://webapi.test/oauth/token',[
                         'grant_type' => 'password',
                         'client_id' => $this->client->id,
                         'client_secret' => $this->client->secret,
@@ -80,13 +80,14 @@ class LoginController extends Controller
         ]);
 
         $response = Http::asForm()->post('http://webapi.test/oauth/token', [
+
             'grant_type' => 'refresh_token',
             'refresh_token' => $request->refresh_token,
             'client_id' => $this->client_id,
             'client_secret' => $this->client->secret,
             'scope' => '*',
         ]);
-        
+
         return $response->json();
     }
 
