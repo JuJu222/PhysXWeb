@@ -1,10 +1,6 @@
-@extends('partials.sidebar')
+@extends('layouts.apps')
+@include('partials.sidebar') 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
 {{--<img src="https://wallpapercave.com/wp/fkIqItv.png">  --}}
 <div class="home_content">

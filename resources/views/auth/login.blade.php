@@ -1,5 +1,6 @@
 @extends('layouts.apps')
 
+
 @section('content')
     {{-- <div class="row justify-content-center d-flex align-items-center">
         <div class="col-md-12">

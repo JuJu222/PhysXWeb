@@ -49,12 +49,17 @@ body {
     width: 240px;
 }
 
-.home_content {
-    position: absolute;
-    height: 100%;
+.home_content{
+    position:absolute;
+    height:100%;
     width: calc(100% - 78px);
     left: 78px;
     transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100% - 250px);
+
 }
 
 .sidebar.active~.home_content {

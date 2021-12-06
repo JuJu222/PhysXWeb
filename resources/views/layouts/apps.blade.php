@@ -80,8 +80,7 @@
             </div>
         </nav>  --}}
         
-            @yield('content')
-            
-    
+        {{-- @include('partials.sidebar') --}}
+            @yield('content') 
 </body>
 </html>
