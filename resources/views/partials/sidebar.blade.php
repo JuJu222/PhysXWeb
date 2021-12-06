@@ -16,15 +16,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-    
+
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
+
     {{-- Boostrap 5 --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     {{-- DataTables --}}
     <link type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href='css/sidebar.css' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('css/sidebar.css') }}' rel='stylesheet' type='text/css'>
   </head>
   <body>
     {{-- <div class="d-flex wrapper">
@@ -95,8 +95,8 @@
         </div>
       </div> --}}
 
-      
-     
+
+
       <div class="sidebar">
         <div class="logo_content">
           <div class="logo">
@@ -110,28 +110,28 @@
               <i class='bx bxs-home bx-tada-hover'></i>
               <span class="links_home"><b>Rumah</b></span>
             </a>
-            
+
           </li>
           <li>
             <a href="#">
               <i class='bx bxs-trophy bx-tada-hover' ></i>
               <span class="links_leaderboard"><b>Peringkat</b></span>
             </a>
-            
+
           </li>
           <li>
             <a href="#">
               <i class='bx bx-time-five bx-tada-hover' ></i>
               <span class="links_challenge"><b>Sejarah</b></span>
             </a>
-            
+
           </li>
           <li>
             <a href="#">
               <i class='bx bxs-cog bx-tada-hover'></i>
               <span class="links_settings"><b>Pengaturan</b></span>
             </a>
-            
+
           </li>
         </ul>
         <div class="profile_content">
@@ -152,20 +152,20 @@
           </div>
         </div>
       </div>
-    
-      
-    
-      
-    
 
-    
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 
     <script>
       let btn = document.querySelector("#btn");
       let sidebar = document.querySelector(".sidebar");
-      
+
       btn.onclick = function(){
         sidebar.classList.toggle("active");
       }
