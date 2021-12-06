@@ -77,7 +77,7 @@
               </button>
         </h3>
         @endif
-        <div class="rowForm mt-5 d-flex justify-content-center align-items-center">
+        <div class="form-content rowForm mt-auto d-flex justify-content-center align-items-center">
             <div class = "col-lg-12">
                <h2 class="text-center mt-5"><b>Halaman Login</b></h2>
                <h5 class="text-center me-4 text-secondary mt-3 mb-4"> Belum menjadi member?<a href="{{ route('register')}}" class="text-opaque-links text-decoration-none"> Sign Up</a></h5> 
