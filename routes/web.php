@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShopItemController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('shops', ShopController::class);
+Route::resource('shop', ShopItemController::class);

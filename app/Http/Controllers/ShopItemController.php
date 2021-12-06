@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class ShopItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return view('shops');
+        return view('shop');
     }
 
     /**
@@ -23,7 +23,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+        return view('shop_create');
     }
 
     /**
@@ -34,7 +34,19 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/img');
+        $image->move($destinationPath, $name);
+
+        Fruit::create([
+            'fruit_name' => $request->fruit_name,
+            'price' => $request->price,
+            'weight' => $request->weight,
+            'image_path' => $name
+        ]);
+
+        return redirect(route('shop.index'));
     }
 
     /**

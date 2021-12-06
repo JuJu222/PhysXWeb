@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableShops extends Migration
+class CreateTableFis10Users extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateTableShops extends Migration
      */
     public function up()
     {
-        Schema::create('table_shops', function (Blueprint $table) {
-            $table->id();
+        Schema::create('table_fis10_users', function (Blueprint $table) {
+            $table->id('fis10_user_id');
+            $table->foreignId('user_id');
+            $table->integer('coins');
+            $table->foreignId('title');
+            $table->foreignId('avater');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateTableShops extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_shops');
+        Schema::dropIfExists('table_fis10_users');
     }
 }
