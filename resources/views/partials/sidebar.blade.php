@@ -9,6 +9,9 @@
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
@@ -92,6 +95,8 @@
         </div>
       </div> --}}
 
+      
+     
       <div class="sidebar">
         <div class="logo_content">
           <div class="logo">
@@ -133,7 +138,6 @@
         <div class="profile_content">
           <div class="profile">
             <div class="profile_details">
-              {{-- <img src="profile.jpg" alt=""> --}}
               <div class="name_job">
               <div class="name">PhysX</div>
               <div class="job">Web Development</div>
@@ -147,14 +151,14 @@
               @csrf
              </form>
           </div>
-          
         </div>
       </div>
     
-      <div class= "home_content">
-        <img src="https://wallpapercave.com/wp/fkIqItv.png">
-        @yield('container')
-      </div>
+      
+    
+      
+    
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
