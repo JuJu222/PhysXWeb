@@ -15,21 +15,26 @@
             <h4><b>Tambah item shop</b></h4>
         </div>
         <div class="d-flex justify-content-center mt-3">
-            <form method="POST" action="{{ route('login') }}" class="form-shop">
+            <form method="POST" action="{{ route('shop.store') }}" class="form-shop">
                 @csrf
                 <div class="form-group">
-                        <div class="fontuser">
-                            <label for="email">{{ __('Email') }}</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Masukkan Email Anda">
-                            <i class="bi bi-envelope-fill"></i>
-                        </div>
+                    <label for="item">Item</label>
+                    <input id="item" type="text" class="form-control" name="item" required placeholder="Masukkan Item">
                 </div>
                 <div class="form-group">
-                        <div class="fontuser">
-                            <label for="password">{{ __('Password') }}</label>
-                            <input type="text" class="form-control" placeholder="Masukkan Password Anda">
-                            <i class="bi bi-eye-fill" id="togglePassword"></i>
-                        </div>
+                    <label for="price">Harga</label>
+                    <select name="type" class="form-control form-select" required>
+                        <option value="title">Title</option>
+                        <option value="title">Avatar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Harga</label>
+                    <input id="price" type="number" class="form-control" name="price" required placeholder="Masukkan Harga">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image (Avatar)</label>
+                    <input type="file" name="image" class="form-control">
                 </div>
                 <div class="form-group">
                     <div class="d-flex col-md-12 justify-content-center align-items-center mt-3">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShopItem;
 use Illuminate\Http\Request;
 
 class ShopItemController extends Controller
@@ -34,17 +35,25 @@ class ShopItemController extends Controller
      */
     public function store(Request $request)
     {
-        $image = $request->file('image');
-        $name = time().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('/img');
-        $image->move($destinationPath, $name);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $name);
 
-        Fruit::create([
-            'fruit_name' => $request->fruit_name,
-            'price' => $request->price,
-            'weight' => $request->weight,
-            'image_path' => $name
-        ]);
+            ShopItem::create([
+                'item' => $request->item,
+                'type' => $request->type,
+                'price' => $request->price,
+                'image_path' => $name
+            ]);
+        } else {
+            ShopItem::create([
+                'item' => $request->item,
+                'type' => $request->type,
+                'price' => $request->price,
+            ]);
+        }
 
         return redirect(route('shop.index'));
     }
