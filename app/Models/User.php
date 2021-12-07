@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'role',
         'is_login',
-        'is_active',  
+        'is_active',
         'username',
         'school',
         'city',
@@ -48,4 +48,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function fis10user() {
+        return $this->hasOne(Fis10User::class, 'user_id', 'id');
+    }
 }

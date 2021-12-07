@@ -16,10 +16,25 @@ class CreateFis10UsersTable extends Migration
         Schema::create('fis10_users', function (Blueprint $table) {
             $table->id('fis10_user_id');
             $table->foreignId('user_id');
-            $table->integer('coins');
-            $table->foreignId('title');
-            $table->foreignId('avater');
+            $table->integer('coins')->default(0);
+            $table->foreignId('title')->nullable();
+            $table->foreignId('avater')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('title')
+                ->references('shop_item_id')->on('fis10_shop_items')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('avater')
+                ->references('shop_item_id')->on('fis10_shop_items')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

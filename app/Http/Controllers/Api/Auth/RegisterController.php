@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fis10User;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class RegisterController extends Controller
     }
 
     private function newUser(array $data){
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -46,5 +47,12 @@ class RegisterController extends Controller
             'role' => 'user',
             'created_at' => Carbon::now()
         ]);
+
+        Fis10User::create([
+            'fis10_user_id' => $user->id,
+            'user_id' => $user->id
+        ]);
+
+        return $user;
     }
 }

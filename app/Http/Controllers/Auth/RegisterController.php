@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Fis10User;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -70,7 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -81,5 +82,12 @@ class RegisterController extends Controller
             'role' => 'user',
             'created_at' => Carbon::now()
         ]);
+
+        Fis10User::create([
+            'fis10_user_id' => $user->id,
+            'user_id' => $user->id
+        ]);
+
+        return $user;
     }
 }

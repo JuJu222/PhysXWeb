@@ -12,4 +12,16 @@ class Fis10User extends Model
     protected $table = 'fis10_users';
     protected $primaryKey = 'fis10_user_id';
     protected $fillable = ['user_id', 'coins', 'title', 'avater'];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function title() {
+        return $this->belongsTo(ShopItem::class, 'title', 'shop_item_id');
+    }
+
+    public function avatar() {
+        return $this->belongsTo(ShopItem::class, 'avatar', 'shop_item_id');
+    }
 }
