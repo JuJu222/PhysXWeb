@@ -22,7 +22,10 @@
                     <p>Price: {{ $title->price }}</p>
                 </div>
                 <div class="col-md-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
+                    <form action="{{ route('shop.buy', $title->shop_item_id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Buy</button>
+                    </form>
                 </div>
             </div>
         @endforeach

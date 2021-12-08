@@ -18,7 +18,7 @@ class CreateFis10UsersTable extends Migration
             $table->foreignId('user_id');
             $table->integer('coins')->default(0);
             $table->foreignId('title')->nullable();
-            $table->foreignId('avater')->nullable();
+            $table->foreignId('avatar')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -31,7 +31,7 @@ class CreateFis10UsersTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('avater')
+            $table->foreign('avatar')
                 ->references('shop_item_id')->on('fis10_shop_items')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

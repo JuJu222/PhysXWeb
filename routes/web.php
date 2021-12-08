@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('shop', ShopItemController::class);
+Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');

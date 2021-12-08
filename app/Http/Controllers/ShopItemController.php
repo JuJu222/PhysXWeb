@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fis10User;
 use App\Models\ShopItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShopItemController extends Controller
 {
@@ -104,5 +106,31 @@ class ShopItemController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Buy the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function buy($id)
+    {
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $shopitem = ShopItem::query()->findOrFail($id);
+
+        if ($shopitem->type == 'title') {
+            $fis10user->update([
+                'title' => $shopitem->shop_item_id,
+                'coins' => $fis10user->coins - $shopitem->price
+            ]);
+        } else {
+            $fis10user->update([
+                'avatar' => $shopitem->shop_item_id,
+                'coins' => $fis10user->coins - $shopitem->price
+            ]);
+        }
+
+        return redirect(route('shop.index'));
     }
 }

@@ -11,7 +11,7 @@ class Fis10User extends Model
 
     protected $table = 'fis10_users';
     protected $primaryKey = 'fis10_user_id';
-    protected $fillable = ['user_id', 'coins', 'title', 'avater'];
+    protected $fillable = ['user_id', 'coins', 'title', 'avatar'];
 
     public function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
