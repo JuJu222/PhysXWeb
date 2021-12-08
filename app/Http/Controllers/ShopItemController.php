@@ -14,7 +14,10 @@ class ShopItemController extends Controller
      */
     public function index()
     {
-        return view('shop');
+        $titles = ShopItem::query()->where('type', 'title')->get();
+        $avatars = ShopItem::query()->where('type', 'avatar')->get();
+
+        return view('shop', compact('titles', $avatars));
     }
 
     /**

@@ -25,7 +25,7 @@
                     <label for="price">Harga</label>
                     <select name="type" class="form-control form-select" required>
                         <option value="title">Title</option>
-                        <option value="title">Avatar</option>
+                        <option value="avatar">Avatar</option>
                     </select>
                 </div>
                 <div class="form-group">

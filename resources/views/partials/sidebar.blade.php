@@ -126,9 +126,9 @@
 
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('shop.index') }}">
               <i class='bx bxs-cog bx-tada-hover'></i>
-              <span class="links_settings"><b>Pengaturan</b></span>
+              <span class="links_settings"><b>Shop</b></span>
             </a>
 
           </li>

@@ -5091,7 +5091,6 @@ input[type=button].btn-block {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
-    box-shadow: 12px 12px 22px;
 }
 
 .note {
@@ -11027,13 +11026,6 @@ a.text-dark:focus {
     .table .thead-dark th {
         color: inherit;
         border-color: #dee2e6;
-    }
-
-    .home_content {
-        position: absolute;
-        height: 100%;
-        width: calc(100% - 240px);
-        left: 140px;
     }
 }
 
