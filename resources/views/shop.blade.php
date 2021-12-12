@@ -16,7 +16,7 @@
     <div class="justify-content-start mt-3 mx-5">
         <h1 class="purple mb-3"><b>Titles</b></h1>
         @foreach($titles as $title)
-            <div class="my-3 row border-bottom">
+            <div class="py-3 row border-bottom">
                 <div class="col">
                     <h2>{{ $title->item }}</h2>
                     <p>Price: {{ $title->price }}</p>
@@ -38,10 +38,17 @@
     <div class="justify-content-start mt-3 mx-5">
         <h1 class="purple mb-3"><b>Avatars</b></h1>
         @foreach($avatars as $avatar)
-            <div class="my-3 row border-bottom">
+            <div class="py-3 row border-bottom">
                 <div class="col">
-                    <h2>{{ $avatar->item }}</h2>
-                    <p>Price: {{ $avatar->price }}</p>
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <img src="{{ asset('img/avatars/' . $avatar->image_path) }}" alt="{{ $avatar->item }}" class="img-avatar">
+                        </div>
+                        <div class="col align-self-center">
+                            <h2>{{ $avatar->item }}</h2>
+                            <p>Price: {{ $avatar->price }}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-auto text-right">
                     <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">

@@ -44,7 +44,7 @@ class ShopItemController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/img');
+            $destinationPath = public_path('/img/avatars');
             $image->move($destinationPath, $name);
 
             ShopItem::create([

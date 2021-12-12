@@ -15,7 +15,7 @@
             <h4><b>Tambah item shop</b></h4>
         </div>
         <div class="d-flex justify-content-center mt-3">
-            <form method="POST" action="{{ route('shop.store') }}" class="form-shop">
+            <form method="POST" action="{{ route('shop.store') }}" class="form-shop" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="item">Item</label>
