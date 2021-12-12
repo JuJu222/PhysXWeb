@@ -22,7 +22,7 @@
                     <input id="item" type="text" class="form-control" name="item" required placeholder="Masukkan Item">
                 </div>
                 <div class="form-group">
-                    <label for="price">Harga</label>
+                    <label for="type">Type</label>
                     <select name="type" class="form-control form-select" required>
                         <option value="title">Title</option>
                         <option value="avatar">Avatar</option>

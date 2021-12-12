@@ -21,25 +21,38 @@
                     <h2>{{ $title->item }}</h2>
                     <p>Price: {{ $title->price }}</p>
                 </div>
-                <div class="col-md-auto">
+                <div class="col-md-auto text-right">
                     <form action="{{ route('shop.buy', $title->shop_item_id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-primary">Buy</button>
+                        @if ($fis10user->title == $title->shop_item_id)
+                            <button type="submit" class="btn btn-primary" disabled>Buy</button>
+                            <p class="mt-2">You already own this item.</p>
+                        @else
+                            <button type="submit" class="btn btn-primary">Buy</button>
+                        @endif
                     </form>
                 </div>
             </div>
         @endforeach
     </div>
-    <div class="justify-content-start mt-5 mx-5">
+    <div class="justify-content-start mt-3 mx-5">
         <h1 class="purple mb-3"><b>Avatars</b></h1>
-        @foreach($titles as $title)
+        @foreach($avatars as $avatar)
             <div class="my-3 row border-bottom">
                 <div class="col">
-                    <h2>{{ $title->item }}</h2>
-                    <p>Price: {{ $title->price }}</p>
+                    <h2>{{ $avatar->item }}</h2>
+                    <p>Price: {{ $avatar->price }}</p>
                 </div>
-                <div class="col-md-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
+                <div class="col-md-auto text-right">
+                    <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
+                        @csrf
+                        @if ($fis10user->title == $avatar->shop_item_id)
+                            <button type="submit" class="btn btn-primary" disabled>Buy</button>
+                            <p class="mt-2">You already own this item.</p>
+                        @else
+                            <button type="submit" class="btn btn-primary">Buy</button>
+                        @endif
+                    </form>
                 </div>
             </div>
         @endforeach

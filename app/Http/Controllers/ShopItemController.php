@@ -16,10 +16,11 @@ class ShopItemController extends Controller
      */
     public function index()
     {
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $titles = ShopItem::query()->where('type', 'title')->get();
         $avatars = ShopItem::query()->where('type', 'avatar')->get();
 
-        return view('shop', compact('titles', $avatars));
+        return view('shop', compact('fis10user', 'titles', 'avatars'));
     }
 
     /**
