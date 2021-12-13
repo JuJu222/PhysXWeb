@@ -144,7 +144,7 @@ class QuestionController extends Controller
             }
         } elseif ($question->question_type == "tof") {
             foreach ($option_tof as $o) {
-                if ($request->choice == $o->true_or_false) {
+                if ($request->choice == $o->true_or_false ) {
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     return back()->with('answerWrong', 'Your answer is wrong!');
