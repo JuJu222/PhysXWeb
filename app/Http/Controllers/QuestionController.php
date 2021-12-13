@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
+use App\Models\Question;
+use App\Models\Option_mcq;
+use App\Models\Option_tof;
+use App\Models\Option_fitb;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -11,9 +16,18 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id, $topic)
     {
-        //
+        return view('question', [
+
+            'topic' => Topic::where('topic_id', $topic)->first(),
+            'question' => Question::where('question_id', $id)
+                ->where('topic_id', $topic)->first(),
+
+            'option' => Option_mcq::where('question_id', $id)
+                ->get()
+
+        ]);
     }
 
     /**
@@ -80,5 +94,58 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function answerQuestion($id, Request $request, $topic)
+    {
+        $question = Question::where('question_id', $id)
+            ->where('topic_id', $topic)->first();
+
+        $option_mcq = Option_mcq::where('question_id', $id)
+            ->get();
+
+        $option_fitb = Option_fitb::where('question_id', $id)
+            ->get();
+
+        $option_tof = Option_tof::where('question_id', $id)
+            ->get();
+
+
+        $request->validate([
+            'choice' => 'required'
+        ]);
+
+        if ($question->question_type == "mcq") {
+            foreach ($option_mcq as $o) {
+                if ($request->choice == $o->option && $o->is_correct == true) {
+                    return back()->with('answerCorrect','You have answered the question correctly!');
+                } else if ($request->choice == $o->option && $o->is_correct == false) {
+                    return back()->with('answerWrong','Your answer is wrong!');
+                }
+            }
+        } elseif ($question->question_type == "fitb") {
+            foreach ($option_fitb as $o) {
+                if ($request->choice == $o->answer) {
+                    return back()->with('answerCorrect','You have answered the question correctly!');
+                }else{
+                    return back()->with('answerWrong','Your answer is wrong!');
+                }
+            }
+        } elseif ($question->question_type == "tof") {
+            foreach ($option_tof as $o) {
+                if ($request->choice == $o->true_or_false) {
+                    return back()->with('answerCorrect','You have answered the question correctly!');
+                }else{
+                    return back()->with('answerWrong','Your answer is wrong!');
+                }
+            }
+        }
     }
 }
