@@ -38,7 +38,7 @@ class LoginController extends Controller
                     $this->isLogin(Auth::id()); //mengirim parameter id dari Auth
 
                     //Generate Token
-                    $response = Http::asForm()->post('http://physxweb.herokuapp.com/oauth/token',[
+                    $response = Http::asForm()->post('http://physxwebapi.test/oauth/token',[
                         'grant_type' => 'password',
                         'client_id' => $this->client->id,
                         'client_secret' => $this->client->secret,
@@ -79,7 +79,7 @@ class LoginController extends Controller
             'refresh_token' => 'refresh token is required',
         ]);
 
-        $response = Http::asForm()->post('http://physxweb.herokuapp.com/oauth/token', [
+        $response = Http::asForm()->post('http://physxwebapi.test/oauth/token', [
 
             'grant_type' => 'refresh_token',
             'refresh_token' => $request->refresh_token,
