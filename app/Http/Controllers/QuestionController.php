@@ -117,7 +117,6 @@ class QuestionController extends Controller
         $option_tof = Option_tof::where('question_id', $id)
             ->get();
 
-
         $request->validate([
             'choice' => 'required'
         ]);
@@ -125,25 +124,30 @@ class QuestionController extends Controller
         if ($question->question_type == "mcq") {
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    // if($question->question_id > 10){
+                    //     // UserSoal::update([
+                    // }else{
+                    //     // UserSoal::update([
+                    // }
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         } elseif ($question->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
-                }else{
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                } else {
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         } elseif ($question->question_type == "tof") {
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
-                }else{
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                } else {
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         }

@@ -56,8 +56,8 @@
 @csrf
 <div class="d-flex justify-content-center align-items-center  align-items-center">
 <div class="col-md-6 d-flex justify-content-center align-items-center mr-5">
-<h1><input name="choice" class="form-true mt-4 mr-5" type="submit" value=1><h1>
-<h1><input name="choice" class="form-false mt-4 ms-5" type="submit" value=0><h1>
+<h1><input name="choice" class="form-true mt-4 mr-5" type="submit" value=true><h1>
+<h1><input name="choice" class="form-false mt-4 ms-5" type="submit" value=false><h1>
 </div>
 </form>
 @endif
