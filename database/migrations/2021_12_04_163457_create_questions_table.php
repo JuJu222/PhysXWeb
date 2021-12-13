@@ -15,11 +15,11 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id('question_id');
+            $table->string('question_type');
             $table->text('question');
             $table->string('image_path');
             $table->foreignId('topic_id');
             $table->timestamps();
-
             $table->foreign('topic_id')
                 ->references('topic_id')->on('topics')
                 ->onDelete('cascade')

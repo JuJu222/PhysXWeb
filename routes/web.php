@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\ShopItemController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ShopItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,10 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('shop', ShopItemController::class);
+
+Route::resource('question', QuestionController::class);
+Route::get('question/{topic}/{question:id}', [QuestionController::class, 'index']);
+Route::post('question/{topic}/{question:id}', [QuestionController::class, 'answerQuestion']);
+
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+
