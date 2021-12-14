@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use App\Models\Question;
+use App\Models\Fis10User;
 use App\Models\Option_mcq;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
+use App\Models\UsersQuestions;
 
 class QuestionController extends Controller
 {
@@ -18,6 +20,7 @@ class QuestionController extends Controller
      */
     public function index($id, $topic)
     {
+        //Create User Soal Instance
         return view('question', [
 
             'topic' => Topic::where('topic_id', $topic)->first(),
@@ -103,8 +106,13 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function answerQuestion($id, Request $request, $topic)
+    public function answerQuestion($id, Request $request, $topic, $user)
     {
+
+        $score = 0;
+        
+        $users = Fis10User::where('fis10_user_id',$user)->first();
+
         $question = Question::where('question_id', $id)
             ->where('topic_id', $topic)->first();
 
@@ -121,33 +129,62 @@ class QuestionController extends Controller
             'choice' => 'required'
         ]);
 
+
+        //Create User Soal Instance
+        UsersQuestions::create([
+           'question_id' => $question->question_id,
+           'fis10_user_id' => $users->fis10_user_id,
+           'answersoal' => null,
+           'question_score' => $score,
+           'time_start' => \Carbon\Carbon::now(),
+           'time_end' => null
+        ]);
+
         if ($question->question_type == "mcq") {
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
+                    $score++;
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
-                    // if($question->question_id > 10){
-                    //     // UserSoal::update([
-                    // }else{
-                    //     // UserSoal::update([
-                    // }
+                    if ($question->question_id == 10) {
+                        //Redirect ke result page
+                        return redirect();
+                    }
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id == 10) {
+                        //Redirect ke result page
+                        return redirect();
+                    }
                 }
             }
         } elseif ($question->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
+                    $score++;
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    if ($question->question_id == 10) {
+                        return redirect();
+                    }
                 } else {
                     return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id == 10) {
+                        return redirect();
+                    }
                 }
             }
         } elseif ($question->question_type == "tof") {
             foreach ($option_tof as $o) {
-                if ($request->choice == $o->true_or_false ) {
+                if ($request->choice == $o->true_or_false) {
+                    $score++;
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    if ($question->question_id == 10) {
+                        return redirect();
+                    }
                 } else {
                     return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id == 10) {
+                        return redirect();
+                    }
                 }
             }
         }

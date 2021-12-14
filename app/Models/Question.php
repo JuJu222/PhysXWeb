@@ -30,6 +30,10 @@ class Question extends Model
         return $this->hasMany(Option_TOF::class,'option_tof_id','question_id');
     }
 
+    public function fis10users(){
+        return $this->belongsToMany(Fis10User::class, 'usersquestions','question_id','fis10_user_id');
+    }
+
 
 
 

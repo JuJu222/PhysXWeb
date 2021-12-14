@@ -28,7 +28,7 @@
 @endif
 
 @if(Session::has('answerWrong'))
-@if (!$question->question_id < 11)
+@if ($question->question_id < 11)
     <div class="alert alert-danger">
         <h3>{{ Session::get('answerWrong') }}</h3>
         <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>

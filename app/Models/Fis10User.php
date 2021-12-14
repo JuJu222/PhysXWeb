@@ -24,4 +24,8 @@ class Fis10User extends Model
     public function avatar() {
         return $this->belongsTo(ShopItem::class, 'avatar', 'shop_item_id');
     }
+
+    public function questions(){
+        return $this->belongsToMany(Question::class, 'usersquestions','fis10_user_id','question_id');
+    }
 }
