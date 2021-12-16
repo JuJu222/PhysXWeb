@@ -19,21 +19,17 @@
 <div class="form-group d-flex justify-content-center align-items-center">
 <div class="col-md-6">
 @if(Session::has('answerCorrect'))
-@if($question->question_id < 11)
     <div class="alert alert-success">
         <h3>{{ Session::get('answerCorrect') }}</h3>
         <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
     </div>
 @endif
-@endif
 
 @if(Session::has('answerWrong'))
-@if ($question->question_id < 11)
     <div class="alert alert-danger">
         <h3>{{ Session::get('answerWrong') }}</h3>
         <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
     </div>
-@endif
 @endif
 
 @if($question->question_type == "mcq")
