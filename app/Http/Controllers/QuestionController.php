@@ -18,7 +18,7 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id, $topic)
+    public function index()
     {
         
     }
@@ -28,11 +28,9 @@ class QuestionController extends Controller
     {
         //Create User Soal Instance
         return view('question', [
-
             'topic' => Topic::where('topic_id', $topic)->first(),
             'question' => Question::where('question_id', $id)
                 ->where('topic_id', $topic)->first(),
-
             'option' => Option_mcq::where('question_id', $id)
                 ->get()
 
@@ -112,12 +110,12 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function answerQuestion($id, Request $request, $topic, $user)
+    public function answerQuestion($id, Request $request, $topic)
     {
 
         $score = 0;
 
-        $users = Fis10User::where('fis10_user_id', $user)->first();
+        $users = Fis10User::where('fis10_user_id', auth()->user()->id)->first();
 
         $question = Question::where('question_id', $id)
             ->where('topic_id', $topic)->first();
@@ -149,7 +147,7 @@ class QuestionController extends Controller
                     $score = 0;
                     $score++;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'question_score' => $score,
@@ -163,7 +161,7 @@ class QuestionController extends Controller
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'time_end' => \Carbon\Carbon::now()
@@ -189,7 +187,7 @@ class QuestionController extends Controller
                     $score = 0;
                     $score++;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'question_score' => $score,
@@ -202,7 +200,7 @@ class QuestionController extends Controller
                 } else {
                     $score = 0;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'time_end' => \Carbon\Carbon::now()
@@ -227,7 +225,7 @@ class QuestionController extends Controller
                     $score = 0;
                     $score++;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'question_score' => $score,
@@ -240,7 +238,7 @@ class QuestionController extends Controller
                 } else {
                     $score = 0;
                     UsersQuestions::where('question_id', $id)
-                        ->where('fis10_user_id', $user)
+                        ->where('fis10_user_id', auth()->user()->id)
                         ->update([
                             'answersoal' => $request->choice,
                             'time_end' => \Carbon\Carbon::now()
