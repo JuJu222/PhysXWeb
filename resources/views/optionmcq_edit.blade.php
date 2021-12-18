@@ -5,7 +5,7 @@
     @method('PUT')
     @csrf
      <div class="d-flex justify-content-center">
-         <h3 class="mt-5">Option MCQ Create Page</h3>
+         <h3 class="mt-5">Option MCQ Edit Page</h3>
      </div>
     <div class="container-sm rounded p-3 mt-4 border border-dark col-md-6">
 
@@ -30,7 +30,7 @@
             @elseif($options->option == "0")
             <option value="1">Correct</option>
             <option value="{{ $questions->question_type }}" selected>Not Correct</option>
-           
+           @endif
         </select>
 
         @if ($errors->has('iscorrect'))

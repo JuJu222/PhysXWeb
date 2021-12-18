@@ -49,7 +49,7 @@ class OptionmcqController extends Controller
             'question_id' => $request->question
         ]);
 
-        return redirect('/admin/optionmcq')->with('createdOption','You have successfully created a new MCQ Question');
+        return redirect('/admin/optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
     }
 
     /**

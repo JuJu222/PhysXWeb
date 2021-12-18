@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ShopItemController;
 use App\Http\Controllers\OptionmcqController;
+use App\Http\Controllers\OptiontofController;
+use App\Http\Controllers\OptionfitbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::resource('shop', ShopItemController::class);
 Route::resource('question', QuestionController::class);
 Route::resource('optionmcq', OptionmcqController::class);
+Route::resource('optionfitb', OptionfitbController::class);
+Route::resource('optiontof', OptiontofController::class);
 
 Route::get('question/{topic:id}/{question:id}', [QuestionController::class, 'showQuestion']);
 Route::post('question/{topic:id}/{question:id}', [QuestionController::class, 'answerQuestion']);
@@ -36,6 +40,14 @@ Route::get('admin/question/{question:id}/edit',[QuestionController::class,'edit'
 Route::get('admin/optionmcq/create',[OptionmcqController::class,'create']);
 Route::get('admin/optionmcq',[OptionmcqController::class,'index']);
 Route::get('admin/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit']);
+
+Route::get('admin/optionfitb/create',[OptionfitbController::class,'create']);
+Route::get('admin/optionfitb',[OptionfitbController::class,'index']);
+Route::get('admin/optionfitb/{optionfitb:id}/edit',[OptionfitbController::class,'edit']);
+
+Route::get('admin/optiontof/create',[OptiontofController::class,'create']);
+Route::get('admin/optiontof',[OptiontofController::class,'index']);
+Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
 
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 
