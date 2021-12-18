@@ -2,9 +2,6 @@
 @include('partials.sidebar')
 @section('content')
 
-
-
-
 <div class="container justify-content-center align-items-center">
 <div class="d-flex justify-content-center align-items-center ms-5 text-center">
 <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">

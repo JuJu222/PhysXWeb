@@ -20,7 +20,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        
+         return view('question_index',[
+            'questions' => Question::paginate(5)
+         ]);
     }
 
 
@@ -44,7 +46,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('question_create',[
+          'topics' => Topic::all()
+        ]);
     }
 
     /**
@@ -55,7 +59,31 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $name);
+
+            Question::create([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'image_path' => $name,
+                'topic_id' => $request->topic,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        } else {
+            Question::create([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'topic_id' => $request->topic,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        }
+        return redirect('/admin/question')->with('createdQuestion','You have successfully created a new Question');
     }
 
     /**
@@ -77,7 +105,10 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('question_edit',[
+            'topics' => Topic::all(),
+            'questions' => Question::where('question_id',$id)->first()
+          ]);
     }
 
     /**
@@ -89,8 +120,30 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $name);
+
+            Question::where('question_id',$id)->update([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'image_path' => $name,
+                'topic_id' => $request->topic,
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        } else {
+            Question::where('question_id',$id)->update([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'topic_id' => $request->topic,
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        }
+        return redirect('/admin/question')->with('updatedQuestion','You have successfully updated the Question');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -100,7 +153,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::where('question_id',$id)->delete();
+        return redirect('/admin/question')->with('success','You have deleted the question!');
     }
 
 
