@@ -3,6 +3,7 @@
 @section('content')
 
 <div class = "container mt-5">
+    <h1 class = "text-center">Admin Question Page</h1>
     <div class= "container d-flex align-items-center justify-content-center ">
     @if(Session::has('success'))
         <h4 class = "alert alert-info text-center col-md-6">{{ Session::get('success') }}
@@ -54,7 +55,7 @@
                    @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                  <a class="btn btn-primary" href="/admin/question/{{ $question->question_id }}/edit"><i class="bi bi-pencil"></i></a>
+                  <a class="btn btn-purple" href="/admin/question/{{ $question->question_id }}/edit"><i class="bi bi-pencil"></i></a>
                   </form>
                   
           </td>
