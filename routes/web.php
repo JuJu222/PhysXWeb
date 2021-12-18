@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ShopItemController;
+use App\Http\Controllers\OptionmcqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('shop', ShopItemController::class);
-
 Route::resource('question', QuestionController::class);
+Route::resource('optionmcq', OptionmcqController::class);
 
 Route::get('question/{topic:id}/{question:id}', [QuestionController::class, 'showQuestion']);
 Route::post('question/{topic:id}/{question:id}', [QuestionController::class, 'answerQuestion']);
@@ -31,5 +32,10 @@ Route::post('question/{topic:id}/{question:id}', [QuestionController::class, 'an
 Route::get('admin/question/create',[QuestionController::class,'create']);
 Route::get('admin/question',[QuestionController::class,'index']);
 Route::get('admin/question/{question:id}/edit',[QuestionController::class,'edit']);
+
+Route::get('admin/optionmcq/create',[OptionmcqController::class,'create']);
+Route::get('admin/optionmcq',[OptionmcqController::class,'index']);
+Route::get('admin/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit']);
+
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 

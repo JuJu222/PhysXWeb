@@ -67,6 +67,7 @@ class QuestionController extends Controller
             $image->move($destinationPath, $name);
 
             Question::create([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'image_path' => $name,
@@ -76,6 +77,7 @@ class QuestionController extends Controller
             ]);
         } else {
             Question::create([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'topic_id' => $request->topic,
@@ -127,6 +129,7 @@ class QuestionController extends Controller
             $image->move($destinationPath, $name);
 
             Question::where('question_id',$id)->update([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'image_path' => $name,
@@ -135,6 +138,7 @@ class QuestionController extends Controller
             ]);
         } else {
             Question::where('question_id',$id)->update([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'topic_id' => $request->topic,
