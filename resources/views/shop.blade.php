@@ -52,7 +52,7 @@
                 <div class="col-md-auto text-right">
                     <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
                         @csrf
-                        @if ($fis10user->title == $avatar->shop_item_id)
+                        @if ($fis10user->avatar == $avatar->shop_item_id)
                             <button type="submit" class="btn btn-primary" disabled>Buy</button>
                             <p class="mt-2">You already own this item.</p>
                         @else
