@@ -11,7 +11,7 @@ class Question extends Model
 
     protected $primaryKey = "question_id";
     protected $table = 'questions';
-    protected $fillable= ['question_id', 'question','image_path','topic_id'];
+    protected $fillable= ['question_type', 'question','image_path','topic_id'];
 
 
     public function topic(){
@@ -28,6 +28,10 @@ class Question extends Model
 
     public function optionTOF(){
         return $this->hasMany(Option_TOF::class,'option_tof_id','question_id');
+    }
+
+    public function fis10users(){
+        return $this->belongsToMany(Fis10User::class, 'usersquestions','question_id','fis10_user_id');
     }
 
 

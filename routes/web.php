@@ -24,8 +24,12 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::resource('shop', ShopItemController::class);
 
 Route::resource('question', QuestionController::class);
-Route::get('question/{topic}/{question:id}', [QuestionController::class, 'index']);
-Route::post('question/{topic}/{question:id}', [QuestionController::class, 'answerQuestion']);
 
+Route::get('question/{topic:id}/{question:id}', [QuestionController::class, 'showQuestion']);
+Route::post('question/{topic:id}/{question:id}', [QuestionController::class, 'answerQuestion']);
+
+Route::get('admin/question/create',[QuestionController::class,'create']);
+Route::get('admin/question',[QuestionController::class,'index']);
+Route::get('admin/question/{question:id}/edit',[QuestionController::class,'edit']);
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 

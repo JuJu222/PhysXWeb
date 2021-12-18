@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use App\Models\Question;
+use App\Models\Fis10User;
 use App\Models\Option_mcq;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
+use App\Models\UsersQuestions;
 
 class QuestionController extends Controller
 {
@@ -16,14 +18,21 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id, $topic)
+    public function index()
     {
-        return view('question', [
+         return view('question_index',[
+            'questions' => Question::paginate(5)
+         ]);
+    }
 
+
+    public function showQuestion($id, $topic)
+    {
+        //Create User Soal Instance
+        return view('question', [
             'topic' => Topic::where('topic_id', $topic)->first(),
             'question' => Question::where('question_id', $id)
                 ->where('topic_id', $topic)->first(),
-
             'option' => Option_mcq::where('question_id', $id)
                 ->get()
 
@@ -37,7 +46,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('question_create',[
+          'topics' => Topic::all()
+        ]);
     }
 
     /**
@@ -48,7 +59,31 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $name);
+
+            Question::create([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'image_path' => $name,
+                'topic_id' => $request->topic,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        } else {
+            Question::create([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'topic_id' => $request->topic,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        }
+        return redirect('/admin/question')->with('createdQuestion','You have successfully created a new Question');
     }
 
     /**
@@ -70,7 +105,10 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('question_edit',[
+            'topics' => Topic::all(),
+            'questions' => Question::where('question_id',$id)->first()
+          ]);
     }
 
     /**
@@ -82,8 +120,30 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $name);
+
+            Question::where('question_id',$id)->update([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'image_path' => $name,
+                'topic_id' => $request->topic,
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        } else {
+            Question::where('question_id',$id)->update([
+                'question_type' => $request->type,
+                'question' => $request->question,
+                'topic_id' => $request->topic,
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+        }
+        return redirect('/admin/question')->with('updatedQuestion','You have successfully updated the Question');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -93,7 +153,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Question::where('question_id',$id)->delete();
+        return redirect('/admin/question')->with('success','You have deleted the question!');
     }
 
 
@@ -105,6 +166,11 @@ class QuestionController extends Controller
      */
     public function answerQuestion($id, Request $request, $topic)
     {
+
+        $score = 0;
+
+        $users = Fis10User::where('fis10_user_id', auth()->user()->id)->first();
+
         $question = Question::where('question_id', $id)
             ->where('topic_id', $topic)->first();
 
@@ -117,33 +183,124 @@ class QuestionController extends Controller
         $option_tof = Option_tof::where('question_id', $id)
             ->get();
 
-
         $request->validate([
             'choice' => 'required'
         ]);
 
         if ($question->question_type == "mcq") {
+            UsersQuestions::create([
+                'question_id' => $question->question_id,
+                'fis10_user_id' => $users->fis10_user_id,
+                'answersoal' => null,
+                'question_score' => $score,
+                'time_start' => \Carbon\Carbon::now(),
+                'time_end' => null
+            ]);
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
+                    $score = 0;
+                    $score++;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'question_score' => $score,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    if ($question->question_id % 10 == 0) {
+                        //Redirect ke result page
+                        return redirect();
+                    }
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    $score = 0;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id % 10 == 0) {
+                        //Redirect ke result page
+                        return redirect();
+                    }
                 }
             }
         } elseif ($question->question_type == "fitb") {
+            UsersQuestions::create([
+                'question_id' => $question->question_id,
+                'fis10_user_id' => $users->fis10_user_id,
+                'answersoal' => null,
+                'question_score' => $score,
+                'time_start' => \Carbon\Carbon::now(),
+                'time_end' => null
+            ]);
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
-                }else{
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    $score = 0;
+                    $score++;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'question_score' => $score,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    if ($question->question_id % 10 == 0) {
+                        return redirect();
+                    }
+                } else {
+                    $score = 0;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id % 10 == 0) {
+                        return redirect();
+                    }
                 }
             }
         } elseif ($question->question_type == "tof") {
+            UsersQuestions::create([
+                'question_id' => $question->question_id,
+                'fis10_user_id' => $users->fis10_user_id,
+                'answersoal' => null,
+                'question_score' => $score,
+                'time_start' => \Carbon\Carbon::now(),
+                'time_end' => null
+            ]);
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
-                    return back()->with('answerCorrect','You have answered the question correctly!');
-                }else{
-                    return back()->with('answerWrong','Your answer is wrong!');
+                    $score = 0;
+                    $score++;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'question_score' => $score,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                    if ($question->question_id % 10 == 0) {
+                        return redirect();
+                    }
+                } else {
+                    $score = 0;
+                    UsersQuestions::where('question_id', $id)
+                        ->where('fis10_user_id', auth()->user()->id)
+                        ->update([
+                            'answersoal' => $request->choice,
+                            'time_end' => \Carbon\Carbon::now()
+                        ]);
+                    return back()->with('answerWrong', 'Your answer is wrong!');
+                    if ($question->question_id % 10 == 0) {
+                        return redirect();
+                    }
                 }
             }
         }

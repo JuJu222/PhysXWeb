@@ -2842,6 +2842,13 @@ fieldset:disabled a.btn {
     border-color: #EFEBFE;
 }
 
+
+.btn-purple {
+    color: #fff;
+    background-color: #6F69AC;
+    border-color: #6F69AC;
+}
+
 .btn-opaque-links {
     color: #6F69AC;
 }

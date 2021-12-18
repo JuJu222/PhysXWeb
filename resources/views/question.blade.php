@@ -2,9 +2,6 @@
 @include('partials.sidebar')
 @section('content')
 
-
-
-
 <div class="container justify-content-center align-items-center">
 <div class="d-flex justify-content-center align-items-center ms-5 text-center">
 <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
@@ -19,21 +16,17 @@
 <div class="form-group d-flex justify-content-center align-items-center">
 <div class="col-md-6">
 @if(Session::has('answerCorrect'))
-@if($question->question_id < 11)
     <div class="alert alert-success">
         <h3>{{ Session::get('answerCorrect') }}</h3>
         <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
     </div>
 @endif
-@endif
 
 @if(Session::has('answerWrong'))
-@if (!$question->question_id < 11)
     <div class="alert alert-danger">
         <h3>{{ Session::get('answerWrong') }}</h3>
         <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
     </div>
-@endif
 @endif
 
 @if($question->question_type == "mcq")
@@ -56,8 +49,8 @@
 @csrf
 <div class="d-flex justify-content-center align-items-center  align-items-center">
 <div class="col-md-6 d-flex justify-content-center align-items-center mr-5">
-<h1><input name="choice" class="form-true mt-4 mr-5" type="submit" value=1><h1>
-<h1><input name="choice" class="form-false mt-4 ms-5" type="submit" value=0><h1>
+<h1><button name="choice" class="form-true mt-4 mr-5" type="submit" value=1>True</button><h1>
+<h1><button name="choice" class="form-false mt-4 ms-5" type="submit" value=0>False</button><h1>
 </div>
 </form>
 @endif
