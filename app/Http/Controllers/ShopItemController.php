@@ -6,6 +6,7 @@ use App\Models\Fis10User;
 use App\Models\ShopItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ShopItemController extends Controller
 {
@@ -83,7 +84,9 @@ class ShopItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $shopItem = ShopItem::query()->findOrFail($id);
+
+        return view('shop_edit', compact('shopItem'));
     }
 
     /**
@@ -95,7 +98,33 @@ class ShopItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $shopItem = ShopItem::query()->findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img/avatars');
+            $image->move($destinationPath, $name);
+
+            if ($shopItem->image_path) {
+                File::delete(public_path('/img/avatars') . '/' . $shopItem->image_path);
+            }
+
+            $shopItem->update([
+                'item' => $request->item,
+                'type' => $request->type,
+                'price' => $request->price,
+                'image_path' => $name
+            ]);
+        } else {
+            $shopItem->update([
+                'item' => $request->item,
+                'type' => $request->type,
+                'price' => $request->price,
+            ]);
+        }
+
+        return redirect(route('shop.index'));
     }
 
     /**
@@ -106,7 +135,12 @@ class ShopItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $shopItem = ShopItem::findOrFail($id);
+
+        File::delete(public_path('/img/uploads') . '/' . $shopItem->image_path);
+        $shopItem->delete();
+
+        return redirect(route('shop.index'));
     }
 
     /**
@@ -118,17 +152,17 @@ class ShopItemController extends Controller
     public function buy($id)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
-        $shopitem = ShopItem::query()->findOrFail($id);
+        $shopItem = ShopItem::query()->findOrFail($id);
 
-        if ($shopitem->type == 'title') {
+        if ($shopItem->type == 'title') {
             $fis10user->update([
-                'title' => $shopitem->shop_item_id,
-                'coins' => $fis10user->coins - $shopitem->price
+                'title' => $shopItem->shop_item_id,
+                'coins' => $fis10user->coins - $shopItem->price
             ]);
         } else {
             $fis10user->update([
-                'avatar' => $shopitem->shop_item_id,
-                'coins' => $fis10user->coins - $shopitem->price
+                'avatar' => $shopItem->shop_item_id,
+                'coins' => $fis10user->coins - $shopItem->price
             ]);
         }
 

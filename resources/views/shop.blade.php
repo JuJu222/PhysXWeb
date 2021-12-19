@@ -30,6 +30,14 @@
                             <button type="submit" class="btn btn-primary">Buy</button>
                         @endif
                     </form>
+                    @if (auth()->user()->role == 'admin')
+                        <a href="{{ route('shop.edit', $title->shop_item_id) }}" class="btn btn-primary mt-1">Edit</a>
+                        <form class="mt-1" id="form_delete" action="{{ route('shop.destroy', $title->shop_item_id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         @endforeach
@@ -59,12 +67,20 @@
                             <button type="submit" class="btn btn-primary">Buy</button>
                         @endif
                     </form>
+                    @if (auth()->user()->role == 'admin')
+                        <a href="{{ route('shop.edit', $avatar->shop_item_id) }}" class="btn btn-primary mt-1">Edit</a>
+                        <form class="mt-1" id="form_delete" action="{{ route('shop.destroy', $avatar->shop_item_id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         @endforeach
     </div>
     <div class="d-flex justify-content-start mt-3 mx-5">
-        <a href="{{ route('shop.create') }}">Create</a>
+        <a href="{{ route('shop.create') }}" class="btn btn-primary">Create</a>
     </div>
 
 

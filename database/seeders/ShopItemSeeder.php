@@ -48,7 +48,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Avatar 1',
+            'item' => 'Avatar 2',
             'type' => 'avatar',
             'image_path' => '',
             'price' => '250',
