@@ -39,9 +39,9 @@ class QuestionController extends Controller
             if (Route::is('questionSoal')) {
                 return view('question', [
                     'topic' => Topic::where('topic_id', $topic)->first(),
-                    'question' => Question::where('question_id', $id)
+                    'question' => Question::where('question_id', $session)
                         ->where('topic_id', $topic)->first(),
-                    'option' => Option_mcq::where('question_id', $id)
+                    'option' => Option_mcq::where('question_id', $session)
                         ->get(),
                 ]);
             }
