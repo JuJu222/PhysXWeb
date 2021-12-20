@@ -26,6 +26,6 @@ class Fis10User extends Model
     }
 
     public function questions(){
-        return $this->belongsToMany(Question::class, 'usersquestions','fis10_user_id','question_id');
+        return $this->belongsToMany(Question::class, 'usersquestions','fis10_user_id','question_id')->withPivot(['answersoal','question_score','time_start','time_end']);
     }
 }
