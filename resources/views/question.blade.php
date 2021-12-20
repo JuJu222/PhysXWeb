@@ -18,14 +18,20 @@
 @if(Session::has('answerCorrect'))
     <div class="alert alert-success">
         <h3>{{ Session::get('answerCorrect') }}</h3>
-        <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
+        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
+            @csrf
+            <h1><button name="soal" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
+            </form>
     </div>
 @endif
 
 @if(Session::has('answerWrong'))
     <div class="alert alert-danger">
         <h3>{{ Session::get('answerWrong') }}</h3>
-        <a href="/question/{{ $topic->topic_id }}/{{ $question->question_id + 1}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soal Berikut</a>
+        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
+            @csrf
+            <h1><button name="soal" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
+            </form>
     </div>
 @endif
 

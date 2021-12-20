@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->client = Client::find(2); //cari client id-ke-2
+        $this->client = Client::skip(1)->first; //cari client id-ke-2
     }
 
     public function login(Request $request)

@@ -32,17 +32,28 @@ class QuestionController extends Controller
     {
         //Create User Soal Instance
         $score = 0;
-        $soalNumber = 1;
-        $request->session()->put('nosoal');
-        
+
+        // if(!$request->session()->has('nosoal')){
+        //     $soalNumber = 1;
+        //     $request->session()->put('nosoal',$soalNumber);
+        // }
 
         if ($request->session()->exists('nosoal')) {
-            $request->session()->put('nosoal', $soalNumber);
             $session = $request->session()->get('nosoal');
+
+            if ($request->session()->has('answerCorrect')) {
+                if ($request->soal == 1) {
+                    $session++;
+                }
+            } else if ($request->session()->has('answerWrong')) {
+                if ($request->soal == 1) {
+                    $session++;
+                }
+            }
             $users = Fis10User::where('user_id', auth()->user()->id)->first();
             $question = Question::where('question_id', $session)
-            ->where('topic_id', $topic)->first();
-            if (Route::is('questionSoal')) {
+                ->where('topic_id', $topic)->first();
+            
                 if (!$users->questions()->exists() && !($request->has('choice'))) {
                     $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
                 }
@@ -53,7 +64,7 @@ class QuestionController extends Controller
                     'option' => Option_mcq::where('question_id', $session)
                         ->get(),
                 ]);
-            }
+            
         }
     }
 
@@ -207,7 +218,6 @@ class QuestionController extends Controller
 
         $question = Question::where('question_id', $session)
             ->where('topic_id', $topic)->first();
-
         $option_mcq = Option_mcq::where('question_id', $session)
             ->get();
 
@@ -229,16 +239,15 @@ class QuestionController extends Controller
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
-                    $request->session()->increment('nosoal', 1);
+                    
                     if ($question->question_id % 10 == 0) {
                         //Redirect ke result page
                         return redirect();
                     }
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
-                    $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);     
                     return back()->with('answerWrong', 'Your answer is wrong!');
-                    $request->session()->increment('nosoal', 1);
                     if ($question->question_id % 10 == 0) {
                         //Redirect ke result page
                         return redirect();
@@ -251,7 +260,6 @@ class QuestionController extends Controller
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
-                    $request->session()->increment('nosoal', 1);
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
@@ -259,7 +267,6 @@ class QuestionController extends Controller
                     $score = 0;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
-                    $request->session()->increment('nosoal', 1);
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
@@ -271,7 +278,6 @@ class QuestionController extends Controller
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
-                    $request->session()->increment('nosoal', 1);
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
@@ -279,7 +285,6 @@ class QuestionController extends Controller
                     $score = 0;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
-                    $request->session()->increment('nosoal', 1);
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
