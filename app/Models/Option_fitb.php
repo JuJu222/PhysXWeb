@@ -14,6 +14,7 @@ class Option_fitb extends Model
     protected $primaryKey = 'option_fitb_id';
     protected $table = 'fis10_option_fitb';
     protected $guarded = ['option_fitb_id'];
+    public $timestamps = false;
 
 
     public function questionFITB(){

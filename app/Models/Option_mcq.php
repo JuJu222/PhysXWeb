@@ -12,6 +12,7 @@ class Option_mcq extends Model
     protected $table = 'fis10_option_mcq';
     protected $primaryKey = 'option_mcq_id';
     protected $guarded = ['option_mcq_id'];
+    public $timestamps = false;
 
 
     public function questionMCQ(){

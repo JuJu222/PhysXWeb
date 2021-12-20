@@ -12,6 +12,7 @@ class Option_tof extends Model
     protected $primaryKey = 'option_tof_id';
     protected $table = 'fis10_option_tof';
     protected $guarded = ['option_tof_id'];
+    public $timestamps = false;
 
 
     public function questionTOF(){

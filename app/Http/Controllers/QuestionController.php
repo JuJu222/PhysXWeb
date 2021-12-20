@@ -6,6 +6,7 @@ use App\Models\Topic;
 use App\Models\Question;
 use App\Models\Fis10User;
 use App\Models\Option_mcq;
+use Illuminate\Support\Facades\Route;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
@@ -20,23 +21,45 @@ class QuestionController extends Controller
      */
     public function index()
     {
-         return view('question_index',[
+        return view('question_index', [
             'questions' => Question::paginate(5)
-         ]);
+        ]);
     }
 
 
-    public function showQuestion($id, $topic)
+    public function showQuestion($topic, $id, Request $request)
     {
         //Create User Soal Instance
-        return view('question', [
-            'topic' => Topic::where('topic_id', $topic)->first(),
-            'question' => Question::where('question_id', $id)
-                ->where('topic_id', $topic)->first(),
-            'option' => Option_mcq::where('question_id', $id)
-                ->get()
+        $soalNumber = 1;
+        $request->session()->put('nosoal', 0);
 
-        ]);
+        if ($request->session()->exists('nosoal')) {
+            $request->session()->put('nosoal', $id);
+            $session = $request->session()->get('nosoal');
+            if (Route::is('questionSoal')) {
+                return view('question', [
+                    'topic' => Topic::where('topic_id', $topic)->first(),
+                    'question' => Question::where('question_id', $session)
+                        ->where('topic_id', $topic)->first(),
+                    'option' => Option_mcq::where('question_id', $session)
+                        ->get(),
+                ]);
+            }
+        } else {
+            $request->session()->increment('nosoal', $incrementBy = 1);
+            $session = $request->session()->get('nosoal');
+            if (Route::is('questionSoal')) {
+                return view('question', [
+                    'topic' => Topic::where('topic_id', $topic)->first(),
+                    'question' => Question::where('question_id', $session)
+                        ->where('topic_id', $topic)->first(),
+                    'option' => Option_mcq::where('question_id', $session)
+                        ->get(),
+                ]);
+            }
+        }
+        
+       
     }
 
     /**
@@ -46,8 +69,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('question_create',[
-          'topics' => Topic::all()
+        return view('question_create', [
+            'topics' => Topic::all()
         ]);
     }
 
@@ -62,11 +85,12 @@ class QuestionController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
+            $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/img');
             $image->move($destinationPath, $name);
 
             Question::create([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'image_path' => $name,
@@ -76,6 +100,7 @@ class QuestionController extends Controller
             ]);
         } else {
             Question::create([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'topic_id' => $request->topic,
@@ -83,7 +108,7 @@ class QuestionController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ]);
         }
-        return redirect('/admin/question')->with('createdQuestion','You have successfully created a new Question');
+        return redirect('/admin/question')->with('createdQuestion', 'You have successfully created a new Question');
     }
 
     /**
@@ -105,10 +130,10 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        return view('question_edit',[
+        return view('question_edit', [
             'topics' => Topic::all(),
-            'questions' => Question::where('question_id',$id)->first()
-          ]);
+            'questions' => Question::where('question_id', $id)->first()
+        ]);
     }
 
     /**
@@ -122,11 +147,12 @@ class QuestionController extends Controller
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
+            $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/img');
             $image->move($destinationPath, $name);
 
-            Question::where('question_id',$id)->update([
+            Question::where('question_id', $id)->update([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'image_path' => $name,
@@ -134,16 +160,17 @@ class QuestionController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ]);
         } else {
-            Question::where('question_id',$id)->update([
+            Question::where('question_id', $id)->update([
+                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
             ]);
         }
-        return redirect('/admin/question')->with('updatedQuestion','You have successfully updated the Question');
+        return redirect('/admin/question')->with('updatedQuestion', 'You have successfully updated the Question');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -153,8 +180,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        Question::where('question_id',$id)->delete();
-        return redirect('/admin/question')->with('success','You have deleted the question!');
+        Question::where('question_id', $id)->delete();
+        return redirect('/admin/question')->with('success', 'You have deleted the question!');
     }
 
 
@@ -164,7 +191,7 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function answerQuestion($id, Request $request, $topic)
+    public function answerQuestion($topic, $id, Request $request)
     {
 
         $score = 0;

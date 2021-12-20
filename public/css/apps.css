@@ -2450,10 +2450,6 @@ textarea.form-control {
     margin-right: 0.75rem;
 }
 
-.form-control:hover{
-   color: var(--green);
-}
-
 .form-check-inline .form-check-input {
     position: static;
     margin-top: 0;
