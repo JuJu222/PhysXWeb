@@ -11,6 +11,7 @@ use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
 use App\Models\UsersQuestions;
+use Illuminate\Support\Facades\File;
 
 class QuestionController extends Controller
 {
@@ -80,7 +81,7 @@ class QuestionController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/img');
+            $destinationPath = public_path('/img/questions');
             $image->move($destinationPath, $name);
 
             Question::create([
@@ -139,11 +140,19 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $question = Question::query()->findOrFail($id);
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/img');
             $image->move($destinationPath, $name);
+
+
+            if ($question->image_path) {
+                File::delete(public_path('/img/questions') . '/' . $question->image_path);
+            }
 
             Question::where('question_id', $id)->update([
                 'question_id' => $request->number,
@@ -174,7 +183,9 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        Question::where('question_id', $id)->delete();
+        $question = Question::where('question_id', $id);
+        File::delete(public_path('/img/uploads') . '/' . $question->image_path);
+        $question->delete();
         return redirect('/admin/question')->with('success', 'You have deleted the question!');
     }
 
