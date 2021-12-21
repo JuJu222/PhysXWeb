@@ -15,25 +15,27 @@
 <div class ="col-lg-12">
 <div class="form-group d-flex justify-content-center align-items-center">
 <div class="col-md-6">
-@if(Session::has('answerCorrect'))
-    <div class="alert alert-success">
-        <h3>{{ Session::get('answerCorrect') }}</h3>
-        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
-            @csrf
-            <h1><button name="soal" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
-            </form>
-    </div>
+
+    @if(Session::has('answerCorrect'))
+<div class="alert alert-success">
+    <h3>{{ Session::get('answerCorrect') }}</h3>
+    <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
+        @csrf
+        <h1><button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
+        </form>
+</div>
 @endif
 
 @if(Session::has('answerWrong'))
-    <div class="alert alert-danger">
-        <h3>{{ Session::get('answerWrong') }}</h3>
-        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
-            @csrf
-            <h1><button name="soal" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
-            </form>
-    </div>
+<div class="alert alert-danger">
+    <h3>{{ Session::get('answerWrong') }}</h3>
+    <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}" method="POST">
+        @csrf
+        <h1><button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal Berikut</button><h1>
+        </form>
+</div>
 @endif
+
 
 @if($question->question_type == "mcq")
  @foreach($option as $o)

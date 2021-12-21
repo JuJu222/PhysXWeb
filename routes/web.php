@@ -30,8 +30,8 @@ Route::resource('optionmcq', OptionmcqController::class);
 Route::resource('optionfitb', OptionfitbController::class);
 Route::resource('optiontof', OptiontofController::class);
 
-Route::get('question/{topic}/{question}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
-Route::post('question/{topic}/{question}', [QuestionController::class, 'answerQuestion']);
+Route::get('/question/{topic}/{question}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
+Route::post('/question/{topic}/{question}', [QuestionController::class, 'answerQuestion']);
 
 Route::get('admin/question/create',[QuestionController::class,'create']);
 Route::get('admin/question',[QuestionController::class,'index']);
@@ -50,4 +50,3 @@ Route::get('admin/optiontof',[OptiontofController::class,'index']);
 Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
 
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
-
