@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTopicsTable extends Migration
+class ChangeUsersQuestions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->string('topic_image')->nullable();
-            $table->text('description')->nullable();
+        Schema::table('usersquestions', function (Blueprint $table) {
+            $table->dateTime('time_start')->change();
+            $table->dateTime('time_end')->change();
         });
     }
 
@@ -26,7 +26,7 @@ class AddTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::table('topics', function (Blueprint $table) {
+        Schema::table('usersquestions', function (Blueprint $table) {
             //
         });
     }
