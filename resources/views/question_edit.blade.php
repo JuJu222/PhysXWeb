@@ -31,7 +31,7 @@
             <option value="mcq">Multiple Choice Question</option>
             <option value="{{ $questions->question_type }}" selected>Fill in the Blanks</option>
             <option value="tof">True or False</option>
-            @elseif($questions->quesiton_type == "tof")
+            @elseif($questions->question_type == "tof")
             <option value="mcq">Multiple Choice Question</option>
             <option value="fitb">Fill in the Blanks</option>
             <option value="{{ $questions->question_type }}" selected>True or False</option>
