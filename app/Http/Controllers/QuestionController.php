@@ -230,7 +230,7 @@ class QuestionController extends Controller
 
         $request->validate([
             'choice' => 'required',
-            
+
         ]);
 
 
@@ -240,18 +240,6 @@ class QuestionController extends Controller
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'You have answered the question correctly!');
-                    if($request->alert == 1){
-                     return back()->with('click', 1);
-                    }
-                    if ($question->question_id % 10 == 0) {
-                        //Redirect ke result page
-                        return redirect();
-                    }
-                } else if ($request->choice == $o->option && $o->is_correct == false) {
-                    $score = 0;
-                    $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Your answer is wrong!');
                     if($request->alert == 1){
                         return back()->with('click', 1);
                     }
@@ -259,6 +247,18 @@ class QuestionController extends Controller
                         //Redirect ke result page
                         return redirect();
                     }
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
+                } else if ($request->choice == $o->option && $o->is_correct == false) {
+                    $score = 0;
+                    $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    if($request->alert == 1){
+                        return back()->with('click', 1);
+                    }
+                    if ($question->question_id % 10 == 0) {
+                        //Redirect ke result page
+                        return redirect();
+                    }
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         } elseif ($question->question_type == "fitb") {
@@ -266,18 +266,17 @@ class QuestionController extends Controller
                 if ($request->choice == $o->answer) {
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'You have answered the question correctly!');
-
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Your answer is wrong!');
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         } elseif ($question->question_type == "tof") {
@@ -285,17 +284,17 @@ class QuestionController extends Controller
                 if ($request->choice == $o->true_or_false) {
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'You have answered the question correctly!');
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
+                    return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Your answer is wrong!');
                     if ($question->question_id % 10 == 0) {
                         return redirect();
                     }
+                    return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
         }
