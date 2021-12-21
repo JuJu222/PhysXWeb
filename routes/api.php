@@ -25,16 +25,17 @@ Route::post('login',[LoginController::class, 'login']);
 
 Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('logout',[LoginController::class,'logout']);
-});
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
+    Route::get('/user', function (Request $request) {
+        $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
 
-    return response()->json([
-        'user' => $request->user(),
-        'fis10user' => $fis10user
-    ]);
+        return response()->json([
+            'user' => $request->user(),
+            'fis10user' => $fis10user
+        ]);
+    });
+
+    Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 });
 
 Route::resource('shop', ShopItemController::class);
-Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');

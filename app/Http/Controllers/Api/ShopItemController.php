@@ -88,9 +88,9 @@ class ShopItemController extends Controller
         //
     }
 
-    public function buy($id)
+    public function buy(Request $request, $id)
     {
-        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
         $shopItem = ShopItem::query()->findOrFail($id);
 
         if ($shopItem->type == 'title') {
@@ -105,6 +105,9 @@ class ShopItemController extends Controller
             ]);
         }
 
-        return redirect(route('shop.index'));
+        return response()->json([
+            'message' => 'Buy shop item successful',
+            'fis10user' => $fis10user
+        ]);
     }
 }
