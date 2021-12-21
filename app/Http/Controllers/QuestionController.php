@@ -32,28 +32,29 @@ class QuestionController extends Controller
     {
         //Create User Soal Instance
         $score = 0;
-
+        $request->session()->forget('nosoal');
         if (!$request->session()->has('nosoal')) {
             $soalNumber = 1;
-            $request->session()->put('nosoal', $soalNumber);
+            $request->session()->put('nosoal', ($soalNumber + (10 * ($topic - 1))));
         }
 
         if ($request->session()->exists('nosoal')) {
             $session = $request->session()->get('nosoal');
 
             if ($request->session()->has('answerCorrect')) {
-                if($request->session()->get('click') == 1){
+                if ($request->session()->get('click') == 1) {
                     $session++;
                     $request->session()->forget('click');
                 }
             } else if ($request->session()->has('answerWrong')) {
-                if($request->session()->get('click') == 1){
+                if ($request->session()->get('click') == 1) {
                     $session++;
                     $request->session()->forget('click');
                 }
             }
 
             $users = Fis10User::where('user_id', auth()->user()->id)->first();
+
             $question = Question::where('question_id', $session)
                 ->where('topic_id', $topic)->first();
 
@@ -212,7 +213,7 @@ class QuestionController extends Controller
      */
     public function answerQuestion($topic, Request $request)
     {
-        if($request->alert == 1){
+        if ($request->alert == 1) {
             return back()->with(['click' => 1, 'answerCorrect' => 'You have answered the question correctly!']);
         }
 
@@ -245,9 +246,7 @@ class QuestionController extends Controller
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $score = 1;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    if($request->alert == 1){
-                        return back()->with('click', 1);
-                    }
+
                     if ($question->question_id % 10 == 0) {
                         //Redirect ke result page
                         return redirect();
@@ -256,9 +255,7 @@ class QuestionController extends Controller
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
                     $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    if($request->alert == 1){
-                        return back()->with('click', 1);
-                    }
+
                     if ($question->question_id % 10 == 0) {
                         //Redirect ke result page
                         return redirect();

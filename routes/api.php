@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Api\ShopItemController;
 use App\Models\Fis10User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\QuestionController;
+use App\Http\Controllers\Api\ShopItemController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 
@@ -44,6 +45,8 @@ Route::group(['middleware'=> 'auth:api'], function(){
     });
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+    Route::get('question/{topic}/{question}',[QuestionController::class,'question'])->name('question.question');
+    Route::post('question/{topic}/{question}',[QuestionController::class,'answer'])->name('question.answer');
 });
-
 Route::resource('shop', ShopItemController::class);
+Route::resource('question',QuestionController::class);

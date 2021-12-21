@@ -1,8 +1,61 @@
 /* shop */
+
 .form-shop {
     width: 50%;
 }
 
 .img-avatar {
     max-width: 200px;
+}
+
+.m180 {
+    margin-top: 200px;
+}
+
+.ml75 {
+    margin-left: -75px;
+}
+
+.mml20 {
+    margin-left: 22.5px;
+}
+
+.m20080 {
+    margin-top: 200px;
+    margin-left: -55px;
+}
+
+.r90 {
+    rotate: 90deg;
+}
+
+.r270 {
+    rotate: -90deg;
+}
+
+.warehouse1 {
+    margin-top: -140px;
+    margin-left: 900px;
+    rotate: 90deg;
+}
+
+.m1055 {
+    margin-top: -10px;
+    margin-left: -55px;
+}
+
+.mn80 {
+    margin-left: -80px;
+}
+
+.m60 {
+    margin-top: 60px;
+}
+
+.m45 {
+    margin-top: 45px;
+}
+
+.m90 {
+    margin-top: 90px;
 }
