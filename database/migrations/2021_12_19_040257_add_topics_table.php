@@ -14,8 +14,8 @@ class AddTopicsTable extends Migration
     public function up()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->string('topic_image');
-            $table->text('description');
+            $table->string('topic_image')->nullable();
+            $table->text('description')->nullable();
         });
     }
 
