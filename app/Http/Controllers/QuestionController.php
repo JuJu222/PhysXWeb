@@ -44,10 +44,12 @@ class QuestionController extends Controller
             if ($request->session()->has('answerCorrect')) {
                 if($request->session()->get('click') == 1){
                     $session++;
+                    $request->session()->forget('click');
                 }
             } else if ($request->session()->has('answerWrong')) {
                 if($request->session()->get('click') == 1){
                     $session++;
+                    $request->session()->forget('click');
                 }
             }
 
@@ -210,6 +212,9 @@ class QuestionController extends Controller
      */
     public function answerQuestion($topic, Request $request)
     {
+        if($request->alert == 1){
+            return back()->with(['click' => 1, 'answerCorrect' => 'You have answered the question correctly!']);
+        }
 
         $score = 0;
 
