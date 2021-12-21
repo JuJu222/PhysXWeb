@@ -17,11 +17,11 @@ class Fis10User extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function title() {
+    public function shopItemTitle() {
         return $this->belongsTo(ShopItem::class, 'title', 'shop_item_id');
     }
 
-    public function avatar() {
+    public function shopItemAvatar() {
         return $this->belongsTo(ShopItem::class, 'avatar', 'shop_item_id');
     }
 
