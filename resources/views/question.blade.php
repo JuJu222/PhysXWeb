@@ -19,7 +19,7 @@
                             @if(Session::has('answerCorrect'))
                                 <div class="alert alert-success">
                                     <h3>{{ Session::get('answerCorrect') }}</h3>
-                                    <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}"
+                                    <form action="/questions/{{ $topic->topic_id }}"
                                           method="POST">
                                         @csrf
                                         <h1>
@@ -34,7 +34,7 @@
                             @if(Session::has('answerWrong'))
                                 <div class="alert alert-danger">
                                     <h3>{{ Session::get('answerWrong') }}</h3>
-                                    <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}"
+                                    <form action="/questions/{{ $topic->topic_id }}"
                                           method="POST">
                                         @csrf
                                         <h1>
@@ -49,7 +49,7 @@
 
                             @if($question->question_type == "mcq")
                                 @foreach($option as $o)
-                                    <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}"
+                                    <form action="/questions/{{ $topic->topic_id }}"
                                           method="POST">
                                         @csrf
                                         <input name="choice" class="form-quiz mt-4" type="submit"
@@ -58,7 +58,7 @@
                                     </form>
 
                                     @elseif($question->question_type == "fitb")
-                                        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}"
+                                        <form action="/questions/{{ $topic->topic_id }}"
                                               method="POST">
                                             @csrf
                                             <input name="choice" class="form-fitb mt-4" type="text" value="">
@@ -66,7 +66,7 @@
                                         </form>
 
                                     @elseif($question->question_type == "tof")
-                                        <form action="/question/{{ $topic->topic_id }}/{{ $question->question_id }}"
+                                        <form action="/questions/{{ $topic->topic_id }}"
                                               method="POST">
                                             @csrf
                                             <div

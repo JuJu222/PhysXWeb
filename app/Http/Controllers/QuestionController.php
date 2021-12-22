@@ -28,7 +28,7 @@ class QuestionController extends Controller
     }
 
 
-    public function showQuestion($topic, $id, Request $request)
+    public function showQuestion($topic, Request $request)
     {
         //Create User Soal Instance
         $score = 0;
