@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -32,6 +33,10 @@ Route::resource('optiontof', OptiontofController::class);
 
 Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
 Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
+Route::get('/questionsclear', function (Request $request) {
+    $request->session()->forget('nosoal');
+    redirect('/');
+});
 
 Route::get('admin/question/create',[QuestionController::class,'create']);
 Route::get('admin/question',[QuestionController::class,'index']);

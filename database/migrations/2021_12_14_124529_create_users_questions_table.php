@@ -19,8 +19,8 @@ class CreateUsersQuestionsTable extends Migration
             $table->unsignedBigInteger('fis10_user_id');
             $table->string('answersoal')->nullable();
             $table->bigInteger('question_score')->nullable();
-            $table->timestamp('time_start');
-            $table->timestamp('time_end')->nullable();
+            $table->dateTime('time_start');
+            $table->dateTime('time_end')->nullable();
         });
 
         Schema::table('usersquestions',function(Blueprint $table){

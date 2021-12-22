@@ -205,6 +205,8 @@ class QuestionController extends Controller
     public function answerQuestion($topic, Request $request)
     {
         if ($request->alert == 1) {
+            $session = $request->session()->get('nosoal');
+            $request->session()->put('nosoal', $session + 1);
             return back()->with(['click' => 1]);
         }
 
