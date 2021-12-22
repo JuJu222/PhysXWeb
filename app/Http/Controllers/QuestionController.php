@@ -48,7 +48,7 @@ class QuestionController extends Controller
             $question = Question::where('question_id', $session)
                 ->where('topic_id', $topic)->first();
 
-            if (!$users->questions()->exists() && !($request->has('choice'))) {
+            if ($users->questions()->where('usersquestions.question_id', $session)->first() === null && !($request->has('choice'))) {
                 $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
             }
             return view('question', [
@@ -237,15 +237,11 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $score = 1;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
@@ -253,15 +249,11 @@ class QuestionController extends Controller
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
                     $score = 1;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
@@ -269,15 +261,11 @@ class QuestionController extends Controller
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
                     $score = 1;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
-                    if($users->questions()->question_id == $question->question_id){
-                        $users->questions()->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                    }
+                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
