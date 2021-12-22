@@ -15,22 +15,14 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('questions')->insert([
-            'question_id' => 1,
-            'question_type' => "mcq",
-            'question' => "Apa rumus dari g di gravitasi ?",
-            'image_path' => "soal1.jpg",
-            'topic_id' => 1,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
+        
 
         DB::table('questions')->insert([
             'question_id' => 2,
-            'question_type' => "fitb",
-            'question' => "Apa rumus dari kecepatan ?",
-            'image_path' => "soal2.jpg",
-            'topic_id' => 2,
+            'question_type' => "mcq",
+            'question' => "Halo namamu siapa",
+            'image_path' => "1640104700.jpg",
+            'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -40,7 +32,7 @@ class QuestionSeeder extends Seeder
             'question_type' => "tof",
             'question' => "Lensa cembung adalah lensa yang digunakan untuk orang yang rabun jauh ?",
             'image_path' => "soal3.jpg",
-            'topic_id' => 3,
+            'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
