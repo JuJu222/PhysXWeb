@@ -237,11 +237,11 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $score = 1;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
@@ -249,11 +249,11 @@ class QuestionController extends Controller
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
                     $score = 1;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
@@ -261,11 +261,11 @@ class QuestionController extends Controller
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
                     $score = 1;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'You have answered the question correctly!');
                 } else {
                     $score = 0;
-                    $users->questions()->where('usersquestions.question_id', $session)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('usersquestions.question_id', $session)->where('usersquestions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
