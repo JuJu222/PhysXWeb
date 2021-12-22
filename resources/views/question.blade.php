@@ -47,6 +47,7 @@
                             @endif
 
 
+                            @if(!Session::has('answerCorrect') && (!Session::has('answerWrong')))
                             @if($question->question_type == "mcq")
                                 @foreach($option as $o)
                                     <form action="/questions/{{ $topic->topic_id }}"
@@ -86,6 +87,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    @endif
                                     @endif
 
                         </div>
