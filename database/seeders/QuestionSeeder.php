@@ -17,7 +17,7 @@ class QuestionSeeder extends Seeder
     {
 
 
-        DB::table('questions')->insert([
+        DB::table('fis10_questions')->insert([
             'question_id' => 1,
             'question_type' => "mcq",
             'question' => "Halo namamu siapa",
@@ -27,7 +27,7 @@ class QuestionSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('questions')->insert([
+        DB::table('fis10_questions')->insert([
             'question_id' => 2,
             'question_type' => "tof",
             'question' => "Lensa cembung adalah lensa yang digunakan untuk orang yang rabun jauh ?",

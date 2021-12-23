@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersQuestionsTable extends Migration
+class CreateFis10UsersQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsersQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('usersquestions', function (Blueprint $table) {
+        Schema::create('fis10_users_questions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('question_id');
             $table->unsignedBigInteger('fis10_user_id');
@@ -23,9 +23,9 @@ class CreateUsersQuestionsTable extends Migration
             $table->dateTime('time_end')->nullable();
         });
 
-        Schema::table('usersquestions',function(Blueprint $table){
+        Schema::table('fis10_users_questions',function(Blueprint $table){
             $table->foreign('question_id')
-            ->references('question_id')->on('questions')
+            ->references('question_id')->on('fis10_questions')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
@@ -43,6 +43,6 @@ class CreateUsersQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usersquestions');
+        Schema::dropIfExists('fis10_users_questions');
     }
 }

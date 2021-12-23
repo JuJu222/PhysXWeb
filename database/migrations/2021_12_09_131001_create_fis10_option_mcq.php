@@ -20,7 +20,7 @@ class CreateFis10OptionMcq extends Migration
             $table->foreignId('question_id');
             $table->foreign('question_id')
             ->references('question_id')
-            ->on('questions')
+            ->on('fis10_questions')
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });

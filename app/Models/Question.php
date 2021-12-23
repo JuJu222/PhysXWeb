@@ -10,7 +10,7 @@ class Question extends Model
     use HasFactory;
 
     protected $primaryKey = "question_id";
-    protected $table = 'questions';
+    protected $table = 'fis10_questions';
     protected $fillable= ['question_id','question_type', 'question','image_path','topic_id'];
 
 
@@ -31,14 +31,14 @@ class Question extends Model
     }
 
     public function fis10users(){
-        return $this->belongsToMany(Fis10User::class, 'usersquestions','question_id','fis10_user_id');
+        return $this->belongsToMany(Fis10User::class, 'fis10_users_questions','question_id','fis10_user_id');
     }
 
 
 
 
 
-    
+
 
 
 

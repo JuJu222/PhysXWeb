@@ -9,6 +9,6 @@ class UsersQuestions extends Model
 {
     use HasFactory;
 
-    protected $table= ['usersquestions'];
+    protected $table= 'fis10_users_questions';
     protected $guarded = ['id'];
 }
