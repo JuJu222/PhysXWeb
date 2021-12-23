@@ -20,14 +20,14 @@ class OptionSeeder extends Seeder
             'option' => "9.69 m/s",
             'is_correct' => false,
             'question_id' => 1
-        ]);  
+        ]);
 
         DB::table('fis10_option_mcq')->insert([
             'option_mcq_id' => 2,
             'option' => "9.68 m/s",
             'is_correct' => false,
             'question_id' => 1
-        ]); 
+        ]);
 
         DB::table('fis10_option_mcq')->insert([
             'option_mcq_id' => 3,
@@ -53,7 +53,7 @@ class OptionSeeder extends Seeder
 
         //Question 3
         DB::table('fis10_option_tof')->insert([
-            'option_tof_id' => 1,
+            'option_tof_id' => 2,
             'true_or_false' => true,
             'question_id' => 2
         ]);
