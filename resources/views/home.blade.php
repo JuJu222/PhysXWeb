@@ -123,7 +123,7 @@
             </a>
         </svg>
         </div>
-        <div style="margin-top: -252.5px; margin-left: 385px;">
+        <div style="margin-top: -252.5px; margin-left: 385px; margin-right: 400px;">
             <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
@@ -134,15 +134,15 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple m90 mml20 stc3" viewBox="0 0 16 16">
-            <a href="#">
-                <circle cx="8" cy="8" r="8"/>
-            </a>
-        </svg>
-        <div style="margin-top: -230px; margin-left: 582.5px;">
-            <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: 175px; margin-top:  47.5px; transform: rotate(90deg);" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 160px; margin-left: -75px;" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: -55px; margin-left: -55px;" width="50px" height="50px">
+        <div style="margin-top: -230px; margin-left: 582.5px; z-index: 1;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-left: 75px; margin-top: 65px;" viewBox="0 0 16 16">
+                <a href="#">
+                    <circle cx="8" cy="8" r="8"/>
+                </a>
+            </svg>
+            <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: 5px; margin-top:  67.5px; transform: rotate(90deg);" width="100px" height=100px">
+            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 180px; margin-left: -75px;" width="50px" height="50px">
+            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: -25px; margin-left: -55px;" width="50px" height="50px">
         </div>
         <img src="{{ asset('img/bighouse.svg')}}" class="absolute" style="margin-top: -200px; margin-left: 850px; transform: rotate(90deg);" width="250px" height="250px">
         <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-top: -1000px; margin-left: 250px;" width="400px" height=400px">
