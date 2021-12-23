@@ -17,26 +17,32 @@ class TopicSeeder extends Seeder
     {
         DB::table('topics')->insert([
             'topic_id' => 1,
-            'topic' => 'Gravitasi',
+            'topic_name' => 'Gravitasi',
             'difficulty' => 'easy',
+            'description' => '',
+            'topic_image'=> '',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now() 
         ]);
 
         DB::table('topics')->insert([
             'topic_id' => 2,
-            'topic' => 'Kecepatan',
+            'topic_name' => 'Kecepatan',
             'difficulty' => 'easy',
+            'description' => '',
+            'topic_image'=> '',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now() 
         ]);
 
         DB::table('topics')->insert([
             'topic_id' => 3,
-            'topic' => 'Lensa',
+            'topic_name' => 'Berat',
             'difficulty' => 'easy',
+            'description' => '',
+            'topic_image'=> '',
             'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now() 
+            'updated_at' => \Carbon\Carbon::now()  
         ]);
     }
 }
