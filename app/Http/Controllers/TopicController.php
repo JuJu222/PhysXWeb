@@ -14,6 +14,7 @@ class TopicController extends Controller
     public function index()
     {
         //
+        return view('home');
     }
 
     /**
@@ -46,6 +47,38 @@ class TopicController extends Controller
     public function show($id)
     {
         //
+        switch($id){
+            case 1:
+                return view('besarandansatuan');
+                break;
+            case 2:
+                return view('vektor');
+                break;
+            case 3:
+                return view('geraklurus');
+                break;
+            case 4:
+                return view('gerakparabola');
+                break;
+            case 5:
+                return view('gerakmelingkarberaturan');
+                break;
+            case 6:
+                return view('hukumnewtongerak');
+                break;
+            case 7:
+                return view('hukumnewtongravitasi');
+                break;
+            case 8:
+                return view('usahadanenergi');
+                break;
+            case 9:
+                return view('momentumdanimpuls');
+                break;
+            case 10:
+                return view('getaranharmonis');
+                break;
+        }
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Http\Controllers\ShopItemController;
 use App\Http\Controllers\OptionmcqController;
 use App\Http\Controllers\OptiontofController;
 use App\Http\Controllers\OptionfitbController;
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,6 @@ use App\Http\Controllers\OptionfitbController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('shop', ShopItemController::class);
 Route::resource('question', QuestionController::class);
@@ -54,4 +54,5 @@ Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'ed
 
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 
-Route::get('topic/{id}',[TopicController::class, 'topic']);
+Route::get('/',[TopicController::class, 'index']);
+Route::get('topic/{id}',[TopicController::class, 'show']);
