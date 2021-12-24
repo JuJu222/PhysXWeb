@@ -16,7 +16,7 @@
         <img src="{{ asset('img/rumput.svg')}}" class="absolute m1055" width="50px" height="50px">
         <img src="{{ asset('img/road.svg')}}" class="absolute m45 mn80 r90 m90" width="100px" height="100px">   
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple m90" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 1) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -30,7 +30,7 @@
         <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
         <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple m90 mml20" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 2) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -42,7 +42,7 @@
         {{-- Style ga rapi --}}
         <img src="{{ asset('img/road.svg') }}" class="absolute st1" width="100px" height=100px">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple st3" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 3) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -52,7 +52,7 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute st5"  width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute st6"  width="50px" height="50px">
             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple absolute st2" viewBox="0 0 16 16">
-                <a href="#">
+                <a href="{{ route('topics.show', 4) }}">
                     <circle cx="8" cy="8" r="8"/>
                 </a>
             </svg>
@@ -65,7 +65,7 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput2" width="50px" height="50px">
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple absolute stc1" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 5) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -81,7 +81,7 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple m90 mml20 stc2" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 6) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -94,7 +94,7 @@
         <div style="margin-top: -310px;">
             <img src="{{ asset('img/road.svg') }}" class="absolute stroadlast" width="100px" height=100px">
             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-top: 25px; margin-left: -101px;" viewBox="0 0 16 16">
-                <a href="#">
+                <a href="{{ route('topics.show', 7) }}">
                     <circle cx="8" cy="8" r="8"/>
                 </a>
             </svg>
@@ -102,7 +102,7 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput4"  width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput3" width="50px" height="50px">
             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-top: 435px; margin-left: -25px;" viewBox="0 0 16 16">
-                <a href="#">
+                <a href="{{ route('topics.show', 8) }}">
                     <circle cx="8" cy="8" r="8"/>
                 </a>
             </svg>
@@ -118,7 +118,7 @@
         <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 160px; margin-left: -75px;" width="50px" height="50px">
         <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: -55px; margin-left: -55px;" width="50px" height="50px">
         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple m90 mml20" style="margin-top: 45px; margin-left: 25px;" viewBox="0 0 16 16">
-            <a href="#">
+            <a href="{{ route('topics.show', 9) }}">
                 <circle cx="8" cy="8" r="8"/>
             </a>
         </svg>
@@ -136,7 +136,7 @@
         </div>
         <div style="margin-top: -230px; margin-left: 582.5px; z-index: 1;">
             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-left: 75px; margin-top: 65px;" viewBox="0 0 16 16">
-                <a href="#">
+                <a href="{{ route('topics.show', 10) }}">
                     <circle cx="8" cy="8" r="8"/>
                 </a>
             </svg>

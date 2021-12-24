@@ -15,7 +15,9 @@ class CreateFis10TopicsTable extends Migration
     {
         Schema::create('fis10_topics', function (Blueprint $table) {
             $table->id('topic_id');
-            $table->string('topic');
+            $table->string('topic_name');
+            $table->string('description');
+            $table->string('topic_image');
             $table->string('difficulty');
             $table->timestamps();
         });

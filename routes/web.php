@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -9,6 +8,7 @@ use App\Http\Controllers\ShopItemController;
 use App\Http\Controllers\OptionmcqController;
 use App\Http\Controllers\OptiontofController;
 use App\Http\Controllers\OptionfitbController;
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,9 @@ Route::resource('question', QuestionController::class);
 Route::resource('optionmcq', OptionmcqController::class);
 Route::resource('optionfitb', OptionfitbController::class);
 Route::resource('optiontof', OptiontofController::class);
+Route::resource('topics', TopicController::class);
+Route::resource('fis10user', Fis10UserController::class);
+Route::resource('fis10usertopics', Fis10UserTopikController::class);
 
 Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
 Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
@@ -56,3 +59,5 @@ Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'ed
 
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
 Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
+
+Route::get('topic/{id}',[TopicController::class, 'show']);

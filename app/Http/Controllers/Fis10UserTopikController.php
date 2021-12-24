@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
 use Illuminate\Http\Request;
 
-class TopicController extends Controller
+class Fis10UserTopikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,6 @@ class TopicController extends Controller
     public function index()
     {
         //
-        return view('home');
     }
 
     /**
@@ -48,39 +46,6 @@ class TopicController extends Controller
     public function show($id)
     {
         //
-        $topic = Topic::where('topic_id', $id)->first();
-        switch($id){
-            case 1:
-                return view('besarandansatuan', compact('topic'));
-                break;
-            case 2:
-                return view('vektor', compact('topic'));
-                break;
-            case 3:
-                return view('geraklurus', compact('topic'));
-                break;
-            case 4:
-                return view('gerakparabola', compact('topic'));
-                break;
-            case 5:
-                return view('gerakmelingkarberaturan', compact('topic'));
-                break;
-            case 6:
-                return view('hukumnewtongerak', compact('topic'));
-                break;
-            case 7:
-                return view('hukumnewtongravitasi', compact('topic'));
-                break;
-            case 8:
-                return view('usahadanenergi', compact('topic'));
-                break;
-            case 9:
-                return view('momentumdanimpuls', compact('topic'));
-                break;
-            case 10:
-                return view('getaranharmonis', compact('topic'));
-                break;
-        }
     }
 
     /**
