@@ -15,12 +15,9 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-
-
         DB::table('fis10_questions')->insert([
-            'question_id' => 1,
             'question_type' => "mcq",
-            'question' => "Halo namamu siapa",
+            'question' => "Energi kinetik (Ek) dinyatakan oleh Ek =12\begin{aligned}\frac{1}{2}\end{aligned}21​​mv2. Dimensi energi kinetik adalah ...",
             'image_path' => "1640104700.jpg",
             'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
@@ -28,9 +25,17 @@ class QuestionSeeder extends Seeder
         ]);
 
         DB::table('fis10_questions')->insert([
-            'question_id' => 2,
             'question_type' => "tof",
-            'question' => "Lensa cembung adalah lensa yang digunakan untuk orang yang rabun jauh ?",
+            'question' => "Besaran yang dimensinya MLT-2 adalah ....",
+            'image_path' => "soal3.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_type' => "fitb",
+            'question' => "Besar gaya elastis sebuah pegas dinyatakan oleh F = kx, dengan k adalah konstansta pegas dan x adalah perubahan panjang pegas. Dimensi konstanta adalah ....",
             'image_path' => "soal3.jpg",
             'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),

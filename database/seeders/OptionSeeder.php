@@ -43,19 +43,17 @@ class OptionSeeder extends Seeder
             'question_id' => 1
         ]);
 
-
         //Question 2
-        DB::table('fis10_option_fitb')->insert([
-            'option_fitb_id' => 1,
-            'answer' => "v/t",
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
             'question_id' => 2
         ]);
 
         //Question 3
-        DB::table('fis10_option_tof')->insert([
-            'option_tof_id' => 2,
-            'true_or_false' => true,
-            'question_id' => 2
+        DB::table('fis10_option_fitb')->insert([
+            'option_fitb_id' => 1,
+            'answer' => "v/t",
+            'question_id' => 3
         ]);
     }
 }
