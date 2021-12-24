@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Question extends Model
 {
     use HasFactory;
 
     protected $primaryKey = "question_id";
-    protected $table = 'fis10_questions';
+    protected $table = 'questions';
     protected $fillable= ['question_id','question_type', 'question','image_path','topic_id'];
 
 
@@ -23,11 +22,11 @@ class Question extends Model
     }
 
     public function optionFITB(){
-        return $this->hasMany(Option_FITB::class,'option_fitb_id','question_id');
+        return $this->hasMany(Option_fitb::class,'option_fitb_id','question_id');
     }
 
     public function optionTOF(){
-        return $this->hasMany(Option_TOF::class,'option_tof_id','question_id');
+        return $this->hasMany(Option_tof::class,'option_tof_id','question_id');
     }
 
     public function fis10users(){
