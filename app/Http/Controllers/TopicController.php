@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class TopicController extends Controller
@@ -47,36 +48,37 @@ class TopicController extends Controller
     public function show($id)
     {
         //
+        $topic = Topic::where('topic_id', $id)->first();
         switch($id){
             case 1:
-                return view('besarandansatuan');
+                return view('besarandansatuan', compact('topic'));
                 break;
             case 2:
-                return view('vektor');
+                return view('vektor', compact('topic'));
                 break;
             case 3:
-                return view('geraklurus');
+                return view('geraklurus', compact('topic'));
                 break;
             case 4:
-                return view('gerakparabola');
+                return view('gerakparabola', compact('topic'));
                 break;
             case 5:
-                return view('gerakmelingkarberaturan');
+                return view('gerakmelingkarberaturan', compact('topic'));
                 break;
             case 6:
-                return view('hukumnewtongerak');
+                return view('hukumnewtongerak', compact('topic'));
                 break;
             case 7:
-                return view('hukumnewtongravitasi');
+                return view('hukumnewtongravitasi', compact('topic'));
                 break;
             case 8:
-                return view('usahadanenergi');
+                return view('usahadanenergi', compact('topic'));
                 break;
             case 9:
-                return view('momentumdanimpuls');
+                return view('momentumdanimpuls', compact('topic'));
                 break;
             case 10:
-                return view('getaranharmonis');
+                return view('getaranharmonis', compact('topic'));
                 break;
         }
     }
