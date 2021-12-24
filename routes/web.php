@@ -55,3 +55,4 @@ Route::get('admin/optiontof',[OptiontofController::class,'index']);
 Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
 
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fis10User;
+use App\Models\OwnedItem;
 use App\Models\ShopItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,9 @@ class ShopItemController extends Controller
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $titles = ShopItem::query()->where('type', 'title')->get();
         $avatars = ShopItem::query()->where('type', 'avatar')->get();
+        $ownedItems = $fis10user->shopItem;
 
-        return view('shop', compact('fis10user', 'titles', 'avatars'));
+        return view('shop', compact('fis10user', 'titles', 'avatars', 'ownedItems'));
     }
 
     /**
@@ -154,15 +156,56 @@ class ShopItemController extends Controller
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $shopItem = ShopItem::query()->findOrFail($id);
 
-        if ($shopItem->type == 'title') {
-            $fis10user->update([
-                'title' => $shopItem->shop_item_id,
-                'coins' => $fis10user->coins - $shopItem->price
-            ]);
-        } else {
-            $fis10user->update([
-                'avatar' => $shopItem->shop_item_id,
-                'coins' => $fis10user->coins - $shopItem->price
+        if (!$fis10user->shopItem->contains($shopItem)) {
+            if ($shopItem->type == 'title') {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'title' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                           'is_equipped' => false
+                        ]);
+                    }
+                }
+            } else {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            }
+            $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
+        }
+
+        return redirect(route('shop.index'));
+    }
+
+    public function equip($id)
+    {
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $shopItem = ShopItem::query()->findOrFail($id);
+
+        if (!$shopItem->fis10User()->findOrFail($fis10user->fis10_user_id)->pivot->is_equiped) {
+            if ($shopItem->type == 'title') {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'title' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            } else {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            }
+
+            $shopItem->fis10User()->findOrFail($fis10user->fis10_user_id)->pivot->update([
+                'is_equipped' => true
             ]);
         }
 

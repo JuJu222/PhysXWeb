@@ -21,15 +21,33 @@
                     <p>Price: {{ $title->price }}</p>
                 </div>
                 <div class="col-md-auto text-right">
-                    <form action="{{ route('shop.buy', $title->shop_item_id) }}" method="POST">
                         @csrf
-                        @if ($fis10user->title == $title->shop_item_id)
-                            <button type="submit" class="btn btn-primary" disabled>Buy</button>
-                            <p class="mt-2">You already own this item.</p>
+                        <?php $owned = false ?>
+                        <?php $equipped = false ?>
+                        @foreach($ownedItems as $ownedItem)
+                            @if ($ownedItem->shop_item_id == $title->shop_item_id)
+                                <?php $owned = true ?>
+                                @if ($ownedItem->pivot->is_equipped)
+                                    <?php $equipped = true ?>
+                                @endif
+                            @endif
+                        @endforeach
+                        @if ($owned)
+                            <form action="{{ route('shop.equip', $title->shop_item_id) }}" method="POST">
+                                @csrf
+                                @if($equipped)
+                                    <button type="submit" class="btn btn-primary" disabled>Equip</button>
+                                @else
+                                    <button type="submit" class="btn btn-primary">Equip</button>
+                                @endif
+                                <p class="mt-2">You already own this item.</p>
+                            </form>
                         @else
-                            <button type="submit" class="btn btn-primary">Buy</button>
+                            <form action="{{ route('shop.buy', $title->shop_item_id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Buy</button>
+                            </form>
                         @endif
-                    </form>
                     @if (auth()->user()->role == 'admin')
                         <a href="{{ route('shop.edit', $title->shop_item_id) }}" class="btn btn-primary mt-1">Edit</a>
                         <form class="mt-1" id="form_delete" action="{{ route('shop.destroy', $title->shop_item_id) }}" method="POST">
@@ -58,15 +76,33 @@
                     </div>
                 </div>
                 <div class="col-md-auto text-right">
-                    <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
-                        @csrf
-                        @if ($fis10user->avatar == $avatar->shop_item_id)
-                            <button type="submit" class="btn btn-primary" disabled>Buy</button>
-                            <p class="mt-2">You already own this item.</p>
-                        @else
-                            <button type="submit" class="btn btn-primary">Buy</button>
+                    @csrf
+                    <?php $owned = false ?>
+                    <?php $equipped = false ?>
+                    @foreach($ownedItems as $ownedItem)
+                        @if ($ownedItem->shop_item_id == $avatar->shop_item_id)
+                            <?php $owned = true ?>
+                            @if ($ownedItem->pivot->is_equipped)
+                                <?php $equipped = true ?>
+                            @endif
                         @endif
-                    </form>
+                    @endforeach
+                    @if ($owned)
+                        <form action="{{ route('shop.equip', $avatar->shop_item_id) }}" method="POST">
+                            @csrf
+                            @if($equipped)
+                                <button type="submit" class="btn btn-primary" disabled>Equip</button>
+                            @else
+                                <button type="submit" class="btn btn-primary">Equip</button>
+                            @endif
+                            <p class="mt-2">You already own this item.</p>
+                        </form>
+                    @else
+                        <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Buy</button>
+                        </form>
+                    @endif
                     @if (auth()->user()->role == 'admin')
                         <a href="{{ route('shop.edit', $avatar->shop_item_id) }}" class="btn btn-primary mt-1">Edit</a>
                         <form class="mt-1" id="form_delete" action="{{ route('shop.destroy', $avatar->shop_item_id) }}" method="POST">
@@ -79,9 +115,9 @@
             </div>
         @endforeach
     </div>
-    <div class="d-flex justify-content-start mt-3 mx-5">
-        <a href="{{ route('shop.create') }}" class="btn btn-primary">Create</a>
-    </div>
-
-
+    @if (auth()->user()->role == 'admin')
+        <div class="d-flex justify-content-start mt-3 mx-5">
+            <a href="{{ route('shop.create') }}" class="btn btn-primary">Create</a>
+        </div>
+    @endif
 @endsection

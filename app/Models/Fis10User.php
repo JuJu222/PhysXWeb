@@ -17,12 +17,8 @@ class Fis10User extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function shopItemTitle() {
-        return $this->belongsTo(ShopItem::class, 'title', 'shop_item_id');
-    }
-
-    public function shopItemAvatar() {
-        return $this->belongsTo(ShopItem::class, 'avatar', 'shop_item_id');
+    public function shopItem(){
+        return $this->belongsToMany(ShopItem::class, 'fis10_owned_items','fis10_user_id','shop_item_id')->withPivot(['is_equipped']);
     }
 
     public function questions(){
