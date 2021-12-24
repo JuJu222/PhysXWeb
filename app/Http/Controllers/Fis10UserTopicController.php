@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Fis10UserTopikController extends Controller
+class Fis10UserTopicController extends Controller
 {
     /**
      * Display a listing of the resource.

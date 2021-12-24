@@ -15,7 +15,7 @@ class TopicSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 1,
             'topic_name' => 'Besaran Dan Satuan',
             'difficulty' => 'easy',
@@ -25,7 +25,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 2,
             'topic_name' => 'Vektor',
             'difficulty' => 'easy',
@@ -35,7 +35,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 3,
             'topic_name' => 'Gerak Lurus',
             'difficulty' => 'easy',
@@ -45,7 +45,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 4,
             'topic_name' => 'Gerak Parabola',
             'difficulty' => 'easy',
@@ -55,7 +55,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 5,
             'topic_name' => 'Gerak Melingkar Beraturan',
             'difficulty' => 'easy',
@@ -65,7 +65,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 6,
             'topic_name' => 'Hukum Newton (Gerak)',
             'difficulty' => 'easy',
@@ -75,7 +75,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 7,
             'topic_name' => 'Hukum Newton (Gravitasi)',
             'difficulty' => 'easy',
@@ -85,7 +85,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 8,
             'topic_name' => 'Usaha dan Energi',
             'difficulty' => 'easy',
@@ -96,7 +96,7 @@ class TopicSeeder extends Seeder
         ]);
 
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 9,
             'topic_name' => 'Momentum dan Impuls',
             'difficulty' => 'easy',
@@ -106,7 +106,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 10,
             'topic_name' => 'Getaran Harmonis',
             'difficulty' => 'easy',
@@ -116,7 +116,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 11,
             'topic_name' => 'Besaran Dan Satuan',
             'difficulty' => 'hard',
@@ -126,7 +126,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 12,
             'topic_name' => 'Vektor',
             'difficulty' => 'hard',
@@ -136,7 +136,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 13,
             'topic_name' => 'Gerak Lurus',
             'difficulty' => 'hard',
@@ -146,7 +146,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 14,
             'topic_name' => 'Gerak Parabola',
             'difficulty' => 'hard',
@@ -156,7 +156,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 15,
             'topic_name' => 'Gerak Melingkar Beraturan',
             'difficulty' => 'hard',
@@ -166,7 +166,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 16,
             'topic_name' => 'Hukum Newton (Gerak)',
             'difficulty' => 'hard',
@@ -176,7 +176,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 17,
             'topic_name' => 'Hukum Newton (Gravitasi)',
             'difficulty' => 'hard',
@@ -186,7 +186,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 18,
             'topic_name' => 'Usaha dan Energi',
             'difficulty' => 'hard',
@@ -197,7 +197,7 @@ class TopicSeeder extends Seeder
         ]);
 
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 19,
             'topic_name' => 'Momentum dan Impuls',
             'difficulty' => 'hard',
@@ -207,7 +207,7 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('topics')->insert([
+        DB::table('fis10_topics')->insert([
             'topic_id' => 20,
             'topic_name' => 'Getaran Harmonis',
             'difficulty' => 'hard',

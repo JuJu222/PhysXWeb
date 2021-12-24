@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class fis10_users_topik extends Model
+class Fis10UserTopic extends Model
 {
     use HasFactory;
 }

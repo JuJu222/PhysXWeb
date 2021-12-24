@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Fis10UserTopicController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -32,7 +33,7 @@ Route::resource('optionfitb', OptionfitbController::class);
 Route::resource('optiontof', OptiontofController::class);
 Route::resource('topics', TopicController::class);
 Route::resource('fis10user', Fis10UserController::class);
-Route::resource('fis10usertopics', Fis10UserTopikController::class);
+Route::resource('fis10usertopics', Fis10UserTopicController::class);
 
 Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
 Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
