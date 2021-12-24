@@ -95,15 +95,6 @@ class TopicSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now() 
         ]);
 
-        DB::table('topics')->insert([
-            'topic_id' => 8,
-            'topic_name' => 'Usaha dan Energi',
-            'difficulty' => 'easy',
-            'description' => '',
-            'topic_image'=> '',
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now() 
-        ]);
 
         DB::table('topics')->insert([
             'topic_id' => 9,
@@ -119,6 +110,107 @@ class TopicSeeder extends Seeder
             'topic_id' => 10,
             'topic_name' => 'Getaran Harmonis',
             'difficulty' => 'easy',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 11,
+            'topic_name' => 'Besaran Dan Satuan',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 12,
+            'topic_name' => 'Vektor',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 13,
+            'topic_name' => 'Gerak Lurus',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 14,
+            'topic_name' => 'Gerak Parabola',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 15,
+            'topic_name' => 'Gerak Melingkar Beraturan',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 16,
+            'topic_name' => 'Hukum Newton (Gerak)',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 17,
+            'topic_name' => 'Hukum Newton (Gravitasi)',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 18,
+            'topic_name' => 'Usaha dan Energi',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+
+        DB::table('topics')->insert([
+            'topic_id' => 19,
+            'topic_name' => 'Momentum dan Impuls',
+            'difficulty' => 'hard',
+            'description' => '',
+            'topic_image'=> '',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now() 
+        ]);
+
+        DB::table('topics')->insert([
+            'topic_id' => 20,
+            'topic_name' => 'Getaran Harmonis',
+            'difficulty' => 'hard',
             'description' => '',
             'topic_image'=> '',
             'created_at' => \Carbon\Carbon::now(),
