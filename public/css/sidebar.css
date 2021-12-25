@@ -118,12 +118,12 @@ body {
 }
 
 .sidebar ul li a:hover {
-    margin-top: 30px;
+    transform: scale(1.1);
     color: #534e86;
 }
 
 .sidebar.active ul li a:hover {
-    margin-top: 30px;
+    transform: scale(1.1);
     color: #534e86;
     background: #EFEBFE;
 }
