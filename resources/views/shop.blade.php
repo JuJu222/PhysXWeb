@@ -66,9 +66,7 @@
             <div class="py-3 row border-bottom">
                 <div class="col">
                     <div class="row">
-                        <div class="col-md-auto">
-                            <img src="{{ asset('img/avatars/' . $avatar->image_path) }}" alt="{{ $avatar->item }}" class="img-avatar">
-                        </div>
+                        <img src="{{ asset('img/avatars/' . $avatar->image_path) }}" alt="{{ $avatar->item }}" class="img-avatar">
                         <div class="col align-self-center">
                             <h2>{{ $avatar->item }}</h2>
                             <p>Price: {{ $avatar->price }}</p>
