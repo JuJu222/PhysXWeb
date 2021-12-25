@@ -18,15 +18,15 @@ class Question extends Model
     }
 
     public function optionMCQ(){
-        return $this->hasMany(Option_mcq::class,'option_mcq_id','question_id');
+        return $this->hasMany(Option_mcq::class,'question_id','question_id');
     }
 
     public function optionFITB(){
-        return $this->hasMany(Option_fitb::class,'option_fitb_id','question_id');
+        return $this->hasMany(Option_fitb::class,'question_id','question_id');
     }
 
     public function optionTOF(){
-        return $this->hasMany(Option_tof::class,'option_tof_id','question_id');
+        return $this->hasMany(Option_tof::class,'question_id','question_id');
     }
 
     public function fis10users(){

@@ -74,13 +74,13 @@ class QuestionController extends Controller
         $questions = $question->get();
 
         foreach($questions as $q){
-            if($q->question_type == "mcq"){
+            if($q->question_type == 'mcq'){
                 $optionMCQ = $question->with('optionMCQ')->get();
                 return ['questions' => Option_mcqResource::collection($optionMCQ)];
-            }else if($q->question_type == "fitb" ){
+            }else if($q->question_type == 'fitb' ){
                 $optionFITB = $question->with('optionFITB')->get();
                 return ['questions' => Option_fitbResource::collection($optionFITB)];
-            }else if($q->question_type == "tof"){
+            }else if($q->question_type == 'tof'){
                 $optionTOF = $question->with('optionTOF')->get();
                 return ['questions' => Option_tofResource::collection($optionTOF)];
             }
