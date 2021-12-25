@@ -7,7 +7,7 @@
     </div>
     <ul class="nav_list">
       <li>
-        <a href="#">
+        <a href="/">
           <i class='bx bxs-home bx-tada-hover'></i>
           <span class="links_home"><b>Rumah</b></span>
         </a>
@@ -29,7 +29,7 @@
       </li>
       <li>
         <a href="{{ route('shop.index') }}">
-          <i class='bx bxs-cog bx-tada-hover'></i>
+          <i class='bi bi-bag-fill bx-tada-hover'></i>
           <span class="links_settings"><b>Shop</b></span>
         </a>
 
@@ -69,4 +69,4 @@
   btn.onclick = function(){
     sidebar.classList.toggle("active");
   }
-</script> 
+</script>
