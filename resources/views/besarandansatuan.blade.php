@@ -23,5 +23,7 @@
     <img src="https://i0.wp.com/www.zenius.net/blog/wp-content/uploads/2021/01/contoh.png?fit=534%2C338&ssl=1" class="rounded mx-auto d-block">
     <figcaption class="text-center">Sumber: Zenius | https://www.zenius.net/blog/materi-lengkap-besaran-dan-satuan-fisika</figcaption>
 </figure> 
-
+<p>Simak <span class="fw-bolder">playlist</span> yang dibuat oleh <span class="fw-bolder">Le GuruLes</span> terkait Besaran dan Satuan untuk dapat mengerti materi ini lebih dalam.</p>
+<iframe width="560" height="315" class="rounded mx-auto d-block" src="https://www.youtube.com/embed/videoseries?list=PLovW1TU0Q47yMBBQKezzFp8i5r8DNLs5H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Sumber: Zenius</p>
 @endsection
