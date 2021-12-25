@@ -32,21 +32,15 @@ Route::group(['middleware'=> 'auth:api'], function(){
 
         return response()->json([
             'user' => $request->user(),
-            'fis10user' => [
-                'fis10_user_id' => $fis10user->fis10_user_id,
-                'user_id' => $fis10user->user_id,
-                'coins' => $fis10user->coins,
-                'title' => $fis10user->shopItemTitle->item,
-                'avatar' => $fis10user->shopItemAvatar->item,
-                'created_at' => $fis10user->created_at,
-                'updated_at' => $fis10user->updated_at,
-            ]
+            'fis10user' => $fis10user
         ]);
     });
 
+    Route::resource('shop', ShopItemController::class);
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+    Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
+
     Route::get('question/{topic}/{question}',[QuestionController::class,'question'])->name('question.question');
     Route::post('question/{topic}/{question}',[QuestionController::class,'answer'])->name('question.answer');
 });
-Route::resource('shop', ShopItemController::class);
 Route::resource('question',QuestionController::class);

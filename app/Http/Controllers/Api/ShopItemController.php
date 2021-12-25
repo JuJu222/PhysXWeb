@@ -16,10 +16,15 @@ class ShopItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $shopItems = ShopItem::all();
-        return ['shop_items' => ShopItemResource::collection($shopItems)];
+        $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
+        $ownedItems = $fis10user->shopItem;
+        return [
+            'shop_items' => ShopItemResource::collection($shopItems),
+            'owned_items' => $ownedItems
+            ];
     }
 
     /**
@@ -93,29 +98,65 @@ class ShopItemController extends Controller
         $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
         $shopItem = ShopItem::query()->findOrFail($id);
 
-        if ($shopItem->type == 'title') {
-            $fis10user->update([
-                'title' => $shopItem->shop_item_id,
-                'coins' => $fis10user->coins - $shopItem->price
-            ]);
-        } else {
-            $fis10user->update([
-                'avatar' => $shopItem->shop_item_id,
-                'coins' => $fis10user->coins - $shopItem->price
-            ]);
+        if (!$fis10user->shopItem->contains($shopItem)) {
+            if ($shopItem->type == 'title') {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'title' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            } else {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            }
+            $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
         }
 
         return response()->json([
             'message' => 'Buy shop item successful',
-            'fis10user' => [
-                'fis10_user_id' => $fis10user->fis10_user_id,
-                'user_id' => $fis10user->user_id,
-                'coins' => $fis10user->coins,
-                'title' => $fis10user->shopItemTitle->item,
-                'avatar' => $fis10user->shopItemAvatar->item,
-                'created_at' => $fis10user->created_at,
-                'updated_at' => $fis10user->updated_at,
-            ]
+            'ownedItem' => $shopItem->fis10User
+        ]);
+    }
+
+    public function equip($id)
+    {
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $shopItem = ShopItem::query()->findOrFail($id);
+
+        if (!$shopItem->fis10User()->findOrFail($fis10user->fis10_user_id)->pivot->is_equiped) {
+            if ($shopItem->type == 'title') {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'title' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            } else {
+                foreach ($fis10user->shopItem as $item) {
+                    if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
+                        $item->pivot->update([
+                            'is_equipped' => false
+                        ]);
+                    }
+                }
+            }
+
+            $shopItem->fis10User()->findOrFail($fis10user->fis10_user_id)->pivot->update([
+                'is_equipped' => true
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Equip item successful',
+            'ownedItem' => $shopItem->fis10User
         ]);
     }
 }
