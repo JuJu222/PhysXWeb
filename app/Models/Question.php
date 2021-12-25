@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Question extends Model
 {
@@ -19,15 +18,15 @@ class Question extends Model
     }
 
     public function optionMCQ(){
-        return $this->hasMany(Option_mcq::class,'option_mcq_id','question_id');
+        return $this->hasMany(Option_mcq::class,'question_id','question_id');
     }
 
     public function optionFITB(){
-        return $this->hasMany(Option_FITB::class,'option_fitb_id','question_id');
+        return $this->hasMany(Option_fitb::class,'question_id','question_id');
     }
 
     public function optionTOF(){
-        return $this->hasMany(Option_TOF::class,'option_tof_id','question_id');
+        return $this->hasMany(Option_tof::class,'question_id','question_id');
     }
 
     public function fis10users(){

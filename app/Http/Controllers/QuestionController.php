@@ -39,9 +39,11 @@ class QuestionController extends Controller
 
         $nosoal = $request->session()->get('nosoal');
         $questions = Question::where('topic_id', $topic)->get();
+
         if (count($questions) < $nosoal) {
             return redirect('/')->with('completedsoal','You have completed the topic!');
         }
+
         $question = $questions[$nosoal - 1];
 
         if ($request->session()->get('click') == 1) {
@@ -236,12 +238,10 @@ class QuestionController extends Controller
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $score = 1;
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-
                     return back()->with('answerCorrect', 'You have answered the question correctly');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $score = 0;
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
@@ -250,12 +250,10 @@ class QuestionController extends Controller
                 if ($request->choice == $o->answer) {
                     $score = 1;
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-
                     return back()->with('answerCorrect', 'You have answered the question correctly');
                 } else {
                     $score = 0;
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-
                     return back()->with('answerWrong', 'Your answer is wrong!');
                 }
             }
