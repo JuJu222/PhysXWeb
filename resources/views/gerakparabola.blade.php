@@ -32,7 +32,7 @@
     <img src="https://www.ruangguru.com/hs-fs/hubfs/Rumus%202-3.jpg?width=600&name=Rumus%202-3.jpg" class="rounded mx-auto d-block">
     <figcaption class="text-center">Sumber: Ruang Guru</figcaption>
 </figure>
-<p>Simak video yang dibuat oleh <span class="fw-bolder">Quipper</span> terkait vektor untuk dapat mengerti materi ini lebih dalam.</p>
+<p>Simak video yang dibuat oleh <span class="fw-bolder">Quipper</span> terkait gerak parabola untuk dapat mengerti materi ini lebih dalam.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mk1j0qqhT7E" title="YouTube video player" frameborder="0" class="rounded mx-auto d-block" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Sumber: Ruang Guru</p>
 @endsection
