@@ -48,6 +48,6 @@
     <figcaption class="text-center">Sumber: Ruang Guru | Ratu</figcaption>
 </figure>
 <p>Simak video yang dibuat oleh <span class="fw-bolder">Quipper</span> terkait gerak melingkar beraturan untuk dapat mengerti materi ini lebih dalam.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O3yTPSuMlrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O3yTPSuMlrI" title="YouTube video player" frameborder="0" class="rounded mx-auto d-block" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 @endsection
