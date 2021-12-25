@@ -9,7 +9,7 @@ class Question extends Model
     use HasFactory;
 
     protected $primaryKey = "question_id";
-    protected $table = 'questions';
+    protected $table = 'fis10_questions';
     protected $fillable= ['question_id','question_type', 'question','image_path','topic_id'];
 
 

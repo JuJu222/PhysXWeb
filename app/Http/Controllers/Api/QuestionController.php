@@ -69,23 +69,30 @@ class QuestionController extends Controller
 
     public function question($topic)
     {
-        $question = Question::where('topic_id',$topic);
+        $questions = Question::where('topic_id',$topic)->get();
 
-        $questions = $question->get();
-
+        $temp = array();
         foreach($questions as $q){
             if($q->question_type == 'mcq'){
-                $optionMCQ = $question->with('optionMCQ')->get();
-                return ['questions' => Option_mcqResource::collection($optionMCQ)];
-            }else if($q->question_type == 'fitb' ){
-                $optionFITB = $question->with('optionFITB')->get();
-                return ['questions' => Option_fitbResource::collection($optionFITB)];
-            }else if($q->question_type == 'tof'){
-                $optionTOF = $question->with('optionTOF')->get();
-                return ['questions' => Option_tofResource::collection($optionTOF)];
+                $optionMCQ = $q->optionMCQ()->get();
+                $q['options'] = $optionMCQ;
+                array_push($temp, $q);
+            }
+
+            if($q->question_type == 'tof'){
+                $optionTOF = $q->optionTOF()->get();
+                $q['options'] = $optionTOF;
+                array_push($temp, $q);
+            }
+
+            if($q->question_type == 'fitb'){
+                $optionFITB = $q->optionFITB()->get();
+                $q['options'] = $optionFITB;
+                array_push($temp, $q);
             }
         }
-            
+
+        return ['questions' => $temp];
     }
 
     // public function answer($topic, $id, Request $request)
