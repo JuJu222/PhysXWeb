@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 <form action="{{ route('optiontof.update', $options->option_tof_id) }}" method="post" enctype="multipart/form-data">
     @method('PUT')
@@ -20,7 +19,7 @@
                 <option value="{{ $questions->question_type }}" selected>False</option>
                 @endif
             </select>
-    
+
             @if ($errors->has('trueorfalse'))
             <div class="error text-dark">
                 {{ $errors->first('trueorfalse') }}
@@ -39,8 +38,8 @@
             @endif
             @endforeach
             </select>
-    
-    
+
+
             @if ($errors->has('question'))
             <div class="error text-dark">
                 {{ $errors->first('question') }}
@@ -50,7 +49,7 @@
 
     <div class="container-sm mb-3">
         <input type="submit" name="send" value="Submit" class="btn btn-success btn-block mb-3">
-        </div> 
+        </div>
 </div>
-</form> 
+</form>
 @endsection

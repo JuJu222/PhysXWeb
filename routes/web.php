@@ -10,6 +10,7 @@ use App\Http\Controllers\OptionmcqController;
 use App\Http\Controllers\OptiontofController;
 use App\Http\Controllers\OptionfitbController;
 use App\Http\Controllers\TopicController;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::resource('fis10usertopics', Fis10UserTopicController::class);
 
 Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
 Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
+Route::get('/questions/{topic}/result', [QuestionController::class, 'result'])->name('questions.result');
 Route::get('/questionsclear', function (Request $request) {
     $request->session()->forget('nosoal');
     redirect('/');

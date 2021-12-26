@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 
     <div class="container justify-content-center align-items-center">
@@ -97,3 +96,4 @@
         </div>
     </div>
     </div>
+@endsection

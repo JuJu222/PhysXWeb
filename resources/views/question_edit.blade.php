@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 <form action="{{ route('question.update',$questions->question_id) }}" method="post" enctype="multipart/form-data">
     @method('PUT')
@@ -19,7 +18,7 @@
                     </div>
                     @endif
                   </div>
-    
+
     <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Question Type</label>
         <select class="form-select {{ $errors->has('type') ? 'error' : '' }}" name="type" id="type">
@@ -90,7 +89,7 @@
     </div>
     <div class="container-sm mb-3">
         <input type="submit" name="send" value="Submit" class="btn btn-success btn-block mb-3">
-        </div> 
+        </div>
 </div>
-</form> 
+</form>
 @endsection

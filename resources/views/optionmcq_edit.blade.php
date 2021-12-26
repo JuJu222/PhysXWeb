@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 <form action="{{ route('optionmcq.update', $options->option_mcq_id) }}" method="post" enctype="multipart/form-data">
     @method('PUT')
@@ -61,7 +60,7 @@
     </div>
     <div class="container-sm mb-3">
         <input type="submit" name="send" value="Submit" class="btn btn-success btn-block mb-3">
-        </div> 
+        </div>
 </div>
-</form> 
+</form>
 @endsection

@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 
     {{--<img src="https://wallpapercave.com/wp/fkIqItv.png">  --}}
