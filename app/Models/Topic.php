@@ -17,7 +17,7 @@ class Topic extends Model
         return $this->hasMany(Topic::class, 'topic_id', 'question_id');
     }
 
-    public function fis10users(){
-        return $this->belongsToMany(Fis10User::class, 'fis10_users_topics', 'topic_id', 'uid')->withPivot(['is_locked']);
+    public function fis10Users(){
+        return $this->belongsToMany(Fis10User::class, 'fis10_unlocked_topics', 'topic_id', 'fis10_user_id');
     }
 }

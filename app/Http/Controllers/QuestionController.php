@@ -6,6 +6,7 @@ use App\Models\Topic;
 use App\Models\Question;
 use App\Models\Fis10User;
 use App\Models\Option_mcq;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
@@ -41,6 +42,8 @@ class QuestionController extends Controller
         $questions = Question::where('topic_id', $topic)->get();
 
         if (count($questions) < $nosoal) {
+            $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+            $fis10user->topics()->attach($topic + 1);
             return redirect('/')->with('completedsoal','You have completed the topic!');
         }
 

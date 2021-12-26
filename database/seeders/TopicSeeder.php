@@ -216,5 +216,69 @@ class TopicSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
+
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '2',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '3',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '4',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '5',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '6',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '7',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '8',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '9',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_unlocked_topics')->insert([
+            'fis10_user_id' => '1',
+            'topic_id' => '10',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
     }
 }

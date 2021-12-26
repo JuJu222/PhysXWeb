@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fis10UserTopic extends Model
+class UnlockedTopic extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'unlocked_topic_id';
+    protected $table = 'fis10_unlocked_topics';
 }
