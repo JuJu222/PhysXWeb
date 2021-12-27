@@ -34,6 +34,13 @@
         </a>
 
       </li>
+      <li>
+        <a href="{{ route('profile.index') }}">
+          <i class='bx bxs-user-circle bx-tada-hover'></i>
+          <span class="links_profile"><b>Profile</b></span>
+        </a>
+
+      </li>
     </ul>
     <div class="profile_content">
       <div class="profile">

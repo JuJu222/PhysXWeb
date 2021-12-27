@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Fis10UserTopicController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -35,7 +35,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('optiontof', OptiontofController::class);
     Route::resource('topics', TopicController::class);
     Route::resource('fis10user', Fis10UserController::class);
-    Route::resource('fis10usertopics', Fis10UserTopicController::class);
 
     Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
     Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
@@ -63,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
-
+    
+    Route::resource('profile', ProfileController::class);
+  
     Route::get('topic/{id}',[TopicController::class, 'show']);
 });
