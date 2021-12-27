@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ShopItemController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::resource('shop', ShopItemController::class);
 Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+Route::resource('profile', ProfileController::class);
