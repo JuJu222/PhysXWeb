@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\ShopItemController;
+use App\Http\Controllers\Api\HomeController;
+use App\Models\Fis10User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\QuestionController;
+use App\Http\Controllers\Api\ShopItemController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 
@@ -23,10 +27,21 @@ Route::post('login',[LoginController::class, 'login']);
 
 Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('logout',[LoginController::class,'logout']);
-});
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+    Route::get('/user', function (Request $request) {
+        $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
 
-Route::resource('shop', ShopItemController::class);
+        return response()->json([
+            'user' => $request->user(),
+            'fis10user' => $fis10user
+        ]);
+    });
+
+    Route::resource('home', HomeController::class);
+    Route::resource('shop', ShopItemController::class);
+    Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
+    Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
+
+    Route::get('questions/{topic}',[QuestionController::class,'question']);
+});
+Route::resource('question',QuestionController::class);

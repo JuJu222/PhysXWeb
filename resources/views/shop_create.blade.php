@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 
     {{--<img src="https://wallpapercave.com/wp/fkIqItv.png">  --}}
@@ -23,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
-                    <select name="type" class="form-control form-select" required>
+                    <select name="type" id="select-type" class="form-control form-select" required>
                         <option value="title">Title</option>
                         <option value="avatar">Avatar</option>
                     </select>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Image (Avatar)</label>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" id="input-image" class="form-control">
                 </div>
                 <div class="form-group">
                     <div class="d-flex col-md-12 justify-content-center align-items-center mt-3">
@@ -45,6 +44,21 @@
             </form>
         </div>
     </div>
+    <script>
+        let selectTypeInit = $("#select-type");
 
+        if (selectTypeInit.val() === 'title') {
+            $("#input-image").attr("disabled", "disabled");
+        } else {
+            $("#input-image").removeAttr("disabled");
+        }
 
+        selectTypeInit.change(function() {
+            if ($(this).val() === 'title') {
+                $("#input-image").attr("disabled", "disabled");
+            } else {
+                $("#input-image").removeAttr("disabled");
+            }
+        });
+    </script>
 @endsection

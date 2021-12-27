@@ -85,6 +85,7 @@ hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
+    color:var(--green);
 }
 
 h1,
@@ -2174,6 +2175,97 @@ pre code {
     border: 0;
 }
 
+.form-quiz{
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-fitb{
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-false{
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-true{
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-true:hover{
+    color: black;
+    background-color: green;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    border: 3px solid;
+    border-color:green;
+}
+
+.form-false:hover{
+    color: black;
+    background-color: red;
+    border: 3px solid;
+    border-color:red;
+    border-radius: 0.50rem;
+}
+
+
+
+.form-quiz:hover{
+    color: #6F69AC;
+    background-color: #a1cbef;
+    border-color: #6F69AC;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+}
+
 .form-content {
     padding: 0%;
     border: 1px solid #ced4da;
@@ -2742,6 +2834,13 @@ fieldset:disabled a.btn {
     color: #6F69AC;
     background-color: #EFEBFE;
     border-color: #EFEBFE;
+}
+
+
+.btn-purple {
+    color: #fff;
+    background-color: #6F69AC;
+    border-color: #6F69AC;
 }
 
 .btn-opaque-links {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionsTable extends Migration
+class CreateFis10UnlockedTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,19 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->id('question_id');
-            $table->text('question');
-            $table->string('image_path');
+        Schema::create('fis10_unlocked_topics', function (Blueprint $table) {
+            $table->id('unlocked_topic_id');
+            $table->foreignId('fis10_user_id');
             $table->foreignId('topic_id');
             $table->timestamps();
 
+            $table->foreign('fis10_user_id')
+                ->references('fis10_user_id')->on('fis10_users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->foreign('topic_id')
-                ->references('topic_id')->on('topics')
+                ->references('topic_id')->on('fis10_topics')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -34,6 +38,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('fis10_unlocked_topics');
     }
 }
