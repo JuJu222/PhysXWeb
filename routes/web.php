@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('optiontof', OptiontofController::class);
     Route::resource('topics', TopicController::class);
     Route::resource('fis10user', Fis10UserController::class);
+    Route::resource('leaderboards',LeaderboardController::class);
 
     Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
     Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
