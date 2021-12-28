@@ -23,7 +23,23 @@ class ShopItemController extends Controller
         $avatars = ShopItem::query()->where('type', 'avatar')->get();
         $ownedItems = $fis10user->shopItem;
 
-        return view('shop', compact('fis10user', 'titles', 'avatars', 'ownedItems'));
+        $userTitle = null;
+        $userAvatar = null;
+        $onwedItems = $fis10user->shopItem;
+
+        if ($onwedItems != null) {
+            foreach ($onwedItems as $onwedItem) {
+                if ($onwedItem->pivot->is_equipped) {
+                    if ($onwedItem['type'] == 'title') {
+                        $userTitle = $onwedItem['item'];
+                    } else {
+                        $userAvatar = $onwedItem['image_path'];
+                    }
+                }
+            }
+        }
+
+        return view('shop', compact('fis10user', 'titles', 'avatars', 'ownedItems', 'userAvatar', 'userTitle'));
     }
 
     /**

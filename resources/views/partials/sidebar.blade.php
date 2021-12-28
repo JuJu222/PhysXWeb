@@ -1,20 +1,24 @@
-<div class="d-flex justify-content-end mt-5 me-5">
-    <a href="{{ route('profile.index') }}">
-        <div class="d-flex align-items-center">
-            <div>
-                <h4 class="fw-bold purple m-0 pt-3 text-right">{{ auth()->user()->name }}</h4>
-                @if ($title)
-                    <p class="purple m-0 mt-2 text-right">{{ $title }}</p>
+@auth()
+    @if(Route::current()->getName() !== 'profile.index')
+    <div class="d-flex justify-content-end mt-5 me-5">
+        <a href="{{ route('profile.index') }}">
+            <div class="d-flex align-items-center">
+                <div>
+                    <h4 class="fw-bold purple m-0 pt-3 text-right">{{ auth()->user()->name }}</h4>
+                    @if ($userTitle)
+                        <p class="purple m-0 mt-2 text-right">{{ $userTitle }}</p>
+                    @endif
+                </div>
+                @if ($userAvatar)
+                    <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar ml-3" alt="Avatar">
+                @else
+                    <img src="{{ asset('img/avatars/avatar_1.svg') }}" class="avatar ml-3" alt="Avatar">
                 @endif
             </div>
-            @if ($avatar)
-                <img src="{{ asset('img/avatars/' . $avatar) }}" class="avatar ml-3" alt="Avatar">
-            @else
-                <img src="{{ asset('img/avatars/avatar_1.svg') }}" class="avatar ml-3" alt="Avatar">
-            @endif
-        </div>
-    </a>
-</div>
+        </a>
+    </div>
+    @endif
+@endauth
 <div class="sidebar">
     <div class="logo_content">
       <div class="logo">

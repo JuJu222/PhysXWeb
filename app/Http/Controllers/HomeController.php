@@ -29,22 +29,22 @@ class HomeController extends Controller
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $unlockedTopics = $fis10user->topics;
 
-        $avatar = null;
-        $title = null;
+        $userTitle = null;
+        $userAvatar = null;
         $onwedItems = $fis10user->shopItem;
 
         if ($onwedItems != null) {
             foreach ($onwedItems as $onwedItem) {
                 if ($onwedItem->pivot->is_equipped) {
                     if ($onwedItem['type'] == 'title') {
-                        $title = $onwedItem['item'];
+                        $userTitle = $onwedItem['item'];
                     } else {
-                        $avatar = $onwedItem['image_path'];
+                        $userAvatar = $onwedItem['image_path'];
                     }
                 }
             }
         }
 
-        return view('home', compact('unlockedTopics', 'title', 'avatar'));
+        return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar'));
     }
 }

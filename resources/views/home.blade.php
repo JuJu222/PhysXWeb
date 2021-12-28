@@ -1,7 +1,7 @@
 @extends('layouts.apps')
 @section('content')
     <div class="d-flex justify-content-start mt-5 ms-5 ">
-        <h1 class="purple"><b>Halo, Justin!</b></h1>
+        <h1 class="purple"><b>Halo, {{ auth()->user()->name }}!</b></h1>
     </div>
     <div class="d-flex justify-content-start mt-xl-3 ms-5">
         <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>

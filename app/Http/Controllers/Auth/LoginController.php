@@ -40,7 +40,11 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        Auth::logout();
-        return redirect('/login')->with('loggedOut', "You have been logged out!");
+        if (Auth::check()) {
+            Auth::logout();
+            return redirect('/login')->with('loggedOut', "You have been logged out!");
+        } else {
+            return redirect('/login');
+        }
     }
 }

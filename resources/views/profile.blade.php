@@ -1,5 +1,4 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
 @section('content')
 
     <main>
