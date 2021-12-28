@@ -62,7 +62,7 @@
             <div class="py-3 row border-bottom">
                 <div class="col">
                     <div class="row">
-                        <img src="{{ asset('img/avatars/' . $avatar->image_path) }}" alt="{{ $avatar->item }}" class="img-avatar">
+                        <img src="{{ $avatar->image_path }}" alt="{{ $avatar->item }}" class="img-avatar">
                         <div class="col align-self-center">
                             <h2>{{ $avatar->item }}</h2>
                             <p>Price: {{ $avatar->price }}</p>

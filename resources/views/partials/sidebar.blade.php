@@ -12,7 +12,7 @@
                 @if ($userAvatar)
                     <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar ml-3" alt="Avatar">
                 @else
-                    <img src="{{ asset('img/avatars/avatar_1.svg') }}" class="avatar ml-3" alt="Avatar">
+                    <img src="https://drive.google.com/uc?export=view&id=1iOSL63He07VAokwVnFDadFhTnyZrDSKL" class="avatar ml-3" alt="Avatar">
                 @endif
             </div>
         </a>

@@ -41,7 +41,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 1',
             'type' => 'avatar',
-            'image_path' => 'avatar_2.svg',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1rLF7OUdVcce2GWO7RK55IgmYe-NaL-Rd',
             'price' => '100',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
@@ -50,7 +50,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 2',
             'type' => 'avatar',
-            'image_path' => 'avatar_3.svg',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1wOXmI-HswxBUTT-VbT-bkgQo0mtauDTx',
             'price' => '250',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
@@ -59,7 +59,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 3',
             'type' => 'avatar',
-            'image_path' => 'avatar_4.svg',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1ernQm2cEI-BFieZOho2X1Uu-czccmmI4',
             'price' => '500',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
