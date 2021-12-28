@@ -22,13 +22,14 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'is_login',
-        'is_active',
         'username',
         'school',
         'city',
         'birthyear'
     ];
+
+    protected $table = 'users';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be hidden for serialization.

@@ -202,3 +202,58 @@
     margin-top: -375px;
     margin-left: 380px;
 }
+
+/* profile */
+main {
+    min-height: 950px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+section {
+    padding-top: 5%;
+    background-color: white;
+    width: 100%;
+    border-radius: 2rem;
+    backdrop-filter: blur(2rem);
+    display: flex;
+  }
+.dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 2rem;
+  }
+.history {
+    flex: 2;
+    border-radius: 5rem;
+    border-color: black;
+  }
+  
+.data {
+    display: flex;
+    margin: 0.5rem 0rem;
+  }
+.biodata{
+    width: 100%;
+    padding-left:20px;
+    align-items: flex-start;
+    text-align: left;
+    padding-right:20px;
+}
+.cards{
+    padding-right: 20px;
+    padding-bottom: 50px;
+}
+.card{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.pp{
+    margin-bottom: 10px;
+}
+.buttonedit{
+    margin-bottom:15px;
+}

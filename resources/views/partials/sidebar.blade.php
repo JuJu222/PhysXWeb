@@ -1,4 +1,21 @@
-  <div class="sidebar">
+<div class="d-flex justify-content-end mt-5 me-5">
+    <a href="{{ route('profile.index') }}">
+        <div class="d-flex align-items-center">
+            <div>
+                <h4 class="fw-bold purple m-0 pt-3 text-right">{{ auth()->user()->name }}</h4>
+                @if ($title)
+                    <p class="purple m-0 mt-2 text-right">{{ $title }}</p>
+                @endif
+            </div>
+            @if ($avatar)
+                <img src="{{ asset('img/avatars/' . $avatar) }}" class="avatar ml-3" alt="Avatar">
+            @else
+                <img src="{{ asset('img/avatars/avatar_1.svg') }}" class="avatar ml-3" alt="Avatar">
+            @endif
+        </div>
+    </a>
+</div>
+<div class="sidebar">
     <div class="logo_content">
       <div class="logo">
         <div class="logo_name">PhysX</div>
@@ -31,6 +48,13 @@
         <a href="{{ route('shop.index') }}">
           <i class='bi bi-bag-fill bx-tada-hover'></i>
           <span class="links_settings"><b>Shop</b></span>
+        </a>
+
+      </li>
+      <li>
+        <a href="{{ route('profile.index') }}">
+          <i class='bx bxs-user-circle bx-tada-hover'></i>
+          <span class="links_profile"><b>Profile</b></span>
         </a>
 
       </li>
