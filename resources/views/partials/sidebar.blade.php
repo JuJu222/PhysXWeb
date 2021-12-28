@@ -1,5 +1,5 @@
 @auth()
-    @if(Route::current()->getName() !== 'profile.index')
+    @if(isset($userTitle) || isset($userAvatar))
     <div class="d-flex justify-content-end mt-5 me-5">
         <a href="{{ route('profile.index') }}">
             <div class="d-flex align-items-center">
