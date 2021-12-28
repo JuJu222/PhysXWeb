@@ -88,6 +88,31 @@
                 <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
                 <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
             </div>
+                <?php $isUnlocked = false; ?>
+                @foreach ($unlockedTopics as $unlockedTopic)
+                    @if ($unlockedTopic->topic_id == 4)
+                        <?php
+                        unset($unlockedTopics[$loop->index]);
+                        $isUnlocked = true;
+                        ?>
+                    @endif
+                @endforeach
+                @if ($isUnlocked)
+                    <a href="{{ route('topics.show', 4) }}">
+                        <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center">
+                            <h1 class="text-center mb-0 fw-bold">4</h1>
+                        </div>
+                    </a>
+                @else
+                    <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center">
+                        <h1 class="text-center mb-0 fw-bold">4</h1>
+                    </div>
+                @endif
+            <div class="d-flex flex-row">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
         </div>
         <img src="{{ asset('img/road.svg') }}" class="absolute st1" width="100px" height=100px">
 
@@ -96,26 +121,6 @@
             <img src="{{ asset('img/road.svg') }}" class="absolute st4"  width="100px" height=100px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute st5"  width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute st6"  width="50px" height="50px">
-            <?php $isUnlocked = false; ?>
-            @foreach ($unlockedTopics as $unlockedTopic)
-                @if ($unlockedTopic->topic_id == 4)
-                    <?php
-                    unset($unlockedTopics[$loop->index]);
-                    $isUnlocked = true;
-                    ?>
-                @endif
-            @endforeach
-            @if ($isUnlocked)
-                <a href="{{ route('topics.show', 4) }}">
-                    <div class="topic-home topic-home-unlocked absolute st2 d-inline-flex justify-content-center align-items-center">
-                        <h1 class="text-center mb-0 fw-bold">4</h1>
-                    </div>
-                </a>
-            @else
-                <div class="topic-home topic-home-locked absolute st2 d-inline-flex justify-content-center align-items-center">
-                    <h1 class="text-center mb-0 fw-bold">4</h1>
-                </div>
-            @endif
             <img src="{{ asset('img/fourroad.svg') }}" class="absolute" style="margin-left: -102.5px; margin-top: 230px; z-index: 2;" width="100px" height=100px">
         </div>
         <img src="{{ asset('img/mansion.svg') }}" class="absolute" style="margin-left: 875px; transform: rotate(90deg); margin-top: -190px;" width="300px" height=300px">
@@ -175,7 +180,7 @@
                 <h1 class="text-center mb-0 fw-bold">6</h1>
             </div>
         @endif
-        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: -360px; margin-top: -132.5px; z-index: 2; transform: rotate(180deg); position: absolute;" width="150px" height="150px">
+        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: -360px; margin-top: -132.5px; z-index: 2; transform: rotate(180deg);" width="150px" height="150px">
         <div class="div1">
             <img src="{{ asset('img/road.svg') }}" class="absolute st7" width="100px" height=100px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput1" width="50px" height="50px">
@@ -232,7 +237,7 @@
             <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 655px; margin-left: -25px;" width="50px" height="50px">
             <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 655px; margin-left: -160px;" width="50px" height="50px">
         </div>
-        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: 17.5px; margin-top: 10px; z-index: 2; transform: rotate(90deg); position: absolute;" width="150px" height="150px">
+        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: 17.5px; margin-top: 10px; z-index: 2; transform: rotate(90deg);" width="150px" height="150px">
         <div style="margin-top: -25px;">
         <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: 175px; margin-top:  47.5px; transform: rotate(90deg);" width="100px" height=100px">
         <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 160px; margin-left: -75px;" width="50px" height="50px">
@@ -296,7 +301,7 @@
         </div>
         <img src="{{ asset('img/bighouse.svg')}}" class="absolute" style="margin-top: -200px; margin-left: 850px; transform: rotate(90deg);" width="250px" height="250px">
         <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-top: -1000px; margin-left: 250px;" width="400px" height=400px">
-        <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-top: -1050px; margin-left: 675px;" width="400px" height=400px">
+        <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-left: 675px;" width="400px" height=400px">
     </div>
 
 @endsection
