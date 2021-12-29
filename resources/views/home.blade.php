@@ -6,167 +6,162 @@
     <div class="d-flex justify-content-start mt-xl-3 ms-5">
         <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>
     </div>
-    <div class="ms-2 me-5">
-        <img src="{{ asset('img/rumahkanan.svg')}}" class="absolute m60" width="200px" height="200px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m180" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m1055" width="50px" height="50px">
-        <img src="{{ asset('img/road.svg')}}" class="absolute m45 mn80 r90 m90" width="100px" height="100px">
-        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple m90" viewBox="0 0 16 16">
+    <div class="ms-2 me-5 d-flex flex-column home-parent">
+        <div class="d-flex align-items-center">
+            <img src="{{ asset('img/rumahkanan.svg')}}" class="absolute mr-2" width="200px" height="200px">
+            <div class="d-flex flex-column align-items-center mt-4">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
             <a href="{{ route('topics.show', 1) }}">
-                <circle cx="8" cy="8" r="8"/>
+                <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2 mt-4">
+                    <h1 class="text-center mb-0 fw-bold">1</h1>
+                </div>
             </a>
-        </svg>
-        <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        <?php $isUnlocked = false; ?>
-        @foreach ($unlockedTopics as $unlockedTopic)
-            @if ($unlockedTopic->topic_id == 2)
-                <?php
+            <div class="d-flex flex-column align-items-center mt-4">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center mt-4">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center mt-4">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <?php $isUnlocked = false; ?>
+            @foreach ($unlockedTopics as $unlockedTopic)
+                @if ($unlockedTopic->topic_id == 2)
+                    <?php
                     unset($unlockedTopics[$loop->index]);
                     $isUnlocked = true;
-                ?>
-            @endif
-        @endforeach
-        @if ($isUnlocked)
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple m90 mml20" viewBox="0 0 16 16">
+                    ?>
+                @endif
+            @endforeach
+            @if ($isUnlocked)
                 <a href="{{ route('topics.show', 2) }}">
-                    <circle cx="8" cy="8" r="8"/>
+                    <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2 mt-4">
+                        <h1 class="text-center mb-0 fw-bold">2</h1>
+                    </div>
                 </a>
-            </svg>
-        @else
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="bi bi-circle-fill purple m90 mml20" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-            </svg>
-        @endif
-        <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        <img src="{{ asset('img/fourroad.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-        <img src="{{ asset('img/warehouse.svg') }}" class="absolute warehouse1" width="200px" height=200px">
-        {{-- Style ga rapi --}}
-        <img src="{{ asset('img/road.svg') }}" class="absolute st1" width="100px" height=100px">
-        <?php $isUnlocked = false; ?>
-        @foreach ($unlockedTopics as $unlockedTopic)
-            @if ($unlockedTopic->topic_id == 3)
-                <?php
-                    unset($unlockedTopics[$loop->index]);
-                    $isUnlocked = true;
-                ?>
+            @else
+                <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center mx-2 mt-4">
+                    <h1 class="text-center mb-0 fw-bold">2</h1>
+                </div>
             @endif
-        @endforeach
-        @if ($isUnlocked)
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple st3" viewBox="0 0 16 16">
-                <a href="{{ route('topics.show', 3) }}">
-                    <circle cx="8" cy="8" r="8"/>
-                </a>
-            </svg>
-        @else
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple st3" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-            </svg>
-        @endif
-        <img src="{{ asset('img/waterfall.svg') }}" class="absolute" style="margin-left: -600px; margin-top: -50px;" width="300px" height=300px">
-        <div style="margin-top: -185px;">
-            <img src="{{ asset('img/road.svg') }}" class="absolute st4"  width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute st5"  width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute st6"  width="50px" height="50px">
-            <?php $isUnlocked = false; ?>
-            @foreach ($unlockedTopics as $unlockedTopic)
-                @if ($unlockedTopic->topic_id == 4)
-                    <?php
-                    unset($unlockedTopics[$loop->index]);
-                    $isUnlocked = true;
-                    ?>
+            <div class="d-flex flex-column align-items-center mt-4">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <img src="{{ asset('img/fourroad.svg') }}" class="absolute r90 mt-4" width="100px" height=100px">
+            <img src="{{ asset('img/warehouse.svg') }}" class="mt-4 r90 warehouse1" width="200px" height=200px">
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center home-row-2">
+            <div>
+                <img src="{{ asset('img/waterfall.svg')}}" class="absolute fountain" width="150px">
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <?php $isUnlocked = false; ?>
+                @foreach ($unlockedTopics as $unlockedTopic)
+                    @if ($unlockedTopic->topic_id == 3)
+                        <?php
+                        unset($unlockedTopics[$loop->index]);
+                        $isUnlocked = true;
+                        ?>
+                    @endif
+                @endforeach
+                @if ($isUnlocked)
+                    <a href="{{ route('topics.show', 3) }}">
+                        <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center my-2">
+                            <h1 class="text-center mb-0 fw-bold">3</h1>
+                        </div>
+                    </a>
+                @else
+                    <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center my-2">
+                        <h1 class="text-center mb-0 fw-bold">3</h1>
+                    </div>
                 @endif
-            @endforeach
-            @if ($isUnlocked)
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple absolute st2" viewBox="0 0 16 16">
+                <div class="d-flex flex-row align-items-center">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                    <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                </div>
+                <?php $isUnlocked = false; ?>
+                @foreach ($unlockedTopics as $unlockedTopic)
+                    @if ($unlockedTopic->topic_id == 4)
+                        <?php
+                        unset($unlockedTopics[$loop->index]);
+                        $isUnlocked = true;
+                        ?>
+                    @endif
+                @endforeach
+                @if ($isUnlocked)
                     <a href="{{ route('topics.show', 4) }}">
-                        <circle cx="8" cy="8" r="8"/>
+                        <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center my-2">
+                            <h1 class="text-center mb-0 fw-bold">4</h1>
+                        </div>
                     </a>
-                </svg>
-            @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="bi bi-circle-fill purple absolute st2" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-                </svg>
-            @endif
-            <img src="{{ asset('img/fourroad.svg') }}" class="absolute" style="margin-left: -102.5px; margin-top: 230px; z-index: 2;" width="100px" height=100px">
+                @else
+                    <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center my-2">
+                        <h1 class="text-center mb-0 fw-bold">4</h1>
+                    </div>
+                @endif
+                <div class="d-flex flex-row align-items-center">
+                    <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                </div>
+            </div>
         </div>
-        <img src="{{ asset('img/mansion.svg') }}" class="absolute" style="margin-left: 875px; transform: rotate(90deg); margin-top: -190px;" width="300px" height=300px">
-        <div style="margin-top: 0px;">
-            <img src="{{ asset('img/road.svg') }}" class="absolute st7" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput1" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput2" width="50px" height="50px">
-        </div>
-        <?php $isUnlocked = false; ?>
-        @foreach ($unlockedTopics as $unlockedTopic)
-            @if ($unlockedTopic->topic_id == 5)
-                <?php
-                unset($unlockedTopics[$loop->index]);
-                $isUnlocked = true;
-                ?>
-            @endif
-        @endforeach
-        @if ($isUnlocked)
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-circle-fill purple absolute stc1" viewBox="0 0 16 16">
-                <a href="{{ route('topics.show', 5) }}">
-                    <circle cx="8" cy="8" r="8"/>
-                </a>
-            </svg>
-        @else
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="bi bi-circle-fill purple absolute stc1" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-            </svg>
-        @endif
-        <div class="div2">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        </div>
-        <?php $isUnlocked = false; ?>
-        @foreach ($unlockedTopics as $unlockedTopic)
-            @if ($unlockedTopic->topic_id == 6)
-                <?php
-                unset($unlockedTopics[$loop->index]);
-                $isUnlocked = true;
-                ?>
-            @endif
-        @endforeach
-        @if ($isUnlocked)
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple m90 mml20 stc2" viewBox="0 0 16 16">
+        <div class="d-flex align-items-center home-row-3">
+            <img src="{{ asset('img/lhouse.svg')}}" class="r180 mt-5 mr-2" width="200px" height="200px">
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <?php $isUnlocked = false; ?>
+            @foreach ($unlockedTopics as $unlockedTopic)
+                @if ($unlockedTopic->topic_id == 6)
+                    <?php
+                    unset($unlockedTopics[$loop->index]);
+                    $isUnlocked = true;
+                    ?>
+                @endif
+            @endforeach
+            @if ($isUnlocked)
                 <a href="{{ route('topics.show', 6) }}">
-                    <circle cx="8" cy="8" r="8"/>
+                    <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2">
+                        <h1 class="text-center mb-0 fw-bold">6</h1>
+                    </div>
                 </a>
-            </svg>
-        @else
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple m90 mml20 stc2" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8"/>
-            </svg>
-        @endif
-        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: -360px; margin-top: -132.5px; z-index: 2; transform: rotate(180deg); position: absolute;" width="150px" height="150px">
-        <div class="div1">
-            <img src="{{ asset('img/road.svg') }}" class="absolute st7" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput1" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput2" width="50px" height="50px">
-        </div>
-        <div style="margin-top: -310px;">
-            <img src="{{ asset('img/road.svg') }}" class="absolute stroadlast" width="100px" height=100px">
+            @else
+                <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center mx-2">
+                    <h1 class="text-center mb-0 fw-bold">6</h1>
+                </div>
+            @endif
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
             <?php $isUnlocked = false; ?>
             @foreach ($unlockedTopics as $unlockedTopic)
-                @if ($unlockedTopic->topic_id == 7)
+                @if ($unlockedTopic->topic_id == 5)
                     <?php
                     unset($unlockedTopics[$loop->index]);
                     $isUnlocked = true;
@@ -174,22 +169,97 @@
                 @endif
             @endforeach
             @if ($isUnlocked)
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-top: 25px; margin-left: -101px;" viewBox="0 0 16 16">
+                <a href="{{ route('topics.show', 5) }}">
+                    <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2">
+                        <h1 class="text-center mb-0 fw-bold">5</h1>
+                    </div>
+                </a>
+            @else
+                <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center mx-2">
+                    <h1 class="text-center mb-0 fw-bold">5</h1>
+                </div>
+            @endif
+            <div class="d-flex flex-column align-items-center">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <img src="{{ asset('img/fourroad.svg') }}" class="absolute r90 four-road" width="100px" height=100px">
+            <img src="{{ asset('img/bighouse.svg') }}" width="300px" height=300px">
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center testa home-row-4">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="d-flex flex-row align-items-center">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                    <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                </div>
+                <?php $isUnlocked = false; ?>
+                @foreach ($unlockedTopics as $unlockedTopic)
+                    @if ($unlockedTopic->topic_id == 7)
+                        <?php
+                        unset($unlockedTopics[$loop->index]);
+                        $isUnlocked = true;
+                        ?>
+                    @endif
+                @endforeach
+                @if ($isUnlocked)
                     <a href="{{ route('topics.show', 7) }}">
-                        <circle cx="8" cy="8" r="8"/>
+                        <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center my-2">
+                            <h1 class="text-center mb-0 fw-bold">7</h1>
+                        </div>
                     </a>
-                </svg>
-            @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple" style="margin-top: 25px; margin-left: -101px;" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-                </svg>
-            @endif
-            <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: -102.5px; margin-top: 230px;" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput4"  width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute strumput3" width="50px" height="50px">
+                @else
+                    <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center my-2">
+                        <h1 class="text-center mb-0 fw-bold">7</h1>
+                    </div>
+                @endif
+                <div class="d-flex flex-row align-items-center">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                    <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                </div>
+                <?php $isUnlocked = false; ?>
+                @foreach ($unlockedTopics as $unlockedTopic)
+                    @if ($unlockedTopic->topic_id == 8)
+                        <?php
+                        unset($unlockedTopics[$loop->index]);
+                        $isUnlocked = true;
+                        ?>
+                    @endif
+                @endforeach
+                @if ($isUnlocked)
+                    <a href="{{ route('topics.show', 8) }}">
+                        <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center my-2">
+                            <h1 class="text-center mb-0 fw-bold">8</h1>
+                        </div>
+                    </a>
+                @else
+                    <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center my-2">
+                        <h1 class="text-center mb-0 fw-bold">8</h1>
+                    </div>
+                @endif
+                <div class="d-flex flex-row align-items-center">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                    <img src="{{ asset('img/road.svg')}}" class="absolute" width="100px" height="100px">
+                    <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                </div>
+            </div>
+            <div>
+                <img src="{{ asset('img/warehouse.svg') }}" class="ml-5" width="400px">
+                <img src="{{ asset('img/warehouse.svg') }}" class="ml-5" width="400px">
+            </div>
+        </div>
+        <div class="d-flex align-items-center home-row-5">
+            <img src="{{ asset('img/lhouse.svg')}}" class="absolute r90" width="200px" height="200px">
+            <div class="d-flex flex-column align-items-center mt-5 ml-1">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
             <?php $isUnlocked = false; ?>
             @foreach ($unlockedTopics as $unlockedTopic)
-                @if ($unlockedTopic->topic_id == 8)
+                @if ($unlockedTopic->topic_id == 9)
                     <?php
                     unset($unlockedTopics[$loop->index]);
                     $isUnlocked = true;
@@ -197,60 +267,31 @@
                 @endif
             @endforeach
             @if ($isUnlocked)
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-top: 435px; margin-left: -25px;" viewBox="0 0 16 16">
-                    <a href="{{ route('topics.show', 8) }}">
-                        <circle cx="8" cy="8" r="8"/>
-                    </a>
-                </svg>
-            @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple" style="margin-top: 435px; margin-left: -25px;" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-                </svg>
-            @endif
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 230px; margin-left: -21.5px;" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 230px; margin-left: -162px;" width="50px" height="50px">
-            <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: -25px; margin-top: 645px;" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 655px; margin-left: -25px;" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 655px; margin-left: -160px;" width="50px" height="50px">
-        </div>
-        <img src="{{ asset('img/lhouse.svg') }}" style="margin-left: 17.5px; margin-top: 10px; z-index: 2; transform: rotate(90deg); position: absolute;" width="150px" height="150px">
-        <div style="margin-top: -25px;">
-        <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: 175px; margin-top:  47.5px; transform: rotate(90deg);" width="100px" height=100px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 160px; margin-left: -75px;" width="50px" height="50px">
-        <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: -55px; margin-left: -55px;" width="50px" height="50px">
-        <?php $isUnlocked = false; ?>
-        @foreach ($unlockedTopics as $unlockedTopic)
-            @if ($unlockedTopic->topic_id == 9)
-                <?php
-                unset($unlockedTopics[$loop->index]);
-                $isUnlocked = true;
-                ?>
-            @endif
-        @endforeach
-        @if ($isUnlocked)
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple m90 mml20" style="margin-top: 45px; margin-left: 25px;" viewBox="0 0 16 16">
                 <a href="{{ route('topics.show', 9) }}">
-                    <circle cx="8" cy="8" r="8"/>
+                    <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2 mt-5">
+                        <h1 class="text-center mb-0 fw-bold">9</h1>
+                    </div>
                 </a>
-            </svg>
-        @else
-            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple m90 mml20" style="margin-top: 45px; margin-left: 25px;" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8"/>
-            </svg>
-        @endif
-        </div>
-        <div style="margin-top: -252.5px; margin-left: 385px; margin-right: 400px;">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-            <img src="{{ asset('img/road.svg') }}" class="absolute r90 m90" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute ml75" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute m20080" width="50px" height="50px">
-        </div>
-        <div style="margin-top: -230px; margin-left: 582.5px; z-index: 1;">
+            @else
+                <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center mx-2 mt-5">
+                    <h1 class="text-center mb-0 fw-bold">9</h1>
+                </div>
+            @endif
+            <div class="d-flex flex-column align-items-center mt-5">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center mt-5">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <div class="d-flex flex-column align-items-center mt-5">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
             <?php $isUnlocked = false; ?>
             @foreach ($unlockedTopics as $unlockedTopic)
                 @if ($unlockedTopic->topic_id == 10)
@@ -261,23 +302,24 @@
                 @endif
             @endforeach
             @if ($isUnlocked)
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="absolute bi bi-circle-fill purple" style="margin-left: 75px; margin-top: 65px;" viewBox="0 0 16 16">
-                    <a href="{{ route('topics.show', 10) }}">
-                        <circle cx="8" cy="8" r="8"/>
-                    </a>
-                </svg>
+                <a href="{{ route('topics.show', 10) }}">
+                    <div class="topic-home topic-home-unlocked d-inline-flex justify-content-center align-items-center mx-2 mt-5">
+                        <h1 class="text-center mb-0 fw-bold">10</h1>
+                    </div>
+                </a>
             @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#FD6F96" class="absolute bi bi-circle-fill purple" style="margin-left: 75px; margin-top: 65px;" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8"/>
-                </svg>
+                <div class="topic-home topic-home-locked d-inline-flex justify-content-center align-items-center mx-2 mt-5">
+                    <h1 class="text-center mb-0 fw-bold">10</h1>
+                </div>
             @endif
-            <img src="{{ asset('img/road.svg') }}" class="absolute" style="margin-left: 5px; margin-top:  67.5px; transform: rotate(90deg);" width="100px" height=100px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: 180px; margin-left: -75px;" width="50px" height="50px">
-            <img src="{{ asset('img/rumput.svg')}}" class="absolute" style="margin-top: -25px; margin-left: -55px;" width="50px" height="50px">
+            <div class="d-flex flex-column align-items-center mt-5">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+                <img src="{{ asset('img/road.svg')}}" class="absolute r90" width="100px" height="100px">
+                <img src="{{ asset('img/rumput.svg')}}" class="absolute" width="50px" height="50px">
+            </div>
+            <img src="{{ asset('img/fourroad.svg') }}" class="absolute r90 mt-5" width="100px" height=100px">
+            <img src="{{ asset('img/mansion.svg') }}" width="300px" class="r90 mt-5 mansion" height=300px">
         </div>
-        <img src="{{ asset('img/bighouse.svg')}}" class="absolute" style="margin-top: -200px; margin-left: 850px; transform: rotate(90deg);" width="250px" height="250px">
-        <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-top: -1000px; margin-left: 250px;" width="400px" height=400px">
-        <img src="{{ asset('img/warehouse.svg') }}" class="absolute" style="margin-top: -1050px; margin-left: 675px;" width="400px" height=400px">
     </div>
 
 @endsection
