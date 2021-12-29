@@ -42,13 +42,6 @@
 
       </li>
       <li>
-        <a href="#">
-          <i class='bx bx-time-five bx-tada-hover' ></i>
-          <span class="links_challenge"><b>Sejarah</b></span>
-        </a>
-
-      </li>
-      <li>
         <a href="{{ route('shop.index') }}">
           <i class='bi bi-bag-fill bx-tada-hover'></i>
           <span class="links_settings"><b>Shop</b></span>

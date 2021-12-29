@@ -75,9 +75,48 @@
     color: #9E3351;
 }
 
-.test {
+.testa {
     width: max-content;
-    margin-left: 800px;
+}
+
+.home-parent {
+    width: 100%;
+}
+
+.home-row-2 {
+    width: max-content;
+    margin-top: -50px;
+    margin-left: 480px;
+}
+
+.home-row-3 {
+    width: max-content;
+    margin-top: -100px;
+}
+
+.home-row-4 {
+    width: max-content;
+    margin-top: -20px;
+    margin-left: -25px;
+}
+
+.home-row-5 {
+    width: max-content;
+    margin-top: -60px;
+    margin-left: 5px;
+}
+
+.mansion {
+    margin-left: -70px;
+    margin-bottom: -12px;
+}
+
+.four-road {
+    margin-left: -52px;
+}
+
+.fountain {
+    margin-right: 200px;
 }
 
 .m180 {
@@ -101,14 +140,17 @@
     transform: rotate(90deg);
 }
 
+.r180 {
+    transform: rotate(180deg);
+}
+
 .r270 {
     transform: rotate(-90deg);
 }
 
 .warehouse1 {
-    margin-top: -140px;
-    margin-left: 900px;
-    transform: rotate(90deg);
+    margin-left: -20px;
+    margin-bottom: -50px;
 }
 
 .m1055 {
