@@ -1,22 +1,22 @@
 @auth()
-    @if(isset($userTitle) || isset($userAvatar))
-    <div class="d-flex justify-content-end mt-5 me-5">
-        <a href="{{ route('profile.index') }}">
-            <div class="d-flex align-items-center">
-                <div>
-                    <h4 class="fw-bold purple m-0 pt-3 text-right">{{ auth()->user()->name }}</h4>
-                    @if ($userTitle)
-                        <p class="purple m-0 mt-2 text-right">{{ $userTitle }}</p>
-                    @endif
+    @if(url()->current() != 'http://physxweb.test/profile')
+        <div class="d-flex justify-content-end mt-5 me-5">
+            <a href="{{ route('profile.index') }}">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h4 class="fw-bold purple m-0 pt-3 text-right">{{ auth()->user()->name }}</h4>
+                        @isset ($userTitle)
+                            <p class="purple m-0 mt-2 text-right">{{ $userTitle }}</p>
+                        @endisset
+                    </div>
+                    @isset ($userAvatar)
+                        <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar ml-3" alt="Avatar">
+                    @else
+                        <img src="https://drive.google.com/uc?export=view&id=1iOSL63He07VAokwVnFDadFhTnyZrDSKL" class="avatar ml-3" alt="Avatar">
+                    @endisset
                 </div>
-                @if ($userAvatar)
-                    <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar ml-3" alt="Avatar">
-                @else
-                    <img src="https://drive.google.com/uc?export=view&id=1iOSL63He07VAokwVnFDadFhTnyZrDSKL" class="avatar ml-3" alt="Avatar">
-                @endif
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
     @endif
 @endauth
 <div class="sidebar">
