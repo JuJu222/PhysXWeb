@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Question;
-use App\Http\Controllers\Controller;
+use App\Models\Fis10User;
+use App\Models\Option_mcq;
+use App\Models\Option_tof;
+use App\Models\Option_fitb;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\QuestionResource;
 use App\Http\Resources\Option_mcqResource;
 use App\Http\Resources\Option_tofResource;
@@ -36,7 +40,7 @@ class QuestionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Question  $question
+     * @param  \App\Models\Question  $questionss
      * @return \Illuminate\Http\Response
      */
     public function show(Question $question)
@@ -69,23 +73,24 @@ class QuestionController extends Controller
 
     public function question($topic)
     {
-        $questions = Question::where('topic_id',$topic)->get();
+        $questions = Question::where('topic_id', $topic)->get();
 
         $temp = array();
-        foreach($questions as $q){
-            if($q->question_type == 'mcq'){
+        foreach ($questions as $q) {
+            if ($q->question_type == 'mcq') {
                 $optionMCQ = $q->optionMCQ()->get();
+                //Make another column in json body
                 $q['options'] = $optionMCQ;
                 array_push($temp, $q);
             }
 
-            if($q->question_type == 'tof'){
+            if ($q->question_type == 'tof') {
                 $optionTOF = $q->optionTOF()->get();
                 $q['options'] = $optionTOF;
                 array_push($temp, $q);
             }
 
-            if($q->question_type == 'fitb'){
+            if ($q->question_type == 'fitb') {
                 $optionFITB = $q->optionFITB()->get();
                 $q['options'] = $optionFITB;
                 array_push($temp, $q);
@@ -95,62 +100,70 @@ class QuestionController extends Controller
         return ['questions' => $temp];
     }
 
-    // public function answer($topic, $id, Request $request)
-    // {
+    public function showquestion($topic, $question)
+    {
+        $score = 0;
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
+        $questions = Question::where('topic_id', $topic)->where('question_id', $question)->get();
 
-    //     $users = Fis10User::where('user_id', auth()->user()->id)->first();
-
-    //     $question = Question::where('question_id', $id)
-    //         ->where('topic_id', $topic)->first();
-    //     $option_mcq = Option_mcq::where('question_id', $id)
-    //         ->get();
-
-    //     $option_fitb = Option_fitb::where('question_id', $id)
-    //         ->get();
-
-    //     $option_tof = Option_tof::where('question_id', $id)
-    //         ->get();
-
-    //     $this->validate($request, [
-    //         'choice' => 'required'
-    //     ]);
-
-    //     if ($question->question_type == "mcq") {
-    //         foreach ($option_mcq as $o) {
-    //             if ($request->choice == $o->option && $o->is_correct == true) {
-    //                 $score = 1;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered correctly!'];
-    //             } else if ($request->choice == $o->option && $o->is_correct == false) {
-    //                 $score = 0;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered wrong!'];
-    //             }
-    //         }
-    //     } elseif ($question->question_type == "fitb") {
-    //         foreach ($option_fitb as $o) {
-    //             if ($request->choice == $o->answer) {
-    //                 $score = 1;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered correctly!'];
-    //             } else {
-    //                 $score = 0;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered wrong!'];
-    //             }
-    //         }
-    //     } elseif ($question->question_type == "tof") {
-    //         foreach ($option_tof as $o) {
-    //             if ($request->choice == $o->true_or_false) {
-    //                 $score = 1;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered correctly!'];
-    //             } else {
-    //                 $score = 0;
-    //                 $users->questions()->where('fis10_users_questions.question_id', $id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-    //                 return ['message' => 'You have answered wrong!'];
-    //             }
-    //         }
-    //     }
+        if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null) {
+            $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+        }
     }
 
+    public function answerquestion($topic, $question, Request $request)
+    {
+
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
+        $questions = Question::where('topic_id', $topic)->where('question_id', $question)->get();
+        $option_mcq = Option_mcq::where('question_id', $question->question_id)
+            ->get();
+
+        $option_fitb = Option_fitb::where('question_id', $question->question_id)
+            ->get();
+
+        $option_tof = Option_tof::where('question_id', $question->question_id)
+            ->get();
+        $request->validate([
+            'choice' => 'required',
+        ]);
+
+        if ($questions->question_type == "mcq") {
+            foreach ($option_mcq as $o) {
+                if ($request->choice == $o->option && $o->is_correct == 1) {
+                    $score = 1;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                } else if ($request->choice == $o->option && $o->is_correct == 0) {
+                    $score = 0;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                }
+            }
+        } elseif ($questions->question_type == "fitb") {
+            foreach ($option_fitb as $o) {
+                if ($request->choice == $o->answer) {
+                    $score = 1;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                } else {
+                    $score = 0;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                }
+            }
+        } elseif ($questions->question_type == "tof") {
+            foreach ($option_tof as $o) {
+                if ($request->choice == "True" && $option_tof->true_or_false == true) {
+                    $score = 1;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                } else if ($request->choice == "True" && $option_tof->true_or_false == false){
+                    $score = 0;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                }else if($request->choice == "False" && $option_tof->true_or_false == false){
+                    $score = 1;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                }else if($request->choice == "False" && $option_tof->true_or_false == true){
+                    $score = 0;
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
+                }
+            }
+        }
+    }
+}
