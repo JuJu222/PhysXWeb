@@ -58,6 +58,22 @@
 }
 
 /* home */
+.home-card {
+    background: #FFEBA1;
+    border: none;
+    padding: 40px !important;
+}
+
+.home-card h1 {
+    margin-bottom: 0;
+    color: #70471E;
+}
+
+.home-card h4 {
+    margin-bottom: 0;
+    color: #B8A76A;
+}
+
 .topic-home {
     width: 96px;
     height: 96px;

@@ -6,6 +6,21 @@
     <div class="d-flex justify-content-start mt-xl-3 ms-5">
         <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>
     </div>
+    <div class="card home-card">
+        <div class="row">
+            <div class="col">
+                <h4 class="font-weight-bold">Skor Total:</h4>
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('img/score-symbol.svg') }}" alt="Skor">
+                    <h1 class="font-weight-bold d-inline">80.000</h1>
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <h4 class="font-weight-bold">Skor Total:</h4>
+                <h1 class="font-weight-bold">80.000</h1>
+            </div>
+        </div>
+    </div>
     <div class="ms-2 me-5 d-flex flex-column home-parent">
         <div class="d-flex align-items-center">
             <img src="{{ asset('img/rumahkanan.svg')}}" class="absolute mr-2" width="200px" height="200px">
