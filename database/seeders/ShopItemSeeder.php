@@ -41,7 +41,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 1',
             'type' => 'avatar',
-            'image_path' => 'https://drive.google.com/uc?export=view&id=1rLF7OUdVcce2GWO7RK55IgmYe-NaL-Rd',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1g8-47XhGQfV1WRROUJwr5mPq-0xUBDjc',
             'price' => '100',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
@@ -50,7 +50,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 2',
             'type' => 'avatar',
-            'image_path' => 'https://drive.google.com/uc?export=view&id=1wOXmI-HswxBUTT-VbT-bkgQo0mtauDTx',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1DKaOHMqWk8kMRzW7DLkXtALlfgwV996_',
             'price' => '250',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
@@ -59,7 +59,7 @@ class ShopItemSeeder extends Seeder
         DB::table('fis10_shop_items')->insert([
             'item' => 'Avatar 3',
             'type' => 'avatar',
-            'image_path' => 'https://drive.google.com/uc?export=view&id=1ernQm2cEI-BFieZOho2X1Uu-czccmmI4',
+            'image_path' => 'https://drive.google.com/uc?export=view&id=1r3UVa3nZGyeJexq5CLYUgEf-7AnUcSlb',
             'price' => '500',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
