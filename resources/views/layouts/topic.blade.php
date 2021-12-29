@@ -10,7 +10,7 @@
     <h3 class="fw-bolder">Mari tantang diri anda dan dapatkan skor yang terbaik!</h3>
 </div>
 <div class="d-flex justify-content-center mt-5 me-5">
-    <button type="button" class="btn btn-primary btn-lg mx-5">Mudah</button>
-    <button type="button" class="btn btn-primary btn-lg mx-5">Susah</button>
+    <a href="{{ route('questionSoal', $topicsEasy) }}" class="btn btn-primary btn-lg mx-5" type="button">Mudah</a>
+    <a href="{{ route('questionSoal', $topicsHard) }}" class="btn btn-primary btn-lg mx-5 "type="button">Susah</a>
 </div>
 @endsection
