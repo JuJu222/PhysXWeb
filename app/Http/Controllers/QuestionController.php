@@ -220,6 +220,7 @@ class QuestionController extends Controller
 
         $nosoal = $request->session()->get('nosoal', 1);
         $questions = Question::where('topic_id', $topic)->get();
+        //Bikin jadi index
         $question = $questions[$nosoal - 1];
 
         $option_mcq = Option_mcq::where('question_id', $question->question_id)

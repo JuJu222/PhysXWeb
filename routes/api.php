@@ -43,5 +43,7 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
 
     Route::get('questions/{topic}',[QuestionController::class,'question']);
+    Route::get('questions/{topic}/{question}',[QuestionController::class,'showquestion']);
+    Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);
 });
 Route::resource('question',QuestionController::class);
