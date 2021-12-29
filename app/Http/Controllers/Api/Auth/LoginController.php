@@ -23,7 +23,6 @@ class LoginController extends Controller
         $user = [
             'email' => $request->email,
             'password' => $request->password,
-            'role' => 'user',
         ];
 
         if (Auth::attempt($user)) {
