@@ -31,7 +31,7 @@ class CreateLeaderboardsTable extends Migration
             ->onUpdate('cascade');
         });
 
-        
+
     }
 
     /**
@@ -41,6 +41,6 @@ class CreateLeaderboardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leaderboards');
+        Schema::dropIfExists('fis10_leaderboards');
     }
 }
