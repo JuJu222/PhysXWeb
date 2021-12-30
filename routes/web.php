@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Fis10UserController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -63,8 +65,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
-    
+
     Route::resource('profile', ProfileController::class);
-  
+
     Route::get('topic/{id}',[TopicController::class, 'show']);
 });

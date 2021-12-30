@@ -13,6 +13,7 @@ use App\Http\Resources\QuestionResource;
 use App\Http\Resources\Option_mcqResource;
 use App\Http\Resources\Option_tofResource;
 use App\Http\Resources\Option_fitbResource;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -165,5 +166,39 @@ class QuestionController extends Controller
                 }
             }
         }
+    }
+
+    public function result($topic) {
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+
+        $userQuestions = $fis10user->questions;
+        $result = array();
+        $correctAnswerCounter= 0;
+        $timeTaken = 0;
+        $totalScore = 0;
+        $totalSeconds = 0;
+
+        foreach ($userQuestions as $userQuestion) {
+            if (!$userQuestion->pivot->question_score == 0) {
+                $totalScore += $userQuestion->pivot->question_score;
+                $correctAnswerCounter++;
+            }
+            $time_start = \Carbon\Carbon::parse($userQuestion->pivot->time_start);
+            $time_end = \Carbon\Carbon::parse($userQuestion->pivot->time_end);
+            $timeTaken += $time_start->diffInSeconds($time_end, false);
+        }
+
+        $totalMinutes = floor($timeTaken / 60);
+        $totalSeconds += $timeTaken % 60;
+        $totalQuestions = Question::query()->where('topic_id', $topic)->count();
+
+        $result['accuracy'] = round($correctAnswerCounter / $totalQuestions * 100, 0);
+        $result['total_score'] = $totalScore;
+        $result['total_questions'] = $totalQuestions;
+        $result['total_correct'] = $correctAnswerCounter;
+        $result['total_minutes'] = $totalMinutes;
+        $result['total_seconds'] = $totalSeconds;
+
+        return $result;
     }
 }
