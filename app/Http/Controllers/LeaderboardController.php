@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\UsersQuestions;
 use Illuminate\Http\Request;
 
 class LeaderboardController extends Controller
@@ -12,8 +12,12 @@ class LeaderboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $userquestions = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
+        ->groupBy('fis10_user_id')
+        ->orderByDesc('total_score')
+        ->get();
+        return view('leaderboards', compact('userquestions'));
     }
 
     /**
