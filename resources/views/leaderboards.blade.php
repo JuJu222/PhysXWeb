@@ -3,6 +3,22 @@
 <div class="d-flex justify-content-center mt-5 mx-5">
     <span><h2 class="mt-3 fw-bold purple">Nama Topik</h2></span>     
 </div>
+<div class="mx-5 my-5 d-flex justify-content-evenly">
+    <div class="card">Besaran dan Satuan</div>
+    <div class="card">Vektor</div>
+    <div class="card">Gerak Lurus</div>
+    <div class="card">Gerak Parabola</div>
+</div>
+<div class="mx-5 my-5 d-flex justify-content-evenly">
+    <div class="card">Gerak Melingkar Beraturan</div>
+    <div class="card">Hukum Newton (Gerak)</div>
+    <div class="card">Hukum Newton (Gravitasi)</div>
+</div>
+<div class="mx-5 my-5 d-flex justify-content-evenly">
+    <div class="card">Usaha dan Energi</div>
+    <div class="card">Momentum dan Impuls</div>
+    <div class="card">Getaran Harmonis</div>
+</div>
 <div class="mx-5 my-5 d-flex justify-content-center">
     <!--template-->
     <table>
