@@ -73,9 +73,9 @@
         <select class="form-select {{ $errors->has('topic') ? 'error' : '' }}" name="topic">
          @foreach($topics as $topic)
         @if($topic->topic_id == $questions->topic_id)
-        <option value="{{ $topic->topic_id}}" selected>{{ $topic->topic }}</option>
+        <option value="{{ $topic->topic_id}}" selected>{{ $topic->topic_name }}</option>
         @else
-        <option value="{{ $topic->topic_id }}">{{ $topic->topic }}</option>
+        <option value="{{ $topic->topic_id }}">{{ $topic->topic_name }}</option>
         @endif
         @endforeach
         </select>

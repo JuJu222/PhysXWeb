@@ -61,11 +61,11 @@
     <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Topic</label>
         <select class="form-select {{ $errors->has('topic') ? 'error' : '' }}" name="topic">
-            @foreach($topics as $topic)
+        @foreach($topics as $topic)
         @if($topic->topic_id == null)
-        <option value="{{ $topic->topic_id}}">{{ $topic->topic }}</option>
+        <option value="{{ $topic->topic_id}}">{{ $topic->topic_name }}</option>
         @else
-        <option value="{{ $topic->topic_id }}">{{ $topic->topic }}</option>
+        <option value="{{ $topic->topic_id }}">{{ $topic->topic_name }}</option>
         @endif
         @endforeach
         </select>
