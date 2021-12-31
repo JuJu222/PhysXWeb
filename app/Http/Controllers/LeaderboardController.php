@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\UsersQuestions;
+use App\Models\Fis10User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LeaderboardController extends Controller
@@ -13,11 +15,13 @@ class LeaderboardController extends Controller
      */
     public function index()
     {   
+        $user = User::get();
+        $fis10user = Fis10User::get();
         $userquestions = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
         ->groupBy('fis10_user_id')
         ->orderByDesc('total_score')
         ->get();
-        return view('leaderboards', compact('userquestions'));
+        return view('leaderboards', compact('userquestions','fis10user', 'user'));
     }
 
     /**
