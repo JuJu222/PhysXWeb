@@ -36,7 +36,7 @@ Route::group(['middleware'=> 'auth:api'], function(){
             'fis10user' => $fis10user
         ]);
     });
-
+    Route::resource('topic',TopicController::class);
     Route::resource('home', HomeController::class);
     Route::resource('shop', ShopItemController::class);
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
