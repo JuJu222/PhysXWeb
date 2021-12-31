@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fis10User;
 use App\Models\OwnedItem;
+use App\Models\UsersQuestions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,20 @@ class HomeController extends Controller
         $userAvatar = null;
         $onwedItems = $fis10user->shopItem;
 
+        $rankings = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
+            ->groupBy('fis10_user_id')
+            ->orderByDesc('total_score')
+            ->get();
+
+        $totalScore = '0';
+        $ranking = '-';
+        foreach ($rankings as $index=>$item) {
+            if ($item->fis10_user_id == $fis10user->fis10_user_id) {
+                $totalScore = $item->total_score;
+                $ranking = $index + 1;
+            }
+        }
+
         if ($onwedItems != null) {
             foreach ($onwedItems as $onwedItem) {
                 if ($onwedItem->pivot->is_equipped) {
@@ -45,6 +60,6 @@ class HomeController extends Controller
             }
         }
 
-        return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar'));
+        return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar', 'totalScore', 'ranking'));
     }
 }

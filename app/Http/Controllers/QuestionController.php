@@ -44,7 +44,8 @@ class QuestionController extends Controller
         if (count($questions) < $nosoal) {
             $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
             $fis10user->topics()->attach($topic + 1);
-            return redirect('questions.result', $topic);
+            $request->session()->forget('nosoal');
+            return redirect()->route('questions.result', $topic);
         }
 
         $question = $questions[$nosoal - 1];
