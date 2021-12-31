@@ -58,38 +58,10 @@ class TopicController extends Controller
         $topicsEasy = $topiceasy[$id - 1]->topic_id;
         $topicsHard = $topichard[$id - 1]->topic_id;
         
-        switch($id){
-            case 1:
-                return view('besarandansatuan', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 2:
-                return view('vektor', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 3:
-                return view('geraklurus', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 4:
-                return view('gerakparabola', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 5:
-                return view('gerakmelingkarberaturan', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 6:
-                return view('hukumnewtongerak', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 7:
-                return view('hukumnewtongravitasi', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 8:
-                return view('usahadanenergi', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 9:
-                return view('momentumdanimpuls', compact('topic','topicsEasy','topicsHard'));
-                break;
-            case 10:
-                return view('getaranharmonis', compact('topic','topicsEasy','topicsHard'));
-                break;
-        }
+        return [
+                    'topic' => $topic
+        ];
+                
     }
 
     /**
