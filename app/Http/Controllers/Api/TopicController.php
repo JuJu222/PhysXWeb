@@ -52,14 +52,14 @@ class TopicController extends Controller
         //
         $topic = Topic::where('topic_id', $id)->first();
 
-        $topiceasy = Topic::where('difficulty','easy')->get();
-        $topichard = Topic::where('difficulty','hard')->get();
+        // $topiceasy = Topic::where('difficulty','easy')->get();
+        // $topichard = Topic::where('difficulty','hard')->get();
 
-        $topicsEasy = $topiceasy[$id - 1]->topic_id;
-        $topicsHard = $topichard[$id - 1]->topic_id;
+        // $topicsEasy = $topiceasy[$id - 1]->topic_id;
+        // $topicsHard = $topichard[$id - 1]->topic_id;
         
         return [
-                    'topic' => $topic
+            'topic' => $topic
         ];
                 
     }
