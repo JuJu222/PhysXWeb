@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Topic;
 use App\Models\Question;
 use App\Models\Fis10User;
 use App\Models\Option_mcq;
@@ -9,11 +10,11 @@ use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\QuestionResource;
 use App\Http\Resources\Option_mcqResource;
 use App\Http\Resources\Option_tofResource;
 use App\Http\Resources\Option_fitbResource;
-use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -101,13 +102,13 @@ class QuestionController extends Controller
         return ['questions' => $temp];
     }
 
-    public function showquestion($topic,$question)
+    public function showquestion($topic, $question)
     {
         $score = 0;
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
         $questions = Question::where('topic_id', $topic)->where('question_id', $question)->first();
 
-        if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null ) {
+        if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null) {
             $redux = $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
         }
         return $redux;
@@ -116,6 +117,7 @@ class QuestionController extends Controller
     public function answerquestion($topic, $question, Request $request)
     {
 
+        $topic = Topic::where('topic_id', $topic)->first();
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
         $questions = Question::where('topic_id', $topic)->where('question_id', $question)->first();
         $option_mcq = Option_mcq::where('question_id', $question)
@@ -133,7 +135,12 @@ class QuestionController extends Controller
         if ($questions->question_type == "mcq") {
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == 1) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
+
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                 } else if ($request->choice == $o->option && $o->is_correct == 0) {
                     $score = 0;
@@ -143,7 +150,11 @@ class QuestionController extends Controller
         } elseif ($questions->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                 } else {
                     $score = 0;
@@ -153,15 +164,23 @@ class QuestionController extends Controller
         } elseif ($questions->question_type == "tof") {
             foreach ($option_tof as $o) {
                 if ($request->choice == "True" && $o->true_or_false == 1) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                } else if ($request->choice == "True" && $o->true_or_false == 0){
+                } else if ($request->choice == "True" && $o->true_or_false == 0) {
                     $score = 0;
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                }else if($request->choice == "False" && $o->true_or_false == 0){
-                    $score = 1;
+                } else if ($request->choice == "False" && $o->true_or_false == 0) {
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
-                }else if($request->choice == "False" && $o->true_or_false == 1){
+                } else if ($request->choice == "False" && $o->true_or_false == 1) {
                     $score = 0;
                     $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                 }
@@ -170,12 +189,13 @@ class QuestionController extends Controller
         return $redux;
     }
 
-    public function result($topic) {
+    public function result($topic)
+    {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
         $userQuestions = $fis10user->questions;
         $result = array();
-        $correctAnswerCounter= 0;
+        $correctAnswerCounter = 0;
         $timeTaken = 0;
         $totalScore = 0;
         $totalSeconds = 0;

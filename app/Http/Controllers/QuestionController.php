@@ -223,6 +223,7 @@ class QuestionController extends Controller
         //Bikin jadi index
         $question = $questions[$nosoal - 1];
 
+        $topic = Topic::where('topic_id', $topic)->first();
         $option_mcq = Option_mcq::where('question_id', $question->question_id)
             ->get();
 
@@ -239,7 +240,11 @@ class QuestionController extends Controller
         if ($question->question_type == "mcq") {
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
@@ -251,7 +256,11 @@ class QuestionController extends Controller
         } elseif ($question->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
@@ -263,7 +272,11 @@ class QuestionController extends Controller
         } elseif ($question->question_type == "tof") {
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
-                    $score = 1;
+                    if ($topic->difficulty == "easy") {
+                        $score = 50;
+                    } else {
+                        $score = 100;
+                    }
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $score, 'time_end' => \Carbon\Carbon::now()]);
                     return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
@@ -275,12 +288,13 @@ class QuestionController extends Controller
         }
     }
 
-    public function result($topic) {
+    public function result($topic)
+    {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
         $userQuestions = $fis10user->questions;
         $result = array();
-        $correctAnswerCounter= 0;
+        $correctAnswerCounter = 0;
         $timeTaken = 0;
         $totalScore = 0;
         $totalSeconds = 0;
