@@ -1,8 +1,8 @@
 @extends('layouts.apps')
 @section('content')
 
-    <main>
-        <section>
+    <main class="mt-5">
+        <section class="p-5">
           <div class="dashboard">
 
             <div class="user">
@@ -11,18 +11,18 @@
               <h2 class="purple">{{$user->username}}</h2>
             </div>
 
-            <div class="biodata">
+            <div class="biodata my-5">
               <div class="data">
-                <h3><b>Email: </b>{{$user->email}}</h3>
+                <h5><b>Email: </b>{{$user->email}}</h5>
               </div>
               <div class="data">
-                <h3><b>School: </b>{{$user->school}}</h3>
+                <h5><b>School: </b>{{$user->school}}</h5>
               </div>
               <div class="data">
-                <h3><b>City: </b>{{$user->city}}</h3>
+                <h5><b>City: </b>{{$user->city}}</h5>
               </div>
               <div class="data">
-                <h3><b>Birthyear: </b>{{$user->birthyear}}</h3>
+                <h5><b>Birthyear: </b>{{$user->birthyear}}</h5>
               </div>
             </div>
 
@@ -33,65 +33,16 @@
 
           <div class="history">
               <h1><b>Game History: </b></h1>
-            <div class="cards">
-
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-              <div class="card">
-                <img src="./images/assassins.png" alt="" />
-                <div class="card-info">
-                  <h2><b>Chapter 1</b></h2>
-                  <p>Easy</p>
-                </div>
-                <h2><b>Score: </b>100</h2>
-              </div>
-
+            <div class="cards mt-3">
+                @foreach($history as $item)
+                    <div class="card mb-3 p-3">
+                        <img src="./images/assassins.png" alt="" />
+                        <div class="card-info">
+                            <h4><b>{{ $item->topic_name }}</b></h4>
+                        </div>
+                        <h5><b>Score: </b>{{ $item->total_score }}</h5>
+                    </div>
+                @endforeach
             </div>
           </div>
         </section>
