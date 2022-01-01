@@ -29,7 +29,7 @@ class Fis10User extends Model
         return $this->belongsToMany(Topic::class, 'fis10_unlocked_topics', 'fis10_user_id', 'topic_id');
     }
 
-    public function leaderboards(){
-        return $this->hasMany(Leaderboard::class, 'uid', 'fis10_user_id');
-    }
+    // public function leaderboards(){
+    //     return $this->hasMany(Leaderboard::class, 'uid', 'fis10_user_id');
+    // }
 }

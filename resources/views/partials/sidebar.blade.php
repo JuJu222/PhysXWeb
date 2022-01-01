@@ -35,7 +35,7 @@
 
       </li>
       <li>
-        <a href="#">
+        <a href="/leaderboards">
           <i class='bx bxs-trophy bx-tada-hover' ></i>
           <span class="links_leaderboard"><b>Peringkat</b></span>
         </a>

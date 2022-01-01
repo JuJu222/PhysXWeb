@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\UsersQuestions;
-use App\Models\Fis10User;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+namespace App\Http\Controllers\Api;
 
-class LeaderboardController extends Controller
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Topic;
+use Illuminate\Http\Request;
+
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,28 +16,8 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        $leaderboard = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
-        ->groupBy('fis10_user_id')
-        ->orderByDesc('total_score')
-        ->get();
-
-        $leaderboard = DB::table('fis10_users_questions')
-            ->join(
-                'fis10_users',
-                'fis10_users.fis10_user_id',
-                '=',
-                'fis10_users_questions.question_id')
-            ->join(
-                'users',
-                'users.id',
-                '=',
-                'fis10_users.user_id')
-            ->selectRaw('name, CAST(SUM(question_score) AS INTEGER) AS total_score')
-            ->groupBy('name')
-            ->orderByDesc('total_score')
-            ->get();
-
-        return view('leaderboards', compact('leaderboard'));
+        //
+        return view('home');
     }
 
     /**
@@ -70,6 +50,18 @@ class LeaderboardController extends Controller
     public function show($id)
     {
         //
+        $topic = Topic::where('topic_id', $id)->first();
+
+        // $topiceasy = Topic::where('difficulty','easy')->get();
+        // $topichard = Topic::where('difficulty','hard')->get();
+
+        // $topicsEasy = $topiceasy[$id - 1]->topic_id;
+        // $topicsHard = $topichard[$id - 1]->topic_id;
+        
+        return [
+            'topic' => $topic
+        ];
+                
     }
 
     /**
