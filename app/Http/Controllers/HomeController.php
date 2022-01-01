@@ -33,6 +33,7 @@ class HomeController extends Controller
         $userTitle = null;
         $userAvatar = null;
         $onwedItems = $fis10user->shopItem;
+        $coins = $fis10user->coins;
 
         $rankings = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
             ->groupBy('fis10_user_id')
@@ -60,6 +61,6 @@ class HomeController extends Controller
             }
         }
 
-        return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar', 'totalScore', 'ranking'));
+        return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar', 'totalScore', 'ranking', 'coins'));
     }
 }

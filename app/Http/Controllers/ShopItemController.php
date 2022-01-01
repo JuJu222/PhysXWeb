@@ -26,6 +26,7 @@ class ShopItemController extends Controller
         $userTitle = null;
         $userAvatar = null;
         $onwedItems = $fis10user->shopItem;
+        $coins = $fis10user->coins;
 
         if ($onwedItems != null) {
             foreach ($onwedItems as $onwedItem) {
@@ -39,7 +40,7 @@ class ShopItemController extends Controller
             }
         }
 
-        return view('shop', compact('fis10user', 'titles', 'avatars', 'ownedItems', 'userAvatar', 'userTitle'));
+        return view('shop', compact('fis10user', 'titles', 'avatars', 'ownedItems', 'userAvatar', 'userTitle', 'coins'));
     }
 
     /**
@@ -191,6 +192,7 @@ class ShopItemController extends Controller
                 }
             }
             $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
+            $fis10user->update(['coins' => $fis10user->coins - $shopItem->price]);
         }
 
         return redirect(route('shop.index'));

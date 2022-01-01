@@ -45,6 +45,7 @@ class QuestionController extends Controller
             $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
             $fis10user->topics()->attach($topic + 1);
             $request->session()->forget('nosoal');
+            $fis10user->update(['coins' => $fis10user->coins + 25]);
             return redirect()->route('questions.result', $topic);
         }
 

@@ -170,6 +170,7 @@ class QuestionController extends Controller
 
     public function result($topic) {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $fis10user->update(['coins' => $fis10user->coins + 25]);
 
         $userQuestions = $fis10user->questions;
         $result = array();

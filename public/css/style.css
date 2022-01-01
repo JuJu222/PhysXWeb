@@ -40,6 +40,13 @@
     width: max-content;
 }
 
+.result-coin {
+    background: #6F69AC;
+    color: #FFEBA1;
+    border-radius: 16px;
+    width: max-content;
+}
+
 .result-score-total {
     width: max-content;
     font-weight: bold;
