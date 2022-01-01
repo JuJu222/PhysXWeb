@@ -21,16 +21,20 @@
 </div>
 <div class="mx-5 my-5 d-flex justify-content-center">
     <!--template-->
+    
     <table>
+        @foreach($leaderboard as $l)
         <tr>
-            <th rowspan="2"><div class="card rounded-pill" style="height: 75px; width: 120px; margin-top: 15px;"><h3 class="ms-1" style="margin-top: 12.5px;">1</h3></div></th>
+            <th rowspan="2"><div class="card rounded-pill" style="height: 75px; width: 120px; margin-top: 15px;"><h3 class="ms-1" style="margin-top: 12.5px;">{{ $loop->index + 1 }}</h3></div></th>
             <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th><h3>{{ $fis10user->user() }}</h3></th>Kenny Jinhiro Wibowo</h4></th>
+            <th><h4>{{ $l->name }}</h4></th>
         </tr>
         <tr>
             <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th><h5>16230</h5></th>
+            <th><h5>{{ $l->total_score }}</h5></th>
         </tr>
+        @endforeach
     </table>
+    
 </div>
 @endsection

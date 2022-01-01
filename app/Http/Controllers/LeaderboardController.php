@@ -16,10 +16,10 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        $leaderboard = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
-        ->groupBy('fis10_user_id')
-        ->orderByDesc('total_score')
-        ->get();
+        // $leaderboard = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
+        // ->groupBy('fis10_user_id')
+        // ->orderByDesc('total_score')
+        // ->get();
 
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
@@ -35,6 +35,7 @@ class LeaderboardController extends Controller
             ->selectRaw('name, CAST(SUM(question_score) AS INTEGER) AS total_score')
             ->groupBy('name')
             ->orderByDesc('total_score')
+            ->limit(10)
             ->get();
 
         return view('leaderboards', compact('leaderboard'));
