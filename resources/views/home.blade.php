@@ -1,27 +1,36 @@
 @extends('layouts.apps')
 @section('content')
-    <div class="d-flex justify-content-start mt-5 ms-5 ">
-        <h1 class="purple"><b>Halo, {{ auth()->user()->name }}!</b></h1>
-    </div>
-    <div class="d-flex justify-content-start mt-xl-3 ms-5">
-        <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>
-    </div>
-    <div class="card home-card">
-        <div class="row">
-            <div class="col">
-                <h4 class="font-weight-bold">Skor Total:</h4>
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('img/score-symbol.svg') }}" alt="Skor">
-                    <h1 class="font-weight-bold d-inline">80.000</h1>
-                </div>
+    <div class="row mt-5 mb-4">
+        <div class="col my-auto">
+            <h1 class="purple"><b>Halo, {{ auth()->user()->name }}!</b></h1>
+            <div class="result-coin mt-2 px-3 py-2 d-flex align-items-center">
+                <h5 class="result-score-total d-inline mb-0 mr-2">{{ $coins }}</h5>
+                <img src="{{ asset('img/coin.svg') }}" alt="Skor">
             </div>
-            <div class="col-md-auto">
-                <h4 class="font-weight-bold">Skor Total:</h4>
-                <h1 class="font-weight-bold">80.000</h1>
+        </div>
+        <div class="card home-card col">
+            <div class="row">
+                <div class="col my-auto">
+                    <h4 class="font-weight-bold">Skor Total</h4>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('img/score-symbol.svg') }}" alt="Skor">
+                        <h1 class="font-weight-bold d-inline ml-2">{{ $totalScore }}</h1>
+                    </div>
+                </div>
+                <div class="col-md-auto d-flex align-items-center flex-column">
+                    <h4 class="font-weight-bold ml-2">Rank</h4>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('img/leaderboard.svg') }}" alt="Ranking">
+                        <h1 class="font-weight-bold d-inline ml-2">{{ $ranking }}</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="ms-2 me-5 d-flex flex-column home-parent">
+    <div class="d-flex justify-content-start mt-5 mb-4">
+        <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>
+    </div>
+    <div class="d-flex flex-column home-parent">
         <div class="d-flex align-items-center">
             <img src="{{ asset('img/rumahkanan.svg')}}" class="absolute mr-2" width="200px" height="200px">
             <div class="d-flex flex-column align-items-center mt-4">

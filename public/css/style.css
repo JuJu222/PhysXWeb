@@ -40,6 +40,13 @@
     width: max-content;
 }
 
+.result-coin {
+    background: #6F69AC;
+    color: #FFEBA1;
+    border-radius: 16px;
+    width: max-content;
+}
+
 .result-score-total {
     width: max-content;
     font-weight: bold;
@@ -278,19 +285,13 @@
 }
 
 /* profile */
-main {
-    min-height: 950px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 section {
-    padding-top: 5%;
     background-color: white;
     width: 100%;
     border-radius: 2rem;
     backdrop-filter: blur(2rem);
     display: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 .dashboard {
     flex: 1;
@@ -306,28 +307,8 @@ section {
     border-color: black;
   }
 
-.data {
-    display: flex;
-    margin: 0.5rem 0rem;
-  }
 .biodata{
     width: 100%;
-    padding-left:20px;
     align-items: flex-start;
-    text-align: left;
-    padding-right:20px;
-}
-.cards{
-    padding-right: 20px;
-    padding-bottom: 50px;
-}
-.card{
-    padding: 10px;
-    margin-bottom: 20px;
-}
-.pp{
-    margin-bottom: 10px;
-}
-.buttonedit{
-    margin-bottom:15px;
+    text-align: center;
 }

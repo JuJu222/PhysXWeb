@@ -30,7 +30,7 @@ class UserSeeders extends Seeder
 
         DB::table('fis10_users')->insert([
             'user_id' => '1',
-            'coins' => '2000',
+            'coins' => '10000',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -50,7 +50,7 @@ class UserSeeders extends Seeder
 
         DB::table('fis10_users')->insert([
             'user_id' => '2',
-            'coins' => '2000',
+            'coins' => '0',
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);

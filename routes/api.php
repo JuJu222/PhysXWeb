@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ShopItemController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\TopicController;
 
 
 /*
@@ -29,7 +30,6 @@ Route::post('login',[LoginController::class, 'login']);
 
 Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('logout',[LoginController::class,'logout']);
-
     Route::get('/user', function (Request $request) {
         $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
 
@@ -38,12 +38,13 @@ Route::group(['middleware'=> 'auth:api'], function(){
             'fis10user' => $fis10user
         ]);
     });
+
     Route::put('user', [UserController::class, 'update']);
+    Route::resource('topic',TopicController::class);
     Route::resource('home', HomeController::class);
     Route::resource('shop', ShopItemController::class);
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
-
     Route::get('questions/{topic}',[QuestionController::class,'question']);
     Route::get('questions/{topic}/{question}',[QuestionController::class,'showquestion']);
     Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);

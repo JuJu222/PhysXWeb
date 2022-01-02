@@ -15,31 +15,1127 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
+        //Topik 1
         DB::table('fis10_questions')->insert([
+            'question_id' => 1,
             'question_type' => "mcq",
-            'question' => "Energi kinetik (Ek) dinyatakan oleh Ek =12\begin{aligned}\frac{1}{2}\end{aligned}21​​mv2. Dimensi energi kinetik adalah ...",
-            'image_path' => "1640104700.jpg",
+            'score' => 50,
+            'question' => "Energi kinetik (Ek) dinyatakan oleh Ek = (1/2​​)mv2. Besaran energi kinetik adalah ...",
+            'image_path' => "besaransatuan.jpg",
             'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
         DB::table('fis10_questions')->insert([
+            'question_id' => 2,
             'question_type' => "tof",
-            'question' => "Besaran yang dimensinya MLT-2 adalah ....",
-            'image_path' => "soal3.jpg",
+            'score' => 50,
+            'question' => "Besaran yang dimensinya MLT-2 adalah Gaya",
+            'image_path' => "besaransatuan.jpg",
             'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
 
         DB::table('fis10_questions')->insert([
+            'question_id' => 3,
             'question_type' => "fitb",
+            'score' => 50,
             'question' => "Besar gaya elastis sebuah pegas dinyatakan oleh F = kx, dengan k adalah konstansta pegas dan x adalah perubahan panjang pegas. Dimensi konstanta adalah ....",
-            'image_path' => "soal3.jpg",
+            'image_path' => "besaransatuan.jpg",
             'topic_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 4,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Luas suatu Bujur sangkar mempunyai satuan cm^2, maka panjang salah satu sisinya adalah mempunyai satuan ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 5,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Satu pascal setara dengan satu newton per meter",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 6,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Rumus dimensi daya adalah ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 7,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Besaran pokok panjang dapat diturunkan menjadi ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 8,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Kuat arus listrik mempunyai satuan Kelvin",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 9,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Dibawah ini yang merupakan satuan besaran pokok adalah ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 10,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Satuan dari waktu adalah s (sekon)",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 1,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of Topik 1
+
+        //Topik 2
+        DB::table('fis10_questions')->insert([
+            'question_id' => 11,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Vektor adalah besaran yang mempunyai nilai dan arah",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 12,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Rumus diatas adalah rumus sinus untuk menghitung resultan vektor",
+            'image_path' => "soal12.jpg",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 13,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Aturan .... digunakan untuk menentukan arah vektor resultan",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 14,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Seorang anak berlari menempuh jarak 80 m ke utara, kemudian membelok ke timur 80 m dan ke selatan 20 meter. Besar perpindahan yang dilakukan anak tersebut adalah adalah ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 15,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Budi berjalan sejauh 6 meter ke timur, kemudian 6 meter ke selatan dan 2 meter ke timur. Perpindahan Budi dari posisi awal adalah ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 16,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Resultan ketiga gaya pada gambar di atas adalah ....",
+            'image_path' => "soal16.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 17,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Seorang anak berjalan lurus 80 meter ke utara, kemudian belok ke timur sejauh 80 meter, dan belok lagi ke selatan sejauh 20 meter. Perpindahan yang dilakukan anak tersebut dari posisi awal adalah 100 meter, ke arah barat laut",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 18,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Pada perlombaan tarik tambang, kelompok A menarik ke arah timur dengan gaya 700 N. Kelompok B menarik ke barat dengan gaya 665 N. Kelompok yang memenangi perlombaan adalah kelompok A dengan resultan gaya 35 N",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 19,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah mobil bergerak dengan kecepatan 50 km/jam membentuk sudut 30° terhadap sumbu x positif. Besar komponen vektor kecepatan tersebut pada sumbu x dan sumbu y berturut-turut adalah ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 20,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Perhatikan gambar gaya diatas ini! Besar resultan ketiga gaya tersebut adalah ....",
+            'image_path' => "soal20.png",
+            'topic_id' => 2,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of Topik 2
+
+        //Topik 3
+        DB::table('fis10_questions')->insert([
+            'question_id' => 21,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Suatu benda dikatakan bergerak apabila ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 22,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Benda jatuh termasuk gerak lurus ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 23,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Saat sebuah benda bergerak dengan kecepatan tetap, maka percepatan benda sama dengan 0",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 24,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Sebuah mobil bergerak dengan kelajuan rata-rata 80 km/jam selama 60 menit. Jarak yang ditempuh mobil tersebut adalah ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 25,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Budi berlari dengan kelajuan 6 m/s. Berapa selang waktu yang dibutuhkan Budi untuk berlari sejauh 1,5 km ?",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 26,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Seseorang berlari selama 10 sekon, posisinya berubah dari 30 m menjadi 50 m. Kecepatan rata-rata orang berlari tersebut adalah ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 27,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Adi dan Niko berjanji akan bertemu di taman kompleks untuk bermain sepulang sekolah. Taman yang letaknya di antara rumah mereka berjarak dua kali lebih dekat ke rumah Niko. Jika Adi membutuhkan waktu 1 jam dari rumahnya ke taman, maka butuh berapa lama untuk Niko dari rumahnya ke taman jika kecepatan mereka sama",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 28,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Jika seekor kura-kura membutuhkan 20 jam untuk menempuh jarak 1 kilometer. Maka kura-kura membutuhkan waktu 55 jam untuk menempuh jarak 2.5 kilometer",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 29,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah mobil mengalami perlambatan konstan, kecepatan mula-mula 90 km/jam. Setelah menempuh jarak 100 m kecepatannya menjadi 54 km/jam. Jarak yang masih harus ditempuh sampai mobil berhenti adalah ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 30,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Benda yang awalnya berkecepatan 20 m/s ternyata berubah menjadi 5 m/s setelah menempuh jarak 8 meter. Berapa jauh lagi jarak yang ia tempuh hingga berhenti",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 3,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of Topik 3
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 31,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Rumus diatas pada gambar diatas adalah rumus untuk menghitung y-maks",
+            'image_path' => "soal31.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 32,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "v0 adalah .... pada rumus gerak parabola",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 33,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah pesawat terbang bergerak mendatar dengan kecepatan 100 m/s melepaskan bom dari ketinggian 500 m. Jika bom jatuh di di tanah dan g = 10 m/s2, maka jarak titik terjauh terhadap sumbu X adalah adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 34,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah benda dilempar dengan sudut elevasi 60 derajat dan dengan kecepatan awal 10 m/s. Berapakah besar dan arah kecepatan setelah 1/2 akar 3 sekon ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 35,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Sebuah bola dilempar dengan kecepatan awal 20 m/s dengan sudut 30 derajat terhadap bidang horizontal. Jika percepatan gravitasi di tempat tersebut 9,8 m/s^2, maka waktu yang diperlukan untuk mencapai ketinggian maksimum adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 36,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Sebuah bola ditendang dengan kecepatan awal 20 m/s dan sudut elevasi 30 derajat. Jarak maksimum yang dicapai bola adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 37,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Sebuah peluru ditembakkan dengan kecepatan 60 m/s dan dengan sudut elevasi 30 derajat. Ketinggian maksimum yang dicapai adalah 50 m",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 38,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Seorang anak menendang bola menuju sebuah sasaran yang terletak pada jarak 100 m dengan sudut elevasi peluru 45 derajat dan kecepatan awal (50/akar 2 m/s). Maka ketinggian sasaran yang dikenai bola dari tanah adalah 16 m",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 39,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Ali melempar bola basket dengan kecepatan 20 m/s dan sudut elevasi 30 derajat. Waktu yang dibutuhkan bola basket untuk sampai dititik tertinggi adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 40,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Seorang murid menendang bola dengan kecepatan awal pada arah vertikal 9 m/s dan kecepatan awal pada arah mendatar 12 m/s. Tentukanlah besar kecepatan awal bola tersebut.",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 4,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 4
+
+        //Topik 5
+        DB::table('fis10_questions')->insert([
+            'question_id' => 41,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Partikel bergerak melingkar dengan kecepatan sudut konstan w maka setelah t perubahan posisi sudutnya dituliskan sebagai Δθ rumus dari perubahan posisi sudutnya adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 42,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Jumlah putaran tiap detik dan periode adalah waktu yang dibutuhkan untuk melakukan satu putaran disebut dengan frekuensi",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 43,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Perubahan arah kecepatan linier diakibatkan oleh adanya percepatan membundar",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 44,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Benda bergerak melingkar beraturan mempunyai kelajuan ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 45,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Rumus diatas adalah rumus ....",
+            'image_path' => "soal45.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 46,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah peluru ditembakkan dengan kecepatan 60 m/s dan dengan sudut elevasi 30 derajat. Ketinggian maksimum yang dicapai adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 47,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Waktu yang dibutuhkan untuk mencapai ke ketinggian maksimum sama dengan waktu yang dibutuhkan untuk turun sampai mencapai ketinggian yang sama dengan titik awal bergerak.",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 48,
+            'question_type' => "fitb",
+            'score' => 50,
+            'question' => "Sebuah benda bergerak melingkar beraturan dengan jari-jari 4 meter, dalam waktu 2 sekon mengalai perpindahan sudut sebesar 1/6 putaran. Kelajuan linear benda tersebut adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 49,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah benda yang massanya 50 gram diikat dengan tali kemudian diputar sehingga benda bergerak melingkar beraturan dengan kecepatan sudut 10 rad/s. Jika panjang tali 100 cm dan tegangan pada tali diabaikan, besar gaya sentripetal yang terjadi adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 50,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sistem roda-roda menunjukkan roda B dan roda C sepusat, roda B dan roda A dihubungkan dengan tali. Roda A, B dan C memiliki jari-jari masing-masing 30 cm, 15 cm dan 40 cm. Apabila roda A diputar dengan kecepatan sudut 15 rad/s maka kecepatan linear roda C adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 5,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 5
+
+        //Topik 1 Hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 101,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Kuat medan listrik pada sebuah titik mempunyai satuan ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 102,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah benda ketebalannya diukur dengan mikrometer sekrup seperti gambar diatas. Hasil pengukuran ketebalan benda adalah ....",
+            'image_path' => "soal102.png",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 103,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Gambar di atas ini merupakan penjumlahan vektor secara segitiga. Gambar yang resultan vektornya sama dengan nol adalah ....",
+            'image_path' => "soal103.png",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 104,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua buah gaya (setitik tangkap) salig tegak lurus. Besarnya masing-masing 12 N dan 5 N. Besar resultan kedua gaya tersebut adalah ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 105,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Gambar diatas adalah pengukuran massa benda dengan menggunakan neraca Ohauss lengan tiga. Hasil pengukuran massa benda yang tersebut adalah ....",
+            'image_path' => "soal105.png",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 106,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Seorang anak mengukur tebal buku dan menunjukkan skala seperti pada gambar. Dari skala yang ditunjukkan tebal buku tersebut adalah ....",
+            'image_path' => "soal106.png",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 107,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Hasil pengukuran panjang dan lebar sebidang tanah berbentuk empat persegi panjang adalah 15,35 m dan 12,5 m. Luas tanah menurut aturan angka penting adalah 191.88 m^2",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 108,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Ketebalan sebuah koin diukur menggunakan mikrometer sekrup menunjukkan nilai 35,67 mm. Maka konversi nilai tersebut dalam satuan meter adalah 0.03567 meter",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 109,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Tekanan merupakan satuan sendiri yang mempunyai dimensi ML^-2T^-2",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 110,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Pada termometer Fahrenheit dan Reamur akan menunjukkan angka yang sama pada suhu ....",
+            'image_path' => "besaransatuan.jpg",
+            'topic_id' => 11,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 1 hard
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 111,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah vektor gaya F1 dan F2 sama besar yaitu 30 N bertitik tangkap sama dan saling mengapit sudut 60 derajat. Resultan kedua vektor tersebut adalah ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 112,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "2 buah vektor beasrnya sama yaitu 10 N. Jika keduanya dijumlahkan resultannya sampai dengan 10 N. Sudut apit antara kedua vektor adalah ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 113,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua buah vektor besarnya sama, satu sama lain membentuk sudut theta. Jika perbandingan resultan dan selisih kedua vektor adalah akar 3, tentukan nilai theta tersebut ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 114,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Resultan ketiga vektor gaya tersebut adalah ....",
+            'image_path' => "soal114.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 115,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Tiga buah vektor memiliki arah seperti gambar di atas ini. Bila F1 = 2 N, F2 = 10 N, F3 = 6N",
+            'image_path' => "soal115.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 116,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Besar resultan (a+b) adalah 8 satuan",
+            'image_path' => "soal116.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 117,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Seekor anak macan berlari ke arah timur sejauh 9 meter, kemudian berbelok ke selatan dan berlari lagi sejauh 12 meter. Perpindahan yang dialami anak macan tersebut adalah 15 meter",
+            'image_path' => "soal116.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 118,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Dua buah vektor masing-masing besarnya 5 satuan dan 12 satuan dan satu sama lain berlawanan arah. Selisih kedua vektor tersebut adalah 12 satuan",
+            'image_path' => "soal116.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 119,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah gaya F = (2i + 3j) N melakukan usaha dengan titik tangkapnya berpindah menurut r = (4i + aj) m dan vektor i dan j berturut-turut adalah vektor satuan yang searah dengan sumbu x dan sumbu y pada koordinat kartesian. Bila usaha itu bernilai 26 J, maka nilai a sama dengan ....",
+            'image_path' => "vektor.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 120,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Pernyataan yang benar adalah ....",
+            'image_path' => "soal120.png",
+            'topic_id' => 12,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+
+        //Hard Topik 3
+        DB::table('fis10_questions')->insert([
+            'question_id' => 121,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Seekor tikus bergerak sepanjang garis lurus yang dapat dinyatakan dengan persamaan berikut x=2t^2−3t−5, dengan x dalam meter dan t dalam sekon. Maka kecepatan rata-rata tikus dalam selang waktu antara t=1 sekon dan t = 2sekon adalah… ",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 122,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah bola dilemparkan oleh pemain bowling meluncur dengan kecepatan tetap pada lintasan sepanjang 17 m. Pemain mendengar bunyi bola mengenai sasaran 2,5 sekon setelah bola dilemparkan dari tangannya. Berapakah kelajuan bola apabila kelajuan bunyi udara 340 m/s?",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 123,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua kereta listrik bergerak pada saat bersamaan dengna arah berlawanan pada dua rel lurus yang bersebelahan. Kelajuan masing-masing kereta adalah 72 km/jam dan 78 km/jam. Jika kedua kereta berpapasan setelah masing-masing bergerak selama 14 menit, berapa jarak antara kedua kereta mula-mula?",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 124,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua mobil bergerak pada lintasan lurus dengan arah saling berlawanan. Mobil pertama bergerak dari P dengan kelajuan 40 km/jam dan mobil kedua dari Q bergerak 7 menit kemudian dengan kelajuan 60 km/jam. Jika jarak PQ = 15 km, kapankah kedua mobil itu bertemu?",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 125,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah mobil bergerak di sebuah jalan tol. Pada jarak 5 kilometer dari pintu gerbang tol, mobil bergerak dengan kelajuan tetap 90 km/jam selama 20 menit. Maka posisi mobil dari gerbang jalan tol adalah ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 126,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua orang A dan B terpisah sejauh 400 m, bergerak saling mendekat dengan kecepatan masing-masing 2 m/s dan 3 m/s. Posiis mereka akan beretemu diukur dari posisi B adalah ....",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 127,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Seseorang anak memetik buah kelapa dari pucuk pohonnya. Sentakan tangan anak tersebut memberikan kecepatan awal 4,0 m/s pada buah kelapa dan kelapa jatuh di tanah setelah 1,2 sekon. Jika percepatan gravitasi 10 m/s2, maka ketinggian pohon kelapa adalah 10 meter",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 128,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Sebuah bola dilempar vertikal ke bawah dengan kecepatan 20 m/s dari dari suatu ketinggian 25 m. Maka selang waktu yang dibutuhkan oleh kelereng tersebut apabila percepatan gravitasi 10 m/s^2 adalah 1 sekon",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 129,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Bola P dan bola Q dilempar vertikal ke atas dari tanah dengan kecepatan 25 m/s dan bola Q dilempar vertikal ke bawah 1 sekon kemudian dengan kecepatan 15 m/s dari atap yang tingginya 80 m.  Kedua bola akan bertemu pada ketinggian 30 m di atas tanah saat bola P bergerak selama 3 detik dan bola Q bergerak 2 detik",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 130,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Kelapa yang sudah tua jatuh bebas dari pohon yang tingginya sekitar 20 meter. Bila percepatan gravitasi 10 m/s^2, berapa lama kira-kira kelapa melayang di udara samapai mengenai tanah?",
+            'image_path' => "geraklurus.png",
+            'topic_id' => 13,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 3 hardness
+
+
+        //Topik 4 Hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 131,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah bola ditendang dengan sudut elevasi 53 derajat dan kecepatan awal 5 m/s. Tentukanlah jarak tempuh maksimum yang akan dicapai bola tersebut.",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 132,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Tentukanlah waktu yang dibutuhkan untuk mencapai ketinggian maksimum jika sebuah batu dilempar dengan sudut elevasi 30 derajat dan kecepatan awal 6 m/s.",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 133,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Bom dilepas dari pesawat, karena kecepatan pesawat dalam arah vertikal nol (vy = 0), maka bom dalam arah vertikal mengalami jatuh bebas, maka waktu yang diperlukan untuk sampai di sasaran (titik B) adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 134,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Seorang stuntman melaju mengendarai sepeda motor menuju ujung tebing setinggi 50 m. Kecepatan yang harus dicapai motor tersebut saat melaju dari ujung tebing menuju landasan dibawahnya sejauh 90 m dari tebing adalah 28.21 m/s. Abaikan gesekan udara.",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 135,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Sebuah peluru ditembakkan dengan kecepatan 60 m/s dan sudut elevasi 30°. Ketinggian maksimum yang dicapai adalah 50 meter",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 136,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 137,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah bom dijatuhkan dari pesawat tempur tanpa kecepatan awal relatif terhadap pesawat. Jika ketinggian pesawat tempur 200 m dan jarak mendatar antara sasaran dengan pesawat tempur 600 m, maka kecepatan pesawat tempur relatif terhadap sasaran mendekati ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 138,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Diagram berikut menunjukkan lintasan sebuah proyektil yang ditembakkan dengan kecepatan horizontal v dari atap gedung setinggi h. Harga-harga v dan h berikut akan menghasilkan θ terbesar adalah ....",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 139,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah parabola yang terbuka keatas melalui titik (3,5) dengan titik fokus (-1, 2). Tentukan koordinat titik puncak parabola.",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 140,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Pada gerak parabola, di titik manakah kelajuan benda paling kecil dan paling besar?",
+            'image_path' => "gerakparabola.png",
+            'topic_id' => 14,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 4 hard
+
+
+        //Topik 5 hard
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 141,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah benda bergerak melingkar dengan jari-jari 50 cm. Jika benda melakukan 120 rpm, maka waktu putaran dan kecepatan benda tersebut berturut-turut adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 142,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Pada sebuah benda yang bergerak beraturan dengan lintasan melingkar, kecepatan linearnya bergantung pada ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 143,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Sebuah benda putar dengan kecepatan sudut 40 rad/s. Kecepatan linier suatu titik pada benda berjarak 50 cm dari sumbu puntar adalah 20 meter/s",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 144,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Sebuah benda bergerak melingkar dengan radius 10 cm, dengan kecepatan sudut 10 rad/s. Kecepatan liniernya adalah 1 meter/s",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 145,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua buah roda P dan Q pada bagian luarnya dihubungkan dengan sabuk, seperti gambar. Kecepatan sudut roda P = 15 rad/s dan jari-jari roda P = 1/3 jari-jari roda Q. Kecepatan sudut roda Q adalah ....",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 146,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah roda berputar 430 putaran dalam waktu 1 menit maka tentukan periode putaran roda tersebut?",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 147,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah titik partikel melakukan gerak melingkar beraturan. Jika dalam waktu 10 sekon dapat berputar 30 putaran, berapa jumlah putaran yang dilakukan dalam waktu 15 sekon?",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 148,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Putaran spindel mesin bubut kayu adalah 800 putaran/menit. Berapa waktu yang diperlukan agar spindel berputar sebanyak 40 putaran?",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 149,
+            'question_type' => "tof",
+            'score' => 100,
+            'question' => "Sebuah ban sepeda berputar dalam waktu 2 sekon untuk satu kali putaran penuh. Periode putarannya adalah 1 sekon",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 150,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah compact disk berputar dengan lagu 200 putaran permenit nyatakan frekuensinya dalam herts berapakah frekuensinya?",
+            'image_path' => "geraklingkar.png",
+            'topic_id' => 15,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 5 hard
     }
 }
