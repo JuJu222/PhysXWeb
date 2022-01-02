@@ -16,6 +16,7 @@ class HomeController extends Controller
         $unlockedTopics = $fis10user->topics;
         $totalScore = 0;
         $ranking = 0;
+        $coins = $fis10user->coins;
 
         $fis10UserQuestions = $fis10user->questions;
         foreach ($fis10UserQuestions as $fis10UserQuestion) {
@@ -26,6 +27,7 @@ class HomeController extends Controller
         $response['unlocked_topics'] = $unlockedTopics;
         $response['total_score'] = $totalScore;
         $response['ranking'] = $ranking;
+        $response['coins'] = $coins;
 
         return $response;
     }

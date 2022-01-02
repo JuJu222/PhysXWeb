@@ -21,9 +21,12 @@ class ShopItemController extends Controller
         $shopItems = ShopItem::all();
         $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
         $ownedItems = $fis10user->shopItem;
+        $coins = $fis10user->coins;
+
         return [
             'shop_items' => ShopItemResource::collection($shopItems),
-            'owned_items' => $ownedItems
+            'owned_items' => $ownedItems,
+            'coins' => $coins
             ];
     }
 
