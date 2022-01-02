@@ -12,7 +12,6 @@ use App\Http\Controllers\OptionmcqController;
 use App\Http\Controllers\OptiontofController;
 use App\Http\Controllers\OptionfitbController;
 use App\Http\Controllers\TopicController;
-use App\Http\Controllers\LeaderboardController;
 use Symfony\Component\HttpFoundation\Request;
 
 /*
