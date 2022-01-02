@@ -25,7 +25,7 @@
     <table>
         @foreach($leaderboard as $l)
         <tr>
-            <th rowspan="2"><div class="card rounded-pill" style="height: 75px; width: 120px; margin-top: 15px;"><h3 class="ms-1" style="margin-top: 12.5px;">{{ $loop->index + 1 }}</h3></div></th>
+            <th rowspan="2"><div class="card rounded-pill divleaderboardluar"><h3 class="ms-1 divleaderboarddalam">{{ $loop->index + 1 }}</h3></div></th>
             <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th><h4>{{ $l->name }}</h4></th>
         </tr>
