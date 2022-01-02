@@ -6,8 +6,8 @@
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
                 <h1 class="mb-3 text-opaque-links">Question {{ (($question->question_id) - (10 * ($topic->topic_id - 1))) . "/10 "}}</h1>
                 <img src="{{ asset('img/' . $question->image_path)}}" width="300px" height="300px">
-                <h1 class="mt-3">{{ $question->question }}</h1>
-                <h3 class="mt-3">{{ $question->score }} points</h3>
+                <h1 class="mt-3 text-center">{{ $question->question }}</h1>
+                <h3 class="mt-3 text-center">{{ $question->score }} points</h3>
                 <div class="container">
                     <hr class="d-flex justify-content-center align-items-center mx-5">
                 </div>
