@@ -5,9 +5,9 @@
         <div class="d-flex justify-content-center align-items-center ms-5 text-center">
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
                 <h1 class="mb-3 text-opaque-links">Question {{ (($question->question_id) - (10 * ($topic->topic_id - 1))) . "/10 "}}</h1>
-                <img src="{{ asset('img/' . $question->image_path)}}" width="300px" height="300px">
+                <img src="{{ $question->image_path }}"   width="300px" height="300px">
                 <h1 class="mt-3 text-center">{{ $question->question }}</h1>
-                <h3 class="mt-3 text-center">{{ $question->score }} points</h3>
+                <h3 class="btn btn-yellow mt-3 text-center">{{ $question->score }} points</h3>
                 <div class="container">
                     <hr class="d-flex justify-content-center align-items-center mx-5">
                 </div>
@@ -23,7 +23,7 @@
                                           method="POST">
                                         @csrf
                                         <h1>
-                                            <button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal
+                                            <button name="alert" class="form-berikut mt-4 mr-5" type="submit" value=1>Soal
                                                 Berikut
                                             </button>
                                         </h1>
@@ -38,7 +38,7 @@
                                           method="POST">
                                         @csrf
                                         <h1>
-                                            <button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal
+                                            <button name="alert" class="form-berikut mt-4 mr-5" type="submit" value=1>Soal
                                                 Berikut
                                             </button>
                                         </h1>
@@ -64,6 +64,9 @@
                                             @csrf
                                             <input name="choice" class="form-fitb mt-4" type="text" value="">
                                             <h4>Fill in the Blanks</h4>
+                                            <button name="submit" class="btn btn-opaque rounded-circleX px-5 mx-auto" type="submit"
+                                                                value="Submit">Submit
+                                            </button>
                                         </form>
 
                                     @elseif($question->question_type == "tof")
