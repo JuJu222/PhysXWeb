@@ -68,7 +68,7 @@
                                             <input name="choice" class="form-fitb mt-4" type="text" value="">
                                             <h4 class="mt-4">Fill in the Blanks</h4>
                                             <button name="submit" class="btn btn-opaque rounded-circleX px-5 mx-auto mt-2" type="submit"
-                                                                value="Submit"><h3 class="text-center">Submit</h3>
+                                                                value="Submit"><h3 class="text-center mt-2">Submit</h3>
                                             </button>
                                         </form>
 
