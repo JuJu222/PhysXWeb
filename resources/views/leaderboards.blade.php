@@ -28,6 +28,7 @@
     <div class="card p-3"><a href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a></div>
     <div class="card p-3"><a href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a></div>
     <div class="card p-3"><a href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.index') }}">Keseluruhan</a></div>
 </div>
 <div class="mx-5 my-5 d-flex justify-content-center">
     <!--template-->
