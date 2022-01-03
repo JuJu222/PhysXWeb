@@ -22,7 +22,7 @@
 <div class="sidebar">
     <div class="logo_content">
       <div class="logo">
-        <div class="logo_name">PhysX</div>
+          <img src="{{ asset('img/physx_logo.png') }}" alt="">
       </div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
@@ -60,8 +60,8 @@
       <div class="profile">
         <div class="profile_details">
           <div class="name_job">
-          <div class="name">PhysX</div>
-          <div class="job">Web Development</div>
+          <div class="name">{{ auth()->user()->name }}</div>
+          <div class="job">{{ auth()->user()->email }}</div>
           </div>
         </div>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();

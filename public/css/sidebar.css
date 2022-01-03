@@ -194,6 +194,10 @@ body {
     transform: translateX(-50%);
 }
 
+.logo img {
+    width: 75%;
+}
+
 .sidebar.active .profile #logOut {
     left: 88%;
 }
