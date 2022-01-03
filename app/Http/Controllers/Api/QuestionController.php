@@ -170,6 +170,7 @@ class QuestionController extends Controller
 
         $userQuestions = $fis10user->questions;
         $result = array();
+        $topic_name = Topic::query()->findOrFail($topic)->first()->topic_name;
         $correctAnswerCounter = 0;
         $timeTaken = 0;
         $totalScore = 0;
@@ -189,6 +190,7 @@ class QuestionController extends Controller
         $totalSeconds += $timeTaken % 60;
         $totalQuestions = Question::query()->where('topic_id', $topic)->count();
 
+        $result['topic_name'] = $topic_name;
         $result['accuracy'] = round($correctAnswerCounter / $totalQuestions * 100, 0);
         $result['total_score'] = $totalScore;
         $result['total_questions'] = $totalQuestions;
