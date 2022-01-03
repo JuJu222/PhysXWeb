@@ -23,7 +23,7 @@
                                           method="POST">
                                         @csrf
                                         <h1>
-                                            <button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal
+                                            <button name="alert" class="form-berikut mt-4 mr-5" type="submit" value=1>Soal
                                                 Berikut
                                             </button>
                                         </h1>
@@ -38,7 +38,7 @@
                                           method="POST">
                                         @csrf
                                         <h1>
-                                            <button name="alert" class="form-true mt-4 mr-5" type="submit" value=1>Soal
+                                            <button name="alert" class="form-berikut mt-4 mr-5" type="submit" value=1>Soal
                                                 Berikut
                                             </button>
                                         </h1>
