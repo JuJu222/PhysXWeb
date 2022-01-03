@@ -5,7 +5,7 @@
     <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle ms-3" width="60" height="60">       
 </div>
 <div class="d-flex justify-content-center mt-5 me-5">
-    <span><h2 class="mt-3 fw-bold purple">Nama Topik</h2></span>     
+    <span><h2 class="mt-3 fw-bold purple">{{ $topic->topic_name }}</h2></span>     
 </div>
 <div class="mt-5 me-5">
 @yield('leaderboard_content')

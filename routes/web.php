@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('topics', TopicController::class);
     Route::resource('fis10user', Fis10UserController::class);
     Route::resource('leaderboards',LeaderboardController::class);
-
+    
     Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
     Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
     Route::get('/questions/{topic}/result', [QuestionController::class, 'result'])->name('questions.result');
@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/optiontof/create',[OptiontofController::class,'create']);
     Route::get('admin/optiontof',[OptiontofController::class,'index']);
     Route::get('admin/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
+
+    Route::get('leaderboards/{id}',[LeaderboardController::class,'show']);
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
