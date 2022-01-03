@@ -7,7 +7,7 @@
                 <h1 class="mb-3 text-opaque-links">Question {{ (($question->question_id) - (10 * ($topic->topic_id - 1))) . "/10 "}}</h1>
                 <img src="{{ $question->image_path }}"   width="300px" height="300px">
                 <h1 class="mt-3 text-center">{{ $question->question }}</h1>
-                <h3 class="mt-3 text-center">{{ $question->score }} points</h3>
+                <h3 class="btn btn-yellow mt-3 text-center">{{ $question->score }} points</h3>
                 <div class="container">
                     <hr class="d-flex justify-content-center align-items-center mx-5">
                 </div>

@@ -2836,6 +2836,12 @@ fieldset:disabled a.btn {
     border-color: #EFEBFE;
 }
 
+.btn-yellow{
+    color: #6F69AC;
+    background-color: yellow;
+    border-color: yellow;
+}
+
 
 .btn-purple {
     color: #fff;
