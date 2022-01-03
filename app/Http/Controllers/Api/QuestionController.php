@@ -166,7 +166,8 @@ class QuestionController extends Controller
     public function clearUsersQuestionsTopic($topic)
     {
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
-        $users->questions()->where('topic_id', $topic)->detach();
+        $usersQuestionsTopicIds = $users->questions()->where('topic_id', $topic)->pluck('fis10_questions.question_id')->toArray();
+        $users->questions()->detach($usersQuestionsTopicIds);
 
         return ['message' => 'Clear users questions topic successful'];
     }

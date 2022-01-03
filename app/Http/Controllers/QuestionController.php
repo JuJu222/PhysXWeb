@@ -37,7 +37,8 @@ class QuestionController extends Controller
 
         if (!$request->session()->has('nosoal')) {
             $request->session()->put('nosoal', 1);
-            $users->questions()->where('topic_id', $topic)->detach();
+            $usersQuestionsTopicIds = $users->questions()->where('topic_id', $topic)->pluck('fis10_questions.question_id')->toArray();
+            $users->questions()->detach($usersQuestionsTopicIds);
         }
 
         $nosoal = $request->session()->get('nosoal');
