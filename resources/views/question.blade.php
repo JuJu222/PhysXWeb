@@ -4,7 +4,7 @@
     <div class="container justify-content-center align-items-center">
         <div class="d-flex justify-content-center align-items-center ms-5 text-center">
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
-                <h1 class="mb-3 text-opaque-links">Question {{ (($question->question_id) - (10 * ($topic->topic_id - 1))) . "/10 "}}</h1>
+                <h1 class="mb-3 text-opaque-links">Question {{ Session::get("nosoal") }}/{{ count($questions) }}</h1>
                 <img src="{{ $question->image_path }}"   width="300px" height="300px">
                 <h1 class="mt-3 text-center">{{ $question->question }}</h1>
                 <div class="result-score mx-auto my-2 px-3 py-2 d-flex align-items-center">
