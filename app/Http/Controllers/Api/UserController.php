@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\Fis10User;
 use App\Models\User;
+use App\Models\UsersQuestions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -16,7 +20,26 @@ class UserController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
+        $history = DB::table('fis10_users_questions')
+            ->join(
+                'fis10_questions',
+                'fis10_questions.question_id',
+                '=',
+                'fis10_users_questions.question_id')
+            ->join(
+                'fis10_topics',
+                'fis10_topics.topic_id',
+                '=',
+                'fis10_questions.topic_id')
+            ->selectRaw('fis10_topics.topic_name, CAST(sum(question_score) AS INTEGER) AS total_score')
+            ->where('fis10_user_id', $fis10user->fis10_user_id)
+            ->groupBy('fis10_topics.topic_name')
+            ->get();
+
+        return $history;
     }
 
     /**
