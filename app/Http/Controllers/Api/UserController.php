@@ -39,7 +39,7 @@ class UserController extends Controller
             ->groupBy('fis10_topics.topic_name')
             ->get();
 
-        return $history;
+        return ['histories' => $history];
     }
 
     /**
@@ -94,6 +94,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 }
