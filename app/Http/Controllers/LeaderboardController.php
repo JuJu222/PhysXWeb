@@ -70,7 +70,35 @@ class LeaderboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $leaderboard = DB::table('fis10_users_questions')
+            ->join(
+                'fis10_users',
+                'fis10_users.fis10_user_id',
+                '=',
+                'fis10_users_questions.question_id')
+            ->join(
+                'users',
+                'users.id',
+                '=',
+                'fis10_users.user_id')
+            ->join(
+                'fis10_questions',
+                'fis10_questions.question_id',
+                '=',
+                'fis10_users_questions.question_id')
+            ->join(
+                'fis10_topics',
+                'fis10_topics.topic_id',
+                '=',
+                'fis10_questions.topic_id')
+            ->selectRaw('name, CAST(SUM(question_score) AS INTEGER) AS total_score')
+            ->where('fis10_topics.topic_id', $id)
+            ->groupBy('name')
+            ->orderByDesc('total_score')
+            ->limit(10)
+            ->get();
+
+        return ['leaderboard' => $leaderboard];
     }
 
     /**
