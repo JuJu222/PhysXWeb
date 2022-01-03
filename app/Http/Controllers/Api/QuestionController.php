@@ -163,6 +163,14 @@ class QuestionController extends Controller
         return $redux;
     }
 
+    public function clearUsersQuestionsTopic($topic)
+    {
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
+        $users->questions()->where('topic_id', $topic)->detach();
+
+        return ['message' => 'Clear users questions topic successful'];
+    }
+
     public function result($topic)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();

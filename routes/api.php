@@ -49,7 +49,6 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::get('questions/{topic}',[QuestionController::class,'question']);
     Route::get('questions/{topic}/{question}',[QuestionController::class,'showquestion']);
     Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);
+    Route::post('questionsclear/{topic}',[QuestionController::class,'clearUsersQuestionsTopic']);
     Route::get('/result/{topic}', [QuestionController::class, 'result']);
 });
-Route::resource('question',QuestionController::class);
-

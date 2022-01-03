@@ -33,9 +33,11 @@ class QuestionController extends Controller
     {
         //Create User Soal Instance
         $score = 0;
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
 
         if (!$request->session()->has('nosoal')) {
             $request->session()->put('nosoal', 1);
+            $users->questions()->where('topic_id', $topic)->detach();
         }
 
         $nosoal = $request->session()->get('nosoal');
@@ -54,8 +56,6 @@ class QuestionController extends Controller
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
-
-        $users = Fis10User::where('user_id', auth()->user()->id)->first();
 
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
