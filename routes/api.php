@@ -40,7 +40,7 @@ Route::group(['middleware'=> 'auth:api'], function(){
     });
 
     Route::put('user', [UserController::class, 'update']);
-    Route::get('user', [UserController::class, 'index']);
+    Route::get('history', [UserController::class, 'index']);
     Route::resource('topic',TopicController::class);
     Route::resource('home', HomeController::class);
     Route::resource('shop', ShopItemController::class);
