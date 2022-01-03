@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\QuestionController;
 use App\Http\Controllers\Api\ShopItemController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\TopicController;
 
 
@@ -26,6 +27,7 @@ use App\Http\Controllers\Api\TopicController;
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login',[LoginController::class, 'login']);
 
+
 Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('logout',[LoginController::class,'logout']);
     Route::get('/user', function (Request $request) {
@@ -36,6 +38,8 @@ Route::group(['middleware'=> 'auth:api'], function(){
             'fis10user' => $fis10user
         ]);
     });
+
+    Route::put('user', [UserController::class, 'update']);
     Route::resource('topic',TopicController::class);
     Route::resource('home', HomeController::class);
     Route::resource('shop', ShopItemController::class);
@@ -47,3 +51,4 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::get('/result/{topic}', [QuestionController::class, 'result']);
 });
 Route::resource('question',QuestionController::class);
+
