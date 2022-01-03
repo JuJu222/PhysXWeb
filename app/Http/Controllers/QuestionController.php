@@ -63,6 +63,7 @@ class QuestionController extends Controller
         }
         return view('question', [
             'topic' => Topic::where('topic_id', $topic)->first(),
+            'questions' => $questions,
             'question' => $question,
             'option' => Option_mcq::where('question_id', $question->question_id)
                 ->get(),
