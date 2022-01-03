@@ -276,7 +276,7 @@ class QuestionController extends Controller
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
-        $userQuestions = $fis10user->questions;
+        $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
         $correctAnswerCounter = 0;
         $timeTaken = 0;

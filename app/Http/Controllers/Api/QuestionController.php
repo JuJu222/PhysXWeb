@@ -168,7 +168,7 @@ class QuestionController extends Controller
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $fis10user->update(['coins' => $fis10user->coins + 25]);
 
-        $userQuestions = $fis10user->questions;
+        $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
         $topic_name = Topic::query()->findOrFail($topic)->first()->topic_name;
         $correctAnswerCounter = 0;
