@@ -163,13 +163,23 @@ class QuestionController extends Controller
         return $redux;
     }
 
+    public function clearUsersQuestionsTopic($topic)
+    {
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
+        $usersQuestionsTopicIds = $users->questions()->where('topic_id', $topic)->pluck('fis10_questions.question_id')->toArray();
+        $users->questions()->detach($usersQuestionsTopicIds);
+
+        return ['message' => 'Clear users questions topic successful'];
+    }
+
     public function result($topic)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $fis10user->update(['coins' => $fis10user->coins + 25]);
 
-        $userQuestions = $fis10user->questions;
+        $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
+        $topic_name = Topic::query()->findOrFail($topic)->first()->topic_name;
         $correctAnswerCounter = 0;
         $timeTaken = 0;
         $totalScore = 0;
@@ -189,6 +199,7 @@ class QuestionController extends Controller
         $totalSeconds += $timeTaken % 60;
         $totalQuestions = Question::query()->where('topic_id', $topic)->count();
 
+        $result['topic_name'] = $topic_name;
         $result['accuracy'] = round($correctAnswerCounter / $totalQuestions * 100, 0);
         $result['total_score'] = $totalScore;
         $result['total_questions'] = $totalQuestions;

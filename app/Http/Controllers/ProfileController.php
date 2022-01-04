@@ -32,9 +32,10 @@ class ProfileController extends Controller
                 'fis10_topics.topic_id',
                 '=',
                 'fis10_questions.topic_id')
-            ->selectRaw('fis10_topics.topic_name, CAST(sum(question_score) AS INTEGER) AS total_score')
+            ->selectRaw('fis10_topics.topic_name, CAST(sum(question_score) AS INTEGER) AS total_score, fis10_topics.difficulty')
             ->where('fis10_user_id', $fis10user->fis10_user_id)
             ->groupBy('fis10_topics.topic_name')
+            ->groupBy('fis10_topics.difficulty')
             ->get();
 
         return view('profile', compact('user', 'history'));

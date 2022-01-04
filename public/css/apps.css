@@ -2239,6 +2239,31 @@ pre code {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.form-berikut{
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-berikut:hover{
+    color: black;
+    background-color: #EFEBFE;
+    border: 2px solid #6F69AC;
+    border-radius: 0.50rem;
+    border: 3px solid;
+    border-color:green;
+}
+
 .form-true:hover{
     color: black;
     background-color: green;
@@ -2834,6 +2859,12 @@ fieldset:disabled a.btn {
     color: #6F69AC;
     background-color: #EFEBFE;
     border-color: #EFEBFE;
+}
+
+.btn-yellow{
+    color: #6F69AC;
+    background-color: yellow;
+    border-color: yellow;
 }
 
 

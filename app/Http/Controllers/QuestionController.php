@@ -33,9 +33,12 @@ class QuestionController extends Controller
     {
         //Create User Soal Instance
         $score = 0;
+        $users = Fis10User::where('user_id', auth()->user()->id)->first();
 
         if (!$request->session()->has('nosoal')) {
             $request->session()->put('nosoal', 1);
+            $usersQuestionsTopicIds = $users->questions()->where('topic_id', $topic)->pluck('fis10_questions.question_id')->toArray();
+            $users->questions()->detach($usersQuestionsTopicIds);
         }
 
         $nosoal = $request->session()->get('nosoal');
@@ -55,13 +58,12 @@ class QuestionController extends Controller
             $request->session()->forget('click');
         }
 
-        $users = Fis10User::where('user_id', auth()->user()->id)->first();
-
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
         }
         return view('question', [
             'topic' => Topic::where('topic_id', $topic)->first(),
+            'questions' => $questions,
             'question' => $question,
             'option' => Option_mcq::where('question_id', $question->question_id)
                 ->get(),
@@ -276,7 +278,7 @@ class QuestionController extends Controller
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
-        $userQuestions = $fis10user->questions;
+        $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
         $correctAnswerCounter = 0;
         $timeTaken = 0;
