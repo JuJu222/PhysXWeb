@@ -6,7 +6,7 @@
         <h1 class="purple"><b>Shop</b></h1>
     </div>
     <div class="d-flex justify-content-center mt-2">
-        <h4><b>Ubah gaya di sini!</b></h4>
+        <h4><b>Ubah gaya anda!</b></h4>
     </div>
     <div class="result-coin mx-auto mt-2 px-3 py-2 d-flex align-items-center">
         <h5 class="result-score-total d-inline mb-0 mr-2">Saldo: {{ $coins }}</h5>
