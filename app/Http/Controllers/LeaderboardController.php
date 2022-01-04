@@ -27,7 +27,7 @@ class LeaderboardController extends Controller
                 'fis10_users',
                 'fis10_users.fis10_user_id',
                 '=',
-                'fis10_users_questions.question_id')
+                'fis10_users_questions.fis10_user_id')
             ->join(
                 'users',
                 'users.id',
@@ -39,7 +39,7 @@ class LeaderboardController extends Controller
             ->limit(10)
             ->get();
 
-        return view('leaderboards', compact('leaderboard'));
+            return view('leaderboards' ,compact('leaderboard'));
     }
 
     /**
