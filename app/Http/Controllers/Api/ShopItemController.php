@@ -11,23 +11,34 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $shopItems = ShopItem::all();
         $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
         $ownedItems = $fis10user->shopItem;
         $coins = $fis10user->coins;
+        $title = null;
+        $avatar = null;
+
+        if ($ownedItems != null) {
+            foreach ($ownedItems as $onwedItem) {
+                if ($onwedItem->pivot->is_equipped) {
+                    if ($onwedItem['type'] == 'title') {
+                        $title = $onwedItem['item'];
+                    } else {
+                        $avatar = $onwedItem['image_path'];
+                    }
+                }
+            }
+        }
 
         return [
             'shop_items' => ShopItemResource::collection($shopItems),
             'owned_items' => $ownedItems,
-            'coins' => $coins
-            ];
+            'coins' => $coins,
+            'title' => $title,
+            'avatar' => $avatar
+        ];
     }
 
     /**
