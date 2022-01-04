@@ -14,6 +14,8 @@
                     <h1 class="m-0"><b>Hi {{ auth()->user()->name }}!</b></h1>
                     @isset ($userTitle)
                         <p class="purple my-1">{{ $userTitle }}</p>
+                    @else
+                        <p class="purple my-1">Title Def</p>
                     @endisset
                     <div class="result-coin mt-2 px-3 py-2 d-flex align-items-center">
                         <h5 class="result-score-total d-inline mb-0 mr-2">{{ $coins }}</h5>
