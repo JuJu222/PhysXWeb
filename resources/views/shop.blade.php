@@ -114,7 +114,6 @@
                             @else
                                 <button type="submit" class="btn btn-opaque rounded-circleX px-4">Equip</button>
                             @endif
-                            <p class="mt-2">You already own this item.</p>
                         </form>
                     @else
                         <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
