@@ -29,7 +29,7 @@ class QuestionController extends Controller
     }
 
 
-    public function showQuestion($topic, Request $request)
+    public function showQuestion($topicz, Request $request)
     {
         //Create User Soal Instance
         $score = 0;
@@ -38,7 +38,13 @@ class QuestionController extends Controller
             $request->session()->put('nosoal', 1);
         }
 
+        if (!$request->session()->has('topic')) {
+            $request->session()->put('topic', $topicz);
+        }
+
+        $topic = $request->session()->get('topic');
         $nosoal = $request->session()->get('nosoal');
+
         $questions = Question::where('topic_id', $topic)->get();
 
         if (count($questions) < $nosoal) {
