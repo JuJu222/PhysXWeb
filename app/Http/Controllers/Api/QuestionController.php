@@ -115,8 +115,6 @@ class QuestionController extends Controller
 
     public function answerquestion($topic, $question, Request $request)
     {
-
-        $topic = Topic::where('topic_id', $topic)->first();
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
         $questions = Question::where('topic_id', $topic)->where('question_id', $question)->first();
         $option_mcq = Option_mcq::where('question_id', $question)
