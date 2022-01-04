@@ -13,22 +13,34 @@
     <span><h2 class="mt-3 fw-bold purple">Peringkat {{ $topic->topic_name }}</h2></span>     
 </div>
 @endif
-<div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 2) }}">Vektor</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a></div>
+<div class="mx-auto mt-5 d-flex justify-content-center">
+    <div class="card p-2"><a href="{{ route('leaderboards.index') }}">Keseluruhan</a></div>
 </div>
-<div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a></div>
+<div class="mx-auto mt-5 d-flex justify-content-center"><h4>Mudah</h4></div>
+<div class="mx-auto d-flex justify-content-around">
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 2) }}">Vektor</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a></div>
 </div>
-<div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a></div>
-    <div class="card p-3"><a href="{{ route('leaderboards.index') }}">Keseluruhan</a></div>
+<div class="mx-auto mt-5 d-flex justify-content-center"><h4>Susah</h4></div>
+<div class="mx-auto d-flex justify-content-around">
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 11) }}">Besaran dan Satuan</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 12) }}">Vektor</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 13) }}">Gerak Lurus</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 14) }}">Gerak Parabola</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 15) }}">Gerak Melingkar Beraturan</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 16) }}">Hukum Newton (Gerak)</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 17) }}">Hukum Newton (Gravitasi)</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 18) }}">Usaha dan Energi</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 19) }}">Momentum dan Impuls</a></div>
+    <div class="card p-2"><a href="{{ route('leaderboards.show', 20) }}">Getaran Harmonis</a></div>
 </div>
 <div class="mx-5 my-5 d-flex justify-content-center">
     <!--template-->

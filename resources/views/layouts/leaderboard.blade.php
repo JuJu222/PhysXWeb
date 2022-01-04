@@ -7,7 +7,7 @@
 <div class="d-flex justify-content-center mt-5 me-5">
     <span><h2 class="mt-3 fw-bold purple">{{ $topic->topic_name }}</h2></span>     
 </div>
-<div class="mt-5 me-5">
+<div>
 @yield('leaderboard_content')
 </div>
 @endsection
