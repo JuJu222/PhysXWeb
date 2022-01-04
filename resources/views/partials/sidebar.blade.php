@@ -60,8 +60,10 @@
       <div class="profile">
         <div class="profile_details">
           <div class="name_job">
-          <div class="name">{{ auth()->user()->name }}</div>
-          <div class="job">{{ auth()->user()->email }}</div>
+              @auth
+                  <div class="name">{{ auth()->user()->name }}</div>
+                  <div class="job">{{ auth()->user()->email }}</div>
+              @endauth
           </div>
         </div>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
