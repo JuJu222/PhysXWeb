@@ -11,7 +11,7 @@
                     @endisset
                 </div>
                 <div class="col">
-                    <h1 class="purple m-0"><b>Halo, {{ auth()->user()->name }}!</b></h1>
+                    <h1 class="m-0"><b>Hi {{ auth()->user()->name }}!</b></h1>
                     @isset ($userTitle)
                         <p class="purple my-1">{{ $userTitle }}</p>
                     @endisset
