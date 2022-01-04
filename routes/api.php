@@ -11,7 +11,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\TopicController;
-
+use App\Http\Controllers\Api\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,7 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::resource('topic',TopicController::class);
     Route::resource('home', HomeController::class);
     Route::resource('shop', ShopItemController::class);
+    Route::resource('leaderboard',LeaderboardController::class);
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
     Route::get('questions/{topic}',[QuestionController::class,'question']);
@@ -51,4 +52,5 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);
     Route::post('questionsclear/{topic}',[QuestionController::class,'clearUsersQuestionsTopic']);
     Route::get('/result/{topic}', [QuestionController::class, 'result']);
+    
 });

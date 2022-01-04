@@ -1,31 +1,42 @@
 @extends('layouts.apps')
 @section('content')
-<div class="d-flex justify-content-center mt-5 mx-5">
-    <span><h2 class="mt-3 fw-bold purple">Peringkat</h2></span>     
+<div class="d-flex justify-content-end mt-5 me-5">
+    <span><h5 class="mt-3 fw-bold purple">Justin Jap</h5></span>
+    <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle ms-3" width="60" height="60">       
+</div>
+@if(empty($topic->topic_name))
+<div class="d-flex justify-content-center mx-auto">
+    <span><h2 class="mt-3 fw-bold purple">Peringkat Keseluruhan</h2></span>     
+</div>
+@else
+<div class="d-flex justify-content-center mx-auto">
+    <span><h2 class="mt-3 fw-bold purple">Peringkat {{ $topic->topic_name }}</h2></span>     
+</div>
+@endif
+<div class="mx-5 my-5 d-flex justify-content-evenly">
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 2) }}">Vektor</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a></div>
 </div>
 <div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card">Besaran dan Satuan</div>
-    <div class="card">Vektor</div>
-    <div class="card">Gerak Lurus</div>
-    <div class="card">Gerak Parabola</div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a></div>
 </div>
 <div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card">Gerak Melingkar Beraturan</div>
-    <div class="card">Hukum Newton (Gerak)</div>
-    <div class="card">Hukum Newton (Gravitasi)</div>
-</div>
-<div class="mx-5 my-5 d-flex justify-content-evenly">
-    <div class="card">Usaha dan Energi</div>
-    <div class="card">Momentum dan Impuls</div>
-    <div class="card">Getaran Harmonis</div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a></div>
+    <div class="card p-3"><a href="{{ route('leaderboards.index') }}">Keseluruhan</a></div>
 </div>
 <div class="mx-5 my-5 d-flex justify-content-center">
     <!--template-->
     
-    <table>
+    <table class="my-3">
         @foreach($leaderboard as $l)
         <tr>
-            <th rowspan="2"><div class="card rounded-pill" style="height: 75px; width: 120px; margin-top: 15px;"><h3 class="ms-1" style="margin-top: 12.5px;">{{ $loop->index + 1 }}</h3></div></th>
+            <th rowspan="2"><div class="card rounded-pill py-3 px-lg-5"><h3 class="mx-auto my-auto">{{ $loop->index + 1 }}</h3></div></th>
             <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th><h4>{{ $l->name }}</h4></th>
         </tr>

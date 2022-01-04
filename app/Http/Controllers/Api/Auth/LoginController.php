@@ -27,6 +27,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($user)) {
             //Generate Token
+            // $response = Http::asForm()->post('http://webapi.test/oauth/token',[
             $response = Http::asForm()->post('http://physxweb.test/oauth/token',[
                 'grant_type' => 'password',
                 'client_id' => $this->client->id,

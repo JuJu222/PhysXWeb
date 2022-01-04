@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+use App\Http\Controllers\Controller;
 use App\Models\UsersQuestions;
 use App\Models\Fis10User;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Topic;
 
 class LeaderboardController extends Controller
 {
@@ -21,7 +21,7 @@ class LeaderboardController extends Controller
         // ->groupBy('fis10_user_id')
         // ->orderByDesc('total_score')
         // ->get();
-       
+
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
                 'fis10_users',
@@ -39,7 +39,7 @@ class LeaderboardController extends Controller
             ->limit(10)
             ->get();
 
-        return view('leaderboards', compact('leaderboard'));
+            return ['leaderboard' => $leaderboard];
     }
 
     /**
@@ -71,7 +71,6 @@ class LeaderboardController extends Controller
      */
     public function show($id)
     {
-        $topic = Topic::where('topic_id', $id)->first();
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
                 'fis10_users',
@@ -99,7 +98,8 @@ class LeaderboardController extends Controller
             ->orderByDesc('total_score')
             ->limit(10)
             ->get();
-            return view('leaderboards', compact('leaderboard','topic'));
+
+        return ['leaderboard' => $leaderboard];
     }
 
     /**
