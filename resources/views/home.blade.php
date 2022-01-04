@@ -5,7 +5,7 @@
             <div class="row d-flex flex-row align-items-center">
                 <div class="col-md-auto">
                     @isset ($userAvatar)
-                        <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar" alt="Avatar">
+                        <img src="{{ $userAvatar) }}" class="avatar" alt="Avatar">
                     @else
                         <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="avatar" alt="Avatar">
                     @endisset
