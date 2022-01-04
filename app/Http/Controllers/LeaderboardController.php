@@ -21,7 +21,7 @@ class LeaderboardController extends Controller
         // ->groupBy('fis10_user_id')
         // ->orderByDesc('total_score')
         // ->get();
-       
+
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
                 'fis10_users',
@@ -77,7 +77,7 @@ class LeaderboardController extends Controller
                 'fis10_users',
                 'fis10_users.fis10_user_id',
                 '=',
-                'fis10_users_questions.question_id')
+                'fis10_users_questions.fis10_user_id')
             ->join(
                 'users',
                 'users.id',
