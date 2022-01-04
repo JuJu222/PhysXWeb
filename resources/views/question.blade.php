@@ -17,7 +17,7 @@
                 {{-- <img src="{{ asset('storage/job/'.$job->image) }}" alt="job image" title="job image"> --}}
                 <div class="col-lg-12">
                     <div class="form-group d-flex justify-content-center align-items-center">
-                        <div class="col-md-6">
+                        <div class="col-md-10">
 
                             @if(Session::has('answerCorrect'))
                                 <div class="alert alert-success">
@@ -66,9 +66,9 @@
                                               method="POST">
                                             @csrf
                                             <input name="choice" class="form-fitb mt-4" type="text" value="">
-                                            <h4>Fill in the Blanks</h4>
-                                            <button name="submit" class="btn btn-opaque rounded-circleX px-5 mx-auto" type="submit"
-                                                                value="Submit"><h3 class="text-center">Submit</h3>
+                                            <h4 class="mt-4">Fill in the Blanks</h4>
+                                            <button name="submit" class="btn btn-opaque rounded-circleX px-5 mx-auto mt-2" type="submit"
+                                                                value="Submit"><h3 class="text-center mt-2">Submit</h3>
                                             </button>
                                         </form>
 
