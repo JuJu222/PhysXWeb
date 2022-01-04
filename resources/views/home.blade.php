@@ -1,11 +1,25 @@
 @extends('layouts.apps')
 @section('content')
     <div class="row mt-5 mb-4">
-        <div class="col my-auto">
-            <h1 class="purple"><b>Halo, {{ auth()->user()->name }}!</b></h1>
-            <div class="result-coin mt-2 px-3 py-2 d-flex align-items-center">
-                <h5 class="result-score-total d-inline mb-0 mr-2">{{ $coins }}</h5>
-                <img src="{{ asset('img/coin.svg') }}" alt="Skor">
+        <div class="col home-profile">
+            <div class="row d-flex flex-row align-items-center">
+                <div class="col-md-auto">
+                    @isset ($userAvatar)
+                        <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar" alt="Avatar">
+                    @else
+                        <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="avatar" alt="Avatar">
+                    @endisset
+                </div>
+                <div class="col">
+                    <h1 class="purple m-0"><b>Halo, {{ auth()->user()->name }}!</b></h1>
+                    @isset ($userTitle)
+                        <p class="purple my-1">{{ $userTitle }}</p>
+                    @endisset
+                    <div class="result-coin mt-2 px-3 py-2 d-flex align-items-center">
+                        <h5 class="result-score-total d-inline mb-0 mr-2">{{ $coins }}</h5>
+                        <img src="{{ asset('img/coin.svg') }}" alt="Skor">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card home-card col">

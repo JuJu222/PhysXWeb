@@ -81,6 +81,15 @@
     color: #B8A76A;
 }
 
+.home-profile, .home-profile > div {
+    min-height: 100%;
+}
+
+.avatar {
+    width: 110px;
+    height: 100%;
+}
+
 .topic-home {
     width: 96px;
     height: 96px;
