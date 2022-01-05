@@ -132,6 +132,7 @@ class ShopItemController extends Controller
                     }
                 }
                 $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
+                $fis10user->update(['coins' => $fis10user->coins - $shopItem->price]);
             }
 
             return response()->json([
