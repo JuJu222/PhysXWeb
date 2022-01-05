@@ -573,7 +573,357 @@ class QuestionSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
         //End of topik 5
+        //Start of topik 6
 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 51,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "'Percepatan (perubahan dari kecepatan) dari suatu benda akan sebanding dengan resultan gaya (jumlah gaya) yang bekerja pada benda tersebut dan berbanding terbalik dengan massa benda' adalah definisi dari Hukum Newton 1",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 52,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Ke manakah balok di bawah ini akan bergerak? Dan dengan percepatan berapakah? Anggap lantai licin tanpa hambatan.",
+            'image_path' => "https://blog.teman-belajar.com/wp-content/uploads/2021/07/Contoh-Soal-300x168.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 53,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "'Saat naik mobil yang bergerak cepat lalu direm, maka penumpang otomatis terdorong ke depan' adalah contoh Hukum Newton ke- .. ?",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 54,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "'Sebuah koin yang ditaruh di atas kain lalu kain itu ditarik cepat dan koin tetap berada di tempatnya' adalah contoh Hukum Newton ke- .. ?",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 55,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "'w = m x g' adalah Rumus gaya ..",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 56,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "'Tiap aksi menimbulkan reaksi adalah definisi dari Hukum Newton ke- ..",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 57,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Waktu melempar batu secara vertikal ke atas. Awalnya batu melaju konstan ke atas, lalu melambat dan berhenti akibat adanya gaya gravitasi. Batu tersebut selanjutnya turun ke Bumi dengan kecepatan dari massa batu ditambah gaya gravitasi yang mempercepatnya.",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 58,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Saat memukul paku memakai palu. Paku adalah gaya aksi dan gaya dari palu merupakan gaya reaksi dari pemukulan melalui palu.",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 59,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Sifat benda yang cenderung mempertahankan keadaannya disebut dengan sifat kelembaman atau inersia.",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 60,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "'Percepatan sebuah benda akan berbanding lurus dengan gaya total yang bekerja padanya serta berbanding terbalik dengan massanya. Arah percepatan akan sama dengan arah gaya total yang bekerja padanya.' adalah definisi dari hukum newton ke- ..",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 6,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //Topik 7 easy
+        DB::table('fis10_questions')->insert([
+            'question_id' => 61,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gravitasi adalah gejala adanya interaksi dua benda bermassa yaitu berupa gaya tarik-menarik",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 62,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Planet Q memiliki jari-jari rata-rata 4 kali jari-jari rata-rata bumi. Adapun percepatan gravitasinya 1/4 kali percepatan gravitasi bumi. Jika massa bumi sebesar m, massa planet Q sebesar . . . .",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 63,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gambar berikut adalah rumus percepatan gravitasi bumi",
+            'image_path' => "https://1.bp.blogspot.com/-i34UvwAioB8/WMPj_d0U3bI/AAAAAAAAAHY/aipnR8q92Uo1svoBvMHn1b6h7fwwL0UDwCLcB/s200/rumus%2Bgravitasi.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 64,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Percepatan gravitasi planet Y bernilai dua kali percepatan gravitasi bumi. jika massa bumi M dan jari-jari planet Y 4 kali jari-jari bumi, massa planet Y adalah . . . .",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 64,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Percepatan gravitasi planet Y bernilai dua kali percepatan gravitasi bumi. jika massa bumi M dan jari-jari planet Y 4 kali jari-jari bumi, massa planet Y adalah . . . .",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 65,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gaya tarik gravitasi yang bekerja antara dua benda sebanding dengan massa masing-masing benda dan berbanding terbalik dengan kuadrat jarak kedua benda.",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 66,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gambar berikut adalah rumus Hukum Gravitasi Newton",
+            'image_path' => "http://2.bp.blogspot.com/-94JwfWfxbCE/UeOnDgTaG5I/AAAAAAAAACc/n1dlJK7p-Dw/s1600/aaaaaaa.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 67,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Benda ketika berada di atas permukaan bumi memiliki berat 900 N. Beratnya ketika berada sejauh 1/2 jari-jari Bumi di ukur dari permukaan bumi adalah ",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 68,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Planet A memiliki jari-jari sebesar x dan planet B memiliki jari-jari planet 1,5x. Perbandingan gravitasi di permukaan planet A dan planet B, jika besar massa planet A 2m dan massa planet B 2,5m adalah ...",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 69,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Dua benda mempunyai massa masing -masing m1 = 10 kg dan m2 = 14 kg. bila jarak kedua benda 20 m, tentukan gaya gravtasi antara kedua benda.",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 69,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Planet A memiliki jari-jari sebesar x dan planet B memiliki jari-jari planet 1,5x. Perbandingan gravitasi di permukaan planet A dan planet B, jika besar massa planet A 2m dan massa planet B 2,5m adalah ...",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 70,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => " Apabila dimensi panjang, massa, dan waktu berturut-turut adalah L, M, dan T, maka dimensi dan konstanta gravitasi adalah … .",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //Topik 8 Easy
+        DB::table('fis10_questions')->insert([
+            'question_id' => 71,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Usaha terjadi ketika energi dipindahkan dari satu sistem ke sistem lainnya.",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 72,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi diartikan sebagai kemampuan untuk melakukan usaha atau kerja. Energi tidak dapat diciptakan dan tidak dapat dimusnahkan.",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 73,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi kinetik adalah energi yang dimiliki benda karena keadaaan, kedudukan atau posisinya.",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 74,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Rumus energi kinetik adalah mgh",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 75,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi potensial adalah energi yang dimiliki oleh benda karena gerakannya",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 76,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi panas adalah energi yang menimbulkan perubahan suhu pada benda",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 77,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gambar di atas adalah rumus energi kinetik",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1623299049/uk3pimjerm8kkiapvyfr.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 78,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Gambar di atas adalah rumus energi panas",
+            'image_path' => "https://4.bp.blogspot.com/-GpSHpr4VJx0/XKNoGvJhwwI/AAAAAAAAQvs/p5uTm4UDL4AgNF5D2H8sG7ThFBPX0p1IgCLcBGAs/s1600/rumus%2Bdaya%2Blistrik%2Bfisika%2Bsmp%2Bkelas%2B9.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 79,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi mekanik adalah gabungan dari energi potensial dan energi mekanik",
+            'image_path' => "https://4.bp.blogspot.com/-GpSHpr4VJx0/XKNoGvJhwwI/AAAAAAAAQvs/p5uTm4UDL4AgNF5D2H8sG7ThFBPX0p1IgCLcBGAs/s1600/rumus%2Bdaya%2Blistrik%2Bfisika%2Bsmp%2Bkelas%2B9.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 80,
+            'question_type' => "tof",
+            'score' => 50,
+            'question' => "Energi tidak dapat diciptakan namun dapat dimusnahkan.",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 7,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 8 easy
         //Topik 1 Hard
         DB::table('fis10_questions')->insert([
             'question_id' => 101,
@@ -1137,5 +1487,290 @@ class QuestionSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
         //End of topik 5 hard
+        //Topik 6 hard
+        
+    
+        DB::table('fis10_questions')->insert([
+            'question_id' => 151,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dhania menarik beban dengan bantuan katrol seperti pada gambar (a) di bawah ini. Pada saat gaya yang diberikan F = 125 N ternyata beban dapat terangkat dengan kecepatan tetap. g = 10 m/s2. Jika gaya gesek katrol dan massa tali dapat diabaikan maka berapakah massa beban tersebut?",
+            'image_path' => "https://2.bp.blogspot.com/-LAYmNIQYKT4/Wypveivo6BI/AAAAAAAAEvE/1DLSLd0YFn4Mpcrqe63L726EY8nmGq2FgCLcBGAs/s1600/contoh-soal-hukum-1-newton-5.jpg",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 152,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Balok bermassa 20 kg berada di atas bidang miring licin dengan sudut kemiringan 30 derajat. Jika Ucok ingin mendorong ke atas sehingga kecepatannya tetap maka berapakah gaya yang harus diberikan oleh Ucok?",
+            'image_path' => "https://3.bp.blogspot.com/-6Z420MZBqkQ/WypveSX1h7I/AAAAAAAAEu8/mAap75kC4mI1khb87Fb__nA7o-4y0cNVgCLcBGAs/s200/contoh-soal-hukum-1-newton-4.jpg",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 153,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah balok bermassa 5 kg (berat w = 50 N) digantung dengan tali dan diikatkan pada atap. Jika balok diam maka berapakah tegangan talinya?",
+            'image_path' => "https://2.bp.blogspot.com/-ufcUL_fffPc/Wypvc9NtH0I/AAAAAAAAEu0/lCLnWANnGz48sv8ZOOWqyFQOwLkdik-2ACLcBGAs/s200/contoh-soal-hukum-1-newton-1.jpg",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 154,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Benda bermassa 10 kg diikat tali dan dibentuk sistem seperti pada gambar (a) berikut ini. Jika sistem itu diam dan percepatan gravitasi g = 10 m/s2 maka tentukan tegangan tali T1 dan T2!",
+            'image_path' => "https://4.bp.blogspot.com/-X2lTx45bodY/Wypvek1bzwI/AAAAAAAAEvA/xqHUqEmmAdw9I1H_kOKYA8dRbRUUz6giACLcBGAs/s320/contoh-soal-hukum-1-newton-3.jpg",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 155,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah truk dapat menghasilkan gaya sebesar 7000 N. Jika truk tersebut dapat bergerak dengan percepatan 3,5 m/s2, maka tentukan massa truk tersebut!",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 156,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => " Balok A bermassa 4 kg diletakkan di atas balok B yang bermassa 6 kg. Kemudian balok B ditarik dengan gaya F di atas lantai mendatar licin sehingga gabungan balok itu mengalami percepatan 1,8 m/s2. Jika tiba-tiba balok A terjatuh maka berapakah percepatan yang dialami oleh balok B saja?",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 157,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Dua balok (m1 dan m2) yang bersentuhan mula-mula diam di atas lantai licin seperti yang ditunjukkan pada gambar di bawah ini. Jika m1 = 70 kg, m2 = 30 kg dan pada balok pertama dikerjakan gaya sebesar 200 N, maka tentukanlah percepatan masing-masing balok dan gaya kontak antarbalok tersebut.",
+            'image_path' => "https://2.bp.blogspot.com/-_rIrvIUAqIk/WahQhvl-wAI/AAAAAAAAB50/UwFkTD5Y6pI4CpnlWBee8AknkdyO5sIlgCLcBGAs/s200/Contoh-Soal-%25231a.png",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 158,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Balok A dan balok B terletak di atas permukaan bidang miring licin dengan sudut kemiringan 37°. Massa balok A 40 kg dan massa balok B 20 kg. Kemudian balok A didorong dengan gaya F sebesar 480 N seperti yang diperlihatkan pada gambar di bawah ini. Tentukan besar percepatan gerak kedua balok dan juga gaya kontak antara balok A dan balok B.",
+            'image_path' => "https://4.bp.blogspot.com/-v-e5pbL3w1k/WamZ8dGqz8I/AAAAAAAAB6g/K6cmgP6eMdoJC6HVJ2O3Z4qLrD9auh7oQCLcBGAs/s200/Contoh-Soal-%25231a.png",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 159,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Jika suatu benda diberi gaya 20 N, benda tersebut memiliki percepatan 4 m/s2. Berapakah percepatan yang dialami benda tersebut jika diberi gaya 25 N?",
+            'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1606795836/jli8jnfegfn6rbpvunnb.png",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 160,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Sebuah benda bermassa 2 kg bergerak dengan kecepatan awal 5 m/s di atas bidang datar licin, kemudian benda tersebut diberi gaya tetap searah dengan gerak benda. Setelah menempuh jarak 4 m, kecepatan benda menjadi 7 m/s. Tentukan besar gaya tersebut!",
+            'image_path' => "https://3.bp.blogspot.com/-iYt2tiyOz6U/WyqXfcdkUwI/AAAAAAAAEvg/MCzaTtNPh5UkNFLRfkJF6gWakt2IBrGOACLcBGAs/s1600/contoh-soal-hukum-2-newton-2.jpg",
+            'topic_id' => 16,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 6 hard
+        //Start of topik 7 hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 161,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => " Jika Bumi menyusut menjadi setengah semula, tapi massanya tetap, maka apa yang terjadi dengan massa benda-benda yang ada di permukaan bumi?",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 162,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Benda berada pada ketinggian tertentu diatas permukaaan bumi. Percepatan gravitasi pada ketinggian tersebut sebesar 3/4 g. Jika R adalah jari-jari bumi dan g adalah percepatan gravitasi di permukaan bumi, ketinggian benda adalah . . . .",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 163,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah planet A memiliki jari-jari R dan bermassa M. Benda bermassa m berada di permukaan planet (di titik P) dan berpindah ke atas permukaan planet sejauh R diukur dari permukaan planet ( di titik Q). Besar usaha yang diperlukan untuk memindahkan benda bermassa m dari P ke titik Q adalah ....",
+            'image_path' => "https://4.bp.blogspot.com/-neP8YZEyQZo/V7uW9ccID2I/AAAAAAAADQs/Cv3gcY31qmE_nLoNAqLwn8Cw6-gElNr9QCLcB/w320-h204/10%2BGaya%2BGravitasi.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 164,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Jupiter merupakan planet terbesar dalam system tata surya. Massa Jupiter adalah 9,56 x 10^-4 kali massa matahari dan jaraknya ke matahari adalah 7,78 x 10^11 m. Tentukan lokasi di antara Jupiter dan matahari dimana gaya gravitas Jupiter dan matahari saling meniadakan.",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 165,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Perhatikan gambar di atas. Jika m1 = 10 Kg, m2 = 20 Kg dan m3 = 30 Kg. Tentukan gaya gravitasi pada massa 1 ( F1 )",
+            'image_path' => "https://1.bp.blogspot.com/-a-BFv3MQsPI/YBYlCRJNdWI/AAAAAAAAKjc/lfiq2l96K-I2EhorckGnSqqUGGY8rr3sQCLcBGAsYHQ/w400-h186/5.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 166,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Perhatikan gambar di atas. Jika m1 = 10 Kg, m2 = 36 Kg dan m3 = 64 Kg. Tentukan gaya gravitasi pada massa 1 ( F1 ) ",
+            'image_path' => "https://1.bp.blogspot.com/-B7kx_8AVAKc/YBaM_Y1bN4I/AAAAAAAAKkA/s3MVm5flcecKPVN3J-t46vZ8zRskWXY-QCLcBGAsYHQ/w269-h320/6.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 167,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "  Jika kuat medan gravitasi disuatu titik sama dengan nol, maka jarak titik tersebut dari kulit bola A adalah … ",
+            'image_path' => "https://3.bp.blogspot.com/-XAeJxupz_gs/XAuDWZH0hoI/AAAAAAAACFk/6iPN7jo3f6Myh8RO_TG2mFGuqjNEaMF9wCLcBGAs/s1600/S9%2BGRAVITASI-min.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 168,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Benda 1 dan benda 2 bermassa sama 3 kg. Maka besar gravitasi yang timbul di titik P adalah ....",
+            'image_path' => "https://1.bp.blogspot.com/-vQEJKPu_sh8/V7uTfTZCcuI/AAAAAAAADQY/yRzw2mXE6RknzNs5txpFxfpBsD_jWZNvACLcB/w320-h312/7%2BGaya%2BGravitasi.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 169,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Besar gaya gravitasi yang dialami oleh benda ketiga akibat pengaruh hanya benda 1 dan benda 2 adalah ....",
+            'image_path' => "https://4.bp.blogspot.com/-s2dU5ilu8Kc/V7uf9K4kYqI/AAAAAAAADRU/2uoTnMWzuioj81uzYQWMTJuYJ1OBsTu1gCLcB/w320-h186/11%2BGaya%2BGravitasi.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 170,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Tetapan gravitasi G memiliki satuan-satuan dasar SI, yaitu ...",
+            'image_path' => "https://www.harapanrakyat.com/wp-content/uploads/2019/09/Rumus-Hukum-Gravitasi-Newton.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //Topik 8 hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 171,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Benda bermassa 10 kg bergerak diatas permukaan yang datar dan licin tanpa geya gesek, jika benda di dorong dengan gaya100 N yang membentuk sudut 60° terhadap arah horisontal. Besar usaha jika perpindahan benda sejauh 5 m adalah … .",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 172,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Yang dilakukan oleh suatu gaya terhadap benda sama dengan nol apabila arah gaya dengan perpindahan benda membentuk sudut sebesar … .",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 173,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Balok bermassa 10 kg berada di atas lantai licin seperti gambar. Balok ditarik dengan gaya F =25 N membentuk sudut 37° terhadap arah horizontal. Setelah berpindah ke kanan 2 m besar usaha oleh gaya F sebesar ....",
+            'image_path' => "https://3.bp.blogspot.com/-wzxKkDHO2mA/WDuGyOQ3YDI/AAAAAAAAAO0/qawkWk_DjHIBKHWBhCYlfpsmL-ztgoKBACEw/s200/soal%2Bno%2B10.jpg",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 174,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah balok bermassa 4 kg bergerak dengan kecepatan awal 10 m/s di atas lantai yang kasar. Karena kekasaran lantai tersebut, kecepatan balok bisa turun menjadi 5 m/s setelah menempuh jarak tertentu. Perubahan energi kinetik balok sebesar ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 175,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah balok bermassa 1 kg menumbuk pegas yang posisinya mendatar seperti gambar. Saat balok menumbuk pegas kecepatannya 1,5 m/s dan dapat menekan pegas sejauh 10 cm. Konstant pegas tersebut sebesar...",
+            'image_path' => "https://3.bp.blogspot.com/-daV7qBW6JZA/WDuI9XYDt-I/AAAAAAAAAPA/4RRYMByQFl8vgu6ZnNTN8Frz3-QI-gflACEw/s200/soal%2Bpegas.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 175,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah balok bermassa 1 kg menumbuk pegas yang posisinya mendatar seperti gambar. Saat balok menumbuk pegas kecepatannya 1,5 m/s dan dapat menekan pegas sejauh 10 cm. Konstant pegas tersebut sebesar...",
+            'image_path' => "https://3.bp.blogspot.com/-daV7qBW6JZA/WDuI9XYDt-I/AAAAAAAAAPA/4RRYMByQFl8vgu6ZnNTN8Frz3-QI-gflACEw/s200/soal%2Bpegas.png",
+            'topic_id' => 17,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
     }
 }
