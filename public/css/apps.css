@@ -2856,6 +2856,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-opaque {
+    font-size: 15px;
     color: #6F69AC;
     background-color: #EFEBFE;
     border-color: #EFEBFE;
