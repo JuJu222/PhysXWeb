@@ -33,9 +33,27 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::get('/user', function (Request $request) {
         $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
 
+        $userTitle = null;
+        $userAvatar = null;
+        $onwedItems = $fis10user->shopItem;
+
+        if ($onwedItems != null) {
+            foreach ($onwedItems as $onwedItem) {
+                if ($onwedItem->pivot->is_equipped) {
+                    if ($onwedItem['type'] == 'title') {
+                        $userTitle = $onwedItem['item'];
+                    } else {
+                        $userAvatar = $onwedItem['image_path'];
+                    }
+                }
+            }
+        }
+
         return response()->json([
             'user' => $request->user(),
-            'fis10user' => $fis10user
+            'fis10user' => $fis10user,
+            'title' => $userTitle,
+            'avatar' => $userAvatar
         ]);
     });
 
@@ -52,5 +70,5 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);
     Route::post('questionsclear/{topic}',[QuestionController::class,'clearUsersQuestionsTopic']);
     Route::get('/result/{topic}', [QuestionController::class, 'result']);
-    
+
 });
