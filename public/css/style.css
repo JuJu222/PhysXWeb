@@ -321,3 +321,7 @@ section {
     align-items: flex-start;
     text-align: center;
 }
+
+.leaderboard-avatar {
+    width: 70px;
+}

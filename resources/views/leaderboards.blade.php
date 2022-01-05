@@ -1,63 +1,70 @@
 @extends('layouts.apps')
 @section('content')
-<div class="d-flex justify-content-end mt-5 me-5">
-    <span><h5 class="mt-3 fw-bold purple">Justin Jap</h5></span>
-    <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle ms-3" width="60" height="60">       
+<div class="d-flex justify-content-center mt-5">
+    <h1><b>Leaderboard</b></h1>
+</div>
+<div class="mx-auto mt-3 d-flex justify-content-center">
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mb-3" href="{{ route('leaderboards.index') }}">Keseluruhan</a>
+</div>
+<div class="mx-auto d-flex justify-content-around">
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 2) }}">Vektor</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a>
 </div>
 @if(empty($topic->topic_name))
-<div class="d-flex justify-content-center mx-auto">
-    <span><h2 class="mt-3 fw-bold purple">Peringkat Keseluruhan</h2></span>     
-</div>
+    <div class="d-flex justify-content-center mx-auto mt-5">
+        <h2 class="fw-bold purple">Peringkat Keseluruhan</h2>
+    </div>
 @else
-<div class="d-flex justify-content-center mx-auto">
-    <span><h2 class="mt-3 fw-bold purple">Peringkat {{ $topic->topic_name }}</h2></span>     
-</div>
+    <div class="d-flex justify-content-center mx-auto mt-5">
+        <h2 class="fw-bold purple">Peringkat {{ $topic->topic_name }}</h2>
+    </div>
+    <div class="mx-auto d-flex flex-wrap justify-content-center">
+        @if ($topic->difficulty == 'easy')
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Easy</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id + 10) }}">Hard</a>
+        @else
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id - 10) }}">Easy</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Hard</a>
+        @endif
+    </div>
 @endif
-<div class="mx-auto mt-5 d-flex justify-content-center">
-    <div class="card p-2"><a href="{{ route('leaderboards.index') }}">Keseluruhan</a></div>
-</div>
-<div class="mx-auto mt-5 d-flex justify-content-center"><h4>Mudah</h4></div>
-<div class="mx-auto d-flex justify-content-around">
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 2) }}">Vektor</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a></div>
-</div>
-<div class="mx-auto mt-5 d-flex justify-content-center"><h4>Susah</h4></div>
-<div class="mx-auto d-flex justify-content-around">
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 11) }}">Besaran dan Satuan</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 12) }}">Vektor</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 13) }}">Gerak Lurus</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 14) }}">Gerak Parabola</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 15) }}">Gerak Melingkar Beraturan</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 16) }}">Hukum Newton (Gerak)</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 17) }}">Hukum Newton (Gravitasi)</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 18) }}">Usaha dan Energi</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 19) }}">Momentum dan Impuls</a></div>
-    <div class="card p-2"><a href="{{ route('leaderboards.show', 20) }}">Getaran Harmonis</a></div>
-</div>
-<div class="mx-5 my-5 d-flex justify-content-center">
+<div class="mx-5 my-4">
     <!--template-->
-    
-    <table class="my-3">
-        @foreach($leaderboard as $l)
-        <tr>
-            <th rowspan="2"><div class="card rounded-pill py-3 px-lg-5"><h3 class="mx-auto my-auto">{{ $loop->index + 1 }}</h3></div></th>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th><h4>{{ $l->name }}</h4></th>
-        </tr>
-        <tr>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th><h5>{{ $l->total_score }}</h5></th>
-        </tr>
-        @endforeach
-    </table>
-    
-</div>
+    @foreach($leaderboard as $l)
+        <div class="row justify-content-center align-items-center mb-5">
+            <div class="col-md-auto">
+                <h3 class="font-weight-bold purple">{{ $loop->index + 1 }}</h3>
+            </div>
+            <div class="col-md-auto">
+                @if ($l->avatar != null)
+                    <img src="{{ $l->avatar }}" class="leaderboard-avatar" alt="Avatar">
+                @else
+                    <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="leaderboard-avatar" alt="Avatar">
+                @endif
+            </div>
+            <div class="col-md-auto">
+                <h4 class="font-weight-bold">{{ $l->name }}</h4>
+                @if ($l->title != null)
+                    <p class="purple my-1">{{ $l->title }}</p>
+                @else
+                    <p class="purple my-1">Title Def</p>
+                @endif
+            </div>
+            <div class="col-md-auto">
+                <div class="result-score px-3 py-2 d-flex align-items-center">
+                    <h5 class="result-score-total d-inline mb-0 mr-2">{{ $l->total_score }}</h5>
+                    <img src="{{ asset('img/score-symbol.svg') }}" alt="Coins" width="25px">
+                </div>
+            </div>
+        </div>
+    @endforeach
+    </div>
 @endsection
