@@ -2180,7 +2180,7 @@ pre code {
     width: 100%;
     height: calc(1.6em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
     color: black;
@@ -2196,7 +2196,7 @@ pre code {
     width: 100%;
     height: calc(1.6em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
     color: black;
@@ -2207,12 +2207,16 @@ pre code {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.btn-larger {
+    font-size: 18px !important;
+}
+
 .form-false{
     display: block;
     width: 100%;
     height: calc(1.6em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
     color: black;
@@ -2228,7 +2232,7 @@ pre code {
     width: 100%;
     height: calc(1.6em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
     color: black;
@@ -2244,7 +2248,7 @@ pre code {
     width: 100%;
     height: calc(1.6em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
     color: black;
@@ -2265,17 +2269,16 @@ pre code {
 }
 
 .form-true:hover{
-    color: black;
-    background-color: green;
-    border: 2px solid #6F69AC;
+    color: #436F5F;
+    background-color: #95DAC1;
     border-radius: 0.50rem;
     border: 3px solid;
     border-color:green;
 }
 
 .form-false:hover{
-    color: black;
-    background-color: red;
+    color: #9E3351;
+    background-color: #FD6F96;
     border: 3px solid;
     border-color:red;
     border-radius: 0.50rem;

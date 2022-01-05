@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="buttonedit">
-                    <a class="btn btn-opaque rounded-circleX px-4" href="{{ route('profile.edit', $user->id) }}">Edit
+                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Edit
                         Profile</a>
                 </div>
             </div>
