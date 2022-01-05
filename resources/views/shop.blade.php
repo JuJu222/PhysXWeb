@@ -20,7 +20,7 @@
             @isset ($userTitle)
                 <h2 class="purple font-weight-bold my-1">{{ $userTitle }}</h2>
             @else
-                <h2 class="purple font-weight-bold my-1">Title Def</h2>
+                <h2 class="purple font-weight-bold my-1">Novice</h2>
             @endisset
         </div>
     </div>

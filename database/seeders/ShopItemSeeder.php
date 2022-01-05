@@ -15,7 +15,7 @@ class ShopItemSeeder extends Seeder
     public function run()
     {
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Title 1',
+            'item' => 'Graduate',
             'type' => 'title',
             'price' => '100',
             'created_at' => \Carbon\Carbon::now(),
@@ -23,7 +23,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Title 2',
+            'item' => 'Master',
             'type' => 'title',
             'price' => '250',
             'created_at' => \Carbon\Carbon::now(),
@@ -31,7 +31,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Title 3',
+            'item' => 'Legend',
             'type' => 'title',
             'price' => '500',
             'created_at' => \Carbon\Carbon::now(),
@@ -39,7 +39,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Avatar 1',
+            'item' => 'Delta',
             'type' => 'avatar',
             'image_path' => 'https://drive.google.com/uc?export=view&id=1g8-47XhGQfV1WRROUJwr5mPq-0xUBDjc',
             'price' => '100',
@@ -48,7 +48,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Avatar 2',
+            'item' => 'Atlas',
             'type' => 'avatar',
             'image_path' => 'https://drive.google.com/uc?export=view&id=1DKaOHMqWk8kMRzW7DLkXtALlfgwV996_',
             'price' => '250',
@@ -57,7 +57,7 @@ class ShopItemSeeder extends Seeder
         ]);
 
         DB::table('fis10_shop_items')->insert([
-            'item' => 'Avatar 3',
+            'item' => 'Titan',
             'type' => 'avatar',
             'image_path' => 'https://drive.google.com/uc?export=view&id=1r3UVa3nZGyeJexq5CLYUgEf-7AnUcSlb',
             'price' => '500',

@@ -55,7 +55,7 @@
                 @if ($l->title != null)
                     <p class="purple my-1">{{ $l->title }}</p>
                 @else
-                    <p class="purple my-1">Title Def</p>
+                    <p class="purple my-1">Novice</p>
                 @endif
             </div>
             <div class="col-md-auto">

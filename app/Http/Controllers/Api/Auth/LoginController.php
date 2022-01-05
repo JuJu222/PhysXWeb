@@ -28,8 +28,8 @@ class LoginController extends Controller
         if (Auth::attempt($user)) {
             //Generate Token
             // $response = Http::asForm()->post('http://webapi.test/oauth/token',[
-            // $response = Http::asForm()->post('http://physxweb.test/oauth/token',[
-                $response = Http::asForm()->post('http://uas3.test/oauth/token', [
+             $response = Http::asForm()->post('http://physxweb.test/oauth/token',[
+//                $response = Http::asForm()->post('http://uas3.test/oauth/token', [
                 'grant_type' => 'password',
                 'client_id' => $this->client->id,
                 'client_secret' => $this->client->secret,
@@ -52,8 +52,8 @@ class LoginController extends Controller
             'refresh_token' => 'refresh token is required',
         ]);
 
-        // $response = Http::asForm()->post('http://physxweb.test/oauth/token', [
-            $response = Http::asForm()->post('http://uas3.test/oauth/token', [
+         $response = Http::asForm()->post('http://physxweb.test/oauth/token', [
+//            $response = Http::asForm()->post('http://uas3.test/oauth/token', [
             'grant_type' => 'refresh_token',
             'refresh_token' => $request->refresh_token,
             'client_id' => $this->client_id,

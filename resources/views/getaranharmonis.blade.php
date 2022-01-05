@@ -62,5 +62,5 @@
 <p>t = waktu tempuh (s)</p>
 <p>Jumlah energi potensial dan energi kinetik benda yang bergerak harmonik sederhana selalu bernilai tetap.</p>
 <p>Simak <span class="fw-bolder">video</span> yang dibuat oleh <span class="fw-bolder">GIA Academy</span> terkait getaran harmonis untuk dapat mengerti materi ini lebih dalam.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E07LwrQQb30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" class="rounded mx-auto d-block" src="https://www.youtube.com/embed/E07LwrQQb30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 @endsection
