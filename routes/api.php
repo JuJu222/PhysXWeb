@@ -49,6 +49,8 @@ Route::group(['middleware'=> 'auth:api'], function(){
             }
         }
 
+        $fis10user = Fis10User::query()->where('user_id', $request->user()->id)->first();
+
         return response()->json([
             'user' => $request->user(),
             'fis10user' => $fis10user,
