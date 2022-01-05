@@ -1,11 +1,12 @@
 @extends('layouts.apps')
 @section('content')
 
-    <div class="container justify-content-center align-items-center">
-        <div class="d-flex justify-content-center align-items-center ms-5 text-center">
+        <div class="d-flex justify-content-center align-items-center text-center my-5">
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
                 <h1 class="mb-3 text-opaque-links">Question {{ Session::get("nosoal") }}/{{ count($questions) }}</h1>
-                <img src="{{ $question->image_path }}"   width="300px" height="300px">
+                @if ($question->image_path != null)
+                    <img src="{{ $question->image_path }}" width="300px" height="300px">
+                @endif
                 <h2 class="mt-3 text-center">{{ $question->question }}</h2>
                 <div class="result-score mx-auto my-2 px-3 py-2 d-flex align-items-center">
                     <h4 class="result-score-total d-inline mb-0 mr-2">Skor: {{ $question->score }}</h4>
@@ -101,6 +102,4 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 @endsection
