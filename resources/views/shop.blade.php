@@ -63,7 +63,11 @@
                         @else
                             <form action="{{ route('shop.buy', $title->shop_item_id) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-opaque rounded-circleX px-4">Buy</button>
+                                @if($fis10user->coins >= $title->price)
+                                    <button type="submit" class="btn btn-opaque rounded-circleX px-4">Buy</button>
+                                @else
+                                    <button type="submit" class="btn btn-opaque rounded-circleX px-4 disabled">Buy</button>
+                                @endif
                             </form>
                         @endif
                     @if (auth()->user()->role == 'admin')
@@ -118,7 +122,11 @@
                     @else
                         <form action="{{ route('shop.buy', $avatar->shop_item_id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-opaque rounded-circleX px-4">Buy</button>
+                            @if($fis10user->coins >= $avatar->price)
+                                <button type="submit" class="btn btn-opaque rounded-circleX px-4">Buy</button>
+                            @else
+                                <button type="submit" class="btn btn-opaque rounded-circleX px-4 disabled">Buy</button>
+                            @endif
                         </form>
                     @endif
                     @if (auth()->user()->role == 'admin')

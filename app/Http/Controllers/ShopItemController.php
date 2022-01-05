@@ -173,26 +173,28 @@ class ShopItemController extends Controller
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $shopItem = ShopItem::query()->findOrFail($id);
 
-        if (!$fis10user->shopItem->contains($shopItem)) {
-            if ($shopItem->type == 'title') {
-                foreach ($fis10user->shopItem as $item) {
-                    if ($item->type == 'title' && $item->pivot->is_equipped == true) {
-                        $item->pivot->update([
-                           'is_equipped' => false
-                        ]);
+        if ($fis10user->coins >= $shopItem->price) {
+            if (!$fis10user->shopItem->contains($shopItem)) {
+                if ($shopItem->type == 'title') {
+                    foreach ($fis10user->shopItem as $item) {
+                        if ($item->type == 'title' && $item->pivot->is_equipped == true) {
+                            $item->pivot->update([
+                                'is_equipped' => false
+                            ]);
+                        }
+                    }
+                } else {
+                    foreach ($fis10user->shopItem as $item) {
+                        if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
+                            $item->pivot->update([
+                                'is_equipped' => false
+                            ]);
+                        }
                     }
                 }
-            } else {
-                foreach ($fis10user->shopItem as $item) {
-                    if ($item->type == 'avatar' && $item->pivot->is_equipped == true) {
-                        $item->pivot->update([
-                            'is_equipped' => false
-                        ]);
-                    }
-                }
+                $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
+                $fis10user->update(['coins' => $fis10user->coins - $shopItem->price]);
             }
-            $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
-            $fis10user->update(['coins' => $fis10user->coins - $shopItem->price]);
         }
 
         return redirect(route('shop.index'));
