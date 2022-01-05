@@ -297,7 +297,7 @@ class QuestionController extends Controller
         $totalQuestions = Question::query()->where('topic_id', $topic)->count();
         $accuracy = round($correctAnswerCounter / $totalQuestions * 100, 0);
 
-        if ($accuracy > 70) {
+        if ($accuracy >= 60) {
             $topicObj = Topic::query()->findOrFail($topic);
             if ($topicObj->difficulty == 'easy') {
                 $fis10user->topics()->syncWithoutDetaching($topic + 10);
