@@ -38,12 +38,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('topics', TopicController::class);
     Route::resource('fis10user', Fis10UserController::class);
     Route::resource('leaderboards',LeaderboardController::class);
-    
+
     Route::get('/questions/{topic}', [QuestionController::class, 'showQuestion'])->name('questionSoal');
     Route::post('/questions/{topic}', [QuestionController::class, 'answerQuestion']);
     Route::get('/questions/{topic}/result', [QuestionController::class, 'result'])->name('questions.result');
     Route::get('/questionsclear', function (Request $request) {
         $request->session()->forget('nosoal');
+        $request->session()->forget('topic');
         redirect('/');
     });
 

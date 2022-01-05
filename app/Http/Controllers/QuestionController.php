@@ -35,10 +35,21 @@ class QuestionController extends Controller
         $score = 0;
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
 
+        $unlockedTopic = $users->topics->where('topic_id', $topic)->first();
+
+        if ($unlockedTopic == null && $topic != 1) {
+            return redirect()->route('home');
+        }
+
         if (!$request->session()->has('nosoal')) {
             $request->session()->put('nosoal', 1);
+            $request->session()->put('topic', $topic);
             $usersQuestionsTopicIds = $users->questions()->where('topic_id', $topic)->pluck('fis10_questions.question_id')->toArray();
             $users->questions()->detach($usersQuestionsTopicIds);
+        }
+
+        if ($request->session()->get('topic') != $topic) {
+            return redirect()->route('questionSoal', $request->session()->get('topic'));
         }
 
         $nosoal = $request->session()->get('nosoal');
@@ -307,6 +318,7 @@ class QuestionController extends Controller
         }
 
         $request->session()->forget('nosoal');
+        $request->session()->forget('topic');
         $fis10user->update(['coins' => $fis10user->coins + 25]);
 
         $result['accuracy'] = $accuracy;
