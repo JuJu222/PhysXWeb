@@ -825,7 +825,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Usaha terjadi ketika energi dipindahkan dari satu sistem ke sistem lainnya.",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -836,7 +836,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi diartikan sebagai kemampuan untuk melakukan usaha atau kerja. Energi tidak dapat diciptakan dan tidak dapat dimusnahkan.",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -847,7 +847,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi kinetik adalah energi yang dimiliki benda karena keadaaan, kedudukan atau posisinya.",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -858,7 +858,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Rumus energi kinetik adalah mgh",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -869,7 +869,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi potensial adalah energi yang dimiliki oleh benda karena gerakannya",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -879,7 +879,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi panas adalah energi yang menimbulkan perubahan suhu pada benda",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -889,7 +889,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Gambar di atas adalah rumus energi kinetik",
             'image_path' => "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1623299049/uk3pimjerm8kkiapvyfr.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -899,7 +899,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Gambar di atas adalah rumus energi panas",
             'image_path' => "https://4.bp.blogspot.com/-GpSHpr4VJx0/XKNoGvJhwwI/AAAAAAAAQvs/p5uTm4UDL4AgNF5D2H8sG7ThFBPX0p1IgCLcBGAs/s1600/rumus%2Bdaya%2Blistrik%2Bfisika%2Bsmp%2Bkelas%2B9.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -909,7 +909,7 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi mekanik adalah gabungan dari energi potensial dan energi mekanik",
             'image_path' => "https://4.bp.blogspot.com/-GpSHpr4VJx0/XKNoGvJhwwI/AAAAAAAAQvs/p5uTm4UDL4AgNF5D2H8sG7ThFBPX0p1IgCLcBGAs/s1600/rumus%2Bdaya%2Blistrik%2Bfisika%2Bsmp%2Bkelas%2B9.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -919,11 +919,236 @@ class QuestionSeeder extends Seeder
             'score' => 50,
             'question' => "Energi tidak dapat diciptakan namun dapat dimusnahkan.",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 7,
+            'topic_id' => 8,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
         //End of topik 8 easy
+        //Start of topik 9 easy
+        DB::table('fis10_questions')->insert([
+            'question_id' => 81,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Seorang petinju mengarahkan pukulan ke kepala lawanya dalam selang waktu tertentu, kemudian tanganya ditarik kembali. Hasil kali antara gaya pukulan dengan selang waktu yang dialami oleh lawanya disebut ... .",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 82,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Perhatikan data atlet tersebut! Dari data atlet pelari tersebut manakah yang memiliki momentum paling besar?",
+            'image_path' => "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/018eeb7c-f6b2-4f5d-8edd-5d555a0f7c38",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 83,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Massa sebuah benda 4 kg diberi gaya 10 N hingga benda yang semula diam lalu bergerak dengan kecepatan 2 m/s. Besarnya momentum yang dimiliki benda tersebut adalah ...",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 84,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Saat terjadi kecelakaan bagian depan sebuah mobil didesain mudah ringsek saat terjadi benturan keras. Berkaitan dengan konsep impuls dan momentum hal tersebut dikarenakan .....",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 85,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah truk melaju di jalan raya memiliki momentum yang besar. Jika truk tersebut bergerak dengan kecepatan tetap tetapi masanya dua kali lipat, maka momentumnya adalah ....",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 86,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Pada setiap sembarang tumbuhan selalu berlaku ….",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 87,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Kedua benda bergabung setelah tumbukan dan bergerak dengan kecepatan yang sama adalah....",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 88,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Dua bola masing-masing 2 kg. Bola pertama bergerak ke arah timur dengan kecepatan 4 m/s dan bola kedua bergerak ke utara dengan kecepatan 3 m/s. maka, hitung dan tentukanlah momentum total kedua bola tersebut! Momentum total kedua bola tersebut adalah ... kg m/s",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]); 
+        DB::table('fis10_questions')->insert([
+            'question_id' => 89,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Kecepatan peluru saat lepas dari larasnya 200 m/s. Jika massa peluru dan senapan masing-masing 10 gram dan 5 kg, hitunglah kecepatan dorong senapan terhadap bahu penembak saat peluru lepas dari larasnya ?",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 90,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Sebuah trem 10.000 kg berjalan dengan laju 24 m/s menabrak trem sejenis yang berhenti. Jika trem menempel bersama sebagai akibat tumbukkan, berapa laju bersama mereka sesudahnya?",
+            'image_path' => "https://www.pelajaran.co.id/wp-content/uploads/2016/12/Momentum.jpg",
+            'topic_id' => 9,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        //end of topik 9 easy
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 91,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Berikut adalah beberapa besaran penting dalam getaran dan gelombang, kecuali...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 92,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Definisi dari gerak harmonik adalah...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 93,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Perhatikan Gambar dibawah ini! Pada gambar berikut yang dimaskud dengan satu getaran adalah ...",
+            'image_path' => "https://1.bp.blogspot.com/-44zlZdV-sMs/YBLcNQGjD_I/AAAAAAAAC6E/3hfwwJvg88MCntJt6JKFk-kzM72A7w_UACNcBGAsYHQ/w400-h280/soal%2B3%2Bgetaran.jpg",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 94,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Perhatikanlah gambar dibawah berikut ini!! satu getaran dapat diartikan bahwa pegas telah melakukan gerakan dari titik ...",
+            'image_path' => "https://1.bp.blogspot.com/-uWQVvxg7aIE/YBLcTOLKc_I/AAAAAAAAC6I/o-O8MxoV3nQ3JTi1yoO629aRWjvlC_X-wCNcBGAsYHQ/w400-h278/soal%2B5%2Bgetaran.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 95,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Apabila sebuah titik melakukan 300 getaran sempurna tiap menit, maka frekuensi getaran titik itu adalah ...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 96,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Gaya yang menyebabkan benda bergerak menuju titik keseimbangannya kembali setelah mengalami simpangan pada gerak harmonis disebut...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 97,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Besar periode getaran sebuah benda tidak terpengaruh oleh…",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 97,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Besar periode getaran sebuah benda tidak terpengaruh oleh…",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 98,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Gaya pemulih akan menyebabkan pegas yang telah meregang kembali ke keadaan seimbangnya. Gaya merupakan besaran...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 99,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Dalam dua menit terjadi 960 getaran pada suatu partikel. Frekuensi dari getaran tersebut adalah ... Hz",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 100,
+            'question_type' => "mcq",
+            'score' => 50,
+            'question' => "Gerak bolak-balik benda melalui suatu titik kesetimbangan tertentu dengan banyaknya getaran benda dalam setiap sekon selalu konstan disebut ",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 10,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //Topik 10 Easy
         //Topik 1 Hard
         DB::table('fis10_questions')->insert([
             'question_id' => 101,
@@ -1718,7 +1943,7 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Benda bermassa 10 kg bergerak diatas permukaan yang datar dan licin tanpa geya gesek, jika benda di dorong dengan gaya100 N yang membentuk sudut 60° terhadap arah horisontal. Besar usaha jika perpindahan benda sejauh 5 m adalah … .",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -1728,7 +1953,7 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Yang dilakukan oleh suatu gaya terhadap benda sama dengan nol apabila arah gaya dengan perpindahan benda membentuk sudut sebesar … .",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -1738,7 +1963,7 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Balok bermassa 10 kg berada di atas lantai licin seperti gambar. Balok ditarik dengan gaya F =25 N membentuk sudut 37° terhadap arah horizontal. Setelah berpindah ke kanan 2 m besar usaha oleh gaya F sebesar ....",
             'image_path' => "https://3.bp.blogspot.com/-wzxKkDHO2mA/WDuGyOQ3YDI/AAAAAAAAAO0/qawkWk_DjHIBKHWBhCYlfpsmL-ztgoKBACEw/s200/soal%2Bno%2B10.jpg",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -1748,7 +1973,7 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Sebuah balok bermassa 4 kg bergerak dengan kecepatan awal 10 m/s di atas lantai yang kasar. Karena kekasaran lantai tersebut, kecepatan balok bisa turun menjadi 5 m/s setelah menempuh jarak tertentu. Perubahan energi kinetik balok sebesar ....",
             'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -1758,7 +1983,7 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Sebuah balok bermassa 1 kg menumbuk pegas yang posisinya mendatar seperti gambar. Saat balok menumbuk pegas kecepatannya 1,5 m/s dan dapat menekan pegas sejauh 10 cm. Konstant pegas tersebut sebesar...",
             'image_path' => "https://3.bp.blogspot.com/-daV7qBW6JZA/WDuI9XYDt-I/AAAAAAAAAPA/4RRYMByQFl8vgu6ZnNTN8Frz3-QI-gflACEw/s200/soal%2Bpegas.png",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -1768,9 +1993,291 @@ class QuestionSeeder extends Seeder
             'score' => 100,
             'question' => "Sebuah balok bermassa 1 kg menumbuk pegas yang posisinya mendatar seperti gambar. Saat balok menumbuk pegas kecepatannya 1,5 m/s dan dapat menekan pegas sejauh 10 cm. Konstant pegas tersebut sebesar...",
             'image_path' => "https://3.bp.blogspot.com/-daV7qBW6JZA/WDuI9XYDt-I/AAAAAAAAAPA/4RRYMByQFl8vgu6ZnNTN8Frz3-QI-gflACEw/s200/soal%2Bpegas.png",
-            'topic_id' => 17,
+            'topic_id' => 18,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 176,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dalam gambar berikut, partikel bergerak lurus secara horizontal. Usaha total yang dilakukan partikel untuk berpindah sejauh 15 m adalah . . .",
+            'image_path' => "https://1.bp.blogspot.com/-NTj2QfHZdKA/YHKKjc-hS_I/AAAAAAAACMo/iHX68EN67GYLwar98vYyblBYOVaz6ZwdwCLcBGAsYHQ/w320-h166/partikel-bergerak-lurus-secara-horisontal.-usaha-total-yang-dilakukan-partikel-untuk-berpindah-sejauh-15-m.png",
+            'topic_id' => 18,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 177,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Gaya gravitasi bekerja antara Matahari dan bumi. Jika kita asumsikan orbit bumi terhadap matahari adalah lingkaran, maka usaha oleh gaya gravitasi pada interval waktu yang pendek adalah ... N",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 18,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 178,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Kereta belanja meluncur pada bidang miring karena hentakan angin. Kemudian, seorang ibu mendorong kereta tersebut dengan gaya F = 20i + 30j N. Kereta  mengalami perpindahan s = 3i + 4j meter.  besar usaha oleh gaya untuk memindahkan kereta adalah ... J",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 18,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 179,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Di jalan yang menurun, sepeda meluncur cepat meskipun tidak dikayuh. hal ini disebabkan...",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 18,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('fis10_questions')->insert([
+            'question_id' => 180,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Seekor elang terbang pada ketinggian 8 m dengan kecepatan 2 m/s. Perbandingan energi potensial dan energi kinetik elang adalah ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 18,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //Topic 9 hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 181,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Bola kasti bermassa 100 gram dilempar mendatar oleh Rina dengan kelajuan 5 m/s. kemudian bola kasti tersebut dipukul searah dengan arah mula-mula. Bila lamanya bola kasti bersentuhan dengan 2 m/s dan kecepatan bola kasti setelah meninggalkan pemukul 10 m/s maka hitunglah berapa besar gaya yang diberikan oleh pemukul!",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 182,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Bola bermassa 10 gram jatuh bebas dari ketinggian tertentu, menumbuk lantai dengan kecepatan 15 m/s lalu terpantul ke atas dengan kecepatan 10 m/s. Impulsnya .. kg m/s",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 183,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Bola bermassa 200 gram dilempar horisontal dengan kecepatan 4 m/s, lalu bola dipukul searah dengan arah bola mula-mula. Lamanya bola bersentuhan dengan pemukul adalah 2 milisekon dan kecepatan bola setelah meninggalkan pemukul adalah 12 m/s. Besar gaya yang diberikan oleh pemukul pada bola adalah … N",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 184,
+            'question_type' => "fitb",
+            'score' => 100,
+            'question' => "Berapa impuls bola bermassa 5 kg yang kemudian mengalami perubahan kecepatan, dari yang semula diam lalu menjadi 10ms^−1? Impuls bolanya ... kgms^-1",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 185,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah bola bermassa 200 g bergerak dengan kelajuan 6 m/s menuju dinding dengan arah tegak lurus. Bola tersebut menumbuk dinding selama 0,2 detik dan dipantulkan tegak lurus dinding dengan kelajuan 4 m/s. besar gaya yang diberikan dinding pada bola adalah ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 186,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Benda dengan massa konstan mempunyai momentum p dan energi kinetik EK. Jika energi kinetik berubah menjadi 4EK, momentumnya menjadi ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 187,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah benda yang memiliki massa m1 = m2 = 2 kg bergerak saling mendekati dengan kelajuan masing – masing v1 = 10 m/s dan v2 = 20 m/s seperti pada gambar. jika kedua benda bertumbukan lenting sempurna, kecepatan masing – masing benda setelah bertumbukan adalah ....",
+            'image_path' => "https://1.bp.blogspot.com/-DvPO3bbHKTU/YFl3qvGYg3I/AAAAAAAAE9M/rBx699XumKE_b_Rr3ZxXE6wdweUV73zSQCLcBGAsYHQ/w320-h83/11.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 188,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah benda A dan B masing – masing mempunyai massa 1 kg dan 3 kg bergerak dengan arah sama yaitu ke kanan dengan besar masing – masing 6 m/s dan 2 m/s (A mengejar B), kemudian terjadi tumbukan bersifat lenting sempurna. Besar kecepatan A dan B masing – masing setelah tumbukan adalah ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 189,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah mobil dengan massa 3 ton bergerak ke timur dengan kelajuan 40 km/jam. pada saat yang sama sebuah truk dengan massa 5 ton bergerak ke selatan dengan kelajuan 10 km/jam. di perempatan jalan mobil dan truk ini bertabrakan. Jika keduanya bergandengan setelah tabrakan. Kelajuan keduanya sesaat setelah tabrakan adalah ....",
+            'image_path' => "https://www.quipper.com/id/blog/wp-content/uploads/2019/08/Usaha-dan-Energi-Fisika-Kelas-11-c.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 190,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebutir peluru yang massanya 0,01 kg ditembakkan pada suatu ayunan balistik bermassa 1 kg, sehingga peluru bersarang di dalamnya dan ayunan naik setinggi 0,2 m dari kedudukan semula. Jika g = 10 m/s², kecepatan peluru yang ditembakkan adalah.... m/s",
+            'image_path' => "https://1.bp.blogspot.com/-A5LKN2tN5Uk/XiM9D6HFzLI/AAAAAAAAv8w/VbQ9KVjo_KkDhiS29kgp6zsJ6RVTR1tbwCLcBGAsYHQ/s200/tumbukan3.png",
+            'topic_id' => 19,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        //End of topik 9 hard
+        DB::table('fis10_questions')->insert([
+            'question_id' => 191,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah bandul disimpangkan dengan θ = 10 derajat,  bandul memiliki massa sebesar 3,5 g. hitunglah periode dari bandul, bila bandul memiliki panjang tali yang menggantungnya yaitu 25 cm. percepatan grafitasi sebesar 10 m/s2",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 192,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua ayunan sederhana masing-masing panjang talinya 25 cm dan 49 cm. perbandingan frekuensi getaran antara kedua ayunan adalah……………. ",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 193,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Kecepatan sebuah benda saat bergetar harmonis pada suatu saat adalah 1/4 Vmaks (Vmaks= kecepatan maksimum ).Bila amplitudo getaran A. maka besar simpangan saat itu adalah…",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 194,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Suatu benda mengalami gerak harmonic sederhana dengan periode π/2 sekon dan amplitude 0,6 meter. Pada t = 0s dan y = 0, berapa jauh benda dari posisi keseimbangannya ketika t = π/3 sekon",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 195,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah ayunan A dan B memiliki panjang tali yang sama. Jika ayunan pertama digetarkan dengan simpangan empat kali ayunan kedua, maka ….",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 195,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah ayunan A dan B memiliki panjang tali yang sama. Jika ayunan pertama digetarkan dengan simpangan empat kali ayunan kedua, maka ….",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+        
+        DB::table('fis10_questions')->insert([
+            'question_id' => 196,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah benda bergerak harmonik dengan persamaan y = 5 sin πt + π/2 m. Tentukan amplitudonya",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 197,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dimanakah letak sebuah titik yang melakukan gerakan harmonis jika kecepatannya 1/2 kecepatan maksimumnya ?",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 198,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Dua buah pegas yang disusun secara seri berturut-turut besar konstantanya 100 N/m dan 150 N/m. Apabila pada pegas tersebut diberi beban 30 N, maka pegas akan bertambah panjang sebesar ...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 199,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Sebuah pegas akan bertambah panjang 15 cm jika digantungi beban yang massanya 5 kg, maka kontanta pegas adalah...",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
+        DB::table('fis10_questions')->insert([
+            'question_id' => 200,
+            'question_type' => "mcq",
+            'score' => 100,
+            'question' => "Beban bermasa 50 gram bergerak harmonik sederhana dengan amplitudo 10 cm dan periode 0,2 s, besar gaya yang bekerja pada sistem saat simpangannya setengah amplitudo adalah sekitar....N",
+            'image_path' => "https://3.bp.blogspot.com/-7c3hY-jEwWM/W2lMRSsA54I/AAAAAAAACS0/YWal_xnsetEFJ26DCKmMdaw7RlkyuXQJgCLcBGAs/s1600/gbr283.png",
+            'topic_id' => 20,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+
     }
 }
