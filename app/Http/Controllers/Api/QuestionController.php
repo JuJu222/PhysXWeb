@@ -173,7 +173,6 @@ class QuestionController extends Controller
     public function result($topic)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
-        $fis10user->update(['coins' => $fis10user->coins + 25]);
 
         $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
@@ -196,9 +195,21 @@ class QuestionController extends Controller
         $totalMinutes = floor($timeTaken / 60);
         $totalSeconds += $timeTaken % 60;
         $totalQuestions = Question::query()->where('topic_id', $topic)->count();
+        $accuracy = round($correctAnswerCounter / $totalQuestions * 100, 0);
+
+        if ($accuracy > 70) {
+            $topicObj = Topic::query()->findOrFail($topic);
+            if ($topicObj->difficulty == 'easy') {
+                $fis10user->topics()->syncWithoutDetaching($topic + 10);
+            } else {
+                $fis10user->topics()->syncWithoutDetaching($topic - 9);
+            }
+        }
+
+        $fis10user->update(['coins' => $fis10user->coins + 25]);
 
         $result['topic_name'] = $topic_name;
-        $result['accuracy'] = round($correctAnswerCounter / $totalQuestions * 100, 0);
+        $result['accuracy'] = $accuracy;
         $result['total_score'] = $totalScore;
         $result['total_questions'] = $totalQuestions;
         $result['total_correct'] = $correctAnswerCounter;

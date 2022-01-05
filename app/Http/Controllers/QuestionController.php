@@ -29,7 +29,7 @@ class QuestionController extends Controller
     }
 
 
-    public function showQuestion($topicz, Request $request)
+    public function showQuestion($topic, Request $request)
     {
         //Create User Soal Instance
         $score = 0;
@@ -41,20 +41,11 @@ class QuestionController extends Controller
             $users->questions()->detach($usersQuestionsTopicIds);
         }
 
-        if (!$request->session()->has('topic')) {
-            $request->session()->put('topic', $topicz);
-        }
-
-        $topic = $request->session()->get('topic');
         $nosoal = $request->session()->get('nosoal');
 
         $questions = Question::where('topic_id', $topic)->get();
 
         if (count($questions) < $nosoal) {
-            $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
-            $fis10user->topics()->attach($topic + 1);
-            $request->session()->forget('nosoal');
-            $fis10user->update(['coins' => $fis10user->coins + 25]);
             return redirect()->route('questions.result', $topic);
         }
 
@@ -280,7 +271,7 @@ class QuestionController extends Controller
         }
     }
 
-    public function result($topic)
+    public function result($topic, Request $request)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
 
@@ -304,8 +295,21 @@ class QuestionController extends Controller
         $totalMinutes = floor($timeTaken / 60);
         $totalSeconds += $timeTaken % 60;
         $totalQuestions = Question::query()->where('topic_id', $topic)->count();
+        $accuracy = round($correctAnswerCounter / $totalQuestions * 100, 0);
 
-        $result['accuracy'] = round($correctAnswerCounter / $totalQuestions * 100, 0);
+        if ($accuracy > 70) {
+            $topicObj = Topic::query()->findOrFail($topic);
+            if ($topicObj->difficulty == 'easy') {
+                $fis10user->topics()->syncWithoutDetaching($topic + 10);
+            } else {
+                $fis10user->topics()->syncWithoutDetaching($topic - 9);
+            }
+        }
+
+        $request->session()->forget('nosoal');
+        $fis10user->update(['coins' => $fis10user->coins + 25]);
+
+        $result['accuracy'] = $accuracy;
         $result['total_score'] = $totalScore;
         $result['total_questions'] = $totalQuestions;
         $result['total_correct'] = $correctAnswerCounter;
