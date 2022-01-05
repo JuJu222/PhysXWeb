@@ -18,11 +18,6 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        // $leaderboard = UsersQuestions::selectRaw("CAST(SUM(question_score) AS INTEGER) AS total_score, fis10_user_id")
-        // ->groupBy('fis10_user_id')
-        // ->orderByDesc('total_score')
-        // ->get();
-
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
                 'fis10_users',
@@ -34,13 +29,36 @@ class LeaderboardController extends Controller
                 'users.id',
                 '=',
                 'fis10_users.user_id')
-            ->selectRaw('name, CAST(SUM(question_score) AS INTEGER) AS total_score')
+            ->selectRaw('fis10_users_questions.fis10_user_id, name, CAST(SUM(question_score) AS INTEGER) AS total_score')
+            ->groupBy('fis10_users_questions.fis10_user_id')
             ->groupBy('name')
             ->orderByDesc('total_score')
             ->limit(10)
             ->get();
 
-            return ['leaderboard' => $leaderboard];
+        foreach ($leaderboard as $item) {
+            $fis10user = Fis10User::query()->where('user_id', $item->fis10_user_id)->first();
+            $ownedItems = $fis10user->shopItem;
+            $title = null;
+            $avatar = null;
+
+            if ($ownedItems != null) {
+                foreach ($ownedItems as $ownedItem) {
+                    if ($ownedItem->pivot->is_equipped) {
+                        if ($ownedItem['type'] == 'title') {
+                            $title = $ownedItem['item'];
+                        } else {
+                            $avatar = $ownedItem['image_path'];
+                        }
+                    }
+                }
+            }
+
+            $item->title = $title;
+            $item->avatar = $avatar;
+        }
+
+        return ['leaderboard' => $leaderboard];
     }
 
     /**
@@ -94,12 +112,35 @@ class LeaderboardController extends Controller
                 'fis10_topics.topic_id',
                 '=',
                 'fis10_questions.topic_id')
-            ->selectRaw('name, CAST(SUM(question_score) AS INTEGER) AS total_score')
+            ->selectRaw('fis10_users_questions.fis10_user_id, name, CAST(SUM(question_score) AS INTEGER) AS total_score')
             ->where('fis10_topics.topic_id', $id)
+            ->groupBy('fis10_users_questions.fis10_user_id')
             ->groupBy('name')
             ->orderByDesc('total_score')
             ->limit(10)
             ->get();
+
+        foreach ($leaderboard as $item) {
+            $fis10user = Fis10User::query()->where('user_id', $item->fis10_user_id)->first();
+            $ownedItems = $fis10user->shopItem;
+            $title = null;
+            $avatar = null;
+
+            if ($ownedItems != null) {
+                foreach ($ownedItems as $ownedItem) {
+                    if ($ownedItem->pivot->is_equipped) {
+                        if ($ownedItem['type'] == 'title') {
+                            $title = $ownedItem['item'];
+                        } else {
+                            $avatar = $ownedItem['image_path'];
+                        }
+                    }
+                }
+            }
+
+            $item->title = $title;
+            $item->avatar = $avatar;
+        }
 
         return ['leaderboard' => $leaderboard];
     }
