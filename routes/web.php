@@ -49,22 +49,23 @@ Route::middleware(['auth'])->group(function () {
         redirect('/');
     });
 
-    Route::get('/question/create',[QuestionController::class,'create'])->middleware('isAdmin');
-    Route::get('/question',[QuestionController::class,'index'])->middleware('isAdmin');
-    Route::get('/question/{question:id}/edit',[QuestionController::class,'edit'])->middleware('isAdmin');
-
-    Route::get('/optionmcq/create',[OptionmcqController::class,'create'])->middleware('isAdmin');
-    Route::get('/optionmcq',[OptionmcqController::class,'index'])->middleware('isAdmin');
-    Route::get('/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit'])->middleware('isAdmin');
-
-    Route::get('/optionfitb/create',[OptionfitbController::class,'create'])->middleware('isAdmin');
-    Route::get('/optionfitb',[OptionfitbController::class,'index'])->middleware('isAdmin');
-    Route::get('/optionfitb/{optionfitb:id}/edit',[OptionfitbController::class,'edit'])->middleware('isAdmin');
-
-    Route::get('/optiontof/create',[OptiontofController::class,'create'])->middleware('isAdmin');
-    Route::get('/optiontof',[OptiontofController::class,'index'])->middleware('isAdmin');
-    Route::get('/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit'])->middleware('isAdmin');
-
+    Route::group(['middleware' => 'isAdmin'], function () {
+        Route::get('/question/create',[QuestionController::class,'create']);
+        Route::get('/question',[QuestionController::class,'index']);
+        Route::get('/question/{question:id}/edit',[QuestionController::class,'edit']);
+    
+        Route::get('/optionmcq/create',[OptionmcqController::class,'create']);
+        Route::get('/optionmcq',[OptionmcqController::class,'index']);
+        Route::get('/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit']);
+    
+        Route::get('/optionfitb/create',[OptionfitbController::class,'create']);
+        Route::get('/optionfitb',[OptionfitbController::class,'index']);
+        Route::get('/optionfitb/{optionfitb:id}/edit',[OptionfitbController::class,'edit']);
+    
+        Route::get('/optiontof/create',[OptiontofController::class,'create']);
+        Route::get('/optiontof',[OptiontofController::class,'index']);
+        Route::get('/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
+    });
     Route::get('leaderboards/{id}',[LeaderboardController::class,'show']);
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
