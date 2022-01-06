@@ -62,5 +62,13 @@
   <div class="d-flex justify-content-end">
     {{ $options->links() }}
     </div>
+
+    <div class="row rounded">
+        <div class="col-md-12">
+        <div class="text-center rounded-circle d-flex justify-content-center align-items-center">
+          <h3><a href="/question" class="btn btn-opaque  mr-4 mb-3 mt-5">Back to Questions</a></h3>
+        </div>
+        </div>
+      </div>
 </div>
 @endsection

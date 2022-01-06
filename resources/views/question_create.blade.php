@@ -46,6 +46,17 @@
         @endif
       </div>
 
+      <div class="form-group">
+        <label class="text-opaque-links font-weight-bold">Question Score</label>
+        <input type="text" class="form-control {{ $errors->has('score') ? 'error' : '' }}" name="score"
+                    id="score">
+                @if ($errors->has('score'))
+                <div class="error text-dark">
+                    {{ $errors->first('score') }}
+                </div>
+                @endif
+              </div>
+
     <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Question Image</label>
         <input type="file" class="form-control {{ $errors->has('image') ? 'error' : '' }}" name="image"

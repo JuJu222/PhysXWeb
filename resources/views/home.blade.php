@@ -21,7 +21,13 @@
                         <h5 class="result-score-total d-inline mb-0 mr-2">{{ $coins }}</h5>
                         <img src="{{ asset('img/coin.svg') }}" alt="Skor">
                     </div>
-                </div>
+
+                    @if (auth()->user()->role == 'admin')
+                    <div class="mt-2 d-flex align-items-center">
+                        <a href="/question" class="btn btn-opaque mt-1 font-weight-bold">Admin Questions Panel</a>
+                    </div>
+                    @endif 
+                </div>            
             </div>
         </div>
         <div class="card home-card col">
@@ -42,6 +48,10 @@
                 </div>
             </div>
         </div>
+
+                   
+                    
+        
     </div>
     <div class="d-flex justify-content-start mt-5 mb-4">
         <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>

@@ -62,6 +62,7 @@ class QuestionController extends Controller
 
         $question = $questions[$nosoal - 1];
 
+
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
@@ -76,6 +77,8 @@ class QuestionController extends Controller
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
         }
+
+
         return view('question', [
             'topic' => Topic::where('topic_id', $topic)->first(),
             'questions' => $questions,
@@ -227,6 +230,8 @@ class QuestionController extends Controller
      */
     public function answerQuestion($topic, Request $request)
     {
+
+
         if ($request->alert == 1) {
             $session = $request->session()->get('nosoal');
             $request->session()->put('nosoal', $session + 1);

@@ -6,17 +6,20 @@
 <div class="mx-auto mt-3 d-flex justify-content-center">
     <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mb-3 btn-larger" href="{{ route('leaderboards.index') }}">Keseluruhan</a>
 </div>
-<div class="mx-auto d-flex justify-content-around">
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 2) }}">Vektor</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a>
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-1 py-3" href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a>
+<div class="row-leaderboard d-flex justify-content-center align-content-center">
+
+  
+    <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a>
+    <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 2) }}">Vektor</a>
+    <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a>
+    <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 4) }}">Gerak Parabola</a>
+    <a class="btn btn-opaque rounded-circleX  font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 5) }}">Gerak Melingkar Beraturan</a>
+    <a class="btn btn-opaque rounded-circleX  font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 6) }}">Hukum Newton (Gerak)</a>
+    <a class="btn btn-opaque rounded-circleX font-weight-bold text-center  p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 7) }}">Hukum Newton (Gravitasi)</a>
+    <a class="btn btn-opaque rounded-circleX  font-weight-bold text-center  p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 8) }}">Usaha dan Energi</a>
+    <a class="btn btn-opaque rounded-circleX  font-weight-bold text-center  p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 9) }}">Momentum dan Impuls</a>
+    <a class="btn btn-opaque rounded-circleX  font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 10) }}">Getaran Harmonis</a>
+
 </div>
 @if(empty($topic->topic_name))
     <div class="d-flex justify-content-center mx-auto mt-5">

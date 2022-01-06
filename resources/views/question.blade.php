@@ -1,7 +1,8 @@
 @extends('layouts.apps')
 @section('content')
 
-        <div class="d-flex justify-content-center align-items-center text-center my-5">
+    <div class="container justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center text-center">
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
                 <h1 class="mb-3 text-opaque-links">Question {{ Session::get("nosoal") }}/{{ count($questions) }}</h1>
                 @if ($question->image_path != null)
@@ -13,7 +14,7 @@
                     <img src="{{ asset('img/score-symbol.svg') }}" alt="Skor">
                 </div>
                 <div class="container">
-                    <hr class="d-flex justify-content-center align-items-center mx-5">
+                    <hr class="d-flex justify-content-center align-items-center">
                 </div>
                 {{-- <img src="{{ asset('storage/job/'.$job->image) }}" alt="job image" title="job image"> --}}
                 <div class="col-lg-12">
