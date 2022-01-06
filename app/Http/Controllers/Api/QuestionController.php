@@ -202,7 +202,9 @@ class QuestionController extends Controller
             if ($topicObj->difficulty == 'easy') {
                 $fis10user->topics()->syncWithoutDetaching($topic + 10);
             } else {
-                $fis10user->topics()->syncWithoutDetaching($topic - 9);
+                if ($topic != 20) {
+                    $fis10user->topics()->syncWithoutDetaching($topic - 9);
+                }
             }
         }
 
