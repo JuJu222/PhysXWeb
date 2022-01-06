@@ -87,7 +87,10 @@
 
 .avatar {
     width: 110px;
-    height: 100%;
+}
+
+.avatar-profile {
+    width: 140px;
 }
 
 .topic-home {

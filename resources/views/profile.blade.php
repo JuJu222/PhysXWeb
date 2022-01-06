@@ -7,10 +7,10 @@
 
                 <div class="user">
                     @isset ($userAvatar)
-                        <img src="{{ $userAvatar }}" class="avatar" alt="Avatar">
+                        <img src="{{ $userAvatar }}" class="avatar-profile" alt="Avatar">
                     @else
                         <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-"
-                             width="140px" alt="Avatar">
+                             class="avatar-profile" alt="Avatar">
                     @endisset
                     <h1 class="name mt-4"><b>{{$user->name}}</b></h1>
                     @isset ($userTitle)
