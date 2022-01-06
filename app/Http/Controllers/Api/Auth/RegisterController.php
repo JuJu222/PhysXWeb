@@ -31,19 +31,22 @@ class RegisterController extends Controller
                 'message' => 'Failed to create account'
             ]);
         }else{
+            
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'users',
+                'path' => 'Api/Auth/RegisterController@register',
+                'action' => 'Register user' . User::query()->latest()->first()->id,
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
+
             return response([
                 'message'=>'Account created successfully'
             ]);
         }
 
-        Log::query()->create([
-            'user_id' => Auth::id(),
-            'table' => 'users',
-            'path' => 'Api/Auth/RegisterController@register',
-            'action' => 'Register user' . User::query()->latest()->first()->id,
-            'url' => $request->fullUrl(),
-            'ip_address' => $request->ip(),
-        ]);
+        
     }
 
     private function newUser(array $data){

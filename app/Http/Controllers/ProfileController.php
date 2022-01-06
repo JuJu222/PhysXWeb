@@ -120,7 +120,6 @@ class ProfileController extends Controller
             'city' => $request->city,
             'birthyear' => $request->birthyear,
         ]);
-        return redirect(route('profile.index'));
 
         Log::query()->create([
             'user_id' => Auth::id(),
@@ -130,6 +129,10 @@ class ProfileController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
+        
+        return redirect(route('profile.index'));
+
+        
     }
 
     /**
