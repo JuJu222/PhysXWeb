@@ -38,7 +38,23 @@ class ProfileController extends Controller
             ->groupBy('fis10_topics.difficulty')
             ->get();
 
-        return view('profile', compact('user', 'history'));
+        $userTitle = null;
+        $userAvatar = null;
+        $onwedItems = $fis10user->shopItem;
+
+        if ($onwedItems != null) {
+            foreach ($onwedItems as $onwedItem) {
+                if ($onwedItem->pivot->is_equipped) {
+                    if ($onwedItem['type'] == 'title') {
+                        $userTitle = $onwedItem['item'];
+                    } else {
+                        $userAvatar = $onwedItem['image_path'];
+                    }
+                }
+            }
+        }
+
+        return view('profile', compact('user', 'history', 'userTitle', 'userAvatar'));
     }
 
     /**

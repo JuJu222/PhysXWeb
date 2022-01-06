@@ -12,10 +12,10 @@
         </div>
         <div class="result-score mx-auto mt-5 px-3 py-2 d-flex align-items-center">
             <h4 class="result-score-total d-inline mb-0 mr-2">Skor Total: {{ $result['total_score'] }}</h4>
-            <img src="{{ asset('img/score-symbol.svg') }}" alt="Coins">
+            <img src="{{ asset('img/score-symbol.svg') }}" alt="Points">
         </div>
         <div class="result-coin mx-auto mt-2 mb-5 px-3 py-2 d-flex align-items-center">
-            <h4 class="result-score-total d-inline mb-0 mr-2">Coins: +25</h4>
+            <h4 class="result-score-total d-inline mb-0 mr-2">Koin: +25</h4>
             <img src="{{ asset('img/coin.svg') }}" alt="Skor">
         </div>
     </div>
@@ -33,7 +33,7 @@
             @endif
         </div>
         <div class="text-center mt-5">
-            <a href="{{ route('home') }}" class="btn btn-opaque rounded-circleX px-5 mx-auto">
+            <a href="{{ route('home') }}" class="btn btn-opaque rounded-circleX px-5 mx-auto btn-larger">
                 <b>Continue</b>
             </a>
         </div>

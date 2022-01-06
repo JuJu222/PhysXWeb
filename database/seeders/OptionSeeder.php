@@ -14,7 +14,7 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
-        
+
         // //Question 1
         // DB::table('fis10_option_mcq')->insert([
         //     'option_mcq_id' => 1,
@@ -80,7 +80,7 @@ class OptionSeeder extends Seeder
             'true_or_false' => false,
             'question_id' => 5
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "MLT^-1",
             'is_correct' => false,
@@ -617,14 +617,912 @@ class OptionSeeder extends Seeder
             'question_id' => 50
         ]);
 
+        //Topik 6
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 51
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Atas",
+            'is_correct' => false,
+            'question_id' => 52
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Kanan",
+            'is_correct' => false,
+            'question_id' => 52
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Kiri",
+            'is_correct' => true,
+            'question_id' => 52
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Bawah",
+            'is_correct' => false,
+            'question_id' => 52
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1",
+            'is_correct' => true,
+            'question_id' => 53
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2",
+            'is_correct' => false,
+            'question_id' => 53
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3",
+            'is_correct' => false,
+            'question_id' => 53
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4",
+            'is_correct' => false,
+            'question_id' => 53
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1",
+            'is_correct' => true,
+            'question_id' => 54
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2",
+            'is_correct' => false,
+            'question_id' => 54
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3",
+            'is_correct' => false,
+            'question_id' => 54
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4",
+            'is_correct' => false,
+            'question_id' => 54
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "gesek",
+            'is_correct' => false,
+            'question_id' => 55
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "berat",
+            'is_correct' => true,
+            'question_id' => 55
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "inertia",
+            'is_correct' => false,
+            'question_id' => 55
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "kecepatan",
+            'is_correct' => false,
+            'question_id' => 55
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1",
+            'is_correct' => false,
+            'question_id' => 56
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2",
+            'is_correct' => false,
+            'question_id' => 56
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3",
+            'is_correct' => true,
+            'question_id' => 56
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4",
+            'is_correct' => false,
+            'question_id' => 56
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 57
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 58
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 59
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1",
+            'is_correct' => false,
+            'question_id' => 60
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2",
+            'is_correct' => true,
+            'question_id' => 60
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3",
+            'is_correct' => false,
+            'question_id' => 60
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4",
+            'is_correct' => false,
+            'question_id' => 60
+        ]);
+
+        //End  of topik 6 easy
+        //Start topik 7 easy
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 61
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2m",
+            'is_correct' => false,
+            'question_id' => 62
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4m",
+            'is_correct' => true,
+            'question_id' => 62
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "6m",
+            'is_correct' => false,
+            'question_id' => 62
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8m",
+            'is_correct' => false,
+            'question_id' => 62
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 63
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4M",
+            'is_correct' => false,
+            'question_id' => 64
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "16M",
+            'is_correct' => false,
+            'question_id' => 64
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "32M",
+            'is_correct' => true,
+            'question_id' => 64
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "64M",
+            'is_correct' => false,
+            'question_id' => 64
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 65
+        ]);
+
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 66
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "400N",
+            'is_correct' => true,
+            'question_id' => 67
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "500N",
+            'is_correct' => false,
+            'question_id' => 67
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "600N",
+            'is_correct' => false,
+            'question_id' => 67
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "700N",
+            'is_correct' => false,
+            'question_id' => 67
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3/2",
+            'is_correct' => false,
+            'question_id' => 68
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "9/5",
+            'is_correct' => true,
+            'question_id' => 68
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5/6",
+            'is_correct' => false,
+            'question_id' => 68
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2/3",
+            'is_correct' => false,
+            'question_id' => 68
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1,33 x 10^-11N",
+            'is_correct' => false,
+            'question_id' => 69
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2,33 x 10^-11N",
+            'is_correct' => true,
+            'question_id' => 69
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3,33 x 10^-11N",
+            'is_correct' => false,
+            'question_id' => 69
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4,33 x 10^-11N",
+            'is_correct' => false,
+            'question_id' => 69
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "MLT",
+            'is_correct' => false,
+            'question_id' => 70
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "M^-1L^3T^-2",
+            'is_correct' => true,
+            'question_id' => 70
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "M²L²T³",
+            'is_correct' => false,
+            'question_id' => 70
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "M L T²",
+            'is_correct' => false,
+            'question_id' => 70
+        ]);
+
+        //End of topik 7 easy
+        //Start of topik 8 easy
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 71
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 72
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 73
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 74
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 75
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 76
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 77
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 78
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => true,
+            'question_id' => 79
+        ]);
+        DB::table('fis10_option_tof')->insert([
+            'true_or_false' => false,
+            'question_id' => 80
+        ]);
+        //end of topik 8 Easy
+        //start of topik 9 Easy
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "daya",
+            'is_correct' => false,
+            'question_id' => 81
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "energi",
+            'is_correct' => false,
+            'question_id' => 81
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "momentum",
+            'is_correct' => false,
+            'question_id' => 81
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "impuls",
+            'is_correct' => true,
+            'question_id' => 81
+        ]);
 
 
 
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Azwin",
+            'is_correct' => false,
+            'question_id' => 82
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Sandy",
+            'is_correct' => true,
+            'question_id' => 82
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Al",
+            'is_correct' => false,
+            'question_id' => 82
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Billy",
+            'is_correct' => false,
+            'question_id' => 82
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2 N.s",
+            'is_correct' => false,
+            'question_id' => 83
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4 N.s",
+            'is_correct' => false,
+            'question_id' => 83
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8 N.s",
+            'is_correct' => true,
+            'question_id' => 83
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "32 N.s",
+            'is_correct' => false,
+            'question_id' => 83
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Mengurangi gaya impulsif dari mobil",
+            'is_correct' => true,
+            'question_id' => 84
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Untuk menahan laju mobil",
+            'is_correct' => false,
+            'question_id' => 84
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Untuk meningkatkan kecepatan",
+            'is_correct' => false,
+            'question_id' => 84
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Meningkatkan gaya impulsif dari mobil",
+            'is_correct' => false,
+            'question_id' => 84
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0",
+            'is_correct' => false,
+            'question_id' => 85
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2x lipat",
+            'is_correct' => true,
+            'question_id' => 85
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3x lipat",
+            'is_correct' => false,
+            'question_id' => 85
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4x lipat",
+            'is_correct' => false,
+            'question_id' => 85
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Hukum kekalan momentum",
+            'is_correct' => true,
+            'question_id' => 86
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Hukum kekalan energi kinetik",
+            'is_correct' => false,
+            'question_id' => 86
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Hukum kekalan energi mekanik",
+            'is_correct' => false,
+            'question_id' => 86
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Hukum kekalan energi potensial",
+            'is_correct' => false,
+            'question_id' => 86
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan lenting sempurna",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan tidak lenting sama sekali",
+            'is_correct' => true,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan lenting sebagian",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan sentral",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan lenting sempurna",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan tidak lenting sama sekali",
+            'is_correct' => true,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan lenting sebagian",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Tumbukan sentral",
+            'is_correct' => false,
+            'question_id' => 87
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "14 kgm/s",
+            'is_correct' => true,
+            'question_id' => 88
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "16 kgm/s",
+            'is_correct' => false,
+            'question_id' => 88
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "18 kgm/s",
+            'is_correct' => false,
+            'question_id' => 88
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "20 kgm/s",
+            'is_correct' => false,
+            'question_id' => 88
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "-0,1",
+            'is_correct' => false,
+            'question_id' => 89
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "-0,2",
+            'is_correct' => false,
+            'question_id' => 89
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "-0,3",
+            'is_correct' => false,
+            'question_id' => 89
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "-0,4",
+            'is_correct' => true,
+            'question_id' => 89
+        ]);
 
 
 
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "10,0m/s",
+            'is_correct' => false,
+            'question_id' => 90
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "11,0m/s",
+            'is_correct' => false,
+            'question_id' => 90
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "12,0m/s",
+            'is_correct' => true,
+            'question_id' => 90
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "13,0m/s",
+            'is_correct' => false,
+            'question_id' => 90
+        ]);
+        //end of topik 9 hard
+        //start of topik 10 easy
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Frekuensi",
+            'is_correct' => false,
+            'question_id' => 91
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Periode",
+            'is_correct' => false,
+            'question_id' => 91
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Refleksi",
+            'is_correct' => true,
+            'question_id' => 91
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Simpangan",
+            'is_correct' => false,
+            'question_id' => 91
+        ]);
 
 
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "gerak pegas",
+            'is_correct' => false,
+            'question_id' => 92
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "gerak memantul",
+            'is_correct' => false,
+            'question_id' => 92
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "gerak bolak balik",
+            'is_correct' => true,
+            'question_id' => 92
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "gerak suka suka",
+            'is_correct' => false,
+            'question_id' => 92
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "T-R-P-R-T",
+            'is_correct' => true,
+            'question_id' => 93
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "P-R-P-R-T",
+            'is_correct' => false,
+            'question_id' => 93
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "R-P-P-R-T",
+            'is_correct' => false,
+            'question_id' => 93
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "T-R-T-R-P",
+            'is_correct' => false,
+            'question_id' => 93
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Q-P-R-P-R",
+            'is_correct' => false,
+            'question_id' => 94
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Q-R-Q-P-Q",
+            'is_correct' => false,
+            'question_id' => 94
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Q-R-Q-P-R",
+            'is_correct' => false,
+            'question_id' => 94
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "P-R-P-Q-P",
+            'is_correct' => true,
+            'question_id' => 94
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1 Hz",
+            'is_correct' => false,
+            'question_id' => 95
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "15 Hz",
+            'is_correct' => false,
+            'question_id' => 95
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "30 Hz",
+            'is_correct' => false,
+            'question_id' => 95
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5 Hz",
+            'is_correct' => true,
+            'question_id' => 95
+        ]);
+
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gaya pembalik",
+            'is_correct' => false,
+            'question_id' => 96
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gaya pemulih",
+            'is_correct' => true,
+            'question_id' => 96
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gaya gesek",
+            'is_correct' => false,
+            'question_id' => 96
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gaya hantar",
+            'is_correct' => false,
+            'question_id' => 96
+        ]);
+
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Jumlah getaran",
+            'is_correct' => false,
+            'question_id' => 97
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Frekuensi",
+            'is_correct' => false,
+            'question_id' => 97
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Amplitudo",
+            'is_correct' => true,
+            'question_id' => 97
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Refleksi",
+            'is_correct' => false,
+            'question_id' => 97
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Pokok",
+            'is_correct' => false,
+            'question_id' => 98
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Skalar",
+            'is_correct' => false,
+            'question_id' => 98
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Vektor",
+            'is_correct' => true,
+            'question_id' => 98
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Mutlak",
+            'is_correct' => false,
+            'question_id' => 98
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8",
+            'is_correct' => true,
+            'question_id' => 99
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "9",
+            'is_correct' => false,
+            'question_id' => 99
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "10",
+            'is_correct' => false,
+            'question_id' => 99
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "11",
+            'is_correct' => false,
+            'question_id' => 99
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gerak Melingkar",
+            'is_correct' => false,
+            'question_id' => 100
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gerak Parabola",
+            'is_correct' => false,
+            'question_id' => 100
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gerak Lurus Beraturan",
+            'is_correct' => false,
+            'question_id' => 100
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Gerak Harmonik Sederhana",
+            'is_correct' => true,
+            'question_id' => 100
+        ]);
+
+        //end of topik 10 easy
         DB::table('fis10_option_mcq')->insert([
             'option' => "meter/volt",
             'is_correct' => false,
@@ -636,7 +1534,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 101
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "volt . meter",
             'is_correct' => false,
@@ -661,7 +1559,7 @@ class OptionSeeder extends Seeder
             'is_correct' => true,
             'question_id' => 102
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "2,03 mm",
             'is_correct' => false,
@@ -686,7 +1584,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 103
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "3",
             'is_correct' => false,
@@ -740,7 +1638,7 @@ class OptionSeeder extends Seeder
             'is_correct' => true,
             'question_id' => 110
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "25.6 derajat",
             'is_correct' => false,
@@ -766,7 +1664,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 111
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "10 akar 3 N",
             'is_correct' => false,
@@ -790,7 +1688,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 112
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "60 derajat",
             'is_correct' => false,
@@ -845,7 +1743,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 119
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "7",
             'is_correct' => false,
@@ -871,7 +1769,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 120
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "C+B+A = D",
             'is_correct' => false,
@@ -897,7 +1795,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 121
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "3 m/s",
             'is_correct' => true,
@@ -923,7 +1821,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 122
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "36,55 m/s",
             'is_correct' => false,
@@ -941,14 +1839,14 @@ class OptionSeeder extends Seeder
             'is_correct' => true,
             'question_id' => 122
         ]);
-        
+
 
         DB::table('fis10_option_mcq')->insert([
             'option' => "25 km",
             'is_correct' => false,
             'question_id' => 123
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "28 km",
             'is_correct' => false,
@@ -1038,7 +1936,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 137
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "420 km/jam",
             'is_correct' => false,
@@ -1062,7 +1960,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 138
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "v = 30 m/s dan h = 30 m",
             'is_correct' => false,
@@ -1092,7 +1990,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 140
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "Titik tertinggi dan titik terjauh",
             'is_correct' => true,
@@ -1118,7 +2016,7 @@ class OptionSeeder extends Seeder
             'is_correct' => true,
             'question_id' => 141
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "0,5 s dan 0,2π m.s-1",
             'is_correct' => false,
@@ -1168,7 +2066,7 @@ class OptionSeeder extends Seeder
             'is_correct' => false,
             'question_id' => 147
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "20 putaran",
             'is_correct' => false,
@@ -1193,7 +2091,7 @@ class OptionSeeder extends Seeder
             'is_correct' => true,
             'question_id' => 148
         ]);
-        
+
         DB::table('fis10_option_mcq')->insert([
             'option' => "1 sekon",
             'is_correct' => false,
@@ -1220,6 +2118,1000 @@ class OptionSeeder extends Seeder
         DB::table('fis10_option_fitb')->insert([
             'answer' => "3,33 Hz",
             'question_id' => 150
+        ]);
+
+        //Hard Topik 6
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "12,5 kg",
+            'question_id' => 151
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "70",
+            'is_correct' => false,
+            'question_id' => 152
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "80",
+            'is_correct' => false,
+            'question_id' => 152
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "90",
+            'is_correct' => false,
+            'question_id' => 152
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "100",
+            'is_correct' => true,
+            'question_id' => 152
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "50 N",
+            'question_id' => 153
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "30√3 N dan 30 N",
+            'is_correct' => false,
+            'question_id' => 154
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "40√3 N dan 40 N",
+            'is_correct' => false,
+            'question_id' => 154
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "50√3 N dan 50 N",
+            'is_correct' => true,
+            'question_id' => 154
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "60√3 N dan 60 N",
+            'is_correct' => false,
+            'question_id' => 154
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "2000 kg",
+            'question_id' => 155
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1 m/s2",
+            'is_correct' => false,
+            'question_id' => 156
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2 m/s2",
+            'is_correct' => false,
+            'question_id' => 156
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3 m/s2",
+            'is_correct' => true,
+            'question_id' => 156
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4 m/s2",
+            'is_correct' => false,
+            'question_id' => 156
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "60 N",
+            'question_id' => 157
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "160 N",
+            'question_id' => 158
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2 m/s2",
+            'is_correct' => false,
+            'question_id' => 159
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3 m/s2",
+            'is_correct' => false,
+            'question_id' => 159
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4 m/s2",
+            'is_correct' => false,
+            'question_id' => 159
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5 m/s2",
+            'is_correct' => true,
+            'question_id' => 159
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "6 N",
+            'question_id' => 160
+        ]);
+        //End of topik 6 hard
+        //Start of topik 7 hard
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "massa benda tetap",
+            'is_correct' => true,
+            'question_id' => 161
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "berat benda tetap",
+            'is_correct' => false,
+            'question_id' => 161
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "berat benda menjadi setengah semula",
+            'is_correct' => false,
+            'question_id' => 161
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "berat benda menjadi dua kali semula",
+            'is_correct' => false,
+            'question_id' => 161
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "0,15 R",
+            'question_id' => 162
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "GMM/4R",
+            'is_correct' => false,
+            'question_id' => 163
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "GMM/2R",
+            'is_correct' => true,
+            'question_id' => 163
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "GMM/R",
+            'is_correct' => false,
+            'question_id' => 163
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2GMM/R",
+            'is_correct' => false,
+            'question_id' => 163
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7.547 x 10^11m",
+            'is_correct' => true,
+            'question_id' => 164
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7.647 x 10^11m",
+            'is_correct' => false,
+            'question_id' => 164
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7.747 x 10^11m",
+            'is_correct' => false,
+            'question_id' => 164
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7.447 x 10^11m",
+            'is_correct' => false,
+            'question_id' => 164
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3√19",
+            'is_correct' => false,
+            'question_id' => 165
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4√19",
+            'is_correct' => false,
+            'question_id' => 165
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5√19",
+            'is_correct' => true,
+            'question_id' => 165
+        ]);
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "6√19",
+            'is_correct' => false,
+            'question_id' => 165
+        ]);
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8√2",
+            'is_correct' => false,
+            'question_id' => 166
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "9√2",
+            'is_correct' => false,
+            'question_id' => 166
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "10√2",
+            'is_correct' => true,
+            'question_id' => 166
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7√2",
+            'is_correct' => false,
+            'question_id' => 166
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1",
+            'is_correct' => false,
+            'question_id' => 167
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2",
+            'is_correct' => true,
+            'question_id' => 167
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3",
+            'is_correct' => false,
+            'question_id' => 167
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4",
+            'is_correct' => false,
+            'question_id' => 167
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "3,33√2 x 10^-11",
+            'is_correct' => true,
+            'question_id' => 168
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2,33√2 x 10^-11",
+            'is_correct' => false,
+            'question_id' => 168
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,33√2 x 10^-11",
+            'is_correct' => false,
+            'question_id' => 168
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1,33√2 x 10^-11",
+            'is_correct' => false,
+            'question_id' => 168
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1,25GN",
+            'is_correct' => false,
+            'question_id' => 169
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2,25GN",
+            'is_correct' => true,
+            'question_id' => 169
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4,25GN",
+            'is_correct' => false,
+            'question_id' => 169
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5,25GN",
+            'is_correct' => false,
+            'question_id' => 169
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "m^3kg^-1s^-2",
+            'is_correct' => true,
+            'question_id' => 170
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "m^2kg^-1s^-3",
+            'is_correct' => false,
+            'question_id' => 170
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "m^1kg^-3s^-2",
+            'is_correct' => false,
+            'question_id' => 170
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "m^2kg^-3s^-1",
+            'is_correct' => false,
+            'question_id' => 170
+        ]);
+        //topik 8 hard
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "100J",
+            'is_correct' => false,
+            'question_id' => 171
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "150J",
+            'is_correct' => false,
+            'question_id' => 171
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "200J",
+            'is_correct' => false,
+            'question_id' => 171
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "250J",
+            'is_correct' => true,
+            'question_id' => 171
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "180 derajat",
+            'is_correct' => false,
+            'question_id' => 172
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0 derajat",
+            'is_correct' => false,
+            'question_id' => 172
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "45 derajat",
+            'is_correct' => false,
+            'question_id' => 172
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "90 derajat",
+            'is_correct' => true,
+            'question_id' => 172
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "30",
+            'is_correct' => false,
+            'question_id' => 173
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "50",
+            'is_correct' => false,
+            'question_id' => 173
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "40",
+            'is_correct' => true,
+            'question_id' => 173
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "60",
+            'is_correct' => false,
+            'question_id' => 173
+        ]);
+
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "naik 50 joule",
+            'is_correct' => false,
+            'question_id' => 174
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "turun 50 joule",
+            'is_correct' => false,
+            'question_id' => 174
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "naik 150 joule",
+            'is_correct' => false,
+            'question_id' => 174
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "turun 150 joule",
+            'is_correct' => true,
+            'question_id' => 174
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,225N/m",
+            'is_correct' => false,
+            'question_id' => 175
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2,25N/m",
+            'is_correct' => true,
+            'question_id' => 175
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "22,5N/m",
+            'is_correct' => false,
+            'question_id' => 175
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "225N/m",
+            'is_correct' => false,
+            'question_id' => 175
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "10 J",
+            'is_correct' => false,
+            'question_id' => 176
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "15 J",
+            'is_correct' => true,
+            'question_id' => 176
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "30 J",
+            'is_correct' => false,
+            'question_id' => 176
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "45 J",
+            'is_correct' => false,
+            'question_id' => 176
+        ]);
+
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "0",
+            'question_id' => 177
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "180",
+            'question_id' => 178
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "potensial menjadi kinetik",
+            'is_correct' => true,
+            'question_id' => 179
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "kinetik menjadi potensial",
+            'is_correct' => false,
+            'question_id' => 179
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "kinetik menjadi kalor",
+            'is_correct' => false,
+            'question_id' => 179
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "kinetik menjadi listrik",
+            'is_correct' => false,
+            'question_id' => 179
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1:20",
+            'is_correct' => false,
+            'question_id' => 180
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "20:1",
+            'is_correct' => false,
+            'question_id' => 180
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1:40",
+            'is_correct' => false,
+            'question_id' => 180
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "40:1",
+            'is_correct' => true,
+            'question_id' => 180
+        ]);
+        //topik 8 hard end
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "240N",
+            'is_correct' => false,
+            'question_id' => 181
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "250N",
+            'is_correct' => true,
+            'question_id' => 181
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "260N",
+            'is_correct' => false,
+            'question_id' => 181
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "270N",
+            'is_correct' => false,
+            'question_id' => 181
+        ]);
+
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "0,25",
+            'question_id' => 182
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "800",
+            'question_id' => 183
+        ]);
+
+        DB::table('fis10_option_fitb')->insert([
+            'answer' => "50",
+            'question_id' => 184
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4N",
+            'is_correct' => false,
+            'question_id' => 185
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "6N",
+            'is_correct' => false,
+            'question_id' => 185
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8N",
+            'is_correct' => false,
+            'question_id' => 185
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "10N",
+            'is_correct' => true,
+            'question_id' => 185
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,5p",
+            'is_correct' => false,
+            'question_id' => 186
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "p",
+            'is_correct' => false,
+            'question_id' => 186
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2p",
+            'is_correct' => false,
+            'question_id' => 186
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4p",
+            'is_correct' => true,
+            'question_id' => 186
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "v1’ = -20 m/s dan v2’ = 20 m/s",
+            'is_correct' => false,
+            'question_id' => 187
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "v1’ = -20 m/s dan v2’ = 10 m/s",
+            'is_correct' => true,
+            'question_id' => 187
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "v1’ = -10 m/s dan v2’ = 20 m/s",
+            'is_correct' => false,
+            'question_id' => 187
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "v1’ = -10 m/s dan v2’ = 10 m/s",
+            'is_correct' => false,
+            'question_id' => 187
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "Nol dan 4 m/s",
+            'is_correct' => true,
+            'question_id' => 188
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2 m/s dan 4 m/s",
+            'is_correct' => false,
+            'question_id' => 188
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "-2 m/s dan 6 m/s",
+            'is_correct' => false,
+            'question_id' => 188
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2 m/s dan 8 m/s",
+            'is_correct' => false,
+            'question_id' => 188
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8,8 km/jam",
+            'is_correct' => false,
+            'question_id' => 189
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "16,2 km/jam",
+            'is_correct' => true,
+            'question_id' => 189
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "21,2 km/jam",
+            'is_correct' => false,
+            'question_id' => 189
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "34,4 km/jam",
+            'is_correct' => false,
+            'question_id' => 189
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "101m/s",
+            'is_correct' => false,
+            'question_id' => 190
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "201m/s",
+            'is_correct' => false,
+            'question_id' => 190
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "202m/s",
+            'is_correct' => true,
+            'question_id' => 190
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1301m/s",
+            'is_correct' => false,
+            'question_id' => 190
+        ]);
+
+        //Topik 10
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,990 s",
+            'is_correct' => false,
+            'question_id' => 191
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,991 s",
+            'is_correct' => false,
+            'question_id' => 191
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,992 s",
+            'is_correct' => true,
+            'question_id' => 191
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,993 s",
+            'is_correct' => false,
+            'question_id' => 191
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "8/6",
+            'is_correct' => false,
+            'question_id' => 192
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "9/8",
+            'is_correct' => false,
+            'question_id' => 192
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "16/10",
+            'is_correct' => false,
+            'question_id' => 192
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "7/5",
+            'is_correct' => true,
+            'question_id' => 192
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1/4A√15",
+            'is_correct' => true,
+            'question_id' => 193
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1/2A√15",
+            'is_correct' => false,
+            'question_id' => 193
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1/3A√15",
+            'is_correct' => false,
+            'question_id' => 193
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1/5A√15",
+            'is_correct' => false,
+            'question_id' => 193
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "√3",
+            'is_correct' => false,
+            'question_id' => 194
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,1√3",
+            'is_correct' => false,
+            'question_id' => 194
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,2√3",
+            'is_correct' => false,
+            'question_id' => 194
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "0,3√3",
+            'is_correct' => true,
+            'question_id' => 194
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "periode A = 4 periode B",
+            'is_correct' => false,
+            'question_id' => 195
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "periode A = ¼ kali periode B",
+            'is_correct' => false,
+            'question_id' => 195
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "periode A = periode B",
+            'is_correct' => true,
+            'question_id' => 195
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "periode A = 2 kali periode B",
+            'is_correct' => false,
+            'question_id' => 195
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "5 m",
+            'is_correct' => true,
+            'question_id' => 196
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "π m",
+            'is_correct' => false,
+            'question_id' => 196
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "π/2 m",
+            'is_correct' => false,
+            'question_id' => 196
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "π/4 m",
+            'is_correct' => false,
+            'question_id' => 196
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "y = 1/2.√3 . A",
+            'is_correct' => true,
+            'question_id' => 197
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "y = 1/3.√3 . A",
+            'is_correct' => false,
+            'question_id' => 197
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "y = 4/9.√3 . A",
+            'is_correct' => false,
+            'question_id' => 197
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "y = 9/4.√3 . A",
+            'is_correct' => false,
+            'question_id' => 197
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "25 cm",
+            'is_correct' => false,
+            'question_id' => 198
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "30 cm",
+            'is_correct' => false,
+            'question_id' => 198
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "50 cm",
+            'is_correct' => true,
+            'question_id' => 198
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "65 cm",
+            'is_correct' => false,
+            'question_id' => 198
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "333,33 N/m",
+            'is_correct' => true,
+            'question_id' => 199
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "325,3 N/m",
+            'is_correct' => false,
+            'question_id' => 199
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "234,23 N/m",
+            'is_correct' => false,
+            'question_id' => 199
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "234,4 N/m",
+            'is_correct' => false,
+            'question_id' => 199
+        ]);
+
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "1,0",
+            'is_correct' => false,
+            'question_id' => 200
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "2,46",
+            'is_correct' => true,
+            'question_id' => 200
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "4,80",
+            'is_correct' => false,
+            'question_id' => 200
+        ]);
+
+        DB::table('fis10_option_mcq')->insert([
+            'option' => "6,94",
+            'is_correct' => false,
+            'question_id' => 200
         ]);
     }
 }

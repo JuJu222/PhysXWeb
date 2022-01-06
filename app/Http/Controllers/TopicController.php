@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fis10User;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -55,37 +57,92 @@ class TopicController extends Controller
 
         $topicsEasy = $topiceasy[$id - 1]->topic_id;
         $topicsHard = $topichard[$id - 1]->topic_id;
-        
+
+        $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
+        $unlockedTopics = $fis10user->topics;
+
         switch($id){
             case 1:
-                return view('besarandansatuan', compact('topic','topicsEasy','topicsHard'));
+                return view('besarandansatuan', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 2:
-                return view('vektor', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 2)->first();
+                if ($unlockedTopic == null) {
+                    redirect('/');
+                } else {
+                    return view('vektor', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
                 break;
             case 3:
-                return view('geraklurus', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 3)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
                 break;
             case 4:
-                return view('gerakparabola', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 4)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('gerakparabola', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 5:
-                return view('gerakmelingkarberaturan', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 5)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('gerakmelingkarberaturan', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 6:
-                return view('hukumnewtongerak', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 6)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('hukumnewtongerak', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 7:
-                return view('hukumnewtongravitasi', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 7)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('hukumnewtongravitasi', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 8:
-                return view('usahadanenergi', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 8)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('usahadanenergi', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 9:
-                return view('momentumdanimpuls', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 9)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('momentumdanimpuls', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
             case 10:
-                return view('getaranharmonis', compact('topic','topicsEasy','topicsHard'));
+                $unlockedTopic = $fis10user->topics->where('topic_id', 10)->first();
+                if ($unlockedTopic == null) {
+                    return redirect()->route('home');
+                } else {
+                    return view('geraklurus', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
+                }
+                return view('getaranharmonis', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
                 break;
         }
     }

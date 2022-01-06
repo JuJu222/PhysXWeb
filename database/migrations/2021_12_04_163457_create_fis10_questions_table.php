@@ -18,7 +18,7 @@ class CreateFis10QuestionsTable extends Migration
             $table->string('question_type');
             $table->text('question');
             $table->integer('score')->default(0);
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->foreignId('topic_id');
             $table->timestamps();
             $table->foreign('topic_id')

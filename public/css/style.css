@@ -87,7 +87,10 @@
 
 .avatar {
     width: 110px;
-    height: 100%;
+}
+
+.avatar-profile {
+    width: 140px;
 }
 
 .topic-home {
@@ -324,4 +327,15 @@ section {
 
 .leaderboard-avatar {
     width: 70px;
+}
+
+@media screen and (max-width: 900px) {
+    section {
+        display:list-item;
+      }
+    .dashboard {
+        display: inline-flex;
+        width: 100%;
+        margin-bottom: 50px;
+      }
 }

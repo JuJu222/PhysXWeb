@@ -4,7 +4,7 @@
     <h1><b>Leaderboard</b></h1>
 </div>
 <div class="mx-auto mt-3 d-flex justify-content-center">
-    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mb-3" href="{{ route('leaderboards.index') }}">Keseluruhan</a>
+    <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mb-3 btn-larger" href="{{ route('leaderboards.index') }}">Keseluruhan</a>
 </div>
 <div class="row-leaderboard d-flex justify-content-center align-content-center">
 
@@ -43,17 +43,17 @@
     <!--template-->
     @foreach($leaderboard as $l)
         <div class="row justify-content-center align-items-center mb-5">
-            <div class="col-md-auto">
+            <div class="col-md-auto mx-2">
                 <h3 class="font-weight-bold purple">{{ $loop->index + 1 }}</h3>
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto mx-2">
                 @if ($l->avatar != null)
                     <img src="{{ $l->avatar }}" class="leaderboard-avatar" alt="Avatar">
                 @else
                     <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="leaderboard-avatar" alt="Avatar">
                 @endif
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto mx-2">
                 <h4 class="font-weight-bold">{{ $l->name }}</h4>
                 @if ($l->title != null)
                     <p class="purple my-1">{{ $l->title }}</p>
@@ -61,10 +61,10 @@
                     <p class="purple my-1">Novice</p>
                 @endif
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto mx-2">
                 <div class="result-score px-3 py-2 d-flex align-items-center">
                     <h5 class="result-score-total d-inline mb-0 mr-2">{{ $l->total_score }}</h5>
-                    <img src="{{ asset('img/score-symbol.svg') }}" alt="Coins" width="25px">
+                    <img src="{{ asset('img/score-symbol.svg') }}" alt="Points" width="25px">
                 </div>
             </div>
         </div>
