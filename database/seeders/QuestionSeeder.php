@@ -732,17 +732,6 @@ class QuestionSeeder extends Seeder
         ]);
 
         DB::table('fis10_questions')->insert([
-            'question_id' => 64,
-            'question_type' => "mcq",
-            'score' => 50,
-            'question' => "Percepatan gravitasi planet Y bernilai dua kali percepatan gravitasi bumi. jika massa bumi M dan jari-jari planet Y 4 kali jari-jari bumi, massa planet Y adalah . . . .",
-            'image_path' => null,
-            'topic_id' => 7,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
-
-        DB::table('fis10_questions')->insert([
             'question_id' => 65,
             'question_type' => "tof",
             'score' => 50,
@@ -788,7 +777,7 @@ class QuestionSeeder extends Seeder
 
 
         DB::table('fis10_questions')->insert([
-            'question_id' => 69,
+            'question_id' => 201,
             'question_type' => "mcq",
             'score' => 50,
             'question' => "Dua benda mempunyai massa masing -masing m1 = 10 kg dan m2 = 14 kg. bila jarak kedua benda 20 m, tentukan gaya gravtasi antara kedua benda.",
@@ -1088,17 +1077,6 @@ class QuestionSeeder extends Seeder
             'question_type' => "mcq",
             'score' => 50,
             'question' => "Gaya yang menyebabkan benda bergerak menuju titik keseimbangannya kembali setelah mengalami simpangan pada gerak harmonis disebut...",
-            'image_path' => null,
-            'topic_id' => 10,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
-
-        DB::table('fis10_questions')->insert([
-            'question_id' => 97,
-            'question_type' => "mcq",
-            'score' => 50,
-            'question' => "Besar periode getaran sebuah benda tidak terpengaruh oleh…",
             'image_path' => null,
             'topic_id' => 10,
             'created_at' => \Carbon\Carbon::now(),
@@ -1988,16 +1966,6 @@ class QuestionSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()
         ]);
         DB::table('fis10_questions')->insert([
-            'question_id' => 175,
-            'question_type' => "mcq",
-            'score' => 100,
-            'question' => "Sebuah balok bermassa 1 kg menumbuk pegas yang posisinya mendatar seperti gambar. Saat balok menumbuk pegas kecepatannya 1,5 m/s dan dapat menekan pegas sejauh 10 cm. Konstant pegas tersebut sebesar...",
-            'image_path' => "https://3.bp.blogspot.com/-daV7qBW6JZA/WDuI9XYDt-I/AAAAAAAAAPA/4RRYMByQFl8vgu6ZnNTN8Frz3-QI-gflACEw/s200/soal%2Bpegas.png",
-            'topic_id' => 18,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
-        DB::table('fis10_questions')->insert([
             'question_id' => 176,
             'question_type' => "mcq",
             'score' => 100,
@@ -2196,17 +2164,6 @@ class QuestionSeeder extends Seeder
             'question_type' => "mcq",
             'score' => 100,
             'question' => "Suatu benda mengalami gerak harmonic sederhana dengan periode π/2 sekon dan amplitude 0,6 meter. Pada t = 0s dan y = 0, berapa jauh benda dari posisi keseimbangannya ketika t = π/3 sekon",
-            'image_path' => null,
-            'topic_id' => 20,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ]);
-
-        DB::table('fis10_questions')->insert([
-            'question_id' => 195,
-            'question_type' => "mcq",
-            'score' => 100,
-            'question' => "Dua buah ayunan A dan B memiliki panjang tali yang sama. Jika ayunan pertama digetarkan dengan simpangan empat kali ayunan kedua, maka ….",
             'image_path' => null,
             'topic_id' => 20,
             'created_at' => \Carbon\Carbon::now(),

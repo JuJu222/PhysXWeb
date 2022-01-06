@@ -20,8 +20,4 @@ class Topic extends Model
     public function fis10Users(){
         return $this->belongsToMany(Fis10User::class, 'fis10_unlocked_topics', 'topic_id', 'fis10_user_id');
     }
-
-    public function leaderboards(){
-        return $this->hasMany(Leaderboard::class, 'id_topic', 'topic_id');
-    }
 }
