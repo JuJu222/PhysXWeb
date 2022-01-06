@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Log;
 use App\Models\Topic;
 use App\Models\Question;
 use App\Models\Fis10User;
@@ -102,18 +103,26 @@ class QuestionController extends Controller
         return ['questions' => $temp];
     }
 
-    public function showquestion($topic, $question)
+    public function showQuestion($topic, $question,Request $request)
     {
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
         $questions = Question::where('topic_id', $topic)->where('question_id', $question)->first();
 
         if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null) {
-            $redux = $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => 0, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+            $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => 0, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'fis10_users_questions',
+                'path' => 'QuestionController@showQuestion',
+                'action' => 'Attach Question ' . 'User: ' . Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
         }
-        return $redux;
+        
     }
 
-    public function answerquestion($topic, $question, Request $request)
+    public function answerQuestion($topic, $question, Request $request)
     {
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
         $questions = Question::where('topic_id', $topic)->where('question_id', $question)->first();
@@ -132,33 +141,96 @@ class QuestionController extends Controller
         if ($questions->question_type == "mcq") {
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == 1) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question MCQ Correct' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 } else if ($request->choice == $o->option && $o->is_correct == 0) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question MCQ Incorrect' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 }
             }
         } elseif ($questions->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question FITB Correct' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 } else {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question FITB Incorrect' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 }
             }
         } elseif ($questions->question_type == "tof") {
             foreach ($option_tof as $o) {
                 if ($request->choice == "True" && $o->true_or_false == 1) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Correct' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 } else if ($request->choice == "True" && $o->true_or_false == 0) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Incorrect' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 } else if ($request->choice == "False" && $o->true_or_false == 0) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $questions->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Correct' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 } else if ($request->choice == "False" && $o->true_or_false == 1) {
-                    $redux = $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    $users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Incorrect' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
                 }
             }
         }
-        return $redux;
     }
 
     public function clearUsersQuestionsTopic($topic)

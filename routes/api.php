@@ -68,8 +68,8 @@ Route::group(['middleware'=> 'auth:api'], function(){
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
     Route::post('shop/equip/{id}', [ShopItemController::class, 'equip'])->name('shop.equip');
     Route::get('questions/{topic}',[QuestionController::class,'question']);
-    Route::get('questions/{topic}/{question}',[QuestionController::class,'showquestion']);
-    Route::post('questions/{topic}/{question}',[QuestionController::class,'answerquestion']);
+    Route::get('questions/{topic}/{question}',[QuestionController::class,'showQuestion']);
+    Route::post('questions/{topic}/{question}',[QuestionController::class,'answerQuestion']);
     Route::post('questionsclear/{topic}',[QuestionController::class,'clearUsersQuestionsTopic']);
     Route::get('/result/{topic}', [QuestionController::class, 'result']);
 

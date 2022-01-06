@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Question;
 use App\Models\Option_mcq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OptionmcqController extends Controller
 {
@@ -47,6 +49,15 @@ class OptionmcqController extends Controller
             'option' => $request->option,
             'is_correct' => $request->iscorrect,
             'question_id' => $request->question
+        ]);
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_mcq',
+            'path' => 'OptionmcqController@store',
+            'action' => 'Create OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
         ]);
 
         return redirect('/admin/optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
@@ -94,6 +105,15 @@ class OptionmcqController extends Controller
             'question_id' => $request->question
         ]);
 
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_mcq',
+            'path' => 'OptionmcqController@update',
+            'action' => 'Edit OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect('/admin/optionmcq')->with('updatedOption','You have successfully updated the MCQ Option');
     }
 
@@ -103,9 +123,18 @@ class OptionmcqController extends Controller
      * @param  \App\Models\Option_mcq  $option_mcq
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         Option_mcq::where('option_mcq_id',$id)->delete();
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_mcq',
+            'path' => 'OptionmcqController@destroy',
+            'action' => 'Delete OptionMCQ ' . $id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
         return redirect('/admin/optionmcq')->with('success','You have deleted the MCQ option');
     }
 }
