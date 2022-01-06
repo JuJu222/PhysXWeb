@@ -29,11 +29,13 @@ class QuestionController extends Controller
     }
 
 
-    public function showQuestion($topicz, Request $request)
+    public function showQuestion($topic, Request $request)
     {
         //Create User Soal Instance
         $score = 0;
         $users = Fis10User::where('user_id', auth()->user()->id)->first();
+
+
 
         if (!$request->session()->has('nosoal')) {
             $request->session()->put('nosoal', 1);
@@ -42,7 +44,7 @@ class QuestionController extends Controller
         }
 
         if (!$request->session()->has('topic')) {
-            $request->session()->put('topic', $topicz);
+            $request->session()->put('topic', $topic);
         }
 
         $topic = $request->session()->get('topic');
@@ -60,13 +62,25 @@ class QuestionController extends Controller
 
         $question = $questions[$nosoal - 1];
 
+
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
 
+        // dd(($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()));
+        if (!$request->session()->has('answerWrong') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '=', 0)->first()) != null)) {
+            return back()->with('answerWrong', 'Jawaban anda Salah!');
+        } else if (!$request->session()->has('answerCorrect') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()) != null)) {
+
+            return back()->with('answerCorrect', 'Jawaban anda Betul!');
+        }
+
+
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
         }
+
+
         return view('question', [
             'topic' => Topic::where('topic_id', $topic)->first(),
             'questions' => $questions,
@@ -218,6 +232,8 @@ class QuestionController extends Controller
      */
     public function answerQuestion($topic, Request $request)
     {
+
+
         if ($request->alert == 1) {
             $session = $request->session()->get('nosoal');
             $request->session()->put('nosoal', $session + 1);
@@ -251,32 +267,38 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'Jawaban anda betul!');
+                    // return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Jawaban anda salah!');
+                    // return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
         } elseif ($question->question_type == "fitb") {
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'Jawaban anda betul!');
+                    // return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Jawaban anda salah!');
+                    // return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
         } elseif ($question->question_type == "tof") {
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerCorrect', 'Jawaban anda betul!');
+                    // return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
-                    return back()->with('answerWrong', 'Jawaban anda salah!');
+                    // return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
+        }
+
+        if (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()) != null) {
+            return back()->with('answerCorrect', 'Jawaban anda Betul!');
+        } else if (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '=', 0)->first()) != null) {
+            return back()->with('answerWrong', 'Jawaban anda Salah!');
         }
     }
 
