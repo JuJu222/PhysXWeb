@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fis10User;
+use App\Models\Log;
 use App\Models\OwnedItem;
 use App\Models\ShopItem;
 use Illuminate\Http\Request;
@@ -81,6 +82,15 @@ class ShopItemController extends Controller
             ]);
         }
 
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_shop_items',
+            'path' => 'ShopItemController@store',
+            'action' => 'Create shop item ' . ShopItem::query()->latest()->first()->shop_item_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect(route('shop.index'));
     }
 
@@ -143,6 +153,15 @@ class ShopItemController extends Controller
             ]);
         }
 
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_shop_items',
+            'path' => 'ShopItemController@update',
+            'action' => 'Update shop item ' . $id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect(route('shop.index'));
     }
 
@@ -152,12 +171,21 @@ class ShopItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $shopItem = ShopItem::findOrFail($id);
 
         File::delete(public_path('/img/uploads') . '/' . $shopItem->image_path);
         $shopItem->delete();
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_shop_items',
+            'path' => 'ShopItemController@destroy',
+            'action' => 'Delete shop item ' . $id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
 
         return redirect(route('shop.index'));
     }
@@ -168,7 +196,7 @@ class ShopItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function buy($id)
+    public function buy($id, Request $request)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $shopItem = ShopItem::query()->findOrFail($id);
@@ -194,13 +222,22 @@ class ShopItemController extends Controller
                 }
                 $shopItem->fis10User()->attach($fis10user->fis10_user_id, ['is_equipped' => true]);
                 $fis10user->update(['coins' => $fis10user->coins - $shopItem->price]);
+
+                Log::query()->create([
+                   'user_id' => Auth::id(),
+                   'table' => 'fis10_owned_items',
+                   'path' => 'ShopItemController@buy',
+                   'action' => 'Buy shop item ' . $shopItem->shop_item_id,
+                   'url' => $request->fullUrl(),
+                   'ip_address' => $request->ip(),
+                ]);
             }
         }
 
         return redirect(route('shop.index'));
     }
 
-    public function equip($id)
+    public function equip($id, Request $request)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $shopItem = ShopItem::query()->findOrFail($id);
@@ -228,6 +265,15 @@ class ShopItemController extends Controller
                 'is_equipped' => true
             ]);
         }
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_owned_items',
+            'path' => 'ShopItemController@equip',
+            'action' => 'Equip shop item ' . $shopItem->shop_item_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
 
         return redirect(route('shop.index'));
     }
