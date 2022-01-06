@@ -15,7 +15,7 @@
             <img src="{{ asset('img/score-symbol.svg') }}" alt="Points">
         </div>
         <div class="result-coin mx-auto mt-2 mb-5 px-3 py-2 d-flex align-items-center">
-            <h4 class="result-score-total d-inline mb-0 mr-2">Coins: +25</h4>
+            <h4 class="result-score-total d-inline mb-0 mr-2">Koin: +25</h4>
             <img src="{{ asset('img/coin.svg') }}" alt="Skor">
         </div>
     </div>
