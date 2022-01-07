@@ -55,7 +55,7 @@ class OptionmcqController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_mcq',
             'path' => 'OptionmcqController@store',
-            'action' => 'Create OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
+            'action' => 'Create OptionMCQ ' . Option_mcq::query()->first()->option_mcq_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);

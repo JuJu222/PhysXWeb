@@ -53,7 +53,7 @@ class OptionfitbController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_fitb',
             'path' => 'OptionfitbController@store',
-            'action' => 'Create OptionFITB ' . Option_fitb::query()->latest()->first()->option_fitb_id,
+            'action' => 'Create OptionFITB ' . Option_fitb::query()->first()->option_fitb_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);

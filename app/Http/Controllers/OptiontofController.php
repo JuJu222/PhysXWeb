@@ -54,7 +54,7 @@ class OptiontofController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_tof',
             'path' => 'OptiontofController@store',
-            'action' => 'Create OptionTOF ' . Option_tof::query()->latest()->first()->option_tof_id,
+            'action' => 'Create OptionTOF ' . Option_tof::query()->first()->option_tof_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
