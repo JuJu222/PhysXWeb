@@ -8,7 +8,7 @@
 </div>
 <div class="row-leaderboard d-flex justify-content-center align-content-center">
 
-  
+
     <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 1) }}">Besaran dan Satuan</a>
     <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 2) }}">Vektor</a>
     <a class="btn btn-opaque rounded-circleX font-weight-bold text-center p-2 mx-1 mt-3" href="{{ route('leaderboards.show', 3) }}">Gerak Lurus</a>
@@ -50,7 +50,7 @@
                 @if ($l->avatar != null)
                     <img src="{{ $l->avatar }}" class="leaderboard-avatar" alt="Avatar">
                 @else
-                    <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="leaderboard-avatar" alt="Avatar">
+                    <img src="{{ asset('img/avatars/avatar_1.png') }}" class="leaderboard-avatar" alt="Avatar">
                 @endif
             </div>
             <div class="col-md-auto mx-2">

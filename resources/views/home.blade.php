@@ -7,7 +7,7 @@
                     @isset ($userAvatar)
                         <img src="{{ $userAvatar }}" class="avatar" alt="Avatar">
                     @else
-                        <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="avatar" alt="Avatar">
+                        <img src="{{ asset('img/avatars/avatar_1.png') }}" class="avatar" alt="Avatar">
                     @endisset
                 </div>
                 <div class="col">
@@ -26,8 +26,8 @@
                     <div class="mt-2 d-flex align-items-center">
                         <a href="/question" class="btn btn-opaque mt-1 font-weight-bold">Admin Questions Panel</a>
                     </div>
-                    @endif 
-                </div>            
+                    @endif
+                </div>
             </div>
         </div>
         <div class="card home-card col">
@@ -49,9 +49,9 @@
             </div>
         </div>
 
-                   
-                    
-        
+
+
+
     </div>
     <div class="d-flex justify-content-start mt-5 mb-4">
         <h4><b>Pilihlah subtopik yang ingin anda tantang!</b></h4>

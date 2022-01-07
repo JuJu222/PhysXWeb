@@ -9,7 +9,7 @@
                     @isset ($userAvatar)
                         <img src="{{ $userAvatar }}" class="avatar-profile" alt="Avatar">
                     @else
-                        <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-"
+                        <img src="{{ asset('img/avatars/avatar_1.png') }}"
                              class="avatar-profile" alt="Avatar">
                     @endisset
                     <h1 class="name mt-4"><b>{{$user->name}}</b></h1>
