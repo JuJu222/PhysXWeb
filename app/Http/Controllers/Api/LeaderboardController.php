@@ -69,7 +69,7 @@ class LeaderboardController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return ['leaderboard' => $leaderboard];
+        return ['leaderboard' => $leaderboard, 'topic' => 'Keseluruhan'];
     }
 
     /**
@@ -162,7 +162,7 @@ class LeaderboardController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return ['leaderboard' => $leaderboard];
+        return ['leaderboard' => $leaderboard, 'topic' => $topic->topic_name];
     }
 
     /**
