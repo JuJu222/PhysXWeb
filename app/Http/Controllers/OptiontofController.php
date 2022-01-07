@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Question;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OptiontofController extends Controller
 {
@@ -46,6 +48,15 @@ class OptiontofController extends Controller
         Option_tof::create([
             'true_or_false' => $request->trueorfalse,
             'question_id' => $request->question
+        ]);
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_tof',
+            'path' => 'OptiontofController@store',
+            'action' => 'Create OptionTOF ' . Option_tof::query()->latest()->first()->option_tof_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
         ]);
 
         return redirect('/admin/optiontof')->with('createdOption','You have successfully created a new TOF Option');
@@ -92,6 +103,15 @@ class OptiontofController extends Controller
             'question_id' => $request->question
         ]);
 
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_tof',
+            'path' => 'OptiontofController@update',
+            'action' => 'Edit OptionTOF ' . Option_tof::query()->latest()->first()->option_tof_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect('/admin/optiontof')->with('updatedOption','You have successfully updated the TOF Option');
     }
 
@@ -101,9 +121,17 @@ class OptiontofController extends Controller
      * @param  \App\Models\Option_tof  $option_tof
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
         Option_tof::where('option_tof_id',$id)->delete();
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_option_tof',
+            'path' => 'OptiontofController@destroy',
+            'action' => 'Delete OptionTOF ' . $id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
         return redirect('/admin/optiontof')->with('success','You have deleted the TOF option');
     }
 }

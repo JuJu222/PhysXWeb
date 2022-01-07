@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Topic;
 use App\Models\Question;
 use App\Models\Fis10User;
 use App\Models\Option_mcq;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
-use App\Models\fis10_users_questions;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Models\fis10_users_questions;
+use Illuminate\Support\Facades\Route;
 
 class QuestionController extends Controller
 {
@@ -76,6 +77,15 @@ class QuestionController extends Controller
 
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+            
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'fis10_users_questions',
+                'path' => 'QuestionController@showQuestion',
+                'action' => 'Attach Question ' . 'User: ' . Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
         }
 
 
@@ -124,6 +134,8 @@ class QuestionController extends Controller
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ]);
+
+
         } else {
             Question::create([
                 'question_id' => $request->number,
@@ -134,6 +146,16 @@ class QuestionController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ]);
         }
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_questions',
+            'path' => 'QuestionController@store',
+            'action' => 'Create Question ' . Question::query()->latest()->first()->question_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect('/admin/question')->with('createdQuestion', 'You have successfully created a new Question');
     }
 
@@ -193,6 +215,8 @@ class QuestionController extends Controller
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
             ]);
+
+
         } else {
             Question::where('question_id', $id)->update([
                 'question_id' => $request->number,
@@ -202,6 +226,15 @@ class QuestionController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ]);
         }
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_questions',
+            'path' => 'QuestionController@update',
+            'action' => 'Edit Question ' . Question::query()->latest()->first()->question_id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+
         return redirect('/admin/question')->with('updatedQuestion', 'You have successfully updated the Question');
     }
 
@@ -212,11 +245,19 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
         $question = Question::where('question_id', $id);
         File::delete(public_path('/img/uploads') . '/' . $question->image_path);
         $question->delete();
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'fis10_questions',
+            'path' => 'QuestionController@destroy',
+            'action' => 'Delete Question ' . $id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
         return redirect('/admin/question')->with('success', 'You have deleted the question!');
     }
 
@@ -265,9 +306,25 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question MCQ Correct ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else if ($request->choice == $o->option && $o->is_correct == false) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question MCQ Incorrect ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
@@ -275,9 +332,25 @@ class QuestionController extends Controller
             foreach ($option_fitb as $o) {
                 if ($request->choice == $o->answer) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question FITB Correct ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question FITB Incorrect ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
@@ -285,9 +358,25 @@ class QuestionController extends Controller
             foreach ($option_tof as $o) {
                 if ($request->choice == $o->true_or_false) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Correct ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerCorrect', 'Jawaban anda betul!');
                 } else {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => 0, 'time_end' => \Carbon\Carbon::now()]);
+                    Log::query()->create([
+                        'user_id' => Auth::id(),
+                        'table' => 'fis10_users_questions',
+                        'path' => 'QuestionController@answerQuestion',
+                        'action' => 'Answer Question TOF Incorrect ' .'User: '. Auth::id() . ' Question: ' . $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->latest()->first()->question_id,
+                        'url' => $request->fullUrl(),
+                        'ip_address' => $request->ip(),
+                    ]);
 //                    return back()->with('answerWrong', 'Jawaban anda salah!');
                 }
             }
