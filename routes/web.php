@@ -31,7 +31,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::resource('shop', ShopItemController::class);
+    Route::resource('shop', ShopItemController::class)->only('index');
     Route::resource('question', QuestionController::class);
     Route::resource('optionmcq', OptionmcqController::class);
     Route::resource('optionfitb', OptionfitbController::class);
@@ -49,23 +49,6 @@ Route::middleware(['auth'])->group(function () {
         redirect('/');
     });
 
-    Route::group(['middleware' => 'isAdmin'], function () {
-        Route::get('/question/create',[QuestionController::class,'create']);
-        Route::get('/question',[QuestionController::class,'index']);
-        Route::get('/question/{question:id}/edit',[QuestionController::class,'edit']);
-    
-        Route::get('/optionmcq/create',[OptionmcqController::class,'create']);
-        Route::get('/optionmcq',[OptionmcqController::class,'index']);
-        Route::get('/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit']);
-    
-        Route::get('/optionfitb/create',[OptionfitbController::class,'create']);
-        Route::get('/optionfitb',[OptionfitbController::class,'index']);
-        Route::get('/optionfitb/{optionfitb:id}/edit',[OptionfitbController::class,'edit']);
-    
-        Route::get('/optiontof/create',[OptiontofController::class,'create']);
-        Route::get('/optiontof',[OptiontofController::class,'index']);
-        Route::get('/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
-    });
     Route::get('leaderboards/{id}',[LeaderboardController::class,'show']);
 
     Route::post('shop/buy/{id}', [ShopItemController::class, 'buy'])->name('shop.buy');
@@ -74,4 +57,24 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profile', ProfileController::class);
 
     Route::get('topic/{id}',[TopicController::class, 'show']);
+
+    Route::group(['middleware' => 'isAdmin'], function () {
+        Route::get('/question/create',[QuestionController::class,'create']);
+        Route::get('/question',[QuestionController::class,'index']);
+        Route::get('/question/{question:id}/edit',[QuestionController::class,'edit']);
+
+        Route::get('/optionmcq/create',[OptionmcqController::class,'create']);
+        Route::get('/optionmcq',[OptionmcqController::class,'index']);
+        Route::get('/optionmcq/{optionmcq:id}/edit',[OptionmcqController::class,'edit']);
+
+        Route::get('/optionfitb/create',[OptionfitbController::class,'create']);
+        Route::get('/optionfitb',[OptionfitbController::class,'index']);
+        Route::get('/optionfitb/{optionfitb:id}/edit',[OptionfitbController::class,'edit']);
+
+        Route::get('/optiontof/create',[OptiontofController::class,'create']);
+        Route::get('/optiontof',[OptiontofController::class,'index']);
+        Route::get('/optiontof/{optiontof:id}/edit',[OptiontofController::class,'edit']);
+
+        Route::resource('shop', ShopItemController::class)->except('index');
+    });
 });
