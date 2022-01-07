@@ -58,7 +58,7 @@ class OptionfitbController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/optionfitb')->with('createdOption','You have successfully created a new FITB Option');
+        return redirect('/optionfitb')->with('createdOption','You have successfully created a new FITB Option');
     }
 
     /**
@@ -111,7 +111,7 @@ class OptionfitbController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/optionfitb')->with('updatedOption','You have successfully updated the FITB Option');
+        return redirect('/optionfitb')->with('updatedOption','You have successfully updated the FITB Option');
     }
 
     /**
@@ -133,6 +133,6 @@ class OptionfitbController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/optionfitb')->with('success','You have deleted the FITB option');
+        return redirect('/optionfitb')->with('success','You have deleted the FITB option');
     }
 }

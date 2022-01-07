@@ -159,7 +159,7 @@ class QuestionController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/question')->with('createdQuestion', 'You have successfully created a new Question');
+        return redirect('/question')->with('createdQuestion', 'You have successfully created a new Question');
     }
 
     /**
@@ -238,7 +238,7 @@ class QuestionController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/question')->with('updatedQuestion', 'You have successfully updated the Question');
+        return redirect('/question')->with('updatedQuestion', 'You have successfully updated the Question');
     }
 
 
@@ -261,7 +261,7 @@ class QuestionController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('/admin/question')->with('success', 'You have deleted the question!');
+        return redirect('/question')->with('success', 'You have deleted the question!');
     }
 
 
