@@ -25,7 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $unlockedTopics = $fis10user->topics;
@@ -60,6 +60,9 @@ class HomeController extends Controller
                 }
             }
         }
+
+        $request->session()->forget('nosoal');
+        $request->session()->forget('topic');
 
         return view('home', compact('unlockedTopics', 'userTitle', 'userAvatar', 'totalScore', 'ranking', 'coins'));
     }
