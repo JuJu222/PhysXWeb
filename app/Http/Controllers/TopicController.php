@@ -60,7 +60,6 @@ class TopicController extends Controller
 
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $unlockedTopics = $fis10user->topics;
-
         switch($id){
             case 1:
                 return view('besarandansatuan', compact('topic','topicsEasy','topicsHard', 'unlockedTopics'));
