@@ -10,6 +10,7 @@ use App\Models\Option_mcq;
 use App\Models\Option_tof;
 use App\Models\Option_fitb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Models\fis10_users_questions;
@@ -67,16 +68,18 @@ class QuestionController extends Controller
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
-
-        // dd(($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()));
+    
         if (!$request->session()->has('answerWrong') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '=', 0)->first()) != null)) {
             return back()->with('answerWrong', 'Jawaban anda Salah!');
         } else if (!$request->session()->has('answerCorrect') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()) != null)) {
             return back()->with('answerCorrect', 'Jawaban anda Betul!');
         }
 
+
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
+        
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+            
             
             Log::query()->create([
                 'user_id' => Auth::id(),
@@ -306,6 +309,8 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
+                    
+
                     Log::query()->create([
                         'user_id' => Auth::id(),
                         'table' => 'fis10_users_questions',

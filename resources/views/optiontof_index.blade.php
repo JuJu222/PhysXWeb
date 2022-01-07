@@ -51,7 +51,7 @@
                    @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger mt-2" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                  <a class="btn btn-purple mt-2" href="/admin/optiontof/{{ $option->option_tof_id }}/edit"><i class="bi bi-pencil"></i></a>
+                  <a class="btn btn-purple mt-2" href="/optiontof/{{ $option->option_tof_id }}/edit"><i class="bi bi-pencil"></i></a>
                   </form>
           </td>
       </tr>
