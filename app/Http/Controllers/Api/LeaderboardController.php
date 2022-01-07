@@ -157,7 +157,7 @@ class LeaderboardController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_user_questions',
             'path' => 'Api/LeaderboardController@show',
-            'action' => 'Show' . $topic->topic_name .' leaderboard ',
+            'action' => 'Show ' . $topic->topic_name .' leaderboard',
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);

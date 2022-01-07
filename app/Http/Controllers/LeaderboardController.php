@@ -57,7 +57,7 @@ class LeaderboardController extends Controller
                 $item->title = $title;
                 $item->avatar = $avatar;
             }
-            
+
             Log::query()->create([
                 'user_id' => Auth::id(),
                 'table' => 'fis10_user_questions',
@@ -150,12 +150,12 @@ class LeaderboardController extends Controller
                 $item->title = $title;
                 $item->avatar = $avatar;
             }
-            
+
             Log::query()->create([
                 'user_id' => Auth::id(),
                 'table' => 'fis10_user_questions',
                 'path' => 'LeaderboardController@show',
-                'action' => 'Show' . $topic->topic_name .' leaderboard ' ,
+                'action' => 'Show ' . $topic->topic_name .' leaderboard' ,
                 'url' => $request->fullUrl(),
                 'ip_address' => $request->ip(),
             ]);
