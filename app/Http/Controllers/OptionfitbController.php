@@ -80,7 +80,7 @@ class OptionfitbController extends Controller
      */
     public function edit($id)
     {
-        $questions = Question::where('question_type', 'mcq')->get();
+        $questions = Question::where('question_type', 'fitb')->get();
         $options = Option_fitb::where('option_fitb_id',$id)->first();
         return view('optionfitb_edit',[
              'questions' => $questions,
@@ -106,7 +106,7 @@ class OptionfitbController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_fitb',
             'path' => 'OptionfitbController@update',
-            'action' => 'Edit OptionFITB ' . Option_fitb::query()->latest()->first()->option_fitb_id,
+            'action' => 'Edit OptionFITB ' . $id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);

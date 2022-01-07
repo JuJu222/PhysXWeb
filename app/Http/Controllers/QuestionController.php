@@ -129,8 +129,8 @@ class QuestionController extends Controller
             $image->move($destinationPath, $name);
 
             Question::create([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
+                'score' => $request->score,
                 'question' => $request->question,
                 'image_path' => $name,
                 'topic_id' => $request->topic,
@@ -141,8 +141,8 @@ class QuestionController extends Controller
 
         } else {
             Question::create([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
+                'score' => $request->score,
                 'question' => $request->question,
                 'topic_id' => $request->topic,
                 'created_at' => \Carbon\Carbon::now(),
@@ -211,9 +211,9 @@ class QuestionController extends Controller
             }
 
             Question::where('question_id', $id)->update([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
+                'score' => $request->score,
                 'image_path' => $name,
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
@@ -222,9 +222,9 @@ class QuestionController extends Controller
 
         } else {
             Question::where('question_id', $id)->update([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
             ]);
@@ -233,7 +233,7 @@ class QuestionController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_questions',
             'path' => 'QuestionController@update',
-            'action' => 'Edit Question ' . Question::query()->latest()->first()->question_id,
+            'action' => 'Edit Question ' . $id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);

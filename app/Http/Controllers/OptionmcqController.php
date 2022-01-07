@@ -109,8 +109,7 @@ class OptionmcqController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_mcq',
             'path' => 'OptionmcqController@update',
-            'action' => 'Edit OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
-            'url' => $request->fullUrl(),
+            'action' => 'Edit OptionMCQ ' . $id,
             'ip_address' => $request->ip(),
         ]);
 
