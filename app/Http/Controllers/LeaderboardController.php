@@ -7,7 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Topic;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Log;
 class LeaderboardController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class LeaderboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $leaderboard = DB::table('fis10_users_questions')
             ->join(
@@ -56,6 +57,15 @@ class LeaderboardController extends Controller
                 $item->title = $title;
                 $item->avatar = $avatar;
             }
+            
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'fis10_user_questions',
+                'path' => 'LeaderboardController@show',
+                'action' => 'Show leaderboard',
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
 
             return view('leaderboards' ,compact('leaderboard'));
     }
@@ -87,7 +97,7 @@ class LeaderboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $topic = Topic::where('topic_id', $id)->first();
         $leaderboard = DB::table('fis10_users_questions')
@@ -140,6 +150,15 @@ class LeaderboardController extends Controller
                 $item->title = $title;
                 $item->avatar = $avatar;
             }
+            
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'fis10_user_questions',
+                'path' => 'LeaderboardController@show',
+                'action' => 'Show' . $topic->topic_name .' leaderboard ' ,
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
 
             return view('leaderboards', compact('leaderboard','topic'));
     }
