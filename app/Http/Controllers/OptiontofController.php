@@ -59,7 +59,7 @@ class OptiontofController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('opt/optiontof')->with('createdOption','You have successfully created a new TOF Option');
+        return redirect('/optiontof')->with('createdOption','You have successfully created a new TOF Option');
     }
 
     /**
@@ -132,6 +132,6 @@ class OptiontofController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('opt/optiontof')->with('success','You have deleted the TOF option');
+        return redirect('/optiontof')->with('success','You have deleted the TOF option');
     }
 }
