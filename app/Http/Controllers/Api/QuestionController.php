@@ -110,6 +110,7 @@ class QuestionController extends Controller
 
         if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null) {
             $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => 0, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
+            
             Log::query()->create([
                 'user_id' => Auth::id(),
                 'table' => 'fis10_users_questions',

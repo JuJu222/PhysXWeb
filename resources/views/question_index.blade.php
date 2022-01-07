@@ -56,7 +56,7 @@
                    @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></button>
-                  <a class="btn btn-purple" href="/admin/question/{{ $question->question_id }}/edit"><i class="bi bi-pencil"></i></a>
+                  <a class="btn btn-purple" href="/question/{{ $question->question_id }}/edit"><i class="bi bi-pencil"></i></a>
                   </form>
 
           </td>
