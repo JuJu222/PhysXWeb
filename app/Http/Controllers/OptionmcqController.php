@@ -18,7 +18,7 @@ class OptionmcqController extends Controller
     public function index()
     {
         return view('optionmcq_index',[
-            'options' => Option_mcq::paginate(5)
+            'options' => Option_mcq::simplePaginate(5)
          ]);
     }
 

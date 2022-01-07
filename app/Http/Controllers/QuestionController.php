@@ -26,7 +26,7 @@ class QuestionController extends Controller
     public function index()
     {
         return view('question_index', [
-            'questions' => Question::paginate(10)
+            'questions' => Question::simplePaginate(10)
         ]);
     }
 
@@ -129,10 +129,10 @@ class QuestionController extends Controller
             $image->move($destinationPath, $name);
 
             Question::create([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'image_path' => $name,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
@@ -144,6 +144,7 @@ class QuestionController extends Controller
                 'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
@@ -214,6 +215,7 @@ class QuestionController extends Controller
                 'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
+                'score' => $request->score,
                 'image_path' => $name,
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
@@ -225,6 +227,7 @@ class QuestionController extends Controller
                 'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'updated_at' => \Carbon\Carbon::now()
             ]);
@@ -250,7 +253,7 @@ class QuestionController extends Controller
      */
     public function destroy($id,Request $request)
     {
-        $question = Question::where('question_id', $id);
+        $question = Question::where('question_id', $id)->first();
         File::delete(public_path('/img/uploads') . '/' . $question->image_path);
         $question->delete();
         Log::query()->create([
