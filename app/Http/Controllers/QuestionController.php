@@ -250,8 +250,8 @@ class QuestionController extends Controller
      */
     public function destroy($id,Request $request)
     {
-        $question = Question::where('question_id', $id);
-        File::delete(public_path('/img/uploads') . '/' . $question->image_path);
+        $question = Question::where('question_id', $id)->first();
+        File::delete(public_path('/img/questions') . '/' . $question->image_path);
         $question->delete();
         Log::query()->create([
             'user_id' => Auth::id(),
