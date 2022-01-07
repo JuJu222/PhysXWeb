@@ -60,7 +60,7 @@ class OptionmcqController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
+        return redirect('optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
     }
 
     /**
@@ -114,7 +114,7 @@ class OptionmcqController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('/admin/optionmcq')->with('updatedOption','You have successfully updated the MCQ Option');
+        return redirect('optionmcq')->with('updatedOption','You have successfully updated the MCQ Option');
     }
 
     /**
@@ -135,6 +135,6 @@ class OptionmcqController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('/admin/optionmcq')->with('success','You have deleted the MCQ option');
+        return redirect('optionmcq')->with('success','You have deleted the MCQ option');
     }
 }

@@ -31,7 +31,7 @@
 
 
 <div class="pull-right ml-3">
-    <a href="/admin/question/create" class="btn btn-success mb-3 mt-5">Create new Question</a>
+    <a href="question/create" class="btn btn-success mb-3 mt-5">Create new Question</a>
   </div>
     <table class="table table-bordered col-md-12 rounded text-center">
       <tr class='border text-opaque-links' style="vertical-align:middle">
