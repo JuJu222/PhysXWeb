@@ -68,9 +68,7 @@ class QuestionController extends Controller
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
-
-        // dd(($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()));
-        $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->toSql();
+    
         if (!$request->session()->has('answerWrong') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '=', 0)->first()) != null)) {
             return back()->with('answerWrong', 'Jawaban anda Salah!');
         } else if (!$request->session()->has('answerCorrect') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()) != null)) {
