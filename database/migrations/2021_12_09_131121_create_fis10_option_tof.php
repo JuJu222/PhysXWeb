@@ -17,6 +17,7 @@ class CreateFis10OptionTof extends Migration
             $table->id('option_tof_id');
             $table->boolean('true_or_false');
             $table->foreignId('question_id');
+            $table->timestamps();
             $table->foreign('question_id')
             ->references('question_id')
             ->on('fis10_questions')

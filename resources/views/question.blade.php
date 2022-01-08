@@ -1,7 +1,7 @@
 @extends('layouts.apps')
 @section('content')
 
-    <div class="container justify-content-center align-items-center">
+    <div class="container justify-content-center align-items-center mt-5">
         <div class="d-flex justify-content-center align-items-center text-center">
             <div class="row form-content mt-auto rounded px-5 pt-5 pb-4">
                 <h1 class="mb-3 text-opaque-links">Question {{ Session::get("nosoal") }}/{{ count($questions) }}</h1>

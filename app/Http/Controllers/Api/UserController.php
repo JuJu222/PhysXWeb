@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Log;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -84,6 +85,15 @@ class UserController extends Controller
             'school' => $request->school,
         ]);
 
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'users',
+            'path' => 'Api/UserController@update',
+            'action' => 'Update user ' . User::query()->latest()->first()->id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+        
         return ['message' => 'data has been updated'];
     }
 

@@ -17,6 +17,7 @@ class CreateFis10OptionFitb extends Migration
             $table->id('option_fitb_id');
             $table->string('answer');
             $table->foreignId('question_id');
+            $table->timestamps();
             $table->foreign('question_id')
             ->references('question_id')
             ->on('fis10_questions')

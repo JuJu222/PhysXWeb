@@ -1188,7 +1188,7 @@ class QuestionSeeder extends Seeder
             'question_type' => "fitb",
             'score' => 100,
             'question' => "Seorang anak mengukur tebal buku dan menunjukkan skala seperti pada gambar. Dari skala yang ditunjukkan tebal buku tersebut adalah ....",
-            'image_path' => null,
+            'image_path' => 'https://core-ruangguru.s3.amazonaws.com/assets/ruang_belajar/questions/q_odtc754720.PNG',
             'topic_id' => 11,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()

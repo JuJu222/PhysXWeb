@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fis10User;
+use App\Models\Log;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -29,6 +31,15 @@ class RegisterController extends Controller
                 'message' => 'Failed to create account'
             ]);
         }else{
+            Log::query()->create([
+                'user_id' => Auth::id(),
+                'table' => 'users',
+                'path' => 'Api/Auth/RegisterController@register',
+                'action' => 'Register user ' . User::query()->latest()->first()->id,
+                'url' => $request->fullUrl(),
+                'ip_address' => $request->ip(),
+            ]);
+
             return response([
                 'message'=>'Account created successfully'
             ]);

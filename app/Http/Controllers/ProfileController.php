@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fis10User;
+use App\Models\Log;
 use App\Models\User;
 use App\Models\UsersQuestions;
 use Illuminate\Http\Request;
@@ -119,7 +120,19 @@ class ProfileController extends Controller
             'city' => $request->city,
             'birthyear' => $request->birthyear,
         ]);
+
+        Log::query()->create([
+            'user_id' => Auth::id(),
+            'table' => 'users',
+            'path' => 'ProfileController@update',
+            'action' => 'Update user ' . User::query()->latest()->first()->id,
+            'url' => $request->fullUrl(),
+            'ip_address' => $request->ip(),
+        ]);
+        
         return redirect(route('profile.index'));
+
+        
     }
 
     /**

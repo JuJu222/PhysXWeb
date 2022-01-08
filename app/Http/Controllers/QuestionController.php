@@ -26,7 +26,7 @@ class QuestionController extends Controller
     public function index()
     {
         return view('question_index', [
-            'questions' => Question::paginate(10)
+            'questions' => Question::simplePaginate(10)
         ]);
     }
 
@@ -68,7 +68,7 @@ class QuestionController extends Controller
         if ($request->session()->get('click') == 1) {
             $request->session()->forget('click');
         }
-    
+
         if (!$request->session()->has('answerWrong') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '=', 0)->first()) != null)) {
             return back()->with('answerWrong', 'Jawaban anda Salah!');
         } else if (!$request->session()->has('answerCorrect') && (($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.question_score', '>', 0)->first()) != null)) {
@@ -77,10 +77,10 @@ class QuestionController extends Controller
 
 
         if ($users->questions()->where('fis10_users_questions.question_id', $question->question_id)->first() === null && !($request->has('choice'))) {
-        
+
             $users->questions()->attach($question, array('answersoal' => null, 'question_score' => $score, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
-            
-            
+
+
             Log::query()->create([
                 'user_id' => Auth::id(),
                 'table' => 'fis10_users_questions',
@@ -133,6 +133,7 @@ class QuestionController extends Controller
                 'score' => $request->score,
                 'question' => $request->question,
                 'image_path' => $name,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
@@ -144,6 +145,7 @@ class QuestionController extends Controller
                 'question_type' => $request->type,
                 'score' => $request->score,
                 'question' => $request->question,
+                'score' => $request->score,
                 'topic_id' => $request->topic,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
@@ -239,7 +241,6 @@ class QuestionController extends Controller
         ]);
 
         return redirect('/question')->with('updatedQuestion', 'You have successfully updated the Question');
-    }
 
 
     /**
@@ -309,7 +310,7 @@ class QuestionController extends Controller
             foreach ($option_mcq as $o) {
                 if ($request->choice == $o->option && $o->is_correct == true) {
                     $users->questions()->where('fis10_users_questions.question_id', $question->question_id)->where('fis10_users_questions.fis10_user_id', auth()->user()->id)->update(['answersoal' => $request->choice, 'question_score' => $question->score, 'time_end' => \Carbon\Carbon::now()]);
-                    
+
 
                     Log::query()->create([
                         'user_id' => Auth::id(),

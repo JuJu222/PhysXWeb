@@ -11,9 +11,9 @@
     <div class="row d-flex flex-row align-items-center justify-content-center mt-4">
         <div class="col-md-auto">
             @isset ($userAvatar)
-                <img src="{{ $userAvatar }}" class="avatar" alt="Avatar">
+                <img src="{{ asset('img/avatars/' . $userAvatar) }}" class="avatar" alt="Avatar">
             @else
-                <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-" class="avatar" alt="Avatar">
+                <img src="{{ asset('img/avatars/avatar_1.png') }}" class="avatar" alt="Avatar">
             @endisset
         </div>
         <div class="col-md-auto">
@@ -88,7 +88,7 @@
             <div class="py-3 row border-bottom">
                 <div class="col">
                     <div class="row">
-                        <img src="{{ $avatar->image_path }}" alt="{{ $avatar->item }}" class="img-avatar">
+                        <img src="{{ asset('img/avatars/' . $avatar->image_path) }}" alt="{{ $avatar->item }}" class="img-avatar">
                         <div class="col align-self-center">
                             <h2 class="purple font-weight-bold">{{ $avatar->item }}</h2>
                             <div class="result-coin px-3 py-2 d-flex align-items-center">

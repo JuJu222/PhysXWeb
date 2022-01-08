@@ -175,7 +175,7 @@ class ShopItemController extends Controller
     {
         $shopItem = ShopItem::findOrFail($id);
 
-        File::delete(public_path('/img/uploads') . '/' . $shopItem->image_path);
+        File::delete(public_path('/img/avatars') . '/' . $shopItem->image_path);
         $shopItem->delete();
 
         Log::query()->create([

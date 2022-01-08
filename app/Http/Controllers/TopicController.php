@@ -47,7 +47,7 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         //
         $topic = Topic::where('topic_id', $id)->first();
@@ -60,6 +60,9 @@ class TopicController extends Controller
 
         $fis10user = Fis10User::query()->where('user_id', Auth::id())->first();
         $unlockedTopics = $fis10user->topics;
+
+        $request->session()->forget('nosoal');
+        $request->session()->forget('topic');
 
         switch($id){
             case 1:

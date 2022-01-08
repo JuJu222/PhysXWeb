@@ -9,7 +9,7 @@
                     @isset ($userAvatar)
                         <img src="{{ $userAvatar }}" class="avatar-profile" alt="Avatar">
                     @else
-                        <img src="https://drive.google.com/uc?export=view&id=1YW9i_gxGd2H66Rqa5YICNA2S30dUTeN-"
+                        <img src="{{ asset('img/avatars/avatar_1.png') }}"
                              class="avatar-profile" alt="Avatar">
                     @endisset
                     <h1 class="name mt-4"><b>{{$user->name}}</b></h1>
@@ -39,21 +39,21 @@
                 </div>
 
                 <div class="buttonedit">
-                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Edit
-                        Profile</a>
+                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Ubah Profile</a>
                 </div>
             </div>
 
             <div class="history">
-                <h1><b>Game History: </b></h1>
+                <h1><b>Riwayat Game: </b></h1>
                 <div class="cards mt-3">
                     @foreach($history as $item)
                         <div class="card mb-3 p-3">
                             <img src="./images/assassins.png" alt=""/>
                             <div class="card-info">
                                 <h4><b>{{ $item->topic_name }}</b></h4>
+                                <h5><b>Tingkat kesulitan: </b>{{ $item->difficulty }}</h5>
                             </div>
-                            <h5><b>Score: </b>{{ $item->total_score }}</h5>
+                            <h5><b>Skor: </b>{{ $item->total_score }}</h5>
                         </div>
                     @endforeach
                 </div>

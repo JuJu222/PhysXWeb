@@ -18,6 +18,7 @@ class CreateFis10OptionMcq extends Migration
             $table->string('option');
             $table->boolean('is_correct');
             $table->foreignId('question_id');
+            $table->timestamps();
             $table->foreign('question_id')
             ->references('question_id')
             ->on('fis10_questions')

@@ -19,7 +19,7 @@ class OptiontofController extends Controller
     public function index()
     {
         return view('optiontof_index',[
-            'options' => Option_tof::paginate(5)
+            'options' => Option_tof::simplePaginate(10)
          ]);
     }
 
@@ -70,7 +70,7 @@ class OptiontofController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

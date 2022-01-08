@@ -18,7 +18,7 @@ class OptionfitbController extends Controller
     public function index()
     {
         return view('optionfitb_index',[
-            'options' => Option_fitb::paginate(5)
+            'options' => Option_fitb::simplePaginate(10)
          ]);
     }
 

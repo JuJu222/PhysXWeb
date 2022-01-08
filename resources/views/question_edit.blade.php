@@ -56,7 +56,7 @@
                 </div>
                 @endif
               </div>
-              
+
     <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Question Image</label>
         <input type="file" class="form-control {{ $errors->has('image') ? 'error' : '' }}" name="image"
