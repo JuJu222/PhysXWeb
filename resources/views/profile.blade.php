@@ -52,6 +52,7 @@
                             <img src="./images/assassins.png" alt=""/>
                             <div class="card-info">
                                 <h4><b>{{ $item->topic_name }}</b></h4>
+                                <h5><b>Diffculty: </b>{{ $item->difficulty }}</h5>
                             </div>
                             <h5><b>Score: </b>{{ $item->total_score }}</h5>
                         </div>
