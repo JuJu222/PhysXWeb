@@ -241,6 +241,7 @@ class QuestionController extends Controller
         ]);
 
         return redirect('/question')->with('updatedQuestion', 'You have successfully updated the Question');
+    }
 
 
     /**
