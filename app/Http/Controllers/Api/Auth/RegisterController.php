@@ -32,7 +32,7 @@ class RegisterController extends Controller
             ]);
         }else{
             Log::query()->create([
-                'user_id' => Auth::id(),
+                'user_id' => User::query()->latest()->first()->id,
                 'table' => 'users',
                 'path' => 'Api/Auth/RegisterController@register',
                 'action' => 'Register user ' . User::query()->latest()->first()->id,
