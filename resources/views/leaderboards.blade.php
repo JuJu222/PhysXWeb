@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-auto mx-2">
                 @if ($l->avatar != null)
-                    <img src="{{ $l->avatar }}" class="leaderboard-avatar" alt="Avatar">
+                    <img src="{{ asset('img/avatars/' . $l->avatar) }}" class="leaderboard-avatar" alt="Avatar">
                 @else
                     <img src="{{ asset('img/avatars/avatar_1.png') }}" class="leaderboard-avatar" alt="Avatar">
                 @endif
