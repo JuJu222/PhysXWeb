@@ -130,6 +130,7 @@ class QuestionController extends Controller
 
             Question::create([
                 'question_type' => $request->type,
+                'score' => $request->score,
                 'question' => $request->question,
                 'image_path' => $name,
                 'score' => $request->score,
@@ -141,8 +142,8 @@ class QuestionController extends Controller
 
         } else {
             Question::create([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
+                'score' => $request->score,
                 'question' => $request->question,
                 'score' => $request->score,
                 'topic_id' => $request->topic,
@@ -160,7 +161,7 @@ class QuestionController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('question')->with('createdQuestion', 'You have successfully created a new Question');
+        return redirect('/question')->with('createdQuestion', 'You have successfully created a new Question');
     }
 
     /**
@@ -212,7 +213,6 @@ class QuestionController extends Controller
             }
 
             Question::where('question_id', $id)->update([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'score' => $request->score,
@@ -224,7 +224,6 @@ class QuestionController extends Controller
 
         } else {
             Question::where('question_id', $id)->update([
-                'question_id' => $request->number,
                 'question_type' => $request->type,
                 'question' => $request->question,
                 'score' => $request->score,
@@ -236,13 +235,12 @@ class QuestionController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_questions',
             'path' => 'QuestionController@update',
-            'action' => 'Edit Question ' . Question::query()->latest()->first()->question_id,
+            'action' => 'Edit Question ' . $id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('question')->with('updatedQuestion', 'You have successfully updated the Question');
-    }
+        return redirect('/question')->with('updatedQuestion', 'You have successfully updated the Question');
 
 
     /**
@@ -254,7 +252,7 @@ class QuestionController extends Controller
     public function destroy($id,Request $request)
     {
         $question = Question::where('question_id', $id)->first();
-        File::delete(public_path('/img/uploads') . '/' . $question->image_path);
+        File::delete(public_path('/img/questions') . '/' . $question->image_path);
         $question->delete();
         Log::query()->create([
             'user_id' => Auth::id(),
@@ -264,7 +262,7 @@ class QuestionController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('question')->with('success', 'You have deleted the question!');
+        return redirect('/question')->with('success', 'You have deleted the question!');
     }
 
 

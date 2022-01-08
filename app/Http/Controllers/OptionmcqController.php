@@ -55,12 +55,12 @@ class OptionmcqController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_mcq',
             'path' => 'OptionmcqController@store',
-            'action' => 'Create OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
+            'action' => 'Create OptionMCQ ' . Option_mcq::query()->first()->option_mcq_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
+        return redirect('/optionmcq')->with('createdOption','You have successfully created a new MCQ Option');
     }
 
     /**
@@ -109,12 +109,11 @@ class OptionmcqController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_mcq',
             'path' => 'OptionmcqController@update',
-            'action' => 'Edit OptionMCQ ' . Option_mcq::query()->latest()->first()->option_mcq_id,
-            'url' => $request->fullUrl(),
+            'action' => 'Edit OptionMCQ ' . $id,
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optionmcq')->with('updatedOption','You have successfully updated the MCQ Option');
+        return redirect('/optionmcq')->with('updatedOption','You have successfully updated the MCQ Option');
     }
 
     /**
@@ -135,6 +134,6 @@ class OptionmcqController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('optionmcq')->with('success','You have deleted the MCQ option');
+        return redirect('/optionmcq')->with('success','You have deleted the MCQ option');
     }
 }

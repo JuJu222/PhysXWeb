@@ -54,12 +54,12 @@ class OptiontofController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_tof',
             'path' => 'OptiontofController@store',
-            'action' => 'Create OptionTOF ' . Option_tof::query()->latest()->first()->option_tof_id,
+            'action' => 'Create OptionTOF ' . Option_tof::query()->first()->option_tof_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optiontof')->with('createdOption','You have successfully created a new TOF Option');
+        return redirect('/optiontof')->with('createdOption','You have successfully created a new TOF Option');
     }
 
     /**
@@ -107,12 +107,12 @@ class OptiontofController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_tof',
             'path' => 'OptiontofController@update',
-            'action' => 'Edit OptionTOF ' . Option_tof::query()->latest()->first()->option_tof_id,
+            'action' => 'Edit OptionTOF ' . $id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optiontof')->with('updatedOption','You have successfully updated the TOF Option');
+        return redirect('/optiontof')->with('updatedOption','You have successfully updated the TOF Option');
     }
 
     /**
@@ -132,6 +132,6 @@ class OptiontofController extends Controller
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
-        return redirect('optiontof')->with('success','You have deleted the TOF option');
+        return redirect('/optiontof')->with('success','You have deleted the TOF option');
     }
 }

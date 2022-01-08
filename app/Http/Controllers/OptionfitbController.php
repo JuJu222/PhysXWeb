@@ -53,12 +53,12 @@ class OptionfitbController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_fitb',
             'path' => 'OptionfitbController@store',
-            'action' => 'Create OptionFITB ' . Option_fitb::query()->latest()->first()->option_fitb_id,
+            'action' => 'Create OptionFITB ' . Option_fitb::query()->first()->option_fitb_id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optionfitb')->with('createdOption','You have successfully created a new FITB Option');
+        return redirect('/optionfitb')->with('createdOption','You have successfully created a new FITB Option');
     }
 
     /**
@@ -80,7 +80,7 @@ class OptionfitbController extends Controller
      */
     public function edit($id)
     {
-        $questions = Question::where('question_type', 'mcq')->get();
+        $questions = Question::where('question_type', 'fitb')->get();
         $options = Option_fitb::where('option_fitb_id',$id)->first();
         return view('optionfitb_edit',[
              'questions' => $questions,
@@ -106,12 +106,12 @@ class OptionfitbController extends Controller
             'user_id' => Auth::id(),
             'table' => 'fis10_option_fitb',
             'path' => 'OptionfitbController@update',
-            'action' => 'Edit OptionFITB ' . Option_fitb::query()->latest()->first()->option_fitb_id,
+            'action' => 'Edit OptionFITB ' . $id,
             'url' => $request->fullUrl(),
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optionfitb')->with('updatedOption','You have successfully updated the FITB Option');
+        return redirect('/optionfitb')->with('updatedOption','You have successfully updated the FITB Option');
     }
 
     /**
@@ -133,6 +133,6 @@ class OptionfitbController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return redirect('optionfitb')->with('success','You have deleted the FITB option');
+        return redirect('/optionfitb')->with('success','You have deleted the FITB option');
     }
 }

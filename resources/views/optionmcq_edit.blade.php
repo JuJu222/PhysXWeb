@@ -23,13 +23,15 @@
       <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Is Correct</label>
         <select class="form-select {{ $errors->has('iscorrect') ? 'error' : '' }}" name="iscorrect" id="iscorrect">
-            @if($options->option == "1")
-            <option value="{{ $questions->question_type }}" selected>Correct</option>
+            {{-- @foreach($options as $option) --}}
+            @if($options->is_correct == "1")
+            <option value="{{ $options->is_correct }}" selected>Correct</option>
             <option value="0">Not Correct</option>
-            @elseif($options->option == "0")
+            @elseif($options->is_correct == "0")
             <option value="1">Correct</option>
-            <option value="{{ $questions->question_type }}" selected>Not Correct</option>
+            <option value="{{ $options->is_correct }}" selected>Not Correct</option>
            @endif
+           {{-- @endforeach --}}
         </select>
 
         @if ($errors->has('iscorrect'))
@@ -44,9 +46,9 @@
         <select class="form-select {{ $errors->has('question') ? 'error' : '' }}" name="question">
         @foreach($questions as $question)
         @if($options->question_id == $question->question_id)
-        <option value="{{ $options->question_id }}" selected>{{ $options->question_id }}</option>
+        <option value="{{ $question->question_id }}" selected>{{ $question->question_id }}</option>
         @else
-        <option value="{{ $options->question_id }}">{{ $options->question_id }}</option>
+        <option value="{{ $question->question_id }}">{{ $question->question_id }}</option>
         @endif
         @endforeach
         </select>

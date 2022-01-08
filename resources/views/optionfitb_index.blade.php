@@ -31,7 +31,7 @@
 
 
 <div class="pull-right ml-3">
-    <a href="optionfitb/create" class="btn btn-success mb-3 mt-5">Create new Option</a>
+    <a href="/optionfitb/create" class="btn btn-success mb-3 mt-5">Create new Option</a>
   </div>
     <table class="table table-bordered col-md-12 rounded text-center">
       <tr class='border text-opaque-links' style="vertical-align:middle">

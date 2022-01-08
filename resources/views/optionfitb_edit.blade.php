@@ -25,9 +25,9 @@
         <select class="form-select {{ $errors->has('question') ? 'error' : '' }}" name="question">
         @foreach($questions as $question)
         @if($options->question_id == $question->question_id)
-        <option value="{{ $options->question_id }}" selected>{{ $options->question_id }}</option>
+        <option value="{{ $question->question_id }}" selected>{{ $question->question_id }}</option>
         @else
-        <option value="{{ $options->question_id }}">{{ $options->question_id }}</option>
+        <option value="{{ $question->question_id }}">{{ $question->question_id }}</option>
         @endif
         @endforeach
         </select>

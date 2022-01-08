@@ -31,11 +31,10 @@
 
 
 <div class="pull-right ml-3">
-    <a href="question/create" class="btn btn-success mb-3 mt-5">Create new Question</a>
+    <a href="/question/create" class="btn btn-success mb-3 mt-5">Create new Question</a>
   </div>
     <table class="table table-bordered col-md-12 rounded text-center">
       <tr class='border text-opaque-links' style="vertical-align:middle">
-          <th>Question ID</th>
           <th>Question Type</th>
           <th>Question</th>
           <th>Score</th>
@@ -45,7 +44,6 @@
       </tr>
       @foreach ($questions as $question)
       <tr class='border' style="vertical-align:middle">
-          <td class='border text-danger text-center'><b>{{ $question->question_id }}</b></td>
           <td class='border'>{{ Str::upper($question->question_type) }}</td>
           <td class='border'>{{ $question->question}}</td>
           <td class='border'>{{ $question->score}}</td>
