@@ -41,6 +41,14 @@
                 <div class="buttonedit">
                     <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Ubah Profile</a>
                 </div>
+
+                <div class="buttonedit">
+                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold mt-3 btn-logout" href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">Logout</a>
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
 
             <div class="history">
