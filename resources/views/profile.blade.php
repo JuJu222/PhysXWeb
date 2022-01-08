@@ -39,22 +39,21 @@
                 </div>
 
                 <div class="buttonedit">
-                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Edit
-                        Profile</a>
+                    <a class="btn btn-opaque rounded-circleX px-4 btn-larger font-weight-bold" href="{{ route('profile.edit', $user->id) }}">Ubah Profile</a>
                 </div>
             </div>
 
             <div class="history">
-                <h1><b>Game History: </b></h1>
+                <h1><b>Riwayat Game: </b></h1>
                 <div class="cards mt-3">
                     @foreach($history as $item)
                         <div class="card mb-3 p-3">
                             <img src="./images/assassins.png" alt=""/>
                             <div class="card-info">
                                 <h4><b>{{ $item->topic_name }}</b></h4>
-                                <h5><b>Diffculty: </b>{{ $item->difficulty }}</h5>
+                                <h5><b>Tingkat kesulitan: </b>{{ $item->difficulty }}</h5>
                             </div>
-                            <h5><b>Score: </b>{{ $item->total_score }}</h5>
+                            <h5><b>Skor: </b>{{ $item->total_score }}</h5>
                         </div>
                     @endforeach
                 </div>
