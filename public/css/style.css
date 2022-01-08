@@ -329,7 +329,13 @@ section {
     width: 70px;
 }
 
-@media screen and (max-width: 900px) {
+.home-mobile {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+@media screen and (max-width: 768px) {
     section {
         display:list-item;
       }
@@ -338,4 +344,26 @@ section {
         width: 100%;
         margin-bottom: 50px;
       }
+
+    .home-web {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .home-mobile {
+        display: initial;
+        width: auto;
+        height: auto;
+    }
+
+    .topic-home {
+        margin: 10px !important;
+    }
+
+    .home-mobile .row a {
+        width: max-content;
+        height: max-content;
+        padding: 0;
+    }
 }
