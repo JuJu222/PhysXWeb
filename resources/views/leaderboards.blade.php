@@ -43,8 +43,8 @@
 <div class="mx-5 my-4">
     <!--template-->
     @foreach($leaderboard as $l)
-        <div class="row justify-content-center align-items-center mb-5">
-            <div class="col-md-auto mx-2">
+        <div class="row justify-content-center align-items-center mb-5 w-50 mx-auto">
+            <div class="col mx-2">
                 <h3 class="font-weight-bold purple">{{ $loop->index + 1 }}</h3>
             </div>
             <div class="col-md-auto mx-2">
@@ -54,7 +54,7 @@
                     <img src="{{ asset('img/avatars/avatar_1.png') }}" class="leaderboard-avatar" alt="Avatar">
                 @endif
             </div>
-            <div class="col-md-auto mx-2">
+            <div class="col mx-2">
                 <h4 class="font-weight-bold">{{ $l->name }}</h4>
                 @if ($l->title != null)
                     <p class="purple my-1">{{ $l->title }}</p>
@@ -62,7 +62,7 @@
                     <p class="purple my-1">Novice</p>
                 @endif
             </div>
-            <div class="col-md-auto mx-2">
+            <div class="col mx-2">
                 <div class="result-score px-3 py-2 d-flex align-items-center">
                     <h5 class="result-score-total d-inline mb-0 mr-2">{{ $l->total_score }}</h5>
                     <img src="{{ asset('img/score-symbol.svg') }}" alt="Points" width="25px">
