@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Edit Shop - PhysXWeb')
 @section('content')
 
     {{--<img src="https://wallpapercave.com/wp/fkIqItv.png">  --}}

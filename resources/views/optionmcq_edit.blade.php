@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Options - PhysXWeb')
 @section('content')
 <form action="{{ route('optionmcq.update', $options->option_mcq_id) }}" method="post" enctype="multipart/form-data">
     @method('PUT')

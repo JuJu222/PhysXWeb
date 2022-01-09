@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Home - PhysXWeb')
 @section('content')
     <div class="row mt-5 mb-4">
         <div class="col home-profile">

@@ -1,6 +1,5 @@
 @extends('layouts.apps')
-
-
+@section('title', 'Login - PhysXWeb')
 @section('content')
     <main class="py-5 mt-5">
     <div class = "container-sm">

@@ -1,10 +1,10 @@
 @extends('layouts.apps')
-@include('partials.sidebar')
+@section('title', 'Edit Profile - PhysXWeb')
 @section('content')
 
-    <main>
+    <main class="mt-5">
         <section>
-          <div class="dashboard">
+          <div class="dashboard py-5">
 
             <div class="update">
                 <form action="{{ route('profile.update', $user->id) }}" method="post">

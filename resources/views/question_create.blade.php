@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Create Questions - PhysXWeb')
 @section('content')
 <form action="{{ route('question.store') }}" method="post" enctype="multipart/form-data">
     @csrf

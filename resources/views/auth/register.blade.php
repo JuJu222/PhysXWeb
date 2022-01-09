@@ -1,5 +1,5 @@
 @extends('layouts.apps')
-
+@section('title', 'Register - PhysXWeb')
 @section('content')
 <div class="container register-form">
     <div class="form px-2 py-5">
@@ -7,7 +7,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
         <div class="form-content rounded">
-            <div class="row d-flex justify-content-center align-items-center">                
+            <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-4 px-4 mt-4">
                     <div class="form-group">
                         <h5 class="text-muted text-center">Member Baru</h5>
@@ -24,7 +24,7 @@
                         </span>
                         @enderror
                     </div>
-                        
+
                     </div>
                     <div class="form-group">
                         <div class="fontuser">
@@ -108,7 +108,7 @@
                         {{ __('Bikin Akun') }}</b>
                     </button>
                 </div>
-                </div>      
+                </div>
         </div>
     </div>
 </form>
@@ -118,7 +118,7 @@
 <script>
     const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#password');
- 
+
   togglePassword.addEventListener('click', function (e) {
     // toggle the type attribute
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';

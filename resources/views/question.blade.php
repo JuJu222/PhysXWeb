@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Question - PhysXWeb')
 @section('content')
 
     <div class="container justify-content-center align-items-center mt-5">

@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Options - PhysXWeb')
 @section('content')
 <form action="{{ route('optiontof.store') }}" method="post" enctype="multipart/form-data">
     @csrf

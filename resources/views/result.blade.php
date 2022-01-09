@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Result - PhysXWeb')
 @section('content')
     <div class="d-flex justify-content-center mt-5">
         <h1 class="purple"><b>Result</b></h1>

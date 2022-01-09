@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', $topic->topic_name . ' - PhysXWeb')
 @section('content')
 <div class="d-flex justify-content-center mt-5">
     <span><h2 class="mt-3 fw-bold purple">{{ $topic->topic_name }}</h2></span>

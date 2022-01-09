@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Options - PhysXWeb')
 @section('content')
 
 <div class = "container mt-5">

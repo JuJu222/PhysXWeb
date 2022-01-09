@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Profile - PhysXWeb')
 @section('content')
 
     <main class="mt-5">

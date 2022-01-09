@@ -1,4 +1,5 @@
 @extends('layouts.apps')
+@section('title', 'Edit Questions - PhysXWeb')
 @section('content')
 <form action="{{ route('question.update',$questions->question_id) }}" method="post" enctype="multipart/form-data">
     @method('PUT')
@@ -6,7 +7,7 @@
      <div class="d-flex justify-content-center">
          <h3 class="mt-5">Question Edit Page</h3>
      </div>
-    
+
 
     <div class="form-group">
         <label class="text-opaque-links font-weight-bold">Question Type</label>
