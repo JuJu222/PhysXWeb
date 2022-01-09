@@ -54,7 +54,7 @@
                     <img src="{{ asset('img/avatars/avatar_1.png') }}" class="leaderboard-avatar" alt="Avatar">
                 @endif
             </div>
-            <div class="col-6 mx-2">
+            <div class="col-4 mx-2">
                 <h4 class="font-weight-bold">{{ $l->name }}</h4>
                 @if ($l->title != null)
                     <p class="purple my-1">{{ $l->title }}</p>
