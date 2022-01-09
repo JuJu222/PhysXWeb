@@ -110,7 +110,7 @@ class QuestionController extends Controller
 
         if ($users->questions()->where('fis10_users_questions.question_id', $questions->question_id)->first() === null) {
             $users->questions()->attach($questions, array('answersoal' => null, 'question_score' => 0, 'time_start' => \Carbon\Carbon::now(), 'time_end' => null));
-            
+
             Log::query()->create([
                 'user_id' => Auth::id(),
                 'table' => 'fis10_users_questions',
@@ -120,7 +120,7 @@ class QuestionController extends Controller
                 'ip_address' => $request->ip(),
             ]);
         }
-        
+
     }
 
     public function answerQuestion($topic, $question, Request $request)
@@ -249,7 +249,7 @@ class QuestionController extends Controller
 
         $userQuestions = $fis10user->questions->where('topic_id', $topic);
         $result = array();
-        $topic_name = Topic::query()->findOrFail($topic)->first()->topic_name;
+        $topic_name = Topic::query()->findOrFail($topic)->topic_name;
         $correctAnswerCounter = 0;
         $timeTaken = 0;
         $totalScore = 0;
