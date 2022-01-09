@@ -445,4 +445,8 @@ section {
     .col-md-auto {
         width: max-content;
     }
+
+    .leaderboard-row {
+        width: 100%;
+    }
 }

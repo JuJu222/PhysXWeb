@@ -43,11 +43,11 @@
 <div class="mx-5 my-4">
     <!--template-->
     @foreach($leaderboard as $l)
-        <div class="row justify-content-center align-items-center mb-5 w-50 mx-auto">
+        <div class="row justify-content-center align-items-center mb-5 w-50 mx-auto leaderboard-row">
             <div class="col mx-2">
                 <h3 class="font-weight-bold purple">{{ $loop->index + 1 }}</h3>
             </div>
-            <div class="col-md-auto mx-2">
+            <div class="col mx-2">
                 @if ($l->avatar != null)
                     <img src="{{ asset('img/avatars/' . $l->avatar) }}" class="leaderboard-avatar" alt="Avatar">
                 @else
