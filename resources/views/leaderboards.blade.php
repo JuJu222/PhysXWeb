@@ -40,7 +40,7 @@
         @endif
     </div>
 @endif
-<div class="mx-5 my-4">
+<div class="mx-5 my-4 leaderboard-row">
     <!--template-->
     @foreach($leaderboard as $l)
         <div class="row justify-content-center align-items-center mb-5 w-50 mx-auto leaderboard-row">
