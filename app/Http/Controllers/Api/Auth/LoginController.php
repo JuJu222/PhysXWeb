@@ -41,7 +41,7 @@ class LoginController extends Controller
         } else {
             return response([
                 'message' => 'Login Failed'
-            ]);
+            ], 401);
         }
     }
 
