@@ -41,6 +41,9 @@
 <body>
     <div class="container mb-5">
         @include('partials.sidebar')
+        <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="{{ asset('img/physx_logo.png') }}" width="200" alt="">
+        </div>
         @yield('content')
     </div>
 </body>

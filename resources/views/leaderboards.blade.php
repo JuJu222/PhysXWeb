@@ -32,11 +32,11 @@
     </div>
     <div class="mx-auto d-flex flex-wrap justify-content-center">
         @if ($topic->difficulty == 'easy')
-            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Easy</a>
-            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id + 10) }}">Hard</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Mudah</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id + 10) }}">Susah</a>
         @else
-            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id - 10) }}">Easy</a>
-            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Hard</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id - 10) }}">Mudah</a>
+            <a class="btn btn-opaque rounded-circleX px-4 font-weight-bold text-center mx-2 py-3" href="{{ route('leaderboards.show', $topic->topic_id) }}">Susah</a>
         @endif
     </div>
 @endif
